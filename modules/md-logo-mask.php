@@ -1,6 +1,6 @@
 <?php
 /*
-Module Name: Module
+Module Name: Logo Mask
 */
 ?>
 

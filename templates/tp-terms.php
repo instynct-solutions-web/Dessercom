@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Accueil
+Template Name: Terms
 */
 
 // Load header.php

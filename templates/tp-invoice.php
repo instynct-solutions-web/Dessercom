@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Accueil
+Template Name: Invoice
 */
 
 // Load header.php

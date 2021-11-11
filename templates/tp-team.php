@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Accueil
+Template Name: Team
 */
 
 // Load header.php

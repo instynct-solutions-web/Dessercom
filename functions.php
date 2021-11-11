@@ -22,7 +22,7 @@ require_once('inc/login-css.php');
 
 
 // CUSTOM POST TYPES
-// require_once('inc/custom-post-types.php');
+require_once('inc/custom-post-types.php');
 
 // Tiny MCE Styles
 require_once('inc/tiny-mce.php');

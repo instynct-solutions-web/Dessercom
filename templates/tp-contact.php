@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Accueil
+Template Name: Contact
 */
 
 // Load header.php
