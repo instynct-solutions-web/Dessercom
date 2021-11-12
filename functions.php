@@ -15,14 +15,14 @@ include('inc/js-css.php');
 // ACF
 include('inc/acf.php');
 
-// HOOKS ADMIN
-
 // Custom login styles
 require_once('inc/login-css.php');
 
-
 // CUSTOM POST TYPES
 require_once('inc/custom-post-types.php');
+
+// CUSTOM TAXONOMIES
+require_once('inc/custom-taxonomies.php');
 
 // Tiny MCE Styles
 require_once('inc/tiny-mce.php');

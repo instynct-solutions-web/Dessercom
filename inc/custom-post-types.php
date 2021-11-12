@@ -36,7 +36,7 @@ function create_post_type() {
                 'slug' => __('emplois', 'slug')
             ),
             'can_export' => true,
-            'taxonomies' => array('jobs', 'category'),
+            'taxonomies' => array('jobs'),
         )
     );
     // JOBS
@@ -69,16 +69,16 @@ function create_post_type() {
                 'slug' => __('equipe', 'slug')
             ),
             'can_export' => true,
-            'taxonomies' => array('team', 'category'),
+            'taxonomies' => array('team'),
         )
     );
     // JOBS
     register_post_type(
-        'FAQ',
+        'faq',
         array(
             'labels' => array(
-                'name' => __('Faq', 'cpt'),
-                'singular_name' => __('Faq', 'cpt'),
+                'name' => __('FAQ', 'cpt'),
+                'singular_name' => __('FAQ', 'cpt'),
                 'add_new' => 'Ajouter',
                 'add_new_item' => 'Ajouter',
                 'edit' => 'Modifier',
@@ -102,7 +102,7 @@ function create_post_type() {
                 'slug' => __('faq', 'slug')
             ),
             'can_export' => true,
-            'taxonomies' => array('faq', 'category'),
+            'taxonomies' => array('faq'),
         )
     );
 }
