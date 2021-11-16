@@ -6,49 +6,54 @@
 // ==========================================================================
 
 @mixin title-1 {
-	font: 700 rem(40) $font-family-title;
+	font: 500 rem(43) $font-family-title;
+	line-height: 1em;
 	color: $black;
 
 	@include min-width($mobile-threshold) {
-		font-size: rem(50);
-	}
-	@include min-width($tablet-threshold) {
-		font-size: rem(80);
-	}
-}
-
-@mixin title-2 {
-	font: 600 rem(35) $font-family-title;
-	color: $black;
-
-	@include min-width($mobile-threshold) {
-		font-size: rem(45);
+		font-size: rem(70);
 	}
 	@include min-width($tablet-threshold) {
 		font-size: rem(70);
 	}
 }
 
-@mixin title-3 {
-	font: 600 rem(30) $font-family-title;
+@mixin title-2 {
+	font: 500 rem(45) $font-family-title;
+	line-height: 1em;
 	color: $black;
 
 	@include min-width($mobile-threshold) {
-		font-size: rem(40);
+		font-size: rem(45);
 	}
 	@include min-width($tablet-threshold) {
-		font-size: rem(50);
+		font-size: rem(45);
 	}
 }
 
-@mixin title-4 {
-	font: 600 rem(25) $font-family-title;
+@mixin title-3 {
+	font: 500 rem(35) $font-family-title;
+	line-height: 1em;
+	color: $black;
 
 	@include min-width($mobile-threshold) {
 		font-size: rem(35);
 	}
 	@include min-width($tablet-threshold) {
-		font-size: rem(40);
+		font-size: rem(35);
+	}
+}
+
+@mixin title-4 {
+	font: 500 rem(15) $font-family-title;
+	line-height: 1em;
+	color: $black;
+
+	@include min-width($mobile-threshold) {
+		font-size: rem(15);
+	}
+	@include min-width($tablet-threshold) {
+		font-size: rem(22);
 	}
 }
 
