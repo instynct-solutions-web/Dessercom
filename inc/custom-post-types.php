@@ -6,13 +6,13 @@
 function create_post_type() {
 
 
-    // RETAILERS
+    // JOBS
     register_post_type(
-        'CPT Template',
+        'Jobs',
         array(
             'labels' => array(
-                'name' => 'CPT Template',
-                'singular_name' => 'CPT Template',
+                'name' => __('Emplois', 'cpt'),
+                'singular_name' => __('Emploi', 'cpt'),
                 'add_new' => 'Ajouter',
                 'add_new_item' => 'Ajouter',
                 'edit' => 'Modifier',
@@ -27,16 +27,82 @@ function create_post_type() {
             'public' => true,
             'has_archive' => false,
             'menu_position' => 21,
-            'menu_icon' => 'dashicons-admin-multisite',
+            'menu_icon' => 'dashicons-money-alt',
             'supports' => array(
                 'title',
                 'editor'
             ),
             'rewrite' => array(
-                'slug' => 'cpt-template'
+                'slug' => __('emplois', 'slug')
             ),
             'can_export' => true,
-            'taxonomies' => array('cpt-template', 'category'),
+            'taxonomies' => array('jobs'),
+        )
+    );
+    // JOBS
+    register_post_type(
+        'Team',
+        array(
+            'labels' => array(
+                'name' => __('Équipe', 'cpt'),
+                'singular_name' => __('Équipe', 'cpt'),
+                'add_new' => 'Ajouter',
+                'add_new_item' => 'Ajouter',
+                'edit' => 'Modifier',
+                'edit_item' => 'Modifier',
+                'new_item' => 'Ajouter',
+                'view' => 'Voir',
+                'view_item' => 'Voir',
+                'search_items' => 'Chercher',
+                'not_found' => 'Aucun résultat',
+                'not_found_in_trash' => 'Aucun résultat dans la corbeille'
+            ),
+            'public' => true,
+            'has_archive' => false,
+            'menu_position' => 21,
+            'menu_icon' => 'dashicons-groups',
+            'supports' => array(
+                'title',
+                'editor'
+            ),
+            'rewrite' => array(
+                'slug' => __('equipe', 'slug')
+            ),
+            'can_export' => true,
+            'taxonomies' => array('team'),
+        )
+    );
+    // JOBS
+    register_post_type(
+        'faq',
+        array(
+            'labels' => array(
+                'name' => __('FAQ', 'cpt'),
+                'singular_name' => __('FAQ', 'cpt'),
+                'add_new' => 'Ajouter',
+                'add_new_item' => 'Ajouter',
+                'edit' => 'Modifier',
+                'edit_item' => 'Modifier',
+                'new_item' => 'Ajouter',
+                'view' => 'Voir',
+                'view_item' => 'Voir',
+                'search_items' => 'Chercher',
+                'not_found' => 'Aucun résultat',
+                'not_found_in_trash' => 'Aucun résultat dans la corbeille'
+            ),
+            'public' => true,
+            'has_archive' => false,
+            'menu_position' => 21,
+            'menu_icon' => 'dashicons-info',
+            'supports' => array(
+                'title',
+                'editor'
+            ),
+            'rewrite' => array(
+                'slug' => __('faq', 'slug')
+            ),
+            'can_export' => true,
+            'taxonomies' => array('faq'),
         )
     );
 }

@@ -20,6 +20,9 @@ function register_my_menus() {
 function remove_editor() {
 	remove_post_type_support('page', 'editor');
 	remove_post_type_support('post', 'editor');
+	remove_post_type_support('jobs', 'editor');
+	remove_post_type_support('team', 'editor');
+	remove_post_type_support('faq', 'editor');
 }
 
 
