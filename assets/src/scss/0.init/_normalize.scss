@@ -38,6 +38,7 @@ body {
 	scroll-behavior: smooth;
 	text-rendering: geometricPrecision;
 	line-height: 1.5;
+	cursor: none;
 }
 
 /* Set Sections to take all width available */
@@ -90,6 +91,7 @@ select {
 }
 
 a {
+	cursor: none;
 	text-decoration: none;
 	opacity: 1;
 	transition: opacity 0.3s ease-in-out;

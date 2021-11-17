@@ -5,7 +5,6 @@ Template Name: Home
 
 // Load header.php
 get_header(); ?>
-
 <section class="styleguide">
     <div class="styleguide__typo-container">
         <div class="styleguide__title-container">
@@ -28,14 +27,12 @@ get_header(); ?>
         </div>
     </div>
     <div class="styleguide__colors-container">
-
-        <div class="styleguide__color styleguide__color--white"> $white </div>
-        <div class="styleguide__color styleguide__color--gray"> $gray </div>
-        <div class="styleguide__color styleguide__color--black"> $black </div>
-        <div class="styleguide__color styleguide__color--navy"> $navy</div>
-        <div class="styleguide__color styleguide__color--yellow">$yellow</div>
-        <div class="styleguide__color styleguide__color--teal">$teal</div>
-
+        <div class="styleguide__color styleguide__color--navy"></div>
+        <div class="styleguide__color styleguide__color--white"></div>
+        <div class="styleguide__color styleguide__color--black"></div>
+        <div class="styleguide__color styleguide__color--yellow"></div>
+        <div class="styleguide__color styleguide__color--teal"></div>
+        <div class="styleguide__color styleguide__color--gray"></div>
 
     </div>
     <div class="styleguide__button-container">
