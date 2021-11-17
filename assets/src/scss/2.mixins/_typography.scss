@@ -2,15 +2,82 @@
 // MIXIN - Button
 // ==========================================================================
 
+@mixin B1 {
+	font: 500 rem(13) $font-family-default;
+	margin-bottom: 1em;
+	line-height: 1em;
+	color: $black;
+	@include min-width($mobile-threshold) {
+		font-size: rem(13);
+	}
+	@include min-width($tablet-threshold) {
+		font-size: rem(19);
+	}
+}
+
+@mixin B2 {
+	font: 500 rem(16) $font-family-default;
+	margin-bottom: 1em;
+	line-height: 1em;
+	color: $black;
+	@include min-width($mobile-threshold) {
+		font-size: rem(16);
+	}
+	@include min-width($tablet-threshold) {
+		font-size: rem(16);
+	}
+}
+
+@mixin B2I {
+	font: 400 rem(16) $font-family-default;
+	font-style: italic;
+	margin-bottom: 1em;
+	line-height: 1em;
+	color: $black;
+	@include min-width($mobile-threshold) {
+		font-size: rem(16);
+	}
+	@include min-width($tablet-threshold) {
+		font-size: rem(16);
+	}
+}
+
+@mixin B3 {
+	font: 500 rem(14) $font-family-default;
+	margin-bottom: 1em;
+	line-height: 1em;
+	color: $black;
+	@include min-width($mobile-threshold) {
+		font-size: rem(14);
+	}
+	@include min-width($tablet-threshold) {
+		font-size: rem(14);
+	}
+}
+
+@mixin B3C {
+	font: 400 rem(14) $font-family-default;
+	margin-bottom: 1em;
+	line-height: 1em;
+	color: $black;
+	@include min-width($mobile-threshold) {
+		font-size: rem(14);
+	}
+	@include min-width($tablet-threshold) {
+		font-size: rem(14);
+	}
+}
+
 @mixin paragraph {
 	font: 400 rem(16) $font-family-default;
+	line-height: 1em;
 	margin-bottom: 1em;
 	color: $black;
 	@include min-width($mobile-threshold) {
 		font-size: rem(16);
 	}
 	@include min-width($tablet-threshold) {
-		font-size: rem(18);
+		font-size: rem(16);
 	}
 }
 

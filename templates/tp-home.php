@@ -1,62 +1,47 @@
 <?php
 /*
-Template Name: Accueil
+Template Name: Home
 */
 
 // Load header.php
 get_header(); ?>
+
 <section class="styleguide">
-    <div class="styleguide__container styleguide__container--black">
-        <h1 class="styleguide__name"> INSTYNCT Bluprint V5.0</h1>
-    </div>
-    <div class="styleguide__container styleguide__container--green">
-        <h1 class="styleguide__intro">Style Guide Example</h1>
-    </div>
-    <div class="styleguide__title-container">
-
-        <h1>Titre H1</h1>
-        <h2>Titre H2</h2>
-        <h3>Titre H3</h3>
-        <h4>Titre H4</h4>
-
-    </div>
-    <div class="styleguide__list-container">
-        <h2>Liste</h2>
-        <ul class="styleguide__list list">
-            <li>
-                [ES6] for JavaScript (transpiling with [Babel] and linting with [ESLint])
-            </li>
-            <li>
-                [SASS] preprocessor for CSS with [SASS Guidelines]
-            </li>
-            <li>
-                [Gulp 4](https://gulpjs.com/)
-            </li>
-            <li>
-                [Webpack 5](https://webpack.js.org/) to manage, compile and optimize the theme's asset
-            </li>
-        </ul>
-    </div>
-    <div class="styleguide__text-container">
-        <div class="styleguide__text-wrapper">
-            <h2>Texte Primaire</h2>
-            <p class="styleguide__text paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, cupiditate. Eligendi asperiores eum aspernatur saepe repudiandae sed est inventore vero sequi tenetur. Vel eligendi adipisci molestiae placeat expedita quis facilis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, cupiditate. Eligendi asperiores eum aspernatur saepe repudiandae sed est inventore vero sequi tenetur. Vel eligendi adipisci molestiae placeat expedita quis facilis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, cupiditate. Eligendi asperiores eum aspernatur saepe repudiandae sed est inventore vero sequi tenetur. Vel eligendi adipisci molestiae placeat expedita quis facilis.</p>
+    <div class="styleguide__typo-container">
+        <div class="styleguide__title-container">
+            <h1>Styleguide H1</h1>
+            <h2>Titre H2</h2>
+            <h3>Titre H3</h3>
+            <h4>Titre h4</h4>
         </div>
+        <div class="styleguide__text-container">
+            <h4>B1</h4>
+            <p class="styleguide__text--b1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h4>B2</h4>
+            <p class="styleguide__text--b2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h4>B2I</h4>
+            <p class="styleguide__text--b2i">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h4>B3</h4>
+            <p class="styleguide__text--b3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h4>B3C</h4>
+            <p class="styleguide__text--b3c">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+    <div class="styleguide__colors-container">
 
+        <div class="styleguide__color styleguide__color--white"> $white </div>
+        <div class="styleguide__color styleguide__color--gray"> $gray </div>
+        <div class="styleguide__color styleguide__color--black"> $black </div>
+        <div class="styleguide__color styleguide__color--navy"> $navy</div>
+        <div class="styleguide__color styleguide__color--yellow">$yellow</div>
+        <div class="styleguide__color styleguide__color--teal">$teal</div>
 
 
     </div>
-
-</section>
-
-
-<?php $wysiwyg = get_field('wysiwyg') ?>
-<section class="styleguide__wysiwyg" style="background-color: #d8d8c8;">
-    <div class="styleguide__container styleguide__container--black">
-        <h2 class="styleguide__wysiwyg-title">Section Wysiwyg (avec classe)</h2>
-    </div>
-    <div class="styleguide__container ">
-        <?= $wysiwyg ?>
+    <div class="styleguide__button-container">
+        <a href="" class="styleguide__button button button--primary">Payer ma facture</a>
+        <a href="" class="styleguide__button button button--secondary">Demander une demande de lorem</a>
+        <a href="" class="styleguide__button button button--download">Télécharger lorem</a>
     </div>
 </section>
 
