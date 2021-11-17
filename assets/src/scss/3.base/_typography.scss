@@ -15,6 +15,27 @@ p,
 .list {
 	@include list;
 }
+
+.b1 {
+	@include B1;
+}
+
+.b2 {
+	@include B2;
+}
+
+.b2i {
+	@include B2I;
+}
+
+.b3 {
+	@include B3;
+}
+
+.b3c {
+	@include B3C;
+}
+
 // Highlight color
 ::selection {
 	border: 0;

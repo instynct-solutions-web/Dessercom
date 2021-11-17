@@ -34,20 +34,59 @@ function custom_tiny_styles($init_array) {
             'classes' => 'title-4'
         ),
         array( // MEDIUM TITLE
-            'title' => 'Titre H5',
-            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
-            'classes' => 'title-5'
-        ),
-        array( // MEDIUM TITLE
-            'title' => 'Titre h6',
-            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
-            'classes' => 'title-6'
-        ),
-        array( // MEDIUM TITLE
             'title' => 'Paragraphe',
             'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
             'classes' => 'paragraph'
         ),
+        array( // MEDIUM TITLE
+            'title' => 'B1',
+            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
+            'classes' => 'b1'
+        ),
+
+        array( // MEDIUM TITLE
+            'title' => 'B2',
+            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
+            'classes' => 'b2'
+        ),
+
+        array( // MEDIUM TITLE
+            'title' => 'B2I',
+            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
+            'classes' => 'b2i'
+        ),
+
+        array( // MEDIUM TITLE
+            'title' => 'B3',
+            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
+            'classes' => 'b3'
+        ),
+
+        array( // MEDIUM TITLE
+            'title' => 'B3C',
+            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
+            'classes' => 'b3c'
+        ),
+
+
+        array( // MEDIUM TITLE
+            'title' => 'primary button',
+            'selector' => 'button,a',
+            'classes' => 'button button--primary'
+        ),
+
+        array( // MEDIUM TITLE
+            'title' => 'secondary button',
+            'selector' => 'button,a',
+            'classes' => 'button button--secondary'
+        ),
+
+        array( // MEDIUM TITLE
+            'title' => 'download button',
+            'selector' => 'button,a',
+            'classes' => 'button button--download'
+        ),
+
 
         array( // MEDIUM TITLE
             'title' => 'Liste',

@@ -1,32 +1,76 @@
 .styleguide {
-	background-color: $white;
-	&__container,
-	&__title-container,
-	&__list-container,
-	&__text-container {
-		@include container;
-		padding-top: 2em;
-		padding-bottom: 2em;
+	display: flex;
+	height: 100vh;
+	width: 100vw;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	&__typo-container {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		flex-direction: column;
+		max-width: rem(1440);
+	}
+	&__title-container {
+		margin-bottom: 3em;
+	}
+	&__text {
+		&--b1 {
+			@include B1;
+		}
+		&--b2 {
+			@include B2;
+		}
+		&--b2i {
+			@include B2I;
+		}
+		&--b3 {
+			@include B3;
+		}
+		&--b3c {
+			@include B3C;
+		}
+	}
+	&__colors-container {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		flex-direction: row;
+		margin-top: 3em;
+		max-width: rem(1440);
+	}
+	&__color {
+		width: 150px;
+		height: 150px;
+		background-color: $black;
+		margin: 1em;
+		border: 1px $black solid;
+		&--white {
+			@include bg-white;
+		}
 		&--black {
-			background-color: $black;
+			@include bg-black;
 		}
-		&--green {
-			background-color: $gray;
+		&--yellow {
+			@include bg-yellow;
+		}
+		&--teal {
+			@include bg-teal;
+		}
+		&--gray {
+			@include bg-gray;
+		}
+		&--navy {
+			@include bg-navy;
 		}
 	}
-	&__name {
-		color: $black;
-		-webkit-text-stroke-width: 1px;
-		-webkit-text-stroke-color: $white;
+	&__button-container {
+		margin-top: 3em;
+		display: flex;
+		justify-content: space-around;
+		align-items: flex-end;
 	}
-	&__intro {
-		color: $white;
-		-webkit-text-stroke-width: 1px;
-		-webkit-text-stroke-color: $white;
-	}
-	&__wysiwyg-title {
-		color: $black;
-		-webkit-text-stroke-width: 1px;
-		-webkit-text-stroke-color: $white;
+	&__button {
 	}
 }

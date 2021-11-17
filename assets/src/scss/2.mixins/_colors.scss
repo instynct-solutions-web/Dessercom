@@ -1,0 +1,41 @@
+// ==========================================================================
+// MIXINS - Colors
+// ==========================================================================
+
+@mixin c-black {
+	color: $black;
+}
+@mixin c-white {
+	color: $white;
+}
+@mixin c-gray {
+	color: $gray;
+}
+@mixin c-teal {
+	color: $teal;
+}
+@mixin c-yellow {
+	color: $yellow;
+}
+@mixin c-navy {
+	color: $navy;
+}
+
+@mixin bg-black {
+	background-color: $black;
+}
+@mixin bg-white {
+	background-color: $white;
+}
+@mixin bg-gray {
+	background-color: $gray;
+}
+@mixin bg-teal {
+	background-color: $teal;
+}
+@mixin bg-yellow {
+	background-color: $yellow;
+}
+@mixin bg-navy {
+	background-color: $navy;
+}
