@@ -1,32 +1,93 @@
 .styleguide {
-	background-color: $white;
-	&__container,
-	&__title-container,
-	&__list-container,
-	&__text-container {
-		@include container;
-		padding-top: 2em;
-		padding-bottom: 2em;
+	display: flex;
+	height: 100vh;
+	width: 100vw;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	&__typo-container {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		flex-direction: column;
+		max-width: rem(1440);
+	}
+	&__title-container {
+		margin-bottom: 3em;
+	}
+	&__text {
+		&--b1 {
+			@include B1;
+		}
+		&--b2 {
+			@include B2;
+		}
+		&--b2i {
+			@include B2I;
+		}
+		&--b3 {
+			@include B3;
+		}
+		&--b3c {
+			@include B3C;
+		}
+	}
+	&__colors-container {
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-start;
+		flex-direction: row;
+		margin-top: 3em;
+		width: 100%;
+		max-width: rem(1440);
+	}
+	&__color {
+		width: 150px;
+		height: 150px;
+		background-color: $black;
+		margin: 1em;
+		border: 1px $black solid;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&:first-child {
+			margin-left: 0;
+		}
+		&--white {
+			@include bg-white;
+			@include c-black;
+		}
 		&--black {
-			background-color: $black;
+			@include bg-black;
+			@include c-white;
 		}
-		&--green {
-			background-color: $gray;
+		&--yellow {
+			@include bg-yellow;
+			@include c-black;
+		}
+		&--teal {
+			@include bg-teal;
+			@include c-white;
+		}
+		&--gray {
+			@include bg-gray;
+			@include c-black;
+		}
+		&--navy {
+			@include bg-navy;
+			@include c-white;
 		}
 	}
-	&__name {
-		color: $black;
-		-webkit-text-stroke-width: 1px;
-		-webkit-text-stroke-color: $white;
+	&__button-container {
+		margin-top: 3em;
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-end;
+		width: 100%;
+		max-width: rem(1440);
 	}
-	&__intro {
-		color: $white;
-		-webkit-text-stroke-width: 1px;
-		-webkit-text-stroke-color: $white;
-	}
-	&__wysiwyg-title {
-		color: $black;
-		-webkit-text-stroke-width: 1px;
-		-webkit-text-stroke-color: $white;
+	&__button:first-child {
+		margin-left: 0;
 	}
 }

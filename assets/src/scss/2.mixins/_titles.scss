@@ -8,6 +8,7 @@
 @mixin title-1 {
 	font: 500 rem(43) $font-family-title;
 	line-height: 1em;
+	margin-bottom: 0.5em;
 	color: $black;
 
 	@include min-width($mobile-threshold) {
@@ -21,6 +22,7 @@
 @mixin title-2 {
 	font: 500 rem(45) $font-family-title;
 	line-height: 1em;
+	margin-bottom: 0.5em;
 	color: $black;
 
 	@include min-width($mobile-threshold) {
@@ -34,6 +36,7 @@
 @mixin title-3 {
 	font: 500 rem(35) $font-family-title;
 	line-height: 1em;
+	margin-bottom: 0.5em;
 	color: $black;
 
 	@include min-width($mobile-threshold) {
@@ -47,6 +50,7 @@
 @mixin title-4 {
 	font: 500 rem(15) $font-family-title;
 	line-height: 1em;
+	margin-bottom: 0.5em;
 	color: $black;
 
 	@include min-width($mobile-threshold) {
