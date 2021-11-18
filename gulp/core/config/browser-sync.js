@@ -8,7 +8,7 @@ const deepMerge = require('../utils/deepMerge');
  *
  */
 module.exports = deepMerge({
-	proxy: 'blueprint.local',
-	host: 'blueprint.local',
+	proxy: 'dessercom.local',
+	host: 'dessercom.local',
 	open: 'external',
 });

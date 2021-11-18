@@ -3,18 +3,18 @@
 // ==========================================================================
 
 @mixin container {
-	padding: 1em 15px;
+	padding: 3em;
 	margin-left: auto;
 	margin-right: auto;
 
 	@include min-width($mobile-threshold) {
-		padding: 1em 30px;
+		padding: 3em;
 	}
 
 	@include min-width($tablet-threshold) {
 		margin-left: auto;
 		margin-right: auto;
-		padding: 1em 50px;
+		padding: 3em;
 		max-width: none;
 	}
 }
