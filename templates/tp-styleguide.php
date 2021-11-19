@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Home
+Template Name: Styleguide
 */
 
 // Load header.php

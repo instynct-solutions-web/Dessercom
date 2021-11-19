@@ -19,19 +19,43 @@
 	</div>
 	<div data-wolfpack data-wolfpack-container class="wolfpack-container">
 		<div class="page-wrapper">
+			<?php $header = get_field('header', 'options'); ?>
 			<header class="header">
+				<div class="header__logo-container">
+					<img src="<?= $header['logo']['url'] ?>" alt="<?= $header['logo']['alt'] ?>" class="header__logo">
+				</div>
+				<div class="header__nav-container">
+					<nav role="navigation" class="header__main-nav header__main-nav--desktop">
+						<?php wp_nav_menu(array(
+							'theme_location'  => 'navigation'
+						)); ?>
+					</nav>
+					<div class="header__buttons-container">
+						<div class="header__hamburger">
+							<span></span>
+							<span></span>
+						</div>
+						<div class="header__button">
+							<a href="<?= $header['button']['url'] ?>" class="header__button-label"><?= $header['button']['title'] ?></a>
+						</div>
+					</div>
+				</div>
 
-				<!-- <div class="logo">
-					<a href="<?= home_url(); ?>">
-						<img src="/img/logo.png" alt="Logo">
-					</a>
-				</div> -->
-
-				<!-- <nav role="navigation" class="nav main-nav">
-					<?php wp_nav_menu(array(
-						'theme_location'  => 'main'
-					)); ?>
-				</nav> -->
+				<div class="header__navigation navigation">
+					<div class="navigation__container">
+						<nav role="navigation" class="header__main-nav header__main-nav--mobile">
+							<?php wp_nav_menu(array(
+								'theme_location'  => 'navigation'
+							)); ?>
+						</nav>
+						<nav role="navigation" class="header__sub-nav header__sub-nav">
+							<?php wp_nav_menu(array(
+								'theme_location'  => 'sub-navigation'
+							)); ?>
+						</nav>
+					</div>
+					<img src="<?= $header['background']['url'] ?>" alt="<?= $header['background']['alt'] ?>" class="navigation__image">
+				</div>
 			</header>
 
 			<main role="main">

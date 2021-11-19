@@ -11,8 +11,8 @@ function custom_menu_page_removing() {
 function register_my_menus() {
 	register_nav_menus(
 		array(
-			'navigation' => __('Navigation'),
-			'navigation-footer' => __('Navigation Footer')
+			'navigation' => __('Main Navigation'),
+			'sub-navigation' => __('Secondary Navigation')
 		)
 	);
 }
