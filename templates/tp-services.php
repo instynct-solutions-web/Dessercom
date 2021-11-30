@@ -28,6 +28,34 @@ get_header(); ?>
 </section>
 
 <?php
+$map = get_field('map') ?>
+<section class="services-map">
+    <div class="services-map__svg-container">
+        <?php get_template_part('modules/md-map'); ?>
+    </div>
+    <div class="services-map__container">
+        <?php
+        if ($map['region']) { ?>
+            <ul class="services-map__list">
+                <?php
+                foreach ($map['region'] as $region) { ?>
+                    <li class="services-map__item">
+                        <p class="services-map__region">
+                            <span class="services-map__counter"><?= $region['num'] ?></span>
+                            <?= $region['name'] ?>
+                        </p>
+                    </li>
+                <?php
+                } ?>
+
+            </ul>
+        <?php
+        } ?>
+
+    </div>
+</section>
+
+<?php
 $extra = get_field('services_ext') ?>
 <section class="services-extra">
     <img src="<?= $extra['image']['url'] ?>" alt="<?= $extra['image']['alt'] ?>" class="services-extra__background">

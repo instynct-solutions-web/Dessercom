@@ -1,0 +1,1 @@
+<h2>Waiting for map...</h2>
