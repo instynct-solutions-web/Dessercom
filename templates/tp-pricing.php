@@ -44,7 +44,7 @@ get_header(); ?>
                 </ul>
             <?php
             } ?>
-        </div>
+        </div>z
     </div>
 </section>
 
@@ -52,8 +52,10 @@ get_header(); ?>
 $transport = get_field('transport') ?>
 <section class="pricing-transport">
     <div class="pricing-transport__container">
-        <div class="pricing-transport__top">
-            <p class="pricing-tranport__note"><?= $transport['note'] ?></p>
+        <div class="pricing-transport__top-container">
+            <div class="pricing-transport__top">
+                <p class="pricing-tranport__note"><?= $transport['note'] ?></p>
+            </div>
             <a href="<?= $transport['link']['url'] ?>" class="pricing-transport__cta"><?= $transport['link']['title'] ?></a>
         </div>
         <div class="pricing-transport__main">

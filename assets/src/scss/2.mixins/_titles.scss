@@ -54,7 +54,7 @@
 	color: $black;
 
 	@include min-width($mobile-threshold) {
-		font-size: rem(15);
+		font-size: rem(22);
 	}
 	@include min-width($tablet-threshold) {
 		font-size: rem(22);

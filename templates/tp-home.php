@@ -62,7 +62,7 @@ $services = get_field('services');
         </div>
         <div class="home-services__foreground">
             <div class="home-services__info">
-                <h2 class="home-services__note"></h2>
+                <h2 class="home-services__note"><?= $services['note'] ?></h2>
                 <ul class="home-services__list">
                     <?php foreach ($services['list'] as $item) { ?>
                         <li class="home-services__item">

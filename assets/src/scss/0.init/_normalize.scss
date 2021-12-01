@@ -32,7 +32,7 @@ dd {
 }
 
 /* Set core body defaults */
-body {
+body:not(#tinymce) {
 	overflow-x: hidden;
 	min-height: 100vh;
 	scroll-behavior: smooth;
