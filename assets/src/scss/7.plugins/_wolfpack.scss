@@ -3,28 +3,68 @@
 // ==========================================================================
 
 // BASIC
-:root {
-	--backgroundcolor: #ffffff;
-	--textcolor: #000000;
+.header {
+	pointer-events: all;
 }
 
-[data-scroll-section] {
+[data-wolfpack] {
+	pointer-events: all;
+}
+
+[data-wolfpack-section] {
 	opacity: 0;
 	pointer-events: none;
 }
 
 body {
 	transition: background-color 0.7s ease;
-	background-color: var(--backgroundcolor);
-}
-
-body,
-.wolfpack-container {
-	height: 100vh;
+	&.dragging {
+		cursor: grabbing;
+		user-select: none;
+		[data-wolfpack] {
+			user-select: none;
+		}
+	}
 }
 
 .scroll-content {
 	overflow: hidden !important;
+}
+
+// SCROLLBAR
+[data-scrollbar] {
+	pointer-events: all;
+	width: 10px;
+	height: 100%;
+	position: absolute;
+	z-index: 111;
+	top: 0px;
+	right: 0px;
+	background-color: transparent;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	&:hover {
+		opacity: 1;
+	}
+	&.scrollbar--show {
+		opacity: 1;
+		:hover {
+			cursor: grabbing;
+		}
+	}
+}
+
+[data-scrollbar-thumb] {
+	width: 8px;
+	height: 100px;
+	margin-right: 0 2px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	cursor: grab;
+	opacity: 0.5;
+	background-color: #000;
+	border-radius: 150px;
 }
 
 // MARQUEE
@@ -54,8 +94,6 @@ body,
 // STAY
 [data-stay] {
 	position: absolute;
-	top: 0px;
-	left: 0px;
 }
 
 // CURSOR
@@ -68,11 +106,12 @@ body,
 [data-cursor-pointer] {
 	transform: translate(0px, 0px);
 	position: fixed;
-	z-index: 1000;
+	z-index: 111;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
+	mix-blend-mode: difference;
 
 	svg {
 		transition: 0.5s ease;
@@ -84,8 +123,16 @@ body,
 }
 
 @include max-width($tablet-threshold) {
-	[data-cursor] {
-		display: none !important;
+	html,
+	body {
+		cursor: auto;
+	}
+	[data-cursor-container] {
+		display: none;
+	}
+	[data-scrollbar] {
+		opacity: 0 !important;
+		pointer-events: none !important;
 	}
 }
 
@@ -104,5 +151,15 @@ body,
 	flex-direction: column;
 	.separate-words__word {
 		display: inline-block;
+	}
+}
+
+// FORM
+[data-form] {
+	input,
+	textarea,
+	select,
+	label {
+		cursor: none;
 	}
 }

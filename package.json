@@ -78,6 +78,7 @@
 		"jquery-bridget": "^3.0.0",
 		"scrollmagic": "^2.0.8",
 		"scrollmagic-plugin-gsap": "^1.0.4",
-		"smooth-scrollbar": "^8.6.2"
+		"smooth-scrollbar": "^8.6.2",
+		"virtual-scroll": "^2.1.1"
 	}
 }

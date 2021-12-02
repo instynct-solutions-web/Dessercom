@@ -17,7 +17,7 @@
 		</div>
 
 	</div>
-	<div data-wolfpack data-wolfpack-container class="wolfpack-container">
+	<div data-wolfpack="main" class="wolfpack-container">
 		<div class="page-wrapper">
 			<?php $header = get_field('header', 'options'); ?>
 			<header class="header">

@@ -31,19 +31,34 @@ dd {
 	margin: 0;
 }
 
+html {
+	pointer-events: none;
+	overflow: hidden;
+	cursor: none;
+}
+
 /* Set core body defaults */
 body:not(#tinymce) {
-	overflow-x: hidden;
-	min-height: 100vh;
-	scroll-behavior: smooth;
-	text-rendering: geometricPrecision;
-	line-height: 1.5;
+	height: 100vh;
+	overflow: hidden;
 	cursor: none;
+	pointer-events: all;
+	text-rendering: optimizeSpeed;
+}
+
+.page-template {
+	&--green {
+		background-color: #dafba1;
+	}
+	&--white {
+		background-color: #fff;
+	}
 }
 
 /* Set Sections to take all width available */
 section {
 	width: 100%;
+	-webkit-perspective: 1000;
 }
 
 /* Make HR easier to work with */
@@ -91,7 +106,6 @@ select {
 }
 
 a {
-	cursor: none;
 	text-decoration: none;
 	opacity: 1;
 	transition: opacity 0.3s ease-in-out;
@@ -99,9 +113,7 @@ a {
 		opacity: 0.5;
 	}
 }
-body#tinymce {
-	padding: 1.5em;
-}
+
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
 	* {

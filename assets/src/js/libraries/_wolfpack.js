@@ -1,637 +1,1172 @@
-import Scrollbar from 'smooth-scrollbar';
-import OverscrollPlugin from 'smooth-scrollbar/plugins/overscroll';
+import VirtualScroll from 'virtual-scroll';
 import TweenMax from 'gsap';
-
-Scrollbar.use(OverscrollPlugin);
 
 export default class Wolfpack {
 	constructor() {
-		this.wolfpackList = document.querySelectorAll('[data-wolfpack]');
-		this.anchorElementList = document.querySelectorAll('a[href*="#"]');
-		this.preloader = document.querySelector('[data-preloader]');
-		this.headerList = document.querySelectorAll('[data-header-disappear]');
-		this.formList = document.querySelectorAll('[data-form]');
-		this.marqueeList = document.querySelectorAll('[data-marquee]');
-		this.parallaxList = document.querySelectorAll('[data-parallax]');
-		this.followMeContainerList = document.querySelectorAll('[data-follow-me-container]');
-		this.stayList = document.querySelectorAll('[data-stay]');
-		this.tadamList = document.querySelectorAll('[data-tadam]');
-		this.sectionScrollList = document.querySelectorAll('[data-scroll-section]');
-		this.animationSequenceContainerList = document.querySelectorAll('[data-animation-container]');
-		this.backgroundColorList = document.querySelectorAll('[data-background]');
-		this.separateLetterList = document.querySelectorAll('[data-letters]');
-		this.separateWordList = document.querySelectorAll('[data-words]');
-		this.oldx = 0;
-		this.oldy = 0;
-		this.manageEvents();
-	}
-
-	manageEvents() {
+		// Stop default behaviour
 		window.scrollTo(0, 0);
-		if (this.wolfpackList.length !== 0) {
-			const wolfpackOptions = {
-				speed: 0.2,
-				damping: 0.07,
-				continuousScrolling: false,
-				plugins: {
-					overscroll: true,
-				},
-			};
-			const scrollbar = Scrollbar.init(this.wolfpackList[0], wolfpackOptions);
-			scrollbar.track.xAxis.element.remove();
-			scrollbar.scrollIntoView(document.querySelector('[data-wolfpack-container]'));
+		window.event.preventDefault();
 
-			for (let h = 1; h < this.wolfpackList.length; h += 1) {
-				const scrollbarSecondary = Scrollbar.init(this.wolfpackList[h], wolfpackOptions);
-				scrollbarSecondary.track.xAxis.element.remove();
+		// Page transition variables
+		this.pageTransition = document.querySelector('[data-page-transition]');
+		this.pageTransitionDelay = 0;
+		this.pageTransitionClass = '';
+		this.links = [];
+		if (this.pageTransition) {
+			if (this.pageTransition.getAttribute('[data-page-transition-delay]')) {
+				this.pageTransitionDelay = this.pageTransition.getAttribute('[data-page-transition-delay]');
+			} else {
+				this.pageTransitionDelay = 300;
 			}
-
-			// SCROLL SECTIONS VARIABLES
-			const sectionScrollList = this.sectionScrollList; // eslint-disable-line
-			if (sectionScrollList.length !== 0) {
-				sectionScrollList[0].style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
-				sectionScrollList[0].style.opacity = '1';
-				sectionScrollList[0].style.pointerEvents = 'all';
+			this.pageTransitionClass = this.pageTransition.classList[0]; // eslint-disable-line
+			for (let i = 0; i < document.querySelectorAll('a').length; i += 1) {
+				this.links.push(document.querySelectorAll('a')[i]);
 			}
-			// PARALLAX VARIABLES
-			const parallaxList = this.parallaxList; // eslint-disable-line
-			const parallaxIsActivated = [];
-			const parallaxScrollBlock = [];
+		}
 
-			// STAY VARIABLES
-			const stayList = this.stayList; // eslint-disable-line
-
-			// BACKGROUND COLOR VARIABLES
-			const backgroundColorList = this.backgroundColorList; // eslint-disable-line
-			const scrollPositionBackground = [];
-			const newcolorsBackground = [];
-			const newcolorsText = [];
-			for (let i = 0; i < backgroundColorList.length; i += 1) {
-				const backgroundColor = backgroundColorList[i];
-				newcolorsBackground.push(backgroundColor.getAttribute('data-background-color'));
-				if (newcolorsBackground[i] === null || newcolorsBackground[i] === '') {
-					newcolorsBackground[i].push('#FFFFFF');
-				}
-				newcolorsText.push(backgroundColor.getAttribute('data-text-color'));
-				if (newcolorsText[i] === null || newcolorsText[i] === '') {
-					newcolorsText.push('#000000');
-				}
-			}
-
-			// HEADER DISAPPEAR VARIABLES
-			const headerList = this.headerList; // eslint-disable-line
-			const lastOffset = [];
-			const direction = [];
-			for (let i = 0; i < headerList.length; i += 1) {
-				lastOffset.push(0);
-				direction.push('');
-			}
-
-			// FOLLOW ME VARIABLES
-			const followMeContainerList = this.followMeContainerList; // eslint-disable-line
-			const followMeContainerOffsetTop = [];
-			const followMeContainerStop = [];
-			for (let i = 0; i < followMeContainerList.length; i += 1) {
-				const followMeContainer = followMeContainerList[i];
-				followMeContainerOffsetTop.push(followMeContainer.offsetTop);
-				followMeContainerStop.push(followMeContainer.offsetHeight);
-			}
-
-			// ANIMATION SEQUENCE VARIABLES
-			const animationSequenceContainerList = this.animationSequenceContainerList; // eslint-disable-line
-			const animationSequenceOffsetTop = [];
-			const animationSequenceHeight = [];
-			for (let i = 0; i < animationSequenceContainerList.length; i += 1) {
-				const animationSequence = animationSequenceContainerList[i];
-				animationSequenceOffsetTop.push(animationSequence.offsetTop);
-				animationSequenceHeight.push(animationSequence.offsetHeight);
-			}
-
-			// TADAM VARIABLES
-			const tadamList = this.tadamList; // eslint-disable-line
-			const isActivated = [];
-			const scrollBlock = [];
-			for (let i = 0; i < tadamList.length; i += 1) {
-				scrollBlock.push(0);
-				isActivated.push(false);
-				if (tadamList[i].getAttribute('data-tadam-threshold') === '-1') {
-					window.addEventListener('load', () => {
-						setTimeout(() => {
-							tadamList[i].classList.add(`${tadamList[i].classList[0]}--animate`);
-						}, 100);
-					});
-				}
-			}
-
-			scrollbar.addListener(function scrollbarListener(status) {
-				const offsetTop = status.offset.y;
-				// SCROLL SECTIONS
-				if (sectionScrollList.length !== 0) {
-					scrollbar.contentEl.style.transform = 'translate3d(0px, 0px, 0px)';
-					for (let i = 0; i < sectionScrollList.length; i += 1) {
-						const scrollSection = sectionScrollList[i];
-						const scrollSectionStyle = scrollSection.currentStyle || window.getComputedStyle(scrollSection);
-						const sectionOffsetTop = parseFloat(scrollSection.getBoundingClientRect().top - parseFloat(scrollSectionStyle.marginTop) - parseFloat(scrollSectionStyle.marginBottom));
-						const sectionOffsetBottom = parseFloat(sectionOffsetTop + parseFloat(scrollSection.offsetHeight) + parseFloat(scrollSectionStyle.marginTop) + parseFloat(scrollSectionStyle.marginBottom) - parseFloat(scrollSectionStyle.transform.split(',')[5]));
-						if (offsetTop >= parseFloat(sectionOffsetTop - parseFloat(window.innerHeight * 1.5)) && offsetTop <= parseFloat(sectionOffsetBottom + parseFloat(window.innerHeight * 1.5))) {
-							scrollSection.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -${offsetTop}, 0, 1)`;
-							scrollSection.style.opacity = '1';
-							scrollSection.style.pointerEvents = 'all';
-						} else {
-							scrollSection.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
-							scrollSection.style.opacity = '0';
-							scrollSection.style.pointerEvents = 'none';
-						}
-					}
-				}
-				// PARALLAX
-				if (parallaxList.length !== 0) {
-					for (let i = 0; i < parallaxList.length; i += 1) {
-						const parallax = parallaxList[i];
-						parallaxScrollBlock.push(0);
-						parallaxIsActivated.push(false);
-						let parallaxSpeed = parallax.getAttribute('data-parallax-speed');
-						if (parallaxSpeed === null || parallaxSpeed === '') {
-							parallaxSpeed = 6;
-						}
-						const scrollPositionGeneral = status.offset.y;
-
-						if (scrollbar.isVisible(parallax)) {
-							if (!parallaxIsActivated[i]) {
-								parallaxIsActivated[i] = true;
-								parallaxScrollBlock[i] = status.offset.y;
-							}
-							const parallaxTranslate = (scrollPositionGeneral - parallaxScrollBlock[i]) / parseFloat(parallaxSpeed);
-							TweenMax.to(parallax, 0.5, {
-								y: parallaxTranslate,
-							});
-						}
-					}
-				}
-				// STAY
-				if (stayList.length !== 0) {
-					if (sectionScrollList.length === 0) {
-						for (let i = 0; i < stayList.length; i += 1) {
-							const thisStayElement = stayList[i];
-							let stayTop = thisStayElement.getAttribute('data-stay-top');
-							if (stayTop === null || stayTop === '') {
-								stayTop = 0;
-							}
-							let stayBottom = parseFloat(window.innerHeight) - parseFloat(thisStayElement.offsetHeight) - parseFloat(thisStayElement.getAttribute('data-stay-bottom'));
-							if (stayBottom === null || stayBottom === '' || Number.isNaN(stayBottom)) {
-								stayBottom = 0;
-							}
-							let stayLeft = thisStayElement.getAttribute('data-stay-left');
-							if (stayLeft === null || stayLeft === '') {
-								stayLeft = 0;
-							}
-							let stayRight = parseFloat(window.innerWidth) - parseFloat(thisStayElement.offsetWidth) - parseFloat(thisStayElement.getAttribute('data-stay-right'));
-							if (stayRight === null || stayRight === '' || Number.isNaN(stayRight)) {
-								stayRight = 0;
-							}
-							const stayOffsetTop = parseFloat(status.offset.y) + parseFloat(stayTop) + parseFloat(stayBottom);
-							const stayOffsetLeft = parseFloat(status.offset.x) + parseFloat(stayLeft) + parseFloat(stayRight);
-							thisStayElement.style.position = 'absolute';
-							TweenMax.to(thisStayElement, 0, {
-								x: stayOffsetLeft,
-								y: stayOffsetTop,
-							});
-						}
-					}
-				}
-				// BACKGROUND COLOR
-				if (backgroundColorList.length !== 0) {
-					for (let i = 0; i < backgroundColorList.length; i += 1) {
-						const backgroundClass = backgroundColorList[i].classList[0];
-						scrollPositionBackground.push(backgroundColorList[i].offsetTop - window.innerHeight);
-						if (direction[0] === 'down') {
-							if (parseFloat(offsetTop) > scrollPositionBackground[i]) {
-								if (!backgroundColorList[i].classList.contains(`${backgroundClass}--background-animate`)) {
-									backgroundColorList[i].classList.add(`${backgroundClass}--background-animate`);
-									document.documentElement.style.setProperty('--backgroundcolor', newcolorsBackground[i]);
-									document.documentElement.style.setProperty('--textcolor', newcolorsText[i]);
-								}
-							}
-						} else if (parseFloat(offsetTop) < scrollPositionBackground[i]) {
-							if (backgroundColorList[i - 1]) {
-								if (backgroundColorList[i].classList.contains(`${backgroundClass}--background-animate`)) {
-									backgroundColorList[i].classList.remove(`${backgroundClass}--background-animate`);
-									document.documentElement.style.setProperty('--backgroundcolor', newcolorsBackground[i - 1]);
-									document.documentElement.style.setProperty('--textcolor', newcolorsText[i - 1]);
-								}
-							}
-						}
-					}
-				}
-				// HEADER DISAPPEAR
-				if (headerList.length !== 0) {
-					for (let i = 0; i < headerList.length; i += 1) {
-						const header = headerList[i];
-						const headerClass = header.classList[0];
-						let headerSmall = header.getAttribute('data-header-small');
-						let headerHide = header.getAttribute('data-header-hide');
-						if (headerSmall === null || headerSmall === '') {
-							headerSmall = 100;
-						}
-						if (headerHide === null || headerHide === '') {
-							headerHide = 300;
-						}
-						if (status.offset.y < lastOffset[i]) {
-							lastOffset[i] = status.offset.y;
-							direction[i] = 'up';
-						} else {
-							lastOffset[i] = status.offset.y;
-							direction[i] = 'down';
-						}
-						if (status.offset.y >= headerSmall) {
-							header.classList.add(`${headerClass}--small`);
-						} else {
-							header.classList.remove(`${headerClass}--small`);
-						}
-						if (status.offset.y >= headerHide) {
-							if (direction[i] === 'down') {
-								header.classList.add(`${headerClass}--hide`);
-							} else {
-								header.classList.remove(`${headerClass}--hide`);
-							}
-						}
-					}
-				}
-				// FOLLOW ME
-				if (followMeContainerList.length !== 0) {
-					for (let i = 0; i < followMeContainerList.length; i += 1) {
-						const followMeContainer = followMeContainerList[i];
-						const followMeList = followMeContainer.querySelectorAll('[data-follow-me]');
-						for (let j = 0; j < followMeList.length; j += 1) {
-							const followMe = followMeList[j];
-							const followMeEase = parseFloat(followMe.getAttribute('data-follow-me-ease'));
-							if (parseFloat(offsetTop) >= parseFloat(followMeContainerOffsetTop[i] + followMe.offsetTop) && parseFloat(offsetTop) < parseFloat(followMeContainerOffsetTop[i] + followMeContainerStop[i] - followMe.offsetHeight)) {
-								if (followMe.getAttribute('data-follow-me-ease') === '' || followMe.getAttribute('data-follow-me-ease') === null) {
-									TweenMax.to(followMe, 0.15, {
-										y: parseFloat(offsetTop) - parseFloat(followMeContainerOffsetTop[i] + followMe.offsetTop),
-									});
-								} else {
-									TweenMax.to(followMe, followMeEase, {
-										y: parseFloat(offsetTop) - parseFloat(followMeContainerOffsetTop[i] + followMe.offsetTop),
-									});
-								}
-								followMe.style.position = 'absolute';
-							}
-						}
-					}
-				}
-				// ANIMATION SEQUENCE
-				if (animationSequenceContainerList.length !== 0) {
-					for (let i = 0; i < animationSequenceContainerList.length; i += 1) {
-						const animationSequenceContainer = animationSequenceContainerList[i];
-						const animationSequenceList = animationSequenceContainer.querySelectorAll('[data-animation]');
-						for (let j = 0; j < animationSequenceList.length; j += 1) {
-							const animationSequence = animationSequenceList[j];
-							const animationSequenceName = animationSequence.getAttribute('data-animation-name');
-							const windowHeight = document.querySelector('[data-wolfpack]').offsetHeight;
-							if (animationSequenceName === '' || animationSequenceName === null) {
-								animationSequence.style.animation = `animation-sequence 1s linear`;
-							} else {
-								animationSequence.style.animation = `animation-${animationSequenceName} 1s linear`;
-							}
-							animationSequence.style.animationDelay = `calc(var(--scroll-${i + j}) * -1s)`;
-							animationSequence.style.animationPlayState = 'paused';
-							animationSequence.style.animationIterationCount = '1';
-							animationSequence.style.animationFillMode = 'both';
-							if (parseFloat(offsetTop) >= parseFloat(animationSequenceOffsetTop[i] + animationSequence.offsetTop - windowHeight) && parseFloat(offsetTop) < parseFloat(animationSequenceOffsetTop[i] + animationSequence.offsetTop + animationSequence.offsetHeight)) {
-								animationSequence.style.setProperty(`--scroll-${i + j}`, parseFloat(offsetTop - animationSequenceOffsetTop[i] - animationSequence.offsetTop + windowHeight) / parseFloat(windowHeight));
-							}
-						}
-					}
-				}
-				// TADAM
-				if (tadamList.length !== 0) {
-					for (let i = 0; i < tadamList.length; i += 1) {
-						const threshold = tadamList[i].getAttribute('data-tadam-threshold');
-						const thresholdMobile = tadamList[i].getAttribute('data-tadam-threshold-mobile');
-						if (threshold !== '-1') {
-							let tadamOffset = 0;
-							let tadamOffsetMobile = 0;
-							if (threshold === null || threshold === '') {
-								tadamOffset = 300;
-							} else {
-								tadamOffset = threshold;
-							}
-							if (thresholdMobile === null || thresholdMobile === '') {
-								tadamOffsetMobile = 100;
-							} else {
-								tadamOffsetMobile = thresholdMobile;
-							}
-							if (scrollbar.isVisible(tadamList[i])) {
-								if (!isActivated[i]) {
-									isActivated[i] = true;
-									if (window.innerWidth >= 1024) {
-										scrollBlock[i] = parseFloat(status.offset.y) + parseFloat(tadamOffset);
-									} else {
-										scrollBlock[i] = parseFloat(status.offset.y) + parseFloat(tadamOffsetMobile);
-									}
-								}
-								if (tadamList[i].getAttribute('data-tadam-repeat') === null && parseFloat(status.offset.y) > scrollBlock[i]) {
-									Wolfpack.showTadam(tadamList[i]);
-								} else if (parseFloat(status.offset.y) > scrollBlock[i]) {
-									Wolfpack.showTadam(tadamList[i]);
-								} else if (tadamList[i].getAttribute('data-tadam-repeat') !== null) {
-									Wolfpack.hideTadam(tadamList[i]);
-								}
-							}
-						}
-					}
-				}
-			});
-
-			// ANCHORS
-			if (this.anchorElementList.length !== 0) {
-				window.addEventListener('resize', Wolfpack.anchors(this.anchorElementList, scrollbar));
+		window.addEventListener('load', () => {
+			if (this.pageTransition) {
 				setTimeout(() => {
-					scrollbar.scrollIntoView(document.querySelector('[data-wolfpack-container]'));
-					Wolfpack.anchors(this.anchorElementList, scrollbar);
-				}, 100);
+					this.showPageTransition();
+				}, this.pageTransitionDelay);
 			}
+		});
 
-			// PRELOADER
-			if (this.preloader) {
-				let preloaderDelay = this.preloader.getAttribute('data-preloader-delay');
-				const preloaderClass = this.preloader.classList[0];
-				const links = document.querySelectorAll('a');
-				if (preloaderDelay === null || preloaderDelay === '') {
-					preloaderDelay = 300;
+		setTimeout(() => {
+			this.pageTransitionInit();
+		}, 50);
+
+		// Main variables
+		this.scrolling = false;
+		this.anchorScrolling = false;
+		this.ease = 0.06;
+		this.time = 10;
+		this.windowHeight = window.innerHeight;
+		this.scrollbarCode = '<div class="scrollbar" data-scrollbar><span class="scrollbar__thumb" data-scrollbar-thumb></span></div>';
+		window.addEventListener('resize', () => {
+			this.windowHeight = window.innerHeight;
+		});
+
+		// Virtual scroll variables
+		if (window.innerWidth >= 1024) {
+			this.virtualScroll = new VirtualScroll({
+				mouseMultiplier: 0.4,
+				touchMultiplier: 2,
+			});
+		} else {
+			this.virtualScroll = new VirtualScroll({
+				mouseMultiplier: 1,
+				touchMultiplier: 2,
+			});
+		}
+
+		// Wolfpack variables
+		this.wolfpackList = document.querySelectorAll('[data-wolfpack]');
+		this.wolfpackMainIndex = 0;
+		this.wolfpackLoop = [];
+		this.wolfpackCurrentY = [];
+		this.wolfpackTargetY = [];
+		this.wolfpackHeight = [];
+		this.wolfpackParentHeight = [];
+		this.wolfpackScrollLimit = [];
+		this.wolfpackTransform = [];
+		this.wolfpackScrollPosition = [];
+		this.wolfpackHovering = [];
+		this.wolfpackLastOffset = [];
+		this.wolfpackDirection = [];
+		this.wolfpackDragging = [];
+		this.wolfpackSectionList = [];
+		this.wolfpackSectionTopList = [];
+		this.wolfpackSectionBottomList = [];
+		if (this.wolfpackList.length !== 0) {
+			for (let i = 0; i < this.wolfpackList.length; i += 1) {
+				const wolfpack = this.wolfpackList[i];
+				if (wolfpack.getAttribute('data-wolfpack')) {
+					this.wolfpackMainIndex = i;
 				}
-				window.addEventListener('load', () => {
-					setTimeout(() => {
-						Wolfpack.showPreloader(this.preloader, preloaderClass, preloaderDelay);
-					}, preloaderDelay);
-				});
-				for (let i = 0; i < links.length; i += 1) {
-					const link = links[i];
-					if (!link.getAttribute('href').includes('#')) {
-						if (link.getAttribute('target') !== '_blank') {
-							link.addEventListener('click', (event) => {
-								const destination = link.href;
-								event.preventDefault();
-								Wolfpack.closePreloader(this.preloader, preloaderClass);
-								setTimeout(() => {
-									window.location = destination;
-								}, preloaderDelay);
-							});
+				this.wolfpackLoop.push(undefined);
+				this.wolfpackCurrentY.push(0);
+				this.wolfpackTargetY.push(0);
+				this.wolfpackHeight.push(wolfpack.scrollHeight);
+				this.wolfpackParentHeight.push(wolfpack.parentNode.offsetHeight);
+				this.wolfpackScrollLimit.push((this.wolfpackHeight[i] - this.wolfpackParentHeight[i]) * -1);
+				this.wolfpackTransform.push(`matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`);
+				this.wolfpackList[i].style.transform = this.wolfpackTransform[i];
+				this.wolfpackScrollPosition.push(0);
+				this.wolfpackHovering.push(false);
+				this.wolfpackLastOffset.push(0);
+				this.wolfpackDirection.push('down');
+				this.wolfpackDragging.push(false);
+				this.wolfpackSectionList.push(wolfpack.querySelectorAll('[data-wolfpack-section]'));
+				this.wolfpackSectionTopList.push([]);
+				this.wolfpackSectionBottomList.push([]);
+				if (this.wolfpackSectionList[i].length !== 0) {
+					for (let j = 0; j < this.wolfpackSectionList[i].length; j += 1) {
+						this.wolfpackSectionTopList[i].push(this.wolfpackSectionList[i][j].offsetTop);
+						this.wolfpackSectionBottomList[i].push(this.wolfpackSectionTopList[i][j] + this.wolfpackSectionList[i][j].getBoundingClientRect().height + this.windowHeight);
+					}
+				}
+			}
+			window.addEventListener('load', () => {
+				for (let i = 0; i < this.wolfpackList.length; i += 1) {
+					this.wolfpackHeight[i] = document.querySelectorAll('[data-wolfpack]')[i].scrollHeight;
+					this.wolfpackParentHeight[i] = document.querySelectorAll('[data-wolfpack]')[i].parentNode.offsetHeight;
+					this.wolfpackScrollLimit[i] = (this.wolfpackHeight[i] - this.wolfpackParentHeight[i]) * -1;
+					this.wolfpackSectionList[i] = document.querySelectorAll('[data-wolfpack]')[i].querySelectorAll('[data-wolfpack-section]');
+					if (this.wolfpackSectionList[i].length !== 0) {
+						for (let j = 0; j < this.wolfpackSectionList[i].length; j += 1) {
+							this.wolfpackSectionTopList[i][j] = this.wolfpackSectionList[i][j].offsetTop;
+							this.wolfpackSectionBottomList[i][j] = this.wolfpackSectionTopList[i][j] + this.wolfpackSectionList[i][j].getBoundingClientRect().height + this.windowHeight;
+						}
+					}
+				}
+			});
+			window.addEventListener('resize', () => {
+				for (let i = 0; i < this.wolfpackList.length; i += 1) {
+					this.wolfpackHeight[i] = document.querySelectorAll('[data-wolfpack]')[i].scrollHeight;
+					this.wolfpackParentHeight[i] = document.querySelectorAll('[data-wolfpack]')[i].parentNode.offsetHeight;
+					this.wolfpackScrollLimit[i] = (this.wolfpackHeight[i] - this.wolfpackParentHeight[i]) * -1;
+					this.wolfpackSectionList[i] = document.querySelectorAll('[data-wolfpack]')[i].querySelectorAll('[data-wolfpack-section]');
+					if (this.wolfpackSectionList[i].length !== 0) {
+						for (let j = 0; j < this.wolfpackSectionList[i].length; j += 1) {
+							this.wolfpackSectionTopList[i][j] = this.wolfpackSectionList[i][j].offsetTop;
+							this.wolfpackSectionBottomList[i][j] = this.wolfpackSectionTopList[i][j] + this.wolfpackSectionList[i][j].getBoundingClientRect().height + this.windowHeight;
+						}
+					}
+				}
+			});
+		}
+
+		// Wolfpack configurations
+		if (this.wolfpackList.length !== 0) {
+			for (let i = 0; i < this.wolfpackList.length; i += 1) {
+				// Create custom scrollbar
+				this.createScrollbar(i);
+			}
+		}
+
+		// Scrollbar variables
+		this.scrollbarList = document.querySelectorAll('[data-scrollbar]');
+		this.scrollbarThumbList = document.querySelectorAll('[data-scrollbar-thumb]');
+		this.scrollbarCurrentY = [];
+		this.scrollbarTargetY = [];
+		this.scrollbarHeight = [];
+		this.scrollbarThumbHeight = [];
+		this.scrollbarScrollLimit = [];
+		this.scrollbarTransform = [];
+		if (this.scrollbarList.length !== 0) {
+			for (let i = 0; i < this.scrollbarList.length; i += 1) {
+				this.scrollbarCurrentY.push(0);
+				this.scrollbarTargetY.push(0);
+				this.scrollbarHeight.push(this.scrollbarList[i].offsetHeight);
+				this.scrollbarThumbHeight.push((this.scrollbarHeight[i] * this.wolfpackParentHeight[i]) / this.wolfpackHeight[i]);
+				this.scrollbarScrollLimit.push((this.scrollbarHeight[i] - this.scrollbarThumbHeight[i]) * -1);
+				this.scrollbarTransform.push(`matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`);
+			}
+		}
+
+		// Location variables
+		this.locationHash = window.location.hash;
+		this.locationElement = undefined;
+		this.locationTop = 0;
+		if (window.location.hash) {
+			this.locationElement = document.querySelector(this.locationHash);
+		}
+
+		// Anchors variables
+		this.anchorList = document.querySelectorAll(`a[href*="${window.location.pathname}#"]`);
+		this.anchorLocation = [];
+		this.anchorLocationTop = [];
+		if (this.anchorList.length !== 0) {
+			for (let i = 0; i < this.anchorList.length; i += 1) {
+				if (this.anchorList[i].pathname === window.location.pathname && this.anchorList[i].getAttribute('href') !== '#') {
+					this.anchorLocation.push(document.querySelector(this.anchorList[i].getAttribute('href').replace(window.location.pathname, '')));
+					if (this.anchorLocation[i]) {
+						this.anchorLocationTop.push(this.anchorLocation[i].getBoundingClientRect().y);
+					} else {
+						this.anchorLocationTop.push(0);
+					}
+				}
+			}
+		}
+		window.addEventListener('resize', () => {
+			if (this.anchorList.length !== 0) {
+				for (let i = 0; i < this.anchorList.length; i += 1) {
+					if (this.anchorList[i].pathname === window.location.pathname && this.anchorList[i].getAttribute('href') !== '#') {
+						if (this.anchorLocation[i]) {
+							this.anchorLocationTop[i] = this.anchorLocation[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
+						} else {
+							this.anchorLocationTop[i] = 0;
 						}
 					}
 				}
 			}
+		});
 
-			// FORM LABELS
-			if (this.formList.length !== 0) {
-				for (let i = 0; i < this.formList.length; i += 1) {
-					const form = this.formList[i];
-					const formInputs = form.querySelectorAll('.gfield');
-					for (let j = 0; j < formInputs.length; j += 1) {
-						const formInput = formInputs[j];
-						const formInputClass = formInput.classList[0];
-						setTimeout(() => {
-							const formInputSpans = formInput.querySelectorAll('.ginput_container span');
-							for (let k = 0; k < formInputSpans.length; k += 1) {
-								const formInputSpan = formInputSpans[k];
-								formInputSpan.classList.add('spanDisplay');
-							}
-						}, 100);
-						formInput.addEventListener('focusin', () => {
-							formInput.classList.add(`${formInputClass}--focus`);
-						});
-						formInput.addEventListener('focusout', () => {
-							if (formInput.querySelector('.ginput_container').classList.contains('ginput_complex')) {
-								if (formInput.querySelector('input').value === '' || formInput.querySelector('input').value === null) {
-									formInput.classList.remove(`${formInputClass}--focus`);
-								}
-							} else if (formInput.querySelector('.ginput_container').classList.contains('ginput_container_textarea')) {
-								if (formInput.querySelector('textarea').value === '' || formInput.querySelector('textarea').value === null) {
-									formInput.classList.remove(`${formInputClass}--focus`);
-								}
-							} else if (formInput.querySelector('.ginput_container').classList.contains('ginput_container_select')) {
-								if (formInput.querySelector('select').value === '' || formInput.querySelector('select').value === null) {
-									formInput.classList.remove(`${formInputClass}--focus`);
-								}
-							} else if (formInput.querySelector('input').value === '' || formInput.querySelector('input').value === null) {
-								formInput.classList.remove(`${formInputClass}--focus`);
-							}
-						});
-					}
+		// Stay variables
+		this.stayList = document.querySelectorAll('[data-stay]');
+		this.stayTransform = [];
+		if (this.stayList.length !== 0) {
+			for (let i = 0; i < this.stayList.length; i += 1) {
+				this.stayTransform.push(`matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`);
+			}
+		}
+
+		// Header disappear variables
+		this.headerDisappearList = document.querySelectorAll('[data-header-disappear]');
+		this.headerDisappearSmall = [];
+		this.headerDisappearHide = [];
+		if (this.headerDisappearList.length !== 0) {
+			for (let i = 0; i < this.headerDisappearList.length; i += 1) {
+				if (this.headerDisappearList[i].getAttribute('data-header-small')) {
+					this.headerDisappearSmall.push(parseFloat(this.headerDisappearList[i].getAttribute('data-header-small')));
+				} else {
+					this.headerDisappearSmall.push(250);
+				}
+				if (this.headerDisappearList[i].getAttribute('data-header-hide')) {
+					this.headerDisappearHide.push(parseFloat(this.headerDisappearList[i].getAttribute('data-header-hide')));
+				} else {
+					this.headerDisappearHide.push(500);
 				}
 			}
+		}
 
-			// MARQUEE
-			if (this.marqueeList.length !== 0) {
-				for (let i = 0; i < this.marqueeList.length; i += 1) {
-					const marquee = this.marqueeList[i];
-					let marqueeSpeed = marquee.getAttribute('data-marquee-speed');
-					if (marqueeSpeed === null || marqueeSpeed === '') {
-						marqueeSpeed = 20;
-					}
-					const marqueeClass = marquee.classList[0];
-					const marqueeHTML = marquee.innerHTML;
-					const marqueeNewHTML = `<div class="${marqueeClass}--marquee" data-marquee-container><div class="${marqueeClass}--marquee-content" data-marquee-content style="animation-duration:${marqueeSpeed}s"><p>${marqueeHTML}</p><p>${marqueeHTML}</p><p>${marqueeHTML}</p><p>${marqueeHTML}</p><p>${marqueeHTML}</p></div></div>`;
-					marquee.innerHTML = marqueeNewHTML;
-					marquee.style.width = '100%';
+		// Tadam variables
+		this.tadamList = document.querySelectorAll('[data-tadam]');
+		this.tadamTop = [];
+		this.tadamRepeat = [];
+		this.tadamThreshold = [];
+		this.tadamThresholdMobile = [];
+		this.tadamVisible = [];
+		if (this.tadamList.length !== 0) {
+			for (let i = 0; i < this.tadamList.length; i += 1) {
+				this.tadamTop.push(this.tadamList[i].getBoundingClientRect().y);
+				if (this.tadamList[i].getAttribute('data-tadam-repeat') === 'true') {
+					this.tadamRepeat.push(true);
+				} else {
+					this.tadamRepeat.push(false);
 				}
-				const marqueeContainers = document.querySelectorAll('[data-marquee-container]');
-				for (let i = 0; i < marqueeContainers.length; i += 1) {
-					const thisMarqueeContainer = marqueeContainers[i];
-					const marqueeContainerHTML = thisMarqueeContainer.innerHTML;
-					thisMarqueeContainer.innerHTML = marqueeContainerHTML + marqueeContainerHTML;
+				if (this.tadamList[i].getAttribute('data-tadam-threshold-mobile')) {
+					this.tadamThresholdMobile.push(this.tadamList[i].getAttribute('data-tadam-threshold-mobile'));
+				} else {
+					this.tadamThresholdMobile.push('100');
 				}
+				if (this.tadamList[i].getAttribute('data-tadam-threshold')) {
+					this.tadamThreshold.push(this.tadamList[i].getAttribute('data-tadam-threshold'));
+				} else {
+					this.tadamThreshold.push('200');
+				}
+				this.tadamVisible.push(parseFloat(this.tadamTop[i]) + parseFloat(this.tadamThreshold[i]));
 			}
-
-			// SEPARATE CHARACTERS
-			if (this.separateLetterList.length !== 0) {
-				Wolfpack.separateLetters(this.separateLetterList);
-			}
-
-			// SEPARATE WORDS
-			if (this.separateWordList.length !== 0) {
-				Wolfpack.separateWords(this.separateWordList);
-			}
-
-			// CURSOR
-			const offsetCursorTop = 0;
-			const cursorPointers = document.querySelectorAll('[data-cursor-pointer]');
-			const cursor = document.querySelector('[data-cursor-container]');
-			let timer;
-			document.addEventListener('mousemove', (e) => {
-				Wolfpack.moveCursor(e, cursor, cursorPointers, offsetCursorTop);
-				clearTimeout(timer);
-				timer = setTimeout(Wolfpack.mouseStopped(cursor, cursorPointers), 100);
-			});
-			const cursorElements = document.querySelectorAll('[data-cursor]');
-			if (cursorElements.length > 0) {
-				for (let i = 0; i < cursorElements.length; i += 1) {
-					const thisCursorElement = cursorElements[i];
-					const thisCursorClass = cursor.classList[0];
-					const thisCursorAttribute = thisCursorElement.getAttribute('data-cursor-class');
-					if (thisCursorAttribute === null || thisCursorAttribute === '') {
-						thisCursorElement.addEventListener('mouseover', () => {
-							if (!cursor.classList.contains('animate')) {
-								cursor.classList.add(`${thisCursorClass}--animate`);
-							}
-						});
-						thisCursorElement.addEventListener('mouseleave', () => {
-							cursor.classList.remove(`${thisCursorClass}--animate`);
-						});
+			window.addEventListener('resize', () => {
+				for (let i = 0; i < this.tadamList.length; i += 1) {
+					this.tadamTop[i] = this.tadamList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
+					if (window.innerWidth < 768) {
+						this.tadamThreshold[i] = this.tadamThresholdMobile[i];
+					} else if (this.tadamList[i].getAttribute('data-tadam-threshold')) {
+						this.tadamThreshold[i] = this.tadamList[i].getAttribute('data-tadam-threshold');
 					} else {
-						thisCursorElement.addEventListener('mouseover', () => {
-							if (!cursor.classList.contains(thisCursorAttribute)) {
-								cursor.classList.add(`${thisCursorClass}--${thisCursorAttribute}`);
-							}
-						});
-						thisCursorElement.addEventListener('mouseleave', () => {
-							cursor.classList.remove(`${thisCursorClass}--${thisCursorAttribute}`);
-						});
+						this.tadamThreshold[i] = '200';
 					}
+					this.tadamVisible[i] = parseFloat(this.tadamTop[i]) + parseFloat(this.tadamThreshold[i]);
 				}
+			});
+		}
+
+		// Parallax variables
+		this.parallaxList = document.querySelectorAll('[data-parallax]');
+		this.parallaxTop = [];
+		this.parallaxStop = [];
+		this.parallaxSpeed = [];
+		this.parallaxCurrentPosition = [];
+		this.parallaxPositionY = [];
+		this.parallaxScrollVariable = [];
+		this.parallaxTransform = [];
+		if (this.parallaxList.length !== 0) {
+			for (let i = 0; i < this.parallaxList.length; i += 1) {
+				this.parallaxTop.push(this.parallaxList[i].getBoundingClientRect().y);
+				this.parallaxStop.push(parseFloat(this.parallaxList[i].offsetHeight + this.parallaxList[i].getBoundingClientRect().y + this.windowHeight));
+				if (this.parallaxList[i].getAttribute('data-parallax-speed')) {
+					this.parallaxSpeed.push(this.parallaxList[i].getAttribute('data-parallax-speed'));
+				} else {
+					this.parallaxSpeed.push('3');
+				}
+				this.parallaxCurrentPosition.push(0);
+				this.parallaxPositionY.push(0);
+				this.parallaxScrollVariable.push(0);
+				this.parallaxTransform.push(`matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`);
+			}
+			window.addEventListener('resize', () => {
+				for (let i = 0; i < this.parallaxList.length; i += 1) {
+					this.parallaxTop[i] = this.parallaxList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
+					this.parallaxStop[i] = parseFloat(this.parallaxList[i].offsetHeight + this.parallaxList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]) + this.windowHeight);
+				}
+			});
+		}
+
+		// Marquee variables
+		this.marqueeList = document.querySelectorAll('[data-marquee]');
+		this.marqueeSpeed = [];
+		this.marqueeClass = [];
+		this.marqueeHTML = [];
+		this.marqueeNewHTML = [];
+		if (this.marqueeList.length !== 0) {
+			for (let i = 0; i < this.marqueeList.length; i += 1) {
+				if (this.marqueeList[i].getAttribute('data-marquee-speed')) {
+					this.marqueeSpeed.push(this.marqueeList[i].getAttribute('data-marquee-speed'));
+				} else {
+					this.marqueeSpeed.push(20);
+				}
+				this.marqueeClass.push(this.marqueeList[i].classList[0]);
+				this.marqueeHTML.push(this.marqueeList[i].innerHTML);
+				this.marqueeNewHTML.push(`<div class="${this.marqueeClass[i]}--marquee" data-marquee-container><div class="${this.marqueeClass[i]}--marquee-content" data-marquee-content style="animation-duration:${this.marqueeSpeed[i]}s"><p>${this.marqueeHTML[i]}</p><p>${this.marqueeHTML[i]}</p><p>${this.marqueeHTML[i]}</p><p>${this.marqueeHTML[i]}</p><p>${this.marqueeHTML[i]}</p></div></div>`);
 			}
 		}
-	}
 
-	static anchors(anchors, scrollbar) {
-		if (window.location.hash) {
-			setTimeout(() => {
-				window.scrollTo(0, 0);
-				scrollbar.scrollIntoView(document.querySelector(window.location.hash));
-				return false;
-			}, 1);
+		// Follow-me variables
+		this.followMeContainerList = document.querySelectorAll('[data-follow-me-container]');
+		this.followMeList = document.querySelectorAll('[data-follow-me]');
+		this.followMeTop = [];
+		this.followMeHeight = [];
+		this.followMeContainerHeight = [];
+		this.followMeStart = [];
+		this.followMeStop = [];
+		this.followMeTransform = [];
+		if (this.followMeContainerList.length !== 0) {
+			for (let i = 0; i < this.followMeContainerList.length; i += 1) {
+				this.followMeHeight.push(this.followMeList[i].offsetHeight);
+				this.followMeContainerHeight.push(this.followMeContainerList[i].offsetHeight);
+				this.followMeTop.push(this.followMeContainerList[i].getBoundingClientRect().y);
+				this.followMeStart.push(this.followMeTop[i] + this.windowHeight);
+				this.followMeStop.push(parseFloat(this.followMeTop[i] + this.followMeContainerHeight[i] - this.followMeHeight[i]));
+				this.followMeTransform.push(`matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`);
+			}
+			window.addEventListener('resize', () => {
+				for (let i = 0; i < this.followMeContainerList.length; i += 1) {
+					this.followMeHeight[i] = this.followMeList[i].offsetHeight;
+					this.followMeContainerHeight[i] = this.followMeContainerList[i].offsetHeight;
+					this.followMeTop[i] = this.followMeContainerList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
+					this.followMeStart[i] = this.followMeTop[i] + this.windowHeight;
+					this.followMeStop[i] = parseFloat(this.followMeTop[i] + this.followMeContainerHeight[i] - this.followMeHeight[i]);
+				}
+			});
 		}
-		for (let i = 0; i < anchors.length; i += 1) {
-			if (anchors[i].pathname === window.location.pathname) {
-				anchors[i].onclick = (event) => {
-					event.preventDefault();
-					scrollbar.scrollIntoView(document.querySelector(anchors[i].getAttribute('href').replace('/', '')));
-					return false;
-				};
+
+		// Animation squence variables
+		this.animationSequenceList = document.querySelectorAll('[data-animation]');
+		this.animationSequenceName = [];
+		this.animationSequenceTop = [];
+		this.animationSequenceHeight = [];
+		this.animationTimeline = [];
+		this.animationSequenceStop = [];
+		this.animationCurrentPosition = [];
+		this.animationPositionY = [];
+		this.animationScrollVariable = [];
+		if (this.animationSequenceList.length !== 0) {
+			for (let i = 0; i < this.animationSequenceList.length; i += 1) {
+				this.animationSequenceTop.push(this.animationSequenceList[i].getBoundingClientRect().y);
+				this.animationSequenceHeight.push(this.animationSequenceList[i].offsetHeight);
+				this.animationTimeline.push(parseFloat(this.windowHeight + this.animationSequenceHeight[i]));
+				this.animationSequenceStop.push(parseFloat(this.animationSequenceList[i].offsetHeight + this.animationSequenceList[i].getBoundingClientRect().y + this.windowHeight));
+				this.animationCurrentPosition.push(0);
+				this.animationPositionY.push(0);
+				this.animationScrollVariable.push(0);
+				if (this.animationSequenceList[i].getAttribute('data-animation-name')) {
+					this.animationSequenceName.push(this.animationSequenceList[i].getAttribute('data-animation-name'));
+				} else {
+					this.animationSequenceName.push(`sequence-${i}`);
+				}
+				this.animationSequenceList[i].style.animation = `animation-${this.animationSequenceName[i]} 1s linear`;
+				this.animationSequenceList[i].style.animationDelay = `calc(var(--scroll-${i}) * -1s)`;
+				this.animationSequenceList[i].style.animationPlayState = 'paused';
+				this.animationSequenceList[i].style.animationIterationCount = '1';
+				this.animationSequenceList[i].style.animationFillMode = 'both';
+			}
+			window.addEventListener('resize', () => {
+				for (let i = 0; i < this.animationSequenceList.length; i += 1) {
+					this.animationSequenceTop[i] = this.animationSequenceList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
+					this.animationSequenceHeight[i] = this.animationSequenceList[i].offsetHeight;
+					this.animationTimeline[i] = parseFloat(this.windowHeight + this.animationSequenceHeight[i]);
+					this.animationSequenceStop[i] = parseFloat(this.animationSequenceList[i].offsetHeight + this.animationSequenceList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]) + this.windowHeight);
+				}
+			});
+		}
+
+		// Changes variables
+		this.changesList = document.querySelectorAll('[data-changes]');
+		this.changesTop = [];
+		this.changesElements = [];
+		this.changesClasses = [];
+		this.changesActive = [];
+		if (this.changesList.length !== 0) {
+			for (let i = 0; i < this.changesList.length; i += 1) {
+				this.changesTop.push(this.changesList[i].getBoundingClientRect().y + parseFloat(this.windowHeight / 2));
+				if (this.changesList[i].getAttribute('data-changes-elements')) {
+					this.changesElements.push(this.changesList[i].getAttribute('data-changes-elements').split(', '));
+				} else {
+					this.changesElements.push('body');
+				}
+				if (this.changesList[i].getAttribute('data-changes-classes')) {
+					this.changesClasses.push(this.changesList[i].getAttribute('data-changes-classes').split(', '));
+				} else {
+					this.changesClasses.push('changes');
+				}
+				this.changesActive.push(false);
+			}
+			window.addEventListener('resize', () => {
+				for (let i = 0; i < this.changesList.length; i += 1) {
+					this.changesTop[i] = this.changesList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]) + parseFloat(this.windowHeight / 2);
+				}
+			});
+		}
+
+		// Separate letters variables
+		this.separateLetterList = document.querySelectorAll('[data-letters]');
+		this.separateLetterDelay = [];
+		this.separateLetterInitialDelay = [];
+		this.separateLetterClass = [];
+		this.separateLetterHTML = [];
+		this.separateLetterLines = [];
+		if (this.separateLetterList.length !== 0) {
+			for (let i = 0; i < this.separateLetterList.length; i += 1) {
+				if (this.separateLetterList[i].getAttribute('data-letters-delay')) {
+					this.separateLetterDelay.push(parseFloat(this.separateLetterList[i].getAttribute('data-letters-delay')));
+				} else {
+					this.separateLetterDelay.push(0.05);
+				}
+				if (this.separateLetterList[i].getAttribute('data-letters-initial')) {
+					this.separateLetterInitialDelay.push(parseFloat(this.separateLetterList[i].getAttribute('data-letters-initial')));
+				} else {
+					this.separateLetterInitialDelay.push(0);
+				}
+				this.separateLetterClass.push(this.separateLetterList[i].classList[0]);
+				this.separateLetterHTML.push(this.separateLetterList[i].innerHTML);
+				this.separateLetterList[i].innerHTML = '';
+				this.separateLetterLines.push(this.separateLetterHTML[i].split('<br>'));
 			}
 		}
-	}
 
-	static showPreloader(preloader, preloaderClass, preloaderDelay) {
-		preloader.classList.add(`${preloaderClass}--closed`);
-		const newDelay = preloaderDelay + 100;
-		setTimeout(() => {
-			preloader.style.display = 'none';
-		}, newDelay);
-	}
+		// Separate words variables
+		this.separateWordList = document.querySelectorAll('[data-words]');
+		this.separateWordDelay = [];
+		this.separateWordInitialDelay = [];
+		this.separateWordClass = [];
+		this.separateWordHTML = [];
+		this.separateWordLines = [];
+		if (this.separateWordList.length !== 0) {
+			for (let i = 0; i < this.separateWordList.length; i += 1) {
+				if (this.separateWordList[i].getAttribute('data-words-delay')) {
+					this.separateWordDelay.push(parseFloat(this.separateWordList[i].getAttribute('data-words-delay')));
+				} else {
+					this.separateWordDelay.push(0.05);
+				}
+				if (this.separateWordList[i].getAttribute('data-words-initial')) {
+					this.separateWordInitialDelay.push(parseFloat(this.separateWordList[i].getAttribute('data-words-initial')));
+				} else {
+					this.separateWordInitialDelay.push(0);
+				}
+				this.separateWordClass.push(this.separateWordList[i].classList[0]);
+				this.separateWordHTML.push(this.separateWordList[i].innerHTML);
+				this.separateWordList[i].innerHTML = '';
+				this.separateWordLines.push(this.separateWordHTML[i].split('<br>'));
+			}
+		}
 
-	static closePreloader(preloader, preloaderClass) {
-		preloader.style.display = 'flex';
+		// Form inputs variables
+		this.formList = document.querySelectorAll('[data-form] .gfield');
+		this.formClass = [];
+		if (this.formList.length !== 0) {
+			for (let i = 0; i < this.formList.length; i += 1) {
+				this.formClass.push(this.formList[i].classList[0]);
+			}
+		}
+
+		// Links data-cursor
+		for (let i = 0; i < document.querySelectorAll('a').length; i += 1) {
+			document.querySelectorAll('a')[i].setAttribute('data-cursor', '');
+		}
+
+		// Cursor variables
+		this.cursorPointerList = document.querySelectorAll('[data-cursor-pointer]');
+		this.cursor = document.querySelector('[data-cursor-container]');
+		this.cursorTop = 0;
+		this.cursorTimer = '';
+		this.cursorElementList = document.querySelectorAll('[data-cursor]');
+		this.cursorAttribute = [];
+		if (this.cursorElementList.length !== 0) {
+			this.cursorAttribute.push('');
+		}
+
 		setTimeout(() => {
-			preloader.classList.remove(`${preloaderClass}--closed`);
+			this.manageEvents();
 		}, 10);
 	}
 
-	static tadam(tadam, threshold, thresholdMobile, scrollbar) {
-		let scrollBlock = 0;
-		const tadamClass = tadam.classList[0];
-		if (threshold === '-1') {
-			tadam.classList.add(`${tadamClass}--animate`);
-		} else {
-			let tadamActivated = false;
-			scrollbar.addListener(function scrollbarListener(status) {
-				let tadamOffset = 0;
-				let tadamOffsetMobile = 0;
-				if (threshold === null || threshold === '') {
-					tadamOffset = 300;
-				} else {
-					tadamOffset = threshold;
+	pageTransitionInit() {
+		// Page transition
+		if (this.pageTransition) {
+			for (let i = 0; i < this.links.length; i += 1) {
+				if (this.links[i].getAttribute('target') !== '_blank') {
+					if (!this.links[i].getAttribute('href').includes('#')) {
+						document.querySelectorAll('a')[i].addEventListener('click', (event) => {
+							const destination = this.links[i].getAttribute('href');
+							event.preventDefault();
+							this.closePageTransition();
+							setTimeout(() => {
+								window.location = destination;
+							}, this.pageTransitionDelay);
+						});
+					}
 				}
-				if (thresholdMobile === null || thresholdMobile === '') {
-					tadamOffsetMobile = 100;
-				} else {
-					tadamOffsetMobile = thresholdMobile;
-				}
-				if (scrollbar.isVisible(tadam)) {
-					if (!tadamActivated) {
-						tadamActivated = true;
-						if (window.innerWidth >= 1024) {
-							scrollBlock = parseFloat(status.offset.y) + parseFloat(tadamOffset);
-						} else {
-							scrollBlock = parseFloat(status.offset.y) + parseFloat(tadamOffsetMobile);
+			}
+		}
+	}
+
+	manageEvents() {
+		// Wolfpack configurations
+		if (this.wolfpackList.length !== 0) {
+			for (let i = 0; i < this.wolfpackList.length; i += 1) {
+				// Watch hovering
+				this.wolfpackHovering[this.wolfpackMainIndex] = true;
+
+				if (window.innerWidth >= 1024) {
+					document.querySelectorAll('[data-wolfpack]')[i].addEventListener('mouseenter', () => {
+						if (!this.anchorScrolling) {
+							this.scrolling = false;
 						}
+						this.wolfpackHovering[i] = true;
+						for (let j = 0; j < this.wolfpackList.length; j += 1) {
+							if (this.wolfpackList[j] !== this.wolfpackList[i]) {
+								if (this.wolfpackSectionList[j].length === 0) {
+									this.scrollTimer(j);
+								} else {
+									this.scrollTimerSections(j);
+								}
+								this.wolfpackHovering[j] = false;
+							}
+						}
+					});
+					document.querySelectorAll('[data-wolfpack]')[i].addEventListener('mouseleave', () => {
+						this.scrolling = false;
+						this.wolfpackHovering[i] = false;
+						if (document.querySelectorAll('[data-wolfpack]')[i] !== document.querySelectorAll('[data-wolfpack]')[this.wolfpackMainIndex]) {
+							this.wolfpackHovering[this.wolfpackMainIndex] = true;
+						}
+					});
+				} else {
+					document.querySelectorAll('[data-wolfpack]')[i].addEventListener('pointerenter', () => {
+						if (!this.wolfpackHovering[i]) {
+							this.scrolling = false;
+							this.wolfpackHovering[i] = true;
+							for (let j = 0; j < this.wolfpackList.length; j += 1) {
+								if (this.wolfpackList[j] !== this.wolfpackList[i]) {
+									if (this.wolfpackSectionList[j].length === 0) {
+										this.scrollTimer(j);
+									} else {
+										this.scrollTimerSections(j);
+									}
+									this.wolfpackHovering[j] = false;
+								}
+							}
+						}
+					});
+				}
+
+				// Update scrollbar height
+				this.updateScrollbar(i);
+			}
+		}
+
+		// Init first loop
+		if (this.wolfpackList.length !== 0) {
+			for (let i = 0; i < this.wolfpackList.length; i += 1) {
+				if (i !== this.wolfpackMainIndex && this.wolfpackSectionList[i].length === 0) {
+					if (this.wolfpackHovering[i]) {
+						if (!this.scrolling) {
+							this.startLoop(i);
+							this.scrollTimer(i);
+						}
+						this.time = 0;
 					}
-					if (tadam.getAttribute('data-tadam-repeat') === null && parseFloat(status.offset.y) > scrollBlock) {
-						tadam.classList.add(`${tadamClass}--animate`);
-					} else if (parseFloat(status.offset.y) > scrollBlock) {
-						tadam.classList.add(`${tadamClass}--animate`);
-					} else {
-						tadam.classList.remove(`${tadamClass}--animate`);
+				} else {
+					if (!this.scrolling) {
+						this.startLoopSections(i);
+						this.scrollTimerSections(i);
+					}
+					this.time = 0;
+				}
+			}
+			this.scrolling = true;
+		}
+
+		// Watch scroll events
+		this.virtualScroll.on((e) => {
+			if (this.wolfpackList.length !== 0) {
+				for (let i = 0; i < this.wolfpackList.length; i += 1) {
+					if (this.wolfpackSectionList[i].length === 0) {
+						if (this.wolfpackHovering[i]) {
+							if (!this.scrolling) {
+								this.startLoop(i);
+								this.showScrollbar(i);
+								this.scrollTimer(i);
+							}
+							this.scrolling = true;
+							this.updateTargetY(e.deltaY, i);
+							this.time = 10;
+						}
+					} else if (this.wolfpackHovering[i]) {
+						if (!this.scrolling) {
+							this.startLoopSections(i);
+							this.showScrollbar(i);
+							this.scrollTimerSections(i);
+						}
+						this.scrolling = true;
+						this.updateTargetY(e.deltaY, i);
+						this.time = 10;
 					}
 				}
+			}
+		});
+
+		// Scrollbar dragging
+		if (this.scrollbarThumbList.length !== 0) {
+			for (let i = 0; i < this.scrollbarThumbList.length; i += 1) {
+				this.scrollbarThumbList[i].addEventListener('mousedown', (e) => {
+					if (this.wolfpackSectionList[i].length === 0) {
+						this.wolfpackDragging[i] = true;
+						this.currentMousePosotion = e.clientY;
+						this.showScrollbar(i);
+						document.querySelector('body').classList.add('dragging');
+						document.addEventListener('mousemove', (f) => {
+							if (this.wolfpackDragging[i]) {
+								f.preventDefault();
+								if (!this.scrolling) {
+									this.startLoop(i);
+									this.showScrollbar(i);
+								}
+								this.scrolling = true;
+								this.wolfpackTargetY[i] = parseFloat((document.querySelectorAll('[data-wolfpack]')[i].parentNode.getBoundingClientRect().y - f.clientY) * this.wolfpackHeight[i]) / this.wolfpackParentHeight[i];
+								this.wolfpackTargetY[i] = Math.max((this.wolfpackHeight[i] - this.wolfpackParentHeight[i]) * -1, this.wolfpackTargetY[i]);
+								this.wolfpackTargetY[i] = Math.min(0, this.wolfpackTargetY[i]);
+								this.scrollbarTargetY[i] = Math.abs((this.scrollbarHeight[i] * this.wolfpackTargetY[i]) / this.wolfpackHeight[i]);
+							}
+						});
+					} else {
+						this.wolfpackDragging[i] = true;
+						this.currentMousePosotion = e.clientY;
+						this.showScrollbar(i);
+						document.querySelector('body').classList.add('dragging');
+						document.addEventListener('mousemove', (f) => {
+							if (this.wolfpackDragging[i]) {
+								f.preventDefault();
+								if (!this.scrolling) {
+									this.startLoopSections(i);
+									this.showScrollbar(i);
+								}
+								this.scrolling = true;
+								this.wolfpackTargetY[i] = parseFloat((document.querySelectorAll('[data-wolfpack]')[i].parentNode.getBoundingClientRect().y - f.clientY) * this.wolfpackHeight[i]) / this.wolfpackParentHeight[i];
+								this.wolfpackTargetY[i] = Math.max((this.wolfpackHeight[i] - this.wolfpackParentHeight[i]) * -1, this.wolfpackTargetY[i]);
+								this.wolfpackTargetY[i] = Math.min(0, this.wolfpackTargetY[i]);
+								this.scrollbarTargetY[i] = Math.abs((this.scrollbarHeight[i] * this.wolfpackTargetY[i]) / this.wolfpackHeight[i]);
+							}
+						});
+					}
+				});
+				document.addEventListener('mouseup', () => {
+					this.scrolling = false;
+					this.wolfpackDragging[i] = false;
+					this.hideScrollbar(i);
+					document.querySelector('body').classList.remove('dragging');
+				});
+			}
+		}
+
+		// Position init
+		if (this.locationHash) {
+			window.history.pushState(null, null, '#noscroll');
+			setTimeout(() => {
+				window.history.pushState(null, null, this.locationHash);
+			}, 1);
+			this.locationTop = this.locationElement.getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
+			setTimeout(() => {
+				if (this.wolfpackSectionList[this.wolfpackMainIndex].length === 0) {
+					if (!this.scrolling) {
+						this.startLoop(this.wolfpackMainIndex);
+						this.showScrollbar(this.wolfpackMainIndex);
+						this.scrollTimer(this.wolfpackMainIndex);
+					}
+					this.scrolling = true;
+					this.updateTargetY(-Math.abs(this.locationTop), this.wolfpackMainIndex);
+					this.time = 10;
+				} else {
+					if (!this.scrolling) {
+						this.startLoopSections(this.wolfpackMainIndex);
+						this.showScrollbar(this.wolfpackMainIndex);
+						this.scrollTimerSections(this.wolfpackMainIndex);
+					}
+					this.scrolling = true;
+					this.updateTargetY(-Math.abs(this.locationTop), this.wolfpackMainIndex);
+					this.time = 10;
+				}
+			}, 10);
+		}
+
+		// Anchor init
+		if (this.anchorList.length !== 0) {
+			for (let i = 0; i < this.anchorList.length; i += 1) {
+				this.anchorList[i].addEventListener('click', (e) => {
+					e.preventDefault();
+					if (this.wolfpackSectionList[this.wolfpackMainIndex].length === 0) {
+						if (!this.anchorScrolling) {
+							this.anchorScrolling = true;
+						}
+						if (!this.scrolling) {
+							this.startLoop(this.wolfpackMainIndex);
+							this.showScrollbar(this.wolfpackMainIndex);
+							this.scrollTimer(this.wolfpackMainIndex);
+						}
+						this.scrolling = true;
+						this.updateTargetY(-(this.anchorLocationTop[i] + this.wolfpackCurrentY[this.wolfpackMainIndex]), this.wolfpackMainIndex);
+						this.time = 10;
+					} else {
+						if (!this.anchorScrolling) {
+							this.anchorScrolling = true;
+						}
+						if (!this.scrolling) {
+							this.startLoopSections(this.wolfpackMainIndex);
+							this.showScrollbar(this.wolfpackMainIndex);
+							this.scrollTimerSections(this.wolfpackMainIndex);
+						}
+						this.scrolling = true;
+						this.updateTargetY(-(this.anchorLocationTop[i] + this.wolfpackCurrentY[this.wolfpackMainIndex]), this.wolfpackMainIndex);
+						this.time = 10;
+					}
+				});
+			}
+		}
+
+		// Marquee init
+		if (this.marqueeList.length !== 0) {
+			for (let i = 0; i < this.marqueeList.length; i += 1) {
+				this.marquee(i);
+			}
+		}
+
+		// Separate letters
+		if (this.separateLetterList.length !== 0) {
+			for (let i = 0; i < this.separateLetterList.length; i += 1) {
+				this.separateLetters(i);
+			}
+		}
+
+		// Separate words
+		if (this.separateWordList.length !== 0) {
+			for (let i = 0; i < this.separateWordList.length; i += 1) {
+				this.separateWords(i);
+			}
+		}
+
+		// FORM LABELS
+		if (this.formList.length !== 0) {
+			for (let i = 0; i < this.formList.length; i += 1) {
+				setTimeout(() => {
+					this.formInputSpanList = this.formList[i].querySelectorAll('.ginput_container span');
+					for (let j = 0; j < this.formInputSpanList.length; j += 1) {
+						this.formInputSpan = this.formInputSpanList[j];
+						this.formInputSpan.classList.add('spanDisplay');
+					}
+				}, 100);
+				this.formList[i].addEventListener('focusin', () => {
+					this.formFocusIn(i);
+				});
+				this.formList[i].addEventListener('focusout', () => {
+					if (this.formList[i].querySelector('.ginput_container').classList.contains('ginput_complex')) {
+						if (this.formList[i].querySelector('input').value === '' || this.formList[i].querySelector('input').value === null) {
+							this.formFocusOut(i);
+						}
+					} else if (this.formList[i].querySelector('.ginput_container').classList.contains('ginput_container_textarea')) {
+						if (this.formList[i].querySelector('textarea').value === '' || this.formList[i].querySelector('textarea').value === null) {
+							this.formFocusOut(i);
+						}
+					} else if (this.formList[i].querySelector('.ginput_container').classList.contains('ginput_container_select')) {
+						if (this.formList[i].querySelector('select').value === '' || this.formList[i].querySelector('select').value === null) {
+							this.formFocusOut(i);
+						}
+					} else if (this.formList[i].querySelector('input').value === '' || this.formList[i].querySelector('input').value === null) {
+						this.formFocusOut(i);
+					}
+				});
+			}
+		}
+
+		// CURSOR
+		if (this.cursor) {
+			document.addEventListener('mousemove', (e) => {
+				this.moveCursor(e, this.cursor, this.cursorPointerList, this.cursorTop);
+				clearTimeout(this.cursorTimer);
+				this.cursorTimer = setTimeout(Wolfpack.mouseStopped(this.cursor, this.cursorPointerList), 100);
+			});
+		}
+		if (this.cursorElementList.length !== 0) {
+			for (let i = 0; i < this.cursorElementList.length; i += 1) {
+				if (this.cursor) {
+					this.cursorElement = this.cursorElementList[i];
+					this.cursorClass = this.cursor.classList[0]; // eslint-disable-line
+					this.cursorAttribute[i] = this.cursorElement.getAttribute('data-cursor-class');
+					if (!this.cursorAttribute[i]) {
+						this.cursorElement.addEventListener('mouseover', () => {
+							if (!this.cursor.classList.contains(`${this.cursorClass}--animate`)) {
+								this.cursor.classList.add(`${this.cursorClass}--animate`);
+							}
+						});
+						this.cursorElement.addEventListener('mouseleave', () => {
+							this.cursor.classList.remove(`${this.cursorClass}--animate`);
+						});
+					} else {
+						this.cursorElement.addEventListener('mouseover', () => {
+							if (!this.cursor.classList.contains(`${this.cursorClass}--${this.cursorAttribute[i]}`)) {
+								this.cursor.classList.add(`${this.cursorClass}--${this.cursorAttribute[i]}`);
+							}
+						});
+						this.cursorElement.addEventListener('mouseleave', () => {
+							this.cursor.classList.remove(`${this.cursorClass}--${this.cursorAttribute[i]}`);
+						});
+					}
+				}
+			}
+		}
+	}
+
+	createScrollbar(index) {
+		document.querySelectorAll('[data-wolfpack]')[index].parentNode.innerHTML = this.scrollbarCode + document.querySelectorAll('[data-wolfpack]')[index].parentNode.innerHTML;
+	}
+
+	updateScrollbar(index) {
+		document.querySelectorAll('[data-scrollbar-thumb]')[index].style.height = `${this.scrollbarThumbHeight[index]}px`;
+	}
+
+	scrollTimer(index) {
+		const timer = setInterval(() => {
+			this.time -= 1;
+			if (this.time <= 0) {
+				clearInterval(timer);
+				this.scrolling = false;
+				this.anchorScrolling = false;
+				this.hideScrollbar(index);
+				this.stopLoop(index);
+			}
+		}, 700);
+	}
+
+	scrollTimerSections(index) {
+		const timer = setInterval(() => {
+			this.time -= 1;
+			if (this.time <= 0) {
+				clearInterval(timer);
+				this.scrolling = false;
+				this.anchorScrolling = false;
+				this.hideScrollbar(index);
+				this.stopLoopSections(index);
+			}
+		}, 700);
+	}
+
+	updateTargetY(e, index) {
+		this.wolfpackTargetY[index] += e;
+		this.wolfpackTargetY[index] = Math.max(this.wolfpackScrollLimit[index], this.wolfpackTargetY[index]);
+		this.wolfpackTargetY[index] = Math.min(0, this.wolfpackTargetY[index]);
+		this.scrollbarTargetY[index] = Math.abs((this.scrollbarHeight[index] * this.wolfpackTargetY[index]) / this.wolfpackHeight[index]);
+	}
+
+	showScrollbar(index) {
+		this.scrollbarClass = document.querySelectorAll('[data-scrollbar]')[index].classList[0]; // eslint-disable-line
+		document.querySelectorAll('[data-scrollbar]')[index].classList.add(`${this.scrollbarClass}--show`);
+	}
+
+	hideScrollbar(index) {
+		this.scrollbarClass = document.querySelectorAll('[data-scrollbar]')[index].classList[0]; // eslint-disable-line
+		document.querySelectorAll('[data-scrollbar]')[index].classList.remove(`${this.scrollbarClass}--show`);
+	}
+
+	startLoop(index) {
+		if (!this.wolfpackLoop[index]) {
+			this.wolfpackLoop[index] = window.requestAnimationFrame(() => {
+				this.updateLoop(index);
 			});
 		}
 	}
 
-	static separateLetters(separateLetters) {
-		for (let i = 0; i < separateLetters.length; i += 1) {
-			const separateCharacter = separateLetters[i];
-			let lettersDelay = parseFloat(separateCharacter.getAttribute('data-letters-delay'));
-			if (lettersDelay === null || lettersDelay === '' || Number.isNaN(lettersDelay)) {
-				lettersDelay = 0.05;
-			}
-			let lettersDelayInitial = parseFloat(separateCharacter.getAttribute('data-letters-initial'));
-			if (lettersDelayInitial === null || lettersDelayInitial === '' || Number.isNaN(lettersDelayInitial)) {
-				lettersDelayInitial = 0;
-			}
-			const separateCharacterClass = separateCharacter.className;
-			const separateCharacterHTML = separateCharacter.innerHTML;
-			separateCharacter.innerHTML = '';
-			const separateCharacterLines = separateCharacterHTML.split('<br>');
-			for (let j = 0; j < separateCharacterLines.length; j += 1) {
-				const separateCharacterLine = separateCharacterLines[j];
-				const separateCharacterLetters = separateCharacterLine.split('');
-				let separateCharacterLineContent = '';
-				for (let k = 0; k < separateCharacterLetters.length; k += 1) {
-					const separateCharacterLetter = separateCharacterLetters[k];
-					if (separateCharacterLetter === ' ') {
-						separateCharacterLineContent += `<span class="${separateCharacterClass}-space separate-character__space" style="transition-delay:${lettersDelayInitial}s">${separateCharacterLetter}</span>`;
-					} else {
-						separateCharacterLineContent += `<span class="${separateCharacterClass}-letter separate-character__letter" style="transition-delay:${lettersDelayInitial}s">${separateCharacterLetter}</span>`;
-					}
-					lettersDelayInitial += parseFloat(lettersDelay);
-				}
-				separateCharacter.innerHTML = `${separateCharacter.innerHTML}<div class="${separateCharacterClass}-line separate-character__line">${separateCharacterLineContent}</div>`;
+	stopLoop(index) {
+		if (this.wolfpackLoop[index]) {
+			window.cancelAnimationFrame(this.updateLoop(index));
+			this.wolfpackLoop[index] = undefined;
+		}
+	}
+
+	startLoopSections(index) {
+		if (!this.wolfpackLoop[index]) {
+			this.wolfpackLoop[index] = window.requestAnimationFrame(() => {
+				this.updateLoopSections(index);
+			});
+		}
+	}
+
+	stopLoopSections(index) {
+		if (this.wolfpackLoop[index]) {
+			window.cancelAnimationFrame(this.updateLoopSections(index));
+			this.wolfpackLoop[index] = undefined;
+		}
+	}
+
+	updateCurrentY(index) {
+		this.wolfpackCurrentY[index] += Math.round(((this.wolfpackTargetY[index] - this.wolfpackCurrentY[index]) * this.ease + Number.EPSILON) * 1000) / 1000;
+		this.scrollbarCurrentY[index] += Math.round(((this.scrollbarTargetY[index] - this.scrollbarCurrentY[index]) * this.ease + Number.EPSILON) * 1000) / 1000;
+	}
+
+	updateTransform(index) {
+		if (this.wolfpackCurrentY[index] > -0.5) {
+			this.wolfpackTransform[index] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
+			this.scrollbarTransform[index] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
+		} else {
+			this.wolfpackTransform[index] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${this.wolfpackCurrentY[index]}, 0, 1)`;
+			this.scrollbarTransform[index] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${this.scrollbarCurrentY[index]}, 0, 1)`;
+		}
+		document.querySelectorAll('[data-wolfpack]')[index].style.transform = this.wolfpackTransform[index];
+		document.querySelectorAll('[data-scrollbar-thumb]')[index].style.transform = this.scrollbarTransform[index];
+	}
+
+	updateTransformSections(index) {
+		if (this.wolfpackCurrentY[index] > -0.5) {
+			this.wolfpackTransform[index] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
+			this.scrollbarTransform[index] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
+		} else {
+			this.wolfpackTransform[index] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${this.wolfpackCurrentY[index]}, 0, 1)`;
+			this.scrollbarTransform[index] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${this.scrollbarCurrentY[index]}, 0, 1)`;
+		}
+		document.querySelectorAll('[data-scrollbar-thumb]')[index].style.transform = this.scrollbarTransform[index];
+	}
+
+	detectWolfpackSection(index) {
+		for (let i = 0; i < this.wolfpackSectionList[index].length; i += 1) {
+			if (this.wolfpackScrollPosition[index] + this.windowHeight >= this.wolfpackSectionTopList[index][i] && this.wolfpackScrollPosition[index] - this.windowHeight < this.wolfpackSectionBottomList[index][i]) {
+				document.querySelectorAll('[data-wolfpack-section]')[i].style.transform = this.wolfpackTransform[index];
+				document.querySelectorAll('[data-wolfpack-section]')[i].style.pointerEvents = 'all';
+				document.querySelectorAll('[data-wolfpack-section]')[i].style.opacity = '1';
+			} else {
+				document.querySelectorAll('[data-wolfpack-section]')[i].style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
+				document.querySelectorAll('[data-wolfpack-section]')[i].style.pointerEvents = 'none';
+				document.querySelectorAll('[data-wolfpack-section]')[i].style.opacity = '0';
 			}
 		}
 	}
 
-	static separateWords(separatesWords) {
-		for (let i = 0; i < separatesWords.length; i += 1) {
-			const separateWord = separatesWords[i];
-			let wordsDelay = parseFloat(separateWord.getAttribute('data-words-delay'));
-			if (wordsDelay === null || wordsDelay === '' || Number.isNaN(wordsDelay)) {
-				wordsDelay = 0.05;
+	updateLoop(index) {
+		this.wolfpackLoop[index] = undefined;
+		if (this.scrolling) {
+			this.updateCurrentY(index);
+			this.updateTransform(index);
+			this.updateScrollPosition(index);
+			this.updateDirection(index);
+			this.stay(index);
+			this.headerDisappear(index);
+			this.parallax(index);
+			this.followMe(index);
+			this.animationSequence(index);
+			this.tadam(index);
+			this.changes(index);
+			this.startLoop(index);
+		}
+	}
+
+	updateLoopSections(index) {
+		this.wolfpackLoop[index] = undefined;
+		if (this.scrolling) {
+			this.updateCurrentY(index);
+			this.updateScrollPosition(index);
+			this.updateTransformSections(index);
+			this.detectWolfpackSection(index);
+			this.updateDirection(index);
+			this.staySections(index);
+			this.headerDisappear(index);
+			this.parallax(index);
+			this.followMe(index);
+			this.animationSequence(index);
+			this.tadam(index);
+			this.changes(index);
+			this.startLoopSections(index);
+		}
+	}
+
+	updateDirection(index) {
+		if (Math.abs(this.wolfpackCurrentY[index]) < this.wolfpackLastOffset[index]) {
+			this.wolfpackLastOffset[index] = Math.abs(this.wolfpackCurrentY[index]);
+			this.wolfpackDirection[index] = 'up';
+		} else {
+			this.wolfpackLastOffset[index] = Math.abs(this.wolfpackCurrentY[index]);
+			this.wolfpackDirection[index] = 'down';
+		}
+	}
+
+	updateScrollPosition(index) {
+		this.wolfpackScrollPosition[index] = Math.abs(this.wolfpackCurrentY[index]) + this.windowHeight;
+	}
+
+	stay() {
+		if (this.stayList.length !== 0) {
+			for (let i = 0; i < this.stayList.length; i += 1) {
+				this.stayTransform[i] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex])}, 0, 1)`;
+				document.querySelectorAll('[data-stay]')[i].style.transform = this.stayTransform[i];
 			}
-			let wordsDelayInitial = parseFloat(separateWord.getAttribute('data-words-initial'));
-			if (wordsDelayInitial === null || wordsDelayInitial === '' || Number.isNaN(wordsDelayInitial)) {
-				wordsDelayInitial = 0;
+		}
+	}
+
+	staySections() {
+		if (this.stayList.length !== 0) {
+			for (let i = 0; i < this.stayList.length; i += 1) {
+				this.stayTransform[i] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
+				document.querySelectorAll('[data-stay]')[i].style.transform = this.stayTransform[i];
 			}
-			const separateWordClass = separateWord.className;
-			const separateWordHTML = separateWord.innerHTML;
-			separateWord.innerHTML = '';
-			const separateWordLines = separateWordHTML.split('<br>');
-			for (let j = 0; j < separateWordLines.length; j += 1) {
-				const separateWordLine = separateWordLines[j];
-				const separateWordWords = separateWordLine.split(' ');
-				let separateWordLineContent = '';
-				for (let k = 0; k < separateWordWords.length; k += 1) {
-					const separateWordWord = separateWordWords[k];
-					if (k < separateWordWords.length - 1) {
-						separateWordLineContent += `<span class="${separateWordClass}-word separate-word__word" style="transition-delay: ${wordsDelayInitial}s">${separateWordWord}</span><span class="${separateWordClass}-space separate-word__space"> </span>`;
-					} else {
-						separateWordLineContent += `<span class="${separateWordClass}-word separate-word__word" style="transition-delay: ${wordsDelayInitial}s">${separateWordWord}</span>`;
-					}
-					wordsDelayInitial += parseFloat(wordsDelay);
+		}
+	}
+
+	headerDisappear() {
+		if (this.headerDisappearList.length !== 0) {
+			for (let i = 0; i < this.headerDisappearList.length; i += 1) {
+				if (Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]) >= this.headerDisappearSmall[i]) {
+					document.querySelectorAll('[data-header-disappear]')[i].classList.add(`${this.headerDisappearList[i].classList[0]}--small`);
+				} else {
+					document.querySelectorAll('[data-header-disappear]')[i].classList.remove(`${this.headerDisappearList[i].classList[0]}--small`);
 				}
-				separateWord.innerHTML = `${separateWord.innerHTML}<div class="${separateWordClass}-line separate-word__line">${separateWordLineContent}</div>`;
+				if (Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]) >= this.headerDisappearHide[i]) {
+					if (this.wolfpackDirection[this.wolfpackMainIndex] === 'down') {
+						document.querySelectorAll('[data-header-disappear]')[i].classList.add(`${this.headerDisappearList[i].classList[0]}--hide`);
+					} else {
+						document.querySelectorAll('[data-header-disappear]')[i].classList.remove(`${this.headerDisappearList[i].classList[0]}--hide`);
+					}
+				}
 			}
+		}
+	}
+
+	parallax() {
+		if (this.parallaxList.length !== 0) {
+			for (let i = 0; i < this.parallaxList.length; i += 1) {
+				if (this.wolfpackScrollPosition[this.wolfpackMainIndex] >= this.parallaxTop[i] && this.wolfpackScrollPosition[this.wolfpackMainIndex] < this.parallaxStop[i]) {
+					this.parallaxCurrentPosition[i] = Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]) + this.windowHeight;
+					this.parallaxPositionY[i] = this.parallaxCurrentPosition[i] - this.parallaxTop[i];
+					this.parallaxScrollVariable[i] = this.parallaxPositionY[i] / this.parallaxSpeed[i];
+					this.parallaxTransform[i] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${this.parallaxScrollVariable[i]}, 0, 1)`;
+					document.querySelectorAll('[data-parallax]')[i].style.transform = this.parallaxTransform[i];
+				}
+			}
+		}
+	}
+
+	marquee(index) {
+		document.querySelectorAll('[data-marquee]')[index].innerHTML = this.marqueeNewHTML[index];
+		document.querySelectorAll('[data-marquee]')[index].style.width = '100%';
+		this.marqueeContainerList = document.querySelectorAll('[data-marquee-container]');
+		for (let i = 0; i < this.marqueeContainerList.length; i += 1) {
+			this.marqueeContainerHTML = this.marqueeContainerList[i].innerHTML;
+			document.querySelectorAll('[data-marquee-container]')[i].innerHTML = this.marqueeContainerHTML + this.marqueeContainerHTML;
+		}
+	}
+
+	followMe() {
+		if (this.followMeList.length !== 0) {
+			for (let i = 0; i < this.followMeList.length; i += 1) {
+				this.followMeStart[i] = this.wolfpackScrollPosition[this.wolfpackMainIndex] - this.windowHeight;
+				if (this.followMeStart[i] >= this.followMeTop[i] && this.followMeStart[i] <= this.followMeStop[i]) {
+					this.followMeTransform[i] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]) - this.followMeTop[i]}, 0, 1)`;
+					document.querySelectorAll('[data-follow-me]')[i].style.transform = this.followMeTransform[i];
+				}
+			}
+		}
+	}
+
+	animationSequence() {
+		if (this.animationSequenceList.length !== 0) {
+			for (let i = 0; i < this.animationSequenceList.length; i += 1) {
+				if (this.wolfpackScrollPosition[this.wolfpackMainIndex] >= this.animationSequenceTop[i] && this.wolfpackScrollPosition[this.wolfpackMainIndex] < this.animationSequenceStop[i]) {
+					this.animationPositionY[i] = this.wolfpackScrollPosition[this.wolfpackMainIndex] - this.animationSequenceTop[i];
+					this.animationScrollVariable[i] = this.animationPositionY[i] / this.animationTimeline[i];
+					document.querySelectorAll('[data-animation]')[i].style.setProperty(`--scroll-${i}`, this.animationScrollVariable[i]);
+				}
+			}
+		}
+	}
+
+	tadam() {
+		if (this.tadamList.length !== 0) {
+			for (let i = 0; i < this.tadamList.length; i += 1) {
+				if (this.tadamThreshold[i] === '-1') {
+					document.querySelectorAll('[data-tadam]')[i].classList.add(`${this.tadamList[i].classList[0]}--animate`);
+				} else if (this.wolfpackScrollPosition[this.wolfpackMainIndex] >= this.tadamVisible[i]) {
+					document.querySelectorAll('[data-tadam]')[i].classList.add(`${this.tadamList[i].classList[0]}--animate`);
+				} else if (this.tadamRepeat[i]) {
+					document.querySelectorAll('[data-tadam]')[i].classList.remove(`${this.tadamList[i].classList[0]}--animate`);
+				}
+			}
+		}
+	}
+
+	changes() {
+		if (this.changesList.length !== 0) {
+			for (let i = 0; i < this.changesList.length; i += 1) {
+				if (this.wolfpackScrollPosition[this.wolfpackMainIndex] >= this.changesTop[i] && this.wolfpackScrollPosition[this.wolfpackMainIndex] < this.changesTop[i] + this.changesList[i].offsetHeight) {
+					if (!this.changesActive[i]) {
+						this.changesActive[i] = true;
+						for (let j = 0; j < this.changesElements.length; j += 1) {
+							for (let k = 0; k < this.changesElements[j].length; k += 1) {
+								document.querySelector(this.changesElements[j][k]).classList.remove(`${document.querySelector(this.changesElements[j][k]).classList[0]}--${this.changesClasses[j][k]}`);
+							}
+						}
+						for (let j = 0; j < this.changesElements[i].length; j += 1) {
+							document.querySelector(this.changesElements[i][j]).classList.add(`${document.querySelector(this.changesElements[i][j]).classList[0]}--${this.changesClasses[i][j]}`);
+						}
+					}
+				} else {
+					for (let j = 0; j < this.changesList.length; j += 1) {
+						if (this.changesList[j] === this.changesList[i]) {
+							this.changesActive[i] = false;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	separateLetters(index) {
+		for (let j = 0; j < this.separateLetterLines[index].length; j += 1) {
+			this.separateCharacterLetters = this.separateLetterLines[index][j].split('');
+			this.separateCharacterLineContent = '';
+			for (let k = 0; k < this.separateCharacterLetters.length; k += 1) {
+				this.separateCharacterLetter = this.separateCharacterLetters[k];
+				if (this.separateCharacterLetter === ' ') {
+					this.separateCharacterLineContent += `<span class="${this.separateLetterClass[index]}-space separate-character__space" style="transition-delay:${this.separateLetterInitialDelay[index]}s">${this.separateCharacterLetter}</span>`;
+				} else {
+					this.separateCharacterLineContent += `<span class="${this.separateLetterClass[index]}-letter separate-character__letter" style="transition-delay:${this.separateLetterInitialDelay[index]}s">${this.separateCharacterLetter}</span>`;
+				}
+				this.separateLetterInitialDelay[index] += parseFloat(this.separateLetterDelay[index]);
+			}
+			document.querySelectorAll('[data-letters]')[index].innerHTML = `${this.separateLetterList[index].innerHTML}<div class="${this.separateLetterClass[index]}-line separate-character__line">${this.separateCharacterLineContent}</div>`;
+		}
+	}
+
+	separateWords(index) {
+		for (let j = 0; j < this.separateWordLines[index].length; j += 1) {
+			this.separateWordWords = this.separateWordLines[index][j].split(' ');
+			this.separateWordLineContent = '';
+			for (let k = 0; k < this.separateWordWords.length; k += 1) {
+				this.separateWordWord = this.separateWordWords[k];
+				if (k < this.separateWordWord.length - 1) {
+					this.separateWordLineContent += `<span class="${this.separateWordClass[index]}-word separate-word__word" style="transition-delay: ${this.separateWordInitialDelay[index]}s">${this.separateWordWord}</span><span class="${this.separateWordClass[index]}-space separate-word__space"> </span>`;
+				} else {
+					this.separateWordLineContent += `<span class="${this.separateWordClass[index]}-word separate-word__word" style="transition-delay: ${this.separateWordInitialDelay[index]}s">${this.separateWordWord}</span>`;
+				}
+				this.separateWordInitialDelay[index] += parseFloat(this.separateWordDelay[index]);
+			}
+			document.querySelectorAll('[data-words]')[index].innerHTML += `<div class="${this.separateWordClass[index]}-line separate-word__line">${this.separateWordLineContent}</div>`;
 		}
 	}
 
@@ -647,7 +1182,7 @@ export default class Wolfpack {
 		}
 	}
 
-	static moveCursor(e, cursor, cursorPointers, offsetCursorTop) {
+	moveCursor(e, cursor, cursorPointers, offsetCursorTop) {
 		cursor.classList.add('moving');
 		for (let i = 0; i < cursorPointers.length; i += 1) {
 			const thisCursorPointer = cursorPointers[i];
@@ -683,13 +1218,26 @@ export default class Wolfpack {
 		}
 	}
 
-	static showTadam(tadam) {
-		const tadamClass = tadam.classList[0];
-		tadam.classList.add(`${tadamClass}--animate`);
+	showPageTransition() {
+		document.querySelector('[data-page-transition]').classList.add(`${this.pageTransitionClass}--closed`);
+		this.newDelay = this.pageTransitionDelay + 100;
+		setTimeout(() => {
+			document.querySelector('[data-page-transition]').style.display = 'none';
+		}, this.newDelay);
 	}
 
-	static hideTadam(tadam) {
-		const tadamClass = tadam.classList[0];
-		tadam.classList.remove(`${tadamClass}--animate`);
+	closePageTransition() {
+		document.querySelector('[data-page-transition]').style.display = 'flex';
+		setTimeout(() => {
+			document.querySelector('[data-page-transition]').classList.remove(`${this.pageTransitionClass}--closed`);
+		}, 10);
+	}
+
+	formFocusIn(index) {
+		this.formList[index].classList.add(`${this.formClass[index]}--focus`);
+	}
+
+	formFocusOut(index) {
+		this.formList[index].classList.remove(`${this.formClass[index]}--focus`);
 	}
 }

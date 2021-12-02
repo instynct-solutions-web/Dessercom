@@ -6,26 +6,7 @@ Template Name: Home
 // Load header.php
 get_header(); ?>
 
-<?php
-$hero = get_field('hero');
-
-?>
-<section class="hero-slider">
-    <div class="hero-slider__container">
-        <ul class="hero-slider__list">
-            <?php foreach ($hero['list'] as $item) { ?>
-                <li class="hero-slider__item">
-                    <p class="hero-slider__title"><?= $item['title'] ?></p>
-                    <img class="hero-slider__image" src="<?= $item['image']['url'] ?>" alt="<?= $item['image']['alt'] ?>">
-                </li>
-            <?php
-            } ?>
-        </ul>
-        <div class="hero-slider__illustration">
-            <img src="<?= $hero['illustration']['url'] ?>" alt="<?= $hero['illustration']['alt'] ?>" class="hero-slider__illustration">
-        </div>
-    </div>
-</section>
+<?php get_template_part('modules/md-tilted-slider'); ?>
 
 <?php
 $highlight = get_field('highlight');
