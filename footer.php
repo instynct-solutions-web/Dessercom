@@ -25,7 +25,7 @@ $footer = get_field('footer', 'options');
 </footer>
 </div>
 </div>
-
+</div>
 <?php wp_footer(); ?>
 
 </body>

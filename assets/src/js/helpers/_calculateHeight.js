@@ -5,9 +5,9 @@ export default class CalculateHeight {
 	}
 
 	manageEvents() {
-		const domBody = document.querySelector('body');
-		const scrollContainer = document.querySelector('[data-wolfpack]');
 		// Calculate True 100vh for Mobile on selected element
+		const domBody = document.querySelector('body');
+		domBody.style.height = `${window.innerHeight}px`;
 		if (this.elemCalcMobile.length > 0) {
 			for (let i = 0; i < this.elemCalcMobile.length; i += 1) {
 				this.setHeight(this.elemCalcMobile[i]);
@@ -15,7 +15,6 @@ export default class CalculateHeight {
 		}
 		window.addEventListener('resize', () => {
 			domBody.style.height = `${window.innerHeight}px`;
-			scrollContainer.style.height = `${window.innerHeight}px`;
 			for (let i = 0; i < this.elemCalcMobile.length; i += 1) {
 				this.setHeight(this.elemCalcMobile[i]);
 			}
