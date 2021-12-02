@@ -78,13 +78,13 @@ $support = get_field('support') ?>
 <section class="contact-support">
     <div class="contact-support__container">
         <div class="contact-support__background">
-
             <img class="contact-support__backgound-image" src="<?= $support['background']['url'] ?>" alt="<?= $support['background']['alt'] ?>">
         </div>
         <div class="contact-support__foreground">
             <p class="contact-support__note"><?= $support['note'] ?></p>
-            <div class="contact-support__media">
-                <img class="contact-support__image" src="<?= $support['image']['url']  ?>" alt="<?= $support['image']['alt']  ?>">
+            <div class="contact-support__media mask">
+                <img class="contact-support__image mask__image" src="<?= $support['image']['url']  ?>" alt="<?= $support['image']['alt']  ?>">
+                <div class="contact-support__mask mask__overlay"></div>
             </div>
             <div class="contact-support__info">
                 <h2 class="contact-support__title"><?= $support['title'] ?></h2>
