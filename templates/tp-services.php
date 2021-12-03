@@ -124,7 +124,9 @@ $support = get_field('support') ?>
             </div>
 
         </div>
-        <div class="services-support__animation-container"></div>
+        <div class="services-support__animation-container">
+            <canvas data-canvas-grid class="services-support__canvas"></canvas>
+        </div>
     </div>
 </section>
 
