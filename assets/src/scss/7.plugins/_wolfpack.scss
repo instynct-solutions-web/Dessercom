@@ -16,7 +16,7 @@
 	pointer-events: none;
 }
 
-body {
+body:not(#tinymce) {
 	transition: background-color 0.7s ease;
 	&.dragging {
 		cursor: grabbing;
