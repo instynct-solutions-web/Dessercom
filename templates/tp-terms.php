@@ -9,7 +9,10 @@ get_header(); ?>
 <?php
 $questions = get_field('terms') ?>
 <section class="policies">
-    <img src="<?= $questions['background']['url'] ?>" alt="<?= $questions['background']['alt'] ?>" class="policies__background">
+    <?php if ($questions['background']['url']) { ?>
+        <img src="<?= $questions['background']['url'] ?>" alt="<?= $questions['background']['alt'] ?>" class="policies__background">
+    <?php
+    } ?>
     <div class="policies__container">
         <div class="policies__top">
             <h1 class="policies__title"><?= $questions['title'] ?></h1>
@@ -23,7 +26,6 @@ $questions = get_field('terms') ?>
                     </li>
                 <?php
                 } ?>
-
             </ul>
         </div>
     </div>
