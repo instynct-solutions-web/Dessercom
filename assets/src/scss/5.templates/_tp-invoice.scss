@@ -1,0 +1,43 @@
+// ==========================================================================
+// TEMPLATES - Invoice
+// ==========================================================================
+
+.invoice-form {
+	&__container {
+		@include container;
+	}
+	&__image {
+		display: none;
+	}
+	&__title {
+		width: 100%;
+		padding-right: 25%;
+		padding-bottom: 85px;
+		margin-bottom: 25px;
+		position: relative;
+		&:after {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 100%;
+			background-color: $black;
+			position: absolute;
+			bottom: 0px;
+			left: 0px;
+		}
+	}
+	&__header {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: flex-start;
+		margin-bottom: 40px;
+	}
+	&__header-title {
+		font-size: rem(14);
+		font-weight: 600;
+	}
+	&__header-icon {
+		margin-left: 15px;
+	}
+}

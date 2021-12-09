@@ -71,7 +71,6 @@
 @mixin paragraph {
 	font: 400 rem(16) $font-family-default;
 	line-height: 1em;
-	margin-bottom: 1em;
 	color: $black;
 	@include min-width($mobile-threshold) {
 		font-size: rem(16);

@@ -2,6 +2,9 @@
 // Base - Wrappers
 // ==========================================================================
 
+main {
+	padding-top: $mobile-header-height;
+}
 .container {
 	@include container;
 }
