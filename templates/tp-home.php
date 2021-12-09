@@ -6,7 +6,64 @@ Template Name: Home
 // Load header.php
 get_header(); ?>
 
-<?php get_template_part('modules/md-tilted-slider'); ?>
+
+<?php
+$hero = get_field('hero'); ?>
+<section class="hero-slider">
+    <div class="hero-slider__container">
+        <ul data-hero-slider class="hero-slider__list">
+            <?php foreach ($hero['list'] as $item) { ?>
+                <li class="hero-slider__item">
+                    <img class="hero-slider__image hero-slider__image--tablet" src="<?= $item['image']['url'] ?>" alt="<?= $item['image']['alt'] ?>">
+                    <img class="hero-slider__image" src="<?= $item['image']['url'] ?>" alt="<?= $item['image']['alt'] ?>">
+                    <img class="hero-slider__image hero-slider__image--tablet" src="<?= $item['image']['url'] ?>" alt="<?= $item['image']['alt'] ?>">
+                </li>
+            <?php
+            } ?>
+        </ul>
+        <div class="hero-slider__title-container">
+            <ul data-hero-slider-nav class="hero-slider__title-list">
+                <?php foreach ($hero['list'] as $item) { ?>
+                    <li class="hero-slider__title-item">
+                        <p class="hero-slider__title"><?= $item['title'] ?></p>
+                    </li>
+                <?php } ?>
+            </ul>
+        </div>
+    </div>
+    <div class="hero-slider__button-container">
+        <div data-hero-slider-prev class="hero-slider__nav hero-slider__nav--prev">
+            <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
+                <g id="Groupe_456" data-name="Groupe 456">
+                    <g id="Groupe_454" data-name="Groupe 454">
+                        <path id="Tracé_3" data-name="Tracé 3" d="M7.12,1.41l-5.7,5.7,5.7,5.71" transform="translate(-0.01 -0.41)" style="fill: none;stroke: #e7e7e7;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
+                        <line id="Ligne_1" data-name="Ligne 1" x1="1.41" y1="6.7" x2="19.73" y2="6.7" style="fill: none;stroke: #e7e7e7;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
+                    </g>
+                </g>
+            </svg>
+        </div>
+        <div data-hero-slider-next class="hero-slider__nav hero-slider__nav--next">
+            <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
+                <g id="Groupe_456" data-name="Groupe 456">
+                    <g id="Groupe_454" data-name="Groupe 454">
+                        <path id="Tracé_3" data-name="Tracé 3" d="M14,1l5.7,5.7L14,12.41" transform="translate(-0.41 0)" style="fill: none;stroke: #e7e7e7;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
+                        <line id="Ligne_1" data-name="Ligne 1" x1="19.32" y1="6.7" x2="1" y2="6.7" style="fill: none;stroke: #e7e7e7;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
+                    </g>
+                </g>
+            </svg>
+        </div>
+    </div>
+    <?php
+    if ($hero['illustration']) { ?>
+        <img src="<?= $hero['illustration']['url'] ?>" alt="<?= $hero['illustration']['alt'] ?>" class="hero-slider__illustration">
+    <?php } ?>
+    <div class="hero-slider__indicator">
+        <span class="hero-slider__indicator-bar">
+            <span class="hero-slider__indicator-thumb"></span>
+        </span>
+    </div>
+
+</section>
 
 <?php
 $highlight = get_field('highlight');
