@@ -1,0 +1,154 @@
+// ==========================================================================
+// MIXINS - Forms
+// ==========================================================================
+
+@mixin invoiceForm {
+	.gform_fields {
+		grid-row-gap: 0px !important;
+	}
+	.gfield:nth-of-type(13) .ginput_full:nth-of-type(1) {
+		border: 1px solid $black;
+		border-bottom: 0px;
+		.StripeElement {
+			border: 0px;
+		}
+		label {
+			display: none !important;
+		}
+	}
+	.address_country,
+	.address_zip,
+	.address_state,
+	.address_city,
+	.address_line_2,
+	.address_line_1,
+	.gfield:nth-of-type(13) .ginput_full:nth-of-type(2) {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: flex-start;
+		position: relative;
+		border: 1px solid $black;
+		border-bottom: 0px;
+		padding: 0 !important;
+		margin: 0 !important;
+		label {
+			font-size: rem(13) !important;
+			font-weight: 500 !important;
+			margin-bottom: 0px !important;
+			padding: 0 !important;
+			position: absolute;
+			left: 20px;
+		}
+	}
+	.gfield {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: flex-start;
+		position: relative;
+		border: 1px solid $black;
+		padding: 0 !important;
+		&:nth-of-type(1) {
+			border-bottom: 0px;
+		}
+		&:nth-of-type(3) {
+			display: none;
+		}
+		&:nth-of-type(4) {
+			border: none;
+			margin-top: 80px;
+			.gsection_title {
+				width: 100%;
+				font-size: rem(14);
+				font-weight: 600;
+				margin-bottom: 40px;
+				padding-top: 25px;
+				position: relative;
+				&:after {
+					content: '';
+					display: block;
+					width: 100%;
+					height: 1px;
+					background-color: $black;
+					position: absolute;
+					top: 0px;
+					left: 0px;
+				}
+			}
+		}
+		&:nth-of-type(5),
+		&:nth-of-type(6),
+		&:nth-of-type(7),
+		&:nth-of-type(8),
+		&:nth-of-type(9),
+		&:nth-of-type(10) {
+			border-bottom: 0px;
+		}
+		&:nth-of-type(12) {
+			border: none;
+			margin-top: 80px;
+			.gsection_title {
+				width: 100%;
+				font-size: rem(14);
+				font-weight: 600;
+				margin-bottom: 40px;
+				padding-top: 25px;
+				position: relative;
+				&:after {
+					content: '';
+					display: block;
+					width: 100%;
+					height: 1px;
+					background-color: $black;
+					position: absolute;
+					top: 0px;
+					left: 0px;
+				}
+			}
+		}
+		&:nth-of-type(13) {
+			border: 0px !important;
+			.gfield_label {
+				display: none !important;
+			}
+		}
+		legend {
+			display: none !important;
+		}
+	}
+	.gfield_label {
+		font-size: rem(13) !important;
+		font-weight: 500 !important;
+		margin-bottom: 0px !important;
+		position: absolute;
+		left: 20px;
+		.gfield_required {
+			display: none;
+		}
+	}
+	.ginput_container {
+		width: 100%;
+		input,
+		select {
+			font-size: rem(13) !important;
+			font-weight: 500 !important;
+			line-height: 2 !important;
+			padding: 20px !important;
+		}
+	}
+	.gform_footer {
+		margin: 0 !important;
+		padding: 0 !important;
+		.gform_button {
+			color: $white;
+			font-size: rem(13);
+			font-weight: 600;
+			line-height: 2;
+			text-align: left;
+			padding: 20px;
+			width: 100%;
+			background-color: $teal;
+		}
+	}
+}

@@ -78,7 +78,6 @@ $transport = get_field('transport') ?>
                         <path id="Ligne_1" data-name="Ligne 1" d="M0,29.316a1.5,1.5,0,0,1-1.5-1.5V0A1.5,1.5,0,0,1,0-1.5,1.5,1.5,0,0,1,1.5,0V27.816A1.5,1.5,0,0,1,0,29.316Z" transform="translate(10.703 0)" fill="#008884" />
                     </g>
                 </svg>
-                </span>
             </a>
         </div>
         <div class="pricing-transport__main">

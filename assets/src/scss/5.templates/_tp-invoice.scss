@@ -9,10 +9,33 @@
 	&__image {
 		display: none;
 	}
+	&__cta {
+		display: inline-flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		width: 100px;
+		height: 100px;
+		position: absolute;
+		top: 0px;
+		right: 20px;
+		z-index: 1;
+	}
+	&__cta-text {
+		font-size: rem(11);
+		font-weight: 500;
+		color: $black;
+	}
+	&__cta-icon {
+		position: absolute;
+		transform-origin: center;
+		transform: rotate(225deg) translate(-2px, -2px);
+	}
 	&__title {
 		width: 100%;
 		padding-right: 25%;
 		padding-bottom: 85px;
+		padding-top: 75px;
 		margin-bottom: 25px;
 		position: relative;
 		&:after {
@@ -39,5 +62,8 @@
 	}
 	&__header-icon {
 		margin-left: 15px;
+	}
+	&__body {
+		@include invoiceForm;
 	}
 }
