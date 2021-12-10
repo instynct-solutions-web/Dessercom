@@ -115,4 +115,22 @@
 		letter-spacing: rem(-1.6);
 		color: $navy;
 	}
+	&__image-container {
+		position: relative;
+	}
+	&__image {
+		position: absolute;
+		top: 0;
+		object-fit: cover;
+		height: 99%;
+	}
+	&__mask {
+		display: flex;
+		z-index: 1;
+		position: relative;
+		polygon,
+		path {
+			fill: $white;
+		}
+	}
 }

@@ -75,7 +75,7 @@ $highlight = get_field('highlight');
         </div>
         <div class="home-highlight__image-container">
             <img class="home-highlight__image" src="<?= $highlight['image']['url']  ?>" alt="<?= $highlight['image']['alt'] ?>">
-            <div class="philanthropy-house__mask">
+            <div class="home-highlight__mask">
                 <svg class="pricing-transport__mask" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 335.4 302.3">
                     <polygon class="cls-1" points="213.3 160.5 214 160.5 214 160.3 213.6 160 213.3 160.5" />
                     <polygon class="cls-1" points="123.1 160.5 123.4 160.5 123.1 159.8 123.1 160.5" />
