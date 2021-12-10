@@ -1,0 +1,293 @@
+// ==========================================================================
+// TEMPLATES - About
+// ==========================================================================
+
+.about-philosophy {
+	background-color: $gray;
+	&__container {
+		@include container;
+		padding-top: 50px;
+		padding-bottom: 100px;
+	}
+	&__aside {
+		padding-top: 40px;
+		margin-bottom: 50px;
+		position: relative;
+		&:before {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 1px;
+			background-color: $black;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+	}
+	&__note {
+		font-size: rem(14);
+		font-weight: 500;
+		width: 40%;
+	}
+	&__text {
+		font-size: rem(20);
+		font-weight: 500;
+		line-height: 1.5;
+		color: $teal;
+	}
+}
+
+.about-mission {
+	&__container {
+		@include container;
+		padding-top: 40px;
+		padding-bottom: 120px;
+	}
+	&__top {
+		position: relative;
+		padding-top: 40px;
+		margin-bottom: 80px;
+		&:after {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 1px;
+			background-color: $black;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+	}
+	&__note {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		font-size: rem(14);
+		font-weight: 500;
+	}
+	&__icon {
+		margin-right: 10px;
+		position: relative;
+		transform: translateY(-3px);
+	}
+	&__item {
+		width: 100%;
+		margin-bottom: 50px;
+		&:last-of-type {
+			margin-bottom: 0px;
+		}
+	}
+	&__counter {
+		font-size: rem(100);
+		font-weight: 500;
+		color: $gray;
+		opacity: 0.5;
+		margin-bottom: 10px;
+	}
+	&__title {
+		font-size: rem(40);
+		font-weight: 500;
+		color: $navy;
+		margin-bottom: 15px;
+	}
+	&__text {
+		font-size: rem(13);
+		font-weight: 500;
+		color: $navy;
+		line-height: 1.5;
+	}
+}
+
+.about-history {
+	background-color: $navy;
+	&__container {
+		@include container;
+		padding-top: 75px;
+		padding-bottom: 60px;
+	}
+	&__title {
+		font-size: rem(26);
+		font-weight: 500;
+		color: $white;
+		line-height: 1.4;
+		margin-bottom: 60px;
+	}
+	&__dates {
+		margin-bottom: 15px;
+	}
+	&__date-list {
+		margin-left: 10%;
+		.flickity-viewport {
+			overflow: visible;
+		}
+	}
+	&__date-item {
+		margin-right: 20px;
+		&.is-selected {
+			.about-history {
+				&__year {
+					font-size: rem(55);
+					color: $white;
+					opacity: 1;
+				}
+			}
+		}
+	}
+	&__year {
+		font-size: rem(30);
+		font-weight: 500;
+		color: $gray;
+		opacity: 0.5;
+	}
+	&__media {
+		margin-bottom: 35px;
+	}
+	&__media-list {
+		.flickity-viewport {
+			overflow: visible;
+		}
+	}
+	&__media-item {
+		width: 100%;
+		margin-right: 25%;
+	}
+	&__media-background {
+		display: none;
+	}
+	&__media-foreground {
+		width: calc(100% + 40px);
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		transform: translateX(-40px);
+	}
+	&__foreground-image {
+		width: calc(100% - 2px);
+		height: calc(100% - 2px);
+		object-fit: cover;
+		object-position: center;
+		position: absolute;
+	}
+	&__foreground-mask {
+		position: relative;
+		width: 100%;
+		fill: $navy;
+	}
+	&__content {
+		margin-bottom: 50px;
+	}
+	&__content-list {
+		.flickity-viewport {
+			overflow: visible;
+		}
+	}
+	&__content-item {
+		width: 100%;
+		margin-right: 16.66666%;
+	}
+	&__content-title {
+		font-size: rem(30);
+		font-weight: 500;
+		line-height: 1.2;
+		color: $white;
+		margin-bottom: 30px;
+		width: 83.33333%;
+	}
+	&__content-text {
+		font-size: rem(13);
+		font-weight: 500;
+		line-height: 1.5;
+		color: $white;
+		width: 83.33333%;
+	}
+	&__button-container {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		margin-bottom: 80px;
+	}
+	&__nav {
+		background-color: $teal;
+		height: rem(35);
+		width: rem(35);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		margin-right: 1em;
+		svg {
+			width: 60%;
+		}
+	}
+	&__line {
+		display: block;
+		width: 100%;
+		height: 1px;
+		background-color: $white;
+	}
+}
+
+.about-funding {
+	position: relative;
+	&__container {
+		@include container;
+		padding-top: 100px;
+		padding-bottom: 120px;
+	}
+	&__background {
+		width: 75%;
+		top: 70px;
+		right: 0px;
+		position: absolute;
+	}
+	&__canvas {
+		display: none;
+	}
+	&__motif {
+		width: 100%;
+	}
+	&__foreground {
+		position: relative;
+		z-index: 1;
+	}
+	&__info {
+		margin-bottom: 60px;
+	}
+	&__title {
+		font-size: rem(30);
+		font-weight: 500;
+		color: $navy;
+		margin-bottom: 40px;
+	}
+	&__text {
+		font-size: rem(13);
+		font-weight: 500;
+		line-height: 1.5;
+	}
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 30px;
+		width: 80%;
+		margin: 0 10%;
+	}
+	&__logo {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	&__link {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: flex-start;
+		font-size: rem(13);
+		font-weight: 500;
+		color: $navy;
+	}
+	&__link-icon {
+		margin-left: 10px;
+		transform: rotate(-135deg) translate(1px, 1px);
+	}
+}

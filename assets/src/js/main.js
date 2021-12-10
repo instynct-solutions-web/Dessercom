@@ -3,6 +3,8 @@ import CalculateHeight from './helpers/_calculateHeight';
 import Wolfpack from './libraries/_wolfpack';
 import CircleText from './modules/_circleText';
 import Menu from './modules/_menu';
+import HistorySlider from './modules/_historySlider';
+import TermsPolicies from './modules/_termsPolicies';
 
 const App = {
 	/**
@@ -17,6 +19,10 @@ const App = {
 		const circleText = new CircleText();
 		// Menu Scripts
 		const menu = new Menu();
+		// History Slider Scripts
+		const historySlider = new HistorySlider();
+		// TermsPolicies Scripts
+		const termsPolicies = new TermsPolicies();
 	},
 };
 

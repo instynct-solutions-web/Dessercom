@@ -74,6 +74,7 @@
 		"flickity-as-nav-for": "^2.0.1",
 		"flickity-fade": "^1.0.0",
 		"flickity-imagesloaded": "^2.0.0",
+		"flickity-sync": "^2.0.0",
 		"gsap": "^3.7.0",
 		"jquery": "3.6.0",
 		"jquery-bridget": "^3.0.0",

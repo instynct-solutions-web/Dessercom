@@ -1,0 +1,44 @@
+// ==========================================================================
+// MODULES - Titled Slider
+// ==========================================================================
+
+.hero-slider {
+	&__container {
+		@include container;
+		height: 500px;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+	}
+	&__title {
+		font-size: rem(38);
+		font-weight: 500;
+		color: $white;
+		text-align: center;
+		position: relative;
+		z-index: 1;
+	}
+	&__list {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		height: 100%;
+		width: 320%;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		transform: translateX(-35.55555%) rotate(-1deg);
+	}
+	&__item {
+		height: 100%;
+		width: 33.33333%;
+	}
+	&__image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+}

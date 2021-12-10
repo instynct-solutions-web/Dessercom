@@ -1,0 +1,42 @@
+// ==========================================================================
+// MIXINS - Filters
+// ==========================================================================
+
+@mixin faqFilters {
+	.sf-field-taxonomy-groupe {
+		padding: 0;
+	}
+	.sf-level-0 {
+		padding: 0;
+		margin-bottom: 20px;
+		&:last-of-type {
+			margin-bottom: 0px;
+		}
+		&.sf-option-active {
+			.sf-label-radio {
+				opacity: 1;
+			}
+		}
+	}
+	.sf-input-radio {
+		opacity: 0;
+		position: absolute;
+		pointer-events: none;
+	}
+	.sf-label-radio {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		padding-left: 0 !important;
+		font-size: rem(19);
+		font-weight: 500;
+		color: $white;
+		opacity: 0.3;
+	}
+	.sf-count {
+		font-size: rem(13);
+		font-weight: 400;
+		padding-left: 0px !important;
+		margin-left: 5px;
+	}
+}
