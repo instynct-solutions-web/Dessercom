@@ -1,6 +1,6 @@
 import Flickity from 'flickity';
-import 'flickity-as-nav-for';
-import 'flickity-fade';
+// import 'flickity-as-nav-for';
+import 'flickity-sync';
 import 'flickity-imagesloaded';
 
 export default class HeroSlider {
@@ -17,9 +17,10 @@ export default class HeroSlider {
 	manageEvents() {
 		// All Dom events goes here
 		if (this.slider) {
+			console.log('test');
 			this.flkty = new Flickity(this.slider, {
 				// options
-				asNavFor: this.sliderNav,
+				sync: this.sliderNav,
 				wrapAround: true,
 				imagesLoaded: true,
 				draggable: true,
@@ -27,7 +28,6 @@ export default class HeroSlider {
 				prevNextButtons: false,
 			});
 			this.asNavFor = new Flickity(this.sliderNav, {
-				asNavFor: this.slider,
 				wrapAround: true,
 				draggable: false,
 				pageDots: false,

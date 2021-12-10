@@ -105,3 +105,14 @@
 		overflow: visible;
 	}
 }
+
+.home-highlight {
+	&__top-container {
+		@include container;
+	}
+	&__text {
+		font-size: rem(40);
+		letter-spacing: rem(-1.6);
+		color: $navy;
+	}
+}
