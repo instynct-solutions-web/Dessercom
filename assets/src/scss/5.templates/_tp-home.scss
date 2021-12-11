@@ -38,6 +38,7 @@
 	&__list {
 		transform: rotate(-5deg);
 		width: 200vw;
+		margin-bottom: 2em;
 	}
 	&__item {
 		width: 200%;
@@ -47,7 +48,7 @@
 		align-items: center;
 	}
 	&__image {
-		height: 100%;
+		width: 100%;
 		object-fit: cover;
 		&--tablet {
 			display: none;
@@ -107,6 +108,7 @@
 }
 
 .home-highlight {
+	padding: 3em 0;
 	&__top-container {
 		@include container;
 	}
@@ -116,13 +118,19 @@
 		color: $navy;
 	}
 	&__image-container {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
 		position: relative;
+		width: 115vw;
 	}
 	&__image {
-		position: absolute;
-		top: 0;
+		width: calc(100% - 2px);
+		height: calc(100% - 2px);
 		object-fit: cover;
-		height: 99%;
+		object-position: center;
+		position: absolute;
 	}
 	&__mask {
 		display: flex;
@@ -132,5 +140,19 @@
 		path {
 			fill: $white;
 		}
+	}
+	&__bottom-container {
+		margin-top: 1em;
+		@include container;
+	}
+	&__note-wrapper {
+		padding: 1em 0;
+		display: flex;
+		justify-content: space-between;
+		border-top: 1px $gray solid;
+	}
+	&__note {
+		color: $navy;
+		font-size: rem(14);
 	}
 }

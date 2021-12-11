@@ -28,8 +28,9 @@ export default class HeroSlider {
 				prevNextButtons: false,
 			});
 			this.asNavFor = new Flickity(this.sliderNav, {
+				sync: this.slider,
 				wrapAround: true,
-				draggable: false,
+				draggable: true,
 				pageDots: false,
 				prevNextButtons: false,
 			});
