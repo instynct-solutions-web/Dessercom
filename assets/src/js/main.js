@@ -2,7 +2,7 @@
 import CalculateHeight from './helpers/_calculateHeight';
 import Wolfpack from './libraries/_wolfpack';
 import HeroSlider from './modules/_heroSlider';
-
+import VideoToggle from './modules/_videoToggle';
 const App = {
 	/**
 	 * App.init
@@ -14,6 +14,8 @@ const App = {
 		const wolfpack = new Wolfpack();
 
 		const heroSlider = new HeroSlider();
+
+		const videoToggle = new VideoToggle();
 	},
 };
 

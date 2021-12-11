@@ -110,11 +110,20 @@ $services = get_field('services');
         </div>
         <div class="home-services__foreground">
             <div class="home-services__info">
-                <h2 class="home-services__note"><?= $services['note'] ?></h2>
+                <h2 class="home-services__note"><?= $services['top_note'] ?></h2>
                 <ul class="home-services__list">
                     <?php foreach ($services['list'] as $item) { ?>
                         <li class="home-services__item">
-                            <a href="<?= $item['link']['url'] ?>" class="home-services__link"><?= $item['link']['title'] ?></a>
+                            <a href="<?= $item['link']['url'] ?>" class="home-services__link"><?= $item['link']['title'] ?>
+                                <span class="home-services__arrow">
+                                    <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.19 14.19">
+                                        <g id="Groupe_789" data-name="Groupe 789">
+                                            <path id="Tracé_3" data-name="Tracé 3" d="M13.42,11.71V2.28H4" transform="translate(-0.74 -0.78)" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3px" />
+                                            <line id="Ligne_1" data-name="Ligne 1" x1="12.69" y1="1.5" x2="1.5" y2="12.69" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-miterlimit: 9.99999982885729;stroke-width: 3px" />
+                                        </g>
+                                    </svg>
+                                </span>
+                            </a>
                         </li>
                     <?php
                     } ?>
@@ -136,10 +145,10 @@ $services = get_field('services');
 <?php $promo = get_field('promo') ?>
 <section data-cursor-class="video" data-cursor data-cursor-text="<?= $promo['text'] ?>" class="home-promo">
     <div class="home-promo__container">
-        <ul class="home-promo__list">
+        <ul data-video-overlay class="home-promo__list">
             <?php foreach ($promo['list'] as $list) { ?>
                 <li class="home-promo__item">
-                    <ul class="home-promo__word-list">
+                    <ul data-marquee data-marquee-speed="60" class="home-promo__word-list">
                         <?php foreach ($list['adjectives_list'] as $item) { ?>
                             <li class="home-promo__word"><?= $item['adjective'] ?></li>
                         <?php
@@ -149,8 +158,14 @@ $services = get_field('services');
             <?php
             } ?>
         </ul>
-        <div class="home-promo__container">
+        <div class="home-promo__video-container">
             <?= $promo['video'] ?>
+        </div>
+        <div data-video-button class="home-promo__video-button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 15">
+                <path id="Polygone_14" data-name="Polygone 14" d="M6.674,1.212a1,1,0,0,1,1.652,0l5.608,8.225A1,1,0,0,1,13.108,11H1.892a1,1,0,0,1-.826-1.563Z" transform="translate(11) rotate(90)" fill="#00938f" />
+            </svg>
+
         </div>
     </div>
 </section>
@@ -161,6 +176,9 @@ $commitments = get_field('commitment');
 <section class="home-commitment">
     <div class="home-commitment__container">
         <div class="home-commitment__top">
+            <svg class="home-commitment__icon" viewBox="0 0 786.511 708.195">
+                <path id="mat-napo-ejWJ3a92FEs-unsplash" d="M12.3,656.391c30.132,52.726,105.531,66.393,168.567,30.479,5.2-3.011,212.447-122.342,212.447-122.342l-.213-.346L604.991,687.563c62.77,36.367,138.3,23.392,168.78-28.96v-.133c30.48-52.459,4.4-124.527-58.268-161.027-4.981-2.771-196.594-113.071-211.54-121.623v.559h-1.626l.693-1.146.933.586V131.268C503.963,58.747,454.727,0,394.036,0,333.317,0,284.082,58.747,284.082,131.268c0,5.675,1.039,222.545,1.173,243.512l.905,1.6h-.905v-1.6l-.134-.24L72.087,495.817C9.052,531.731-17.7,603.559,12.3,656.391Z" transform="translate(0)" fill="#00938f" />
+            </svg>
             <h2 class="home-commitment__note"><?= $commitments['top_note'] ?></h2>
         </div>
         <div class="home-commitment__main">
@@ -177,9 +195,10 @@ $commitments = get_field('commitment');
                 } ?>
             </ul>
         </div>
-        <div class="home-commitment__bottom">
-            <img src="<?= $commitments['image']['url'] ?>" alt="<?= $commitments['image']['alt'] ?>" class="home-commitment__image">
-        </div>
+
+    </div>
+    <div class="home-commitment__bottom">
+        <img src="<?= $commitments['image']['url'] ?>" alt="<?= $commitments['image']['alt'] ?>" class="home-commitment__image">
     </div>
 </section>
 
@@ -187,6 +206,9 @@ $commitments = get_field('commitment');
 <section class="home-social">
     <div class="home-social__container">
         <div class="home-social__title-container">
+            <svg class="home-social__icon" viewBox="0 0 786.511 708.195">
+                <path id="mat-napo-ejWJ3a92FEs-unsplash" d="M12.3,656.391c30.132,52.726,105.531,66.393,168.567,30.479,5.2-3.011,212.447-122.342,212.447-122.342l-.213-.346L604.991,687.563c62.77,36.367,138.3,23.392,168.78-28.96v-.133c30.48-52.459,4.4-124.527-58.268-161.027-4.981-2.771-196.594-113.071-211.54-121.623v.559h-1.626l.693-1.146.933.586V131.268C503.963,58.747,454.727,0,394.036,0,333.317,0,284.082,58.747,284.082,131.268c0,5.675,1.039,222.545,1.173,243.512l.905,1.6h-.905v-1.6l-.134-.24L72.087,495.817C9.052,531.731-17.7,603.559,12.3,656.391Z" transform="translate(0)" fill="#00938f" />
+            </svg>
             <h3 class="home-social__title"><?= $social['title'] ?></h3>
         </div>
         <div class="home-social__feed"></div>

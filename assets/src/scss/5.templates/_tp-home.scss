@@ -156,3 +156,153 @@
 		font-size: rem(14);
 	}
 }
+.home-services {
+	background-color: $navy;
+	padding: 2em 0;
+	&__container {
+		@include container;
+	}
+	&__note {
+		@include note;
+		color: $white;
+		max-width: rem(150);
+	}
+	&__list {
+		padding: 2em 0;
+		border-bottom: 1px $teal solid;
+	}
+	&__link {
+		padding: 1em 0.5em;
+		display: block;
+		color: white;
+		font-size: rem(30);
+		display: flex;
+		justify-content: space-between;
+	}
+	&__arrow {
+		display: block;
+		height: rem(17);
+		svg {
+			height: 100%;
+		}
+	}
+	&__background,
+	&__media {
+		display: none;
+	}
+}
+.home-promo {
+	&__container {
+		position: relative;
+	}
+	&__list {
+		padding: 2em 0;
+		background-color: $gray;
+		position: absolute;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		opacity: 1;
+		transition: 0.2s opacity ease-in-out;
+		&--hide {
+			opacity: 0;
+			pointer-events: none;
+		}
+	}
+	&__word {
+		font-size: rem(83);
+		color: $white;
+	}
+	&__video-button {
+		position: absolute;
+		bottom: 10%;
+		right: 10%;
+		/* z-index: 3; */
+		height: rem(50);
+		width: rem(50);
+		background-color: yellow;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		svg {
+			height: rem(20);
+		}
+	}
+}
+
+.home-commitment {
+	padding: 2em 0 0 0;
+	background-color: $navy;
+	&__container {
+		@include container;
+	}
+	&__top {
+		border-top: 1px $gray solid;
+		padding: 2em 0;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+	&__icon {
+		height: rem(15);
+	}
+	&__note {
+		@include note;
+		color: $white;
+		margin-bottom: 0;
+		margin-top: 0.5em;
+		margin-left: 0.5em;
+	}
+	&__text {
+		color: $white;
+		font-size: rem(20);
+		line-height: 1.5em;
+	}
+	&__list {
+		padding: 2em 0 4em 0;
+	}
+	&__item {
+		padding: 1.5em 0;
+		border-bottom: $gray solid 1px;
+		width: 90%;
+	}
+	&__item-text {
+		font: 500 rem(17) $font-family-default;
+		color: $white;
+	}
+	&__bottom {
+		height: 40vh;
+		position: relative;
+		width: 100%;
+	}
+	&__image {
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+	}
+}
+
+.home-social {
+	padding: 3em 0;
+	&__container {
+		@include container;
+	}
+	&__title-container {
+		padding: 2em 0;
+		border-top: 1px solid $black;
+		display: flex;
+		align-items: baseline;
+		justify-content: flex-start;
+	}
+	&__title {
+		font-size: rem(18);
+		line-height: 1.5em;
+		margin-left: 1em;
+	}
+	&__icon {
+		width: rem(15);
+		flex-shrink: 0;
+	}
+}

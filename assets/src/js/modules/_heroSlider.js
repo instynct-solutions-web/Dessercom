@@ -17,7 +17,6 @@ export default class HeroSlider {
 	manageEvents() {
 		// All Dom events goes here
 		if (this.slider) {
-			console.log('test');
 			this.flkty = new Flickity(this.slider, {
 				// options
 				sync: this.sliderNav,
