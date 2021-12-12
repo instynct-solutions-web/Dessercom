@@ -52,6 +52,33 @@
 	}
 }
 
+@mixin button-outline {
+	background-color: transparent;
+	display: inline-flex;
+	margin: 1em 0;
+	padding: 1.3em 1.5em;
+	font-size: 13px;
+	font-weight: 500;
+	color: $navy;
+	align-items: baseline;
+	justify-content: space-between;
+	border: 1px solid $navy;
+	color: $navy;
+	&::after {
+		content: '';
+		min-width: 10px;
+		width: 15px;
+		height: 15px;
+		flex-shrink: 0;
+		display: block;
+		background-image: url('../svg/arrow-teal.svg');
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		margin-left: 1em;
+	}
+}
+
 @mixin button-download {
 	background-color: $navy;
 	display: inline-flex;
