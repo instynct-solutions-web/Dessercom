@@ -305,4 +305,7 @@
 		width: rem(15);
 		flex-shrink: 0;
 	}
+	&__feed {
+		@include container;
+	}
 }

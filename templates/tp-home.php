@@ -211,7 +211,9 @@ $commitments = get_field('commitment');
             </svg>
             <h3 class="home-social__title"><?= $social['title'] ?></h3>
         </div>
-        <div class="home-social__feed"></div>
+        <div class="home-social__feed">
+            <?php echo do_shortcode('[custom-facebook-feed feed=1]') ?>
+        </div>
     </div>
 </section>
 <?php
