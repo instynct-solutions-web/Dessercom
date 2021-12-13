@@ -1,0 +1,269 @@
+// ==========================================================================
+// TEMPLATES - Job
+// ==========================================================================
+
+.jobs-hero {
+	position: relative;
+	&__container {
+		@include container;
+		padding-bottom: 150px;
+	}
+	&__info {
+		margin-bottom: 30px;
+	}
+	&__link {
+		display: inline-block;
+		font-size: rem(13);
+		font-weight: 500;
+		color: $black;
+		opacity: 0.3;
+		padding: 0 20px 15px 20px;
+		position: relative;
+		margin-bottom: 50px;
+		&:after {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 100%;
+			background-color: $black;
+			position: absolute;
+			left: 0px;
+			bottom: 0px;
+		}
+	}
+	&__link-icon {
+		position: relative;
+		top: 3px;
+		margin-right: 10px;
+	}
+	&__title {
+		font-size: rem(42);
+		font-weight: 500;
+		color: $navy;
+		word-break: break-all;
+		margin-bottom: 10px;
+	}
+	&__subtitle {
+		font-size: rem(13);
+		font-weight: 500;
+		color: $navy;
+		line-height: 1.5;
+	}
+	&__image {
+		width: 100%;
+		transform: translateX(-40px);
+	}
+	&__background-image {
+		position: absolute;
+		transform-origin: center;
+		transform: rotate(240deg);
+		bottom: 50px;
+		right: -20%;
+	}
+}
+
+.jobs-benefits {
+	position: relative;
+	&__sector-list {
+		margin-bottom: 80px;
+	}
+	&__sector-item {
+		margin-bottom: 15px;
+		&:last-of-type {
+			margin-bottom: 0px;
+		}
+		&--selected {
+			.jobs-benefits {
+				&__sector-button {
+					background-color: #4a5c6d;
+				}
+			}
+		}
+	}
+	&__sector-button {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		justify-content: space-between;
+		width: 66.66666%;
+		padding: 15px;
+		border: 1px solid $white;
+	}
+	&__sector-text {
+		font-size: rem(13);
+		font-weight: 500;
+		line-height: 1.4;
+		color: $white;
+		width: 33.33333%;
+	}
+	&__sector-icon {
+		transform-origin: center;
+		transform: rotate(225deg);
+	}
+	&__single-list {
+		display: none;
+		&--selected {
+			display: block;
+		}
+	}
+	&__subtext {
+		font-size: rem(14);
+		font-weight: 500;
+		line-height: 1.4;
+		color: $white;
+		margin-top: 20px;
+	}
+	&__icon {
+		position: absolute;
+		top: 40px;
+		right: 20px;
+	}
+}
+
+.jobs-description {
+	&__container {
+		@include container;
+		padding-top: 50px;
+		padding-bottom: 80px;
+	}
+	&__top {
+		padding-top: 40px;
+		margin-bottom: 60px;
+		position: relative;
+		&:after {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 100%;
+			background-color: $navy;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+	}
+	&__note {
+		font-size: rem(14);
+		font-weight: 500;
+		color: $navy;
+		line-height: 1.5;
+		width: 33.33333%;
+	}
+	&__information {
+		margin-bottom: 50px;
+	}
+	&__information-title {
+		font-size: rem(30);
+		font-weight: 500;
+		color: $navy;
+		margin-bottom: 40px;
+	}
+	&__text {
+		font-size: rem(13);
+		font-weight: 500;
+		line-height: 1.5;
+		color: $navy;
+		margin-bottom: 30px;
+	}
+	&__image,
+	&__image-large {
+		width: calc(100% + 32px);
+		transform: translateX(-16px);
+		margin: 30px 0;
+	}
+	&__requirement-title {
+		margin-top: 20px;
+		font-size: rem(20);
+		font-weight: 500;
+		color: $navy;
+		margin-bottom: 30px;
+	}
+	&__experience,
+	&__formation {
+		margin-bottom: 30px;
+	}
+	&__skills {
+		margin-bottom: 60px;
+	}
+	&__experience-title,
+	&__formation-title,
+	&__skills-title,
+	&__schedule-title {
+		font-size: rem(15);
+		font-weight: 500;
+		color: $navy;
+		margin-bottom: 10px;
+	}
+	&__experience-text,
+	&__formation-text,
+	&__schedule-text {
+		font-size: rem(13);
+		font-weight: 500;
+		line-height: 1.5;
+		color: $navy;
+	}
+	&__schedule-subtext {
+		font-size: rem(11);
+		font-weight: 500;
+		line-height: 1.5;
+		color: $navy;
+		margin-top: 15px;
+	}
+	&__skills-item {
+		font-size: rem(13);
+		font-weight: 500;
+		line-height: 1.3;
+		color: $navy;
+		margin-bottom: 10px;
+		padding-left: 20px;
+		position: relative;
+		&:last-of-type {
+			margin-bottom: 0px;
+		}
+		&:after {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 10px;
+			background-color: #a4abb1;
+			position: absolute;
+			top: 6px;
+			left: 0px;
+		}
+	}
+	&__schedule {
+		margin-top: 60px;
+	}
+}
+
+.jobs-form {
+	&__container {
+		@include container;
+		padding-top: 50px;
+		padding-bottom: 120px;
+	}
+	&__top {
+		padding-top: 50px;
+		margin-bottom: 80px;
+		position: relative;
+		&:before {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 100%;
+			background-color: $navy;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+	}
+	&__note {
+		font-size: rem(30);
+		font-weight: 500;
+		line-height: 1.2;
+		color: $navy;
+		margin-bottom: 0px;
+	}
+	&__main {
+		@include jobForm;
+	}
+}

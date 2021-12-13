@@ -178,3 +178,194 @@
 		}
 	}
 }
+
+@mixin jobForm {
+	.gform_fields {
+		border-bottom: 1px solid $black;
+		grid-row-gap: 0px !important;
+	}
+	.field {
+		&__infos {
+			font-size: rem(13);
+			font-size: 400;
+			color: $white;
+			padding: 10px 20px;
+			background-color: $navy;
+		}
+		&__infos-title {
+			font-weight: 500;
+		}
+		&__default {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: flex-start;
+			position: relative;
+			border: 1px solid $black;
+			border-bottom: 0px;
+			padding: 0 !important;
+			&.gfield--focus {
+				.gfield_label {
+					left: 10px;
+					top: 10px;
+					transform: scale(0.7);
+				}
+				.ginput_container input,
+				.ginput_container select {
+					padding: 30px 20px 10px 20px !important;
+				}
+			}
+		}
+		&__checkboxes {
+			display: flex !important;
+			flex-wrap: wrap !important;
+			align-items: center !important;
+			justify-content: flex-start !important;
+			position: relative !important;
+			border: 1px solid $black !important;
+			border-bottom: 0px !important;
+			padding: 0 !important;
+			& .gfield_label {
+				top: 20px;
+			}
+			& .gfield_checkbox {
+				padding: 50px 20px 30px 20px;
+				.gchoice {
+					position: relative;
+					margin-bottom: 20px;
+					&:last-of-type {
+						margin-bottom: 0px;
+					}
+					label {
+						font-size: rem(13);
+						font-weight: 500;
+						line-height: 1.4;
+						padding-left: 25px;
+					}
+				}
+				.gfield-choice-input {
+					position: absolute;
+					top: 0px;
+					left: 0px;
+					width: 16px;
+					height: 16px;
+					padding: 0 !important;
+					border: 1px solid $navy !important;
+					&:checked {
+						background-image: url('/wp-content/themes/dessercom/assets/src/svg/dessercom-check.svg');
+						transform: opacity 0s ease !important;
+					}
+				}
+			}
+		}
+		&__consent {
+			display: flex !important;
+			flex-wrap: wrap !important;
+			align-items: center !important;
+			justify-content: flex-start !important;
+			position: relative !important;
+			border: 1px solid $black !important;
+			border-bottom: 0px !important;
+			padding: 0 !important;
+			& .gfield_label {
+				display: none !important;
+			}
+			& .ginput_container {
+				position: relative;
+				padding: 30px 20px;
+				.gfield_consent_label {
+					font-size: rem(13);
+					font-weight: 500;
+					line-height: 1.4;
+					padding-left: 25px;
+				}
+				input {
+					position: absolute;
+					width: 16px;
+					height: 16px;
+					padding: 0 !important;
+					border: 1px solid $navy !important;
+					&:checked {
+						background-image: url('/wp-content/themes/dessercom/assets/src/svg/dessercom-check.svg');
+						transform: opacity 0s ease !important;
+					}
+				}
+			}
+		}
+		&__file {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: flex-start;
+			position: relative;
+			border: 1px solid $black;
+			border-bottom: 0px;
+			padding: 0 !important;
+			.gform_fileupload_rules {
+				display: none;
+			}
+			.ginput_container {
+				input,
+				select {
+					opacity: 0;
+					line-height: 2 !important;
+				}
+			}
+			&.gfield--focus {
+				.gfield_label {
+					left: 10px;
+					top: 10px;
+					transform: scale(0.7);
+				}
+				.ginput_container input,
+				.ginput_container select {
+					padding: 30px 20px 15px 20px !important;
+				}
+				.ginput_container {
+					input,
+					select {
+						opacity: 1;
+						line-height: 1 !important;
+					}
+				}
+			}
+		}
+	}
+	.gfield_label {
+		font-size: rem(13) !important;
+		font-weight: 500 !important;
+		margin-bottom: 0px !important;
+		position: absolute;
+		left: 20px;
+		transform-origin: top left;
+		transition: 0.5s ease;
+		.gfield_required {
+			display: none;
+		}
+	}
+	.ginput_container {
+		width: 100%;
+		input,
+		select {
+			font-size: rem(16) !important;
+			font-weight: 500 !important;
+			line-height: 2 !important;
+			padding: 20px !important;
+			transition: 0.5s ease;
+		}
+	}
+	.gform_footer {
+		margin: 0 !important;
+		padding: 0 !important;
+		.gform_button {
+			color: $white;
+			font-size: rem(13);
+			font-weight: 600;
+			line-height: 2;
+			text-align: left;
+			padding: 20px;
+			width: 100%;
+			background-color: $teal;
+		}
+	}
+}

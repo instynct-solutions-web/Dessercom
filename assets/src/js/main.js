@@ -4,6 +4,8 @@ import Wolfpack from './libraries/_wolfpack';
 import CircleText from './modules/_circleText';
 import Menu from './modules/_menu';
 import HistorySlider from './modules/_historySlider';
+import JobsSlider from './modules/_jobsSlider';
+import Jobs from './modules/_jobs';
 import TermsPolicies from './modules/_termsPolicies';
 
 const App = {
@@ -21,6 +23,10 @@ const App = {
 		const menu = new Menu();
 		// History Slider Scripts
 		const historySlider = new HistorySlider();
+		// Jobs Slider Scripts
+		const jobsSlider = new JobsSlider();
+		// Jobs Scripts
+		const jobs = new Jobs();
 		// TermsPolicies Scripts
 		const termsPolicies = new TermsPolicies();
 	},
