@@ -1,6 +1,7 @@
 /* eslint-disable */
 import CalculateHeight from './helpers/_calculateHeight';
 import Wolfpack from './libraries/_wolfpack';
+import CircleText from './modules/_circleText';
 import HeroSlider from './modules/_heroSlider';
 import VideoToggle from './modules/_videoToggle';
 const App = {
@@ -16,6 +17,8 @@ const App = {
 		const heroSlider = new HeroSlider();
 
 		const videoToggle = new VideoToggle();
+
+		const circleText = new CircleText();
 	},
 };
 

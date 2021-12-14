@@ -34,6 +34,7 @@ dd {
 html.website {
 	pointer-events: none;
 	overflow: hidden;
+	-webkit-font-smoothing: antialiased;
 }
 
 /* Set core body defaults */

@@ -4,9 +4,31 @@
 .services-hero {
 	&__container {
 		@include container;
+		position: relative;
 	}
 	&__link {
 		@include button-outline;
 		width: 80%;
+	}
+	&__cta-container {
+		display: flex;
+		justify-content: flex-end;
+		margin: 2em 0;
+	}
+	&__cta {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: rem(145);
+	}
+	&__cta-text {
+		color: $teal;
+		font-size: rem(13);
+	}
+	&__cta-icon {
+		position: absolute;
+		height: rem(20);
+		width: rem(20);
 	}
 }

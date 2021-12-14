@@ -222,7 +222,6 @@
 		position: absolute;
 		bottom: 10%;
 		right: 10%;
-		/* z-index: 3; */
 		height: rem(50);
 		width: rem(50);
 		background-color: yellow;
@@ -232,6 +231,11 @@
 		justify-content: center;
 		svg {
 			height: rem(20);
+		}
+	}
+	&__video-container {
+		iframe {
+			width: 100%;
 		}
 	}
 }
