@@ -94,3 +94,34 @@
 		}
 	}
 }
+
+@include tablet-only {
+	.policies {
+		&__background {
+			top: 0px;
+			transform: rotate(-35deg);
+			right: -40%;
+		}
+		&__container {
+			padding-top: 150px;
+			padding-bottom: 120px;
+		}
+		&__title {
+			font-size: rem(70);
+			padding: 0 35px;
+		}
+		&__item {
+			width: 75%;
+			margin: 0 12.5% 30px 12.5%;
+		}
+		&__item-title {
+			margin-bottom: 50px;
+			&:after {
+				bottom: -20px;
+			}
+		}
+		&__text {
+			padding-bottom: 20px;
+		}
+	}
+}

@@ -39,6 +39,12 @@
 		padding-left: 0px !important;
 		margin-left: 5px;
 	}
+	@include tablet-only {
+		.sf-level-0 {
+			padding-right: 20px;
+			position: relative;
+		}
+	}
 }
 
 @mixin jobsFilters {

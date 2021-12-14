@@ -7,6 +7,7 @@ import HistorySlider from './modules/_historySlider';
 import JobsSlider from './modules/_jobsSlider';
 import Jobs from './modules/_jobs';
 import TermsPolicies from './modules/_termsPolicies';
+import Forms from './modules/_forms';
 
 const App = {
 	/**
@@ -29,6 +30,8 @@ const App = {
 		const jobs = new Jobs();
 		// TermsPolicies Scripts
 		const termsPolicies = new TermsPolicies();
+		// Forms Scripts
+		const forms = new Forms();
 	},
 };
 

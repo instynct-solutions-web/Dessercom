@@ -195,7 +195,16 @@
 		&__infos-title {
 			font-weight: 500;
 		}
-		&__default {
+		&__download-icon {
+			position: absolute;
+			right: 20px;
+		}
+		&__dropdown-icon {
+			position: absolute;
+			right: 20px;
+		}
+		&__default,
+		&__dropdown {
 			display: flex;
 			flex-wrap: wrap;
 			align-items: center;

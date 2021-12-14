@@ -18,7 +18,7 @@
 
 	</div>
 	<?php $header = get_field('header', 'options'); ?>
-	<header class="header">
+	<header class="header" data-header>
 		<div class="header__logo-container">
 			<img src="<?= $header['logo']['url'] ?>" alt="<?= $header['logo']['alt'] ?>" class="header__logo header__logo--desktop">
 			<svg class="header__logo header__logo--mobile" xmlns="http://www.w3.org/2000/svg" width="48" height="41.362" viewBox="0 0 48 41.362">

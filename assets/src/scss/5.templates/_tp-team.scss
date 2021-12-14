@@ -1,0 +1,204 @@
+// ==========================================================================
+// TEMPLATES - Team
+// ==========================================================================
+
+.team-hero {
+	&__container {
+		@include container;
+		padding-bottom: 120px;
+	}
+	&__top {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		padding-top: 50px;
+		margin-bottom: 35px;
+		position: relative;
+		&:before {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 100%;
+			background-color: $gray;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+	}
+	&__icon {
+		width: 15px;
+		margin-right: 10px;
+		transform: translateY(-2px);
+	}
+	&__note {
+		font-size: rem(14);
+		font-weight: 500;
+		color: $navy;
+	}
+	&__info {
+		margin-bottom: 50px;
+	}
+	&__title {
+		font-size: rem(43);
+		font-weight: 500;
+		color: $navy;
+		margin-bottom: 20px;
+	}
+	&__text {
+		font-size: rem(15);
+		font-weight: 500;
+		line-height: 1.5;
+		color: $navy;
+	}
+	&__image {
+		width: calc(100% + 40px);
+		transform: translateX(-40px);
+	}
+}
+
+.team-grid {
+	background-color: $gray;
+	&__container {
+		@include container;
+		padding-top: 80px;
+		padding-bottom: 120px;
+	}
+	&__top {
+		margin-bottom: 55px;
+	}
+	&__title {
+		font-size: rem(40);
+		font-weight: 500;
+		color: $navy;
+		margin-bottom: 0px;
+	}
+	&__division-list {
+		margin-bottom: 60px;
+	}
+	&__division-item {
+		margin-bottom: 15px;
+		&:last-of-type {
+			margin-bottom: 0px;
+		}
+	}
+	&__division-anchor {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		font-size: rem(18);
+		font-weight: 500;
+		color: $navy;
+	}
+	&__division-icon {
+		margin-left: 15px;
+		transform-origin: center;
+		transform: rotate(225deg);
+	}
+	&__division-grid {
+		margin-bottom: 80px;
+		&:last-of-type {
+			margin-bottom: 0px;
+		}
+	}
+	&__division-member {
+		margin-bottom: 15px;
+		&:last-of-type {
+			margin-bottom: 0px;
+		}
+	}
+	&__image {
+		width: 100%;
+		height: 250px;
+		object-fit: cover;
+		object-position: center top;
+	}
+	&__member-content {
+		background-color: #d5d5d5;
+		padding: 20px 20px 60px 20px;
+	}
+	&__name {
+		font-size: rem(20);
+		font-weight: 500;
+		color: $navy;
+		margin-bottom: 5px;
+	}
+	&__position {
+		font-size: rem(12);
+		font-weight: 500;
+		color: $navy;
+	}
+}
+
+@include tablet-only {
+	.team-hero {
+		&__container {
+			padding-top: 40px;
+			padding-bottom: 350px;
+			position: relative;
+		}
+		&__top {
+			padding-left: 35px;
+			padding-right: 35px;
+			padding-top: 50px;
+			margin-bottom: 100px;
+		}
+		&__main {
+			padding: 0 35px;
+		}
+		&__info {
+			margin-bottom: 0px;
+		}
+		&__title {
+			width: 62.5%;
+			font-size: rem(70);
+			margin-bottom: 40px;
+		}
+		&__text {
+			width: 50%;
+		}
+		&__image {
+			position: absolute;
+			top: 50px;
+			right: -190px;
+			width: calc(100% - 80px);
+			transform: translateX(0px);
+		}
+	}
+	.team-grid {
+		&__container {
+			padding-top: 80px;
+			padding-bottom: 120px;
+		}
+		&__top {
+			width: 25%;
+		}
+		&__grid {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-start;
+		}
+		&__division-list {
+			width: 37.5%;
+			padding-right: 25px;
+			margin-bottom: 0px;
+		}
+		&__members {
+			width: 62.5%;
+		}
+		&__division-grid {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: 16px;
+		}
+		&__division-member {
+			margin-bottom: 0px;
+		}
+		&__image {
+			height: 175px;
+		}
+		&__member-content {
+			height: calc(100% - 175px);
+			padding: 20px 20px 45px 20px;
+		}
+	}
+}

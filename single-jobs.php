@@ -47,20 +47,23 @@ get_header(); ?>
 </section>
 
 <?php $benefits = get_field('benefits') ?>
-<section class="jobs-benefits">
-    <div class="jobs-benefits__container">
-        <div class="jobs-benefits__background">
-            <p class="jobs-benefits__sector-background"></p>
+<section class="job-benefits">
+    <div class="job-benefits__container">
+        <div class="job-benefits__background">
+            <?php foreach ($benefits['list'] as $item) { ?>
+                <p class="job-benefits__sector-background" data-job-sector-background><?= $item['name'] ?></p>
+            <?php
+            } ?>
         </div>
-        <div class="jobs-benefits__foreground">
-            <div class="jobs-benefits__navigation">
-                <h2 class="jobs-benefits__title"><?= $benefits['title'] ?></h2>
-                <ul class="jobs-benefits__sector-list">
+        <div class="job-benefits__foreground">
+            <div class="job-benefits__navigation">
+                <h2 class="job-benefits__title"><?= $benefits['title'] ?></h2>
+                <ul class="job-benefits__sector-list">
                     <?php foreach ($benefits['list'] as $item) { ?>
-                        <li class="jobs-benefits__sector-item" data-job-sector-button>
-                            <div class="jobs-benefits__sector-button">
-                                <p class="jobs-benefits__sector-text"><?= $item['name'] ?></p>
-                                <svg class="jobs-benefits__sector-icon" xmlns="http://www.w3.org/2000/svg" width="13.384" height="14.515" viewBox="0 0 13.384 14.515">
+                        <li class="job-benefits__sector-item" data-job-sector-button>
+                            <div class="job-benefits__sector-button">
+                                <p class="job-benefits__sector-text"><?= $item['name'] ?></p>
+                                <svg class="job-benefits__sector-icon" xmlns="http://www.w3.org/2000/svg" width="13.384" height="14.515" viewBox="0 0 13.384 14.515">
                                     <g id="Groupe_1326" data-name="Groupe 1326" transform="translate(1.414 1)">
                                         <path id="Tracé_3" data-name="Tracé 3" d="M0,0,5.278,5.278,10.555,0" transform="translate(0 7.237)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />
                                         <line id="Ligne_1" data-name="Ligne 1" y1="12.515" transform="translate(5.278 0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" />
@@ -72,15 +75,15 @@ get_header(); ?>
                     } ?>
                 </ul>
             </div>
-            <div class="jobs-benefits__content">
+            <div class="job-benefits__content">
                 <?php foreach ($benefits['list'] as $item) { ?>
-                    <ul class="jobs-benefits__single-list" data-job-sector>
+                    <ul class="job-benefits__single-list" data-job-sector>
                         <?php foreach ($item['benefits_list'] as $benefit) { ?>
-                            <li class="jobs-benefits__item">
-                                <span class="jobs-benefits__counter"></span>
-                                <p class="jobs-benefits__text"><?= $benefit['text'] ?></p>
+                            <li class="job-benefits__item">
+                                <span class="job-benefits__counter"></span>
+                                <p class="job-benefits__text"><?= $benefit['text'] ?></p>
                                 <?php if ($benefit['subtext']) { ?>
-                                    <p class="jobs-benefits__subtext"><?= $benefit['subtext'] ?></p>
+                                    <p class="job-benefits__subtext"><?= $benefit['subtext'] ?></p>
                                 <?php
                                 } ?>
 
@@ -93,7 +96,7 @@ get_header(); ?>
             </div>
         </div>
     </div>
-    <svg class="jobs-benefits__icon" xmlns="http://www.w3.org/2000/svg" width="24.805" height="22.335" viewBox="0 0 24.805 22.335">
+    <svg class="job-benefits__icon" xmlns="http://www.w3.org/2000/svg" width="24.805" height="22.335" viewBox="0 0 24.805 22.335">
         <path id="Tracé_795" data-name="Tracé 795" d="M24.417,20.7c-.95,1.663-3.328,2.094-5.316.961L12.4,17.8l.007-.011L5.725,21.685c-1.98,1.147-4.362.738-5.323-.913v0c-.961-1.654-.139-3.927,1.838-5.079.157-.087,6.2-3.566,6.672-3.836v.018h.051l-.022-.036-.029.018V4.14C8.911,1.853,10.464,0,12.378,0s3.468,1.853,3.468,4.14c0,.179-.033,7.019-.037,7.68l-.029.05h.029v-.05l0-.008,6.719,3.825C24.52,16.77,25.364,19.035,24.417,20.7Z" fill="#00938f" />
     </svg>
 </section>

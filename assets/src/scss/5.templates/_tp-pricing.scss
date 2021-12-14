@@ -38,6 +38,12 @@
 		font-size: rem(14);
 		font-weight: 500;
 	}
+	&__title {
+		font-size: rem(43);
+		font-weight: 500;
+		color: $navy;
+		margin-bottom: 20px;
+	}
 	&__text {
 		font-size: rem(15);
 		font-weight: 500;
@@ -184,5 +190,102 @@
 		font-weight: 400;
 		font-style: italic;
 		line-height: 1.5;
+	}
+}
+
+@include tablet-only {
+	.pricing-hero {
+		&__background {
+			right: -50%;
+			bottom: -100px;
+			width: 100vw;
+		}
+		&__container {
+			padding-left: 80px;
+			padding-right: 80px;
+			padding-top: 45px;
+			padding-bottom: 75px;
+		}
+		&__top {
+			margin-bottom: 100px;
+		}
+		&__info {
+			margin-bottom: 95px;
+		}
+		&__title {
+			font-size: rem(70);
+			width: 62.5%;
+			margin-bottom: 40px;
+		}
+		&__text {
+			width: 50%;
+		}
+		&__list {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-start;
+		}
+		&__item {
+			width: calc(50% - 8px);
+			&:nth-of-type(1) {
+				margin-right: 8px;
+				margin-bottom: 0px;
+			}
+			&:nth-of-type(2) {
+				margin-left: 8px;
+			}
+		}
+		&__subitem {
+			grid-gap: 15px;
+		}
+	}
+
+	.pricing-transport {
+		&__container {
+			padding-left: 80px;
+			padding-right: 80px;
+			padding-top: 90px;
+			padding-bottom: 140px;
+		}
+		&__top-container {
+			padding-top: 40px;
+			padding-bottom: 110px;
+		}
+		&__note {
+			width: 37.5%;
+		}
+		&__cta {
+			top: 40px;
+		}
+		&__cta-text {
+			font-size: rem(12);
+		}
+		&__cta-icon {
+			transform: rotate(45deg) translate(6px, 6px);
+		}
+		&__main {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-start;
+			position: relative;
+		}
+		&__image-container {
+			position: absolute;
+			top: 0px;
+			width: calc(50% + 80px);
+			margin-bottom: 0px;
+			transform: translateX(-100px);
+		}
+		&__text-container {
+			width: calc(50% - 8px);
+			margin-left: calc(50% + 8px);
+		}
+		&__title {
+			width: 50%;
+			margin-bottom: 30px;
+		}
+		&__text {
+			margin-bottom: 30px;
+		}
 	}
 }

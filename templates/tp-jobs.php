@@ -45,7 +45,7 @@ $values = get_field('benefits_2') ?>
             <h2 class="jobs-values__title"><?= $values['title'] ?></h2>
             <ul class="jobs-values__name-list">
                 <?php foreach ($values['list'] as $item) { ?>
-                    <li class="jobs-values__name-item">
+                    <li class="jobs-values__name-item" data-jobs-values-name>
                         <p class="jobs-values__name"><?= $item['title'] ?></p>
                     </li>
                 <?php
@@ -77,8 +77,8 @@ $values = get_field('benefits_2') ?>
         <div class="jobs-values__grid">
             <ul class="jobs-values__grid-list" data-jobs-slider>
                 <?php foreach ($values['list'] as $item) { ?>
-                    <li class="jobs-values__grid-item">
-                        <span class="jobs-values__toggler">+</span>
+                    <li class="jobs-values__grid-item" data-jobs-values>
+                        <span class="jobs-values__toggler" data-jobs-values-toggler>+</span>
                         <p class="jobs-values__name jobs-values__name--mobile"><?= $item['title'] ?></p>
                         <img src="<?= $item['picto']['url'] ?>" alt="<?= $item['picto']['alt'] ?>" class="jobs-values__picto">
                         <p class="jobs-values__text"><?= $item['text'] ?></p>

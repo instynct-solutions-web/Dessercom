@@ -12,6 +12,16 @@
 	position: fixed;
 	z-index: 2;
 	padding: 0 20px;
+	&--opened {
+		.header {
+			&__logo {
+				filter: brightness(0) invert(1) grayscale(1);
+			}
+			&__main-nav--desktop {
+				display: none;
+			}
+		}
+	}
 	&__logo-container {
 		position: relative;
 		z-index: 1;
@@ -152,5 +162,81 @@
 		width: 100%;
 		right: -50%;
 		bottom: 0px;
+	}
+}
+
+@include tablet-only {
+	.header {
+		padding: 0 40px;
+		&__logo {
+			&--mobile {
+				display: none;
+			}
+			&--desktop {
+				display: block;
+				max-width: 200px;
+			}
+		}
+		&__nav-container {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+		}
+		&__main-nav {
+			&--desktop {
+				display: block;
+				margin-bottom: 0px;
+				margin-right: 25px;
+				.menu {
+					display: flex;
+					flex-wrap: wrap;
+					align-items: center;
+					.menu-item {
+						margin-right: 25px;
+						&:last-of-type {
+							margin-right: 0px;
+						}
+						a {
+							font-size: rem(14);
+							font-weight: 500;
+							color: $navy;
+						}
+					}
+				}
+			}
+			&--mobile {
+				display: none;
+			}
+		}
+		&__sub-nav-link {
+			font-size: rem(30);
+			font-weight: 500;
+			opacity: 1;
+		}
+		&__sub-nav-icon {
+			width: 20px;
+			height: 20px;
+		}
+		&__navigation {
+			display: none;
+			&--opened {
+				display: block;
+			}
+		}
+		&__button-label {
+			font-size: rem(12);
+		}
+	}
+
+	.navigation {
+		&__container {
+			padding-left: 120px;
+			padding-right: 120px;
+			padding-top: 240px;
+		}
+		&__image {
+			right: -30%;
+			bottom: -200px;
+		}
 	}
 }
