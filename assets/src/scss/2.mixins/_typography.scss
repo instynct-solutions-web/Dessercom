@@ -6,7 +6,7 @@
 	font: 500 rem(13) $font-family-default;
 	margin-bottom: 1em;
 	line-height: 1em;
-	color: $black;
+	color: $navy;
 	@include min-width($mobile-threshold) {
 		font-size: rem(13);
 	}
@@ -19,7 +19,7 @@
 	font: 500 rem(16) $font-family-default;
 	margin-bottom: 1em;
 	line-height: 1em;
-	color: $black;
+	color: $navy;
 	@include min-width($mobile-threshold) {
 		font-size: rem(16);
 	}
@@ -33,7 +33,7 @@
 	font-style: italic;
 	margin-bottom: 1em;
 	line-height: 1em;
-	color: $black;
+	color: $navy;
 	@include min-width($mobile-threshold) {
 		font-size: rem(16);
 	}
@@ -46,7 +46,7 @@
 	font: 500 rem(14) $font-family-default;
 	margin-bottom: 1em;
 	line-height: 1em;
-	color: $black;
+	color: $navy;
 	@include min-width($mobile-threshold) {
 		font-size: rem(14);
 	}
@@ -59,7 +59,7 @@
 	font: 400 rem(14) $font-family-default;
 	margin-bottom: 1em;
 	line-height: 1em;
-	color: $black;
+	color: $navy;
 	@include min-width($mobile-threshold) {
 		font-size: rem(14);
 	}
@@ -72,7 +72,7 @@
 	font: 500 rem(14) $font-family-default;
 	margin-bottom: 1em;
 	line-height: 1.2em;
-	color: $black;
+	color: $navy;
 	@include min-width($mobile-threshold) {
 		font-size: rem(14);
 	}
@@ -84,7 +84,7 @@
 @mixin paragraph {
 	font: 500 rem(16) $font-family-default;
 	line-height: 1em;
-	color: $black;
+	color: $navy;
 	@include min-width($mobile-threshold) {
 		font-size: rem(16);
 	}
@@ -98,7 +98,7 @@
 		display: flex;
 		align-items: center;
 		font: 500 rem(17) $font-family-default;
-		color: $black;
+		color: $navy;
 		padding: 0.3em 0;
 		&:before {
 			content: '';

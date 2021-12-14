@@ -3,7 +3,9 @@ import CalculateHeight from './helpers/_calculateHeight';
 import Wolfpack from './libraries/_wolfpack';
 import CircleText from './modules/_circleText';
 import HeroSlider from './modules/_heroSlider';
+import MapShow from './modules/_mapShow';
 import VideoToggle from './modules/_videoToggle';
+
 const App = {
 	/**
 	 * App.init
@@ -19,6 +21,9 @@ const App = {
 		const videoToggle = new VideoToggle();
 
 		const circleText = new CircleText();
+
+		const mapShow = new MapShow();
+		console.log('test');
 	},
 };
 

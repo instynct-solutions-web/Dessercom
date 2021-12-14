@@ -5,9 +5,56 @@ Template Name: Services
 
 // Load header.php
 get_header(); ?>
+<?php
+$map = get_field('map') ?>
+<section data-calc-mobile class="services-map">
+
+    <div class="services-map__svg-container">
+        <?php get_template_part('modules/md-map'); ?>
+    </div>
+    <div class="services-map__container">
+        <div class="services-map__scroll-wrapper">
+            <div data-wolfpack class="services-map__scroll-container">
+                <?php
+                if ($map['region']) { ?>
+                    <ul class="services-map__list">
+                        <?php
+                        foreach ($map['region'] as $region) { ?>
+                            <li class="services-map__item">
+                                <p class="services-map__region">
+                                    <span class="services-map__counter"><?= $region['num'] ?></span>
+                                    <span class="services-map__region-name">
+                                        <?= $region['name'] ?>
+                                    </span>
+
+                                </p>
+                            </li>
+                        <?php
+                        } ?>
+
+                    </ul>
+                <?php
+                } ?>
+            </div>
+
+
+        </div>
+        <div class="services-map__back-button">
+            <span data-map-close class="services-map__button-icon">
+                <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 13.98">
+                    <path id="Polygone_14" data-name="Polygone 14" d="M.47,6.63A1,1,0,0,0,.19,8.1a.9.9,0,0,0,.28.27l8.85,5.94A1.08,1.08,0,0,0,10.81,14a1.07,1.07,0,0,0,.19-.6V1.57A1.06,1.06,0,0,0,9.92.51a1.08,1.08,0,0,0-.6.18Z" transform="translate(0 -0.51)" style="fill: #00938f" />
+                </svg>
+            </span>
+        </div>
+    </div>
+
+</section>
+
 <?php $hero = get_field('hero') ?>
-<section class="services-hero">
-    <img src="url()" alt="" class="services-hero__background-map">
+<section data-map-hero class="services-hero">
+    <div class="services-hero__background-container">
+        <img src="<?= $hero['background']['url'] ?>" alt="<?= $hero['background']['alt'] ?>" class="services-hero__background-map">
+    </div>
     <div class="services-hero__container">
         <div class="services-hero__text-container">
             <h1 class="services-hero__title"><?= $hero['title'] ?></h1>
@@ -23,7 +70,7 @@ get_header(); ?>
             </ul>
         </div>
         <div class="services-hero__cta-container">
-            <div class="services-hero__cta">
+            <div data-map-show class="services-hero__cta">
                 <span class="services-hero__cta-text" data-circle-text>
                     <?= $hero['cta'] ?>
                     <div> . </div>
@@ -38,37 +85,9 @@ get_header(); ?>
     </div>
 </section>
 
-<?php
-$map = get_field('map') ?>
-<section class="services-map">
-    <div class="services-map__svg-container">
-        <?php get_template_part('modules/md-map'); ?>
-    </div>
-    <div class="services-map__container">
-        <?php
-        if ($map['region']) { ?>
-            <ul class="services-map__list">
-                <?php
-                foreach ($map['region'] as $region) { ?>
-                    <li class="services-map__item">
-                        <p class="services-map__region">
-                            <span class="services-map__counter"><?= $region['num'] ?></span>
-                            <?= $region['name'] ?>
-                        </p>
-                    </li>
-                <?php
-                } ?>
-
-            </ul>
-        <?php
-        } ?>
-
-    </div>
-</section>
 
 <?php
-$extra = get_field('services_ext');
-var_dump($extra['image']['url']); ?>
+$extra = get_field('services_ext'); ?>
 <section class="services-extra">
     <img src="<?= $extra['image']['url'] ?>" alt="<?= $extra['image']['alt'] ?>" class="services-extra__background">
     <div class="services-extra__container">
