@@ -4,7 +4,9 @@ import Wolfpack from './libraries/_wolfpack';
 import CircleText from './modules/_circleText';
 import HeroSlider from './modules/_heroSlider';
 import MapShow from './modules/_mapShow';
+import Canvas from './modules/_canvas';
 import VideoToggle from './modules/_videoToggle';
+import ServicesDrawer from './modules/_servicesDrawer';
 
 const App = {
 	/**
@@ -23,7 +25,10 @@ const App = {
 		const circleText = new CircleText();
 
 		const mapShow = new MapShow();
-		console.log('test');
+
+		const canvas = new Canvas();
+
+		const servicesDrawer = new ServicesDrawer();
 	},
 };
 
