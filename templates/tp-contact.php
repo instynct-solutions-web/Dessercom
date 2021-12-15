@@ -8,6 +8,9 @@ get_header(); ?>
 
 <?php $hero = get_field('hero'); ?>
 <section class="contact-hero">
+    <div class="contact-hero__map-container">
+        <?php get_template_part('modules/md-map-contact'); ?>
+    </div>
     <div class="contact-hero__container">
         <div class="contact-hero__info">
             <h1 class="contact-hero__title"><?= $hero['title'] ?></h1>
@@ -39,9 +42,7 @@ get_header(); ?>
                 </ul>
             <?php } ?>
         </div>
-        <div class="contact-hero__map">
 
-        </div>
 
     </div>
     <a class="contact-hero__cta"><?= $hero['link']['title'] ?></a>
