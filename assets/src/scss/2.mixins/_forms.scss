@@ -3,141 +3,275 @@
 // ==========================================================================
 
 @mixin invoiceForm {
+	.gform_validation_errors {
+		margin: 0 0 15px 0 !important;
+		padding: 15px 20px !important;
+		border-radius: 0px !important;
+		box-shadow: none !important;
+		background-color: $yellow !important;
+		border: 0px !important;
+		.gform_submission_error {
+			font-size: rem(13);
+			font-weight: 500;
+			color: $navy;
+			.gform-icon {
+				display: none;
+			}
+		}
+	}
+	.gfield_error {
+		input,
+		select {
+			border: 0px !important;
+		}
+		.gfield_label {
+			color: $navy;
+		}
+	}
 	.gform_fields {
 		grid-row-gap: 0px !important;
-	}
-	.gfield:nth-of-type(13) .ginput_full:nth-of-type(1) {
-		border: 1px solid $black;
-		border-bottom: 0px;
-		.StripeElement {
+		.validation_message,
+		.instruction {
+			font-size: rem(12) !important;
+			margin-top: 0px !important;
+			padding: 15px 20px !important;
+			background-color: $white;
 			border: 0px;
-		}
-		label {
-			display: none !important;
+			border-top: 1px solid $navy;
 		}
 	}
-	.address_country,
-	.address_zip,
-	.address_state,
-	.address_city,
-	.address_line_2,
-	.address_line_1,
-	.gfield:nth-of-type(13) .ginput_full:nth-of-type(2) {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: flex-start;
-		position: relative;
-		border: 1px solid $black;
-		border-bottom: 0px;
-		padding: 0 !important;
-		margin: 0 !important;
-		label {
-			font-size: rem(13) !important;
-			font-weight: 500 !important;
-			margin-bottom: 0px !important;
-			padding: 0 !important;
+	.field {
+		&__download-icon {
 			position: absolute;
-			left: 20px;
+			right: 20px;
+		}
+		&__dropdown-icon {
+			position: absolute;
+			right: 20px;
+		}
+		&__hide {
+			display: none;
+		}
+		&__title {
+			border: none;
+			margin-top: 80px;
+			.gsection_title {
+				width: 100%;
+				font-size: rem(14);
+				font-weight: 600;
+				margin-bottom: 40px;
+				padding-top: 25px;
+				position: relative;
+				&:after {
+					content: '';
+					display: block;
+					width: 100%;
+					height: 1px;
+					background-color: $black;
+					position: absolute;
+					top: 0px;
+					left: 0px;
+				}
+			}
+		}
+		&__number {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: flex-start;
+			position: relative;
+			border: 1px solid $black;
+			padding: 0 !important;
+			&:nth-of-type(1) {
+				border-bottom: 0px;
+			}
+			input {
+				font-size: rem(23) !important;
+				line-height: 1 !important;
+				text-align: center;
+				letter-spacing: 10px;
+				padding: 20px !important;
+				transition: 0.5s ease;
+			}
+			&.gfield--focus {
+				.gfield_label {
+					left: 10px;
+					top: 10px;
+					transform: scale(0.7);
+				}
+				.ginput_container input,
+				.ginput_container select {
+					padding: 30px 20px 10px 20px !important;
+				}
+			}
+		}
+		&__default,
+		&__dropdown {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: flex-start;
+			position: relative;
+			border: 1px solid $black;
+			border-bottom: 0px;
+			padding: 0 !important;
+			input,
+			select {
+				font-size: rem(16) !important;
+				font-weight: 500 !important;
+				line-height: 2 !important;
+				padding: 20px !important;
+				transition: 0.5s ease;
+			}
+			label {
+				font-size: rem(13) !important;
+				font-weight: 500 !important;
+				margin-bottom: 0px !important;
+				padding: 0 !important;
+				position: absolute;
+				left: 20px;
+			}
+			&.gfield--focus {
+				.gfield_label {
+					left: 10px;
+					top: 10px;
+					transform: scale(0.7);
+				}
+				.ginput_container input,
+				.ginput_container select {
+					padding: 30px 20px 10px 20px !important;
+				}
+			}
+		}
+		&__card {
+			.gfield_validation_message {
+				border-left: 1px solid $navy;
+				border-right: 1px solid $navy;
+			}
+			&.gfield_error {
+				.ginput_full {
+					label {
+						color: $navy;
+					}
+				}
+			}
+			.ginput_full {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: flex-start;
+				position: relative;
+				border: 1px solid $black;
+				border-bottom: 0px;
+				padding: 0 !important;
+				margin: 0px !important;
+				&:first-of-type {
+					label {
+						display: none;
+					}
+				}
+				.StripeElement {
+					width: 100%;
+					border: 0px !important;
+				}
+				input {
+					font-size: rem(16) !important;
+					font-weight: 500 !important;
+					line-height: 2 !important;
+					padding: 20px !important;
+					transition: 0.5s ease;
+				}
+				label {
+					font-size: rem(13) !important;
+					font-weight: 500 !important;
+					margin-bottom: 0px !important;
+					padding: 0 !important;
+					position: absolute;
+					left: 20px;
+					transform-origin: center left;
+				}
+				&--focus {
+					label {
+						left: 10px;
+						top: 10px;
+						transform: scale(0.7);
+					}
+					input,
+					select {
+						padding: 30px 20px 10px 20px !important;
+					}
+				}
+			}
+		}
+		&__infos {
+			.gfield_validation_message {
+				border-left: 1px solid $navy;
+				border-right: 1px solid $navy;
+			}
+			&.gfield_error {
+				.ginput_full,
+				.ginput_left,
+				.ginput_right {
+					label {
+						color: $navy;
+					}
+				}
+			}
+			span {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: flex-start;
+				position: relative;
+				border: 1px solid $black;
+				border-bottom: 0px;
+				padding: 0 !important;
+				margin: 0px !important;
+				input,
+				select {
+					font-size: rem(16) !important;
+					font-weight: 500 !important;
+					line-height: 2 !important;
+					padding: 20px !important;
+					transition: 0.5s ease;
+				}
+				label {
+					font-size: rem(13) !important;
+					font-weight: 500 !important;
+					margin-bottom: 0px !important;
+					padding: 0 !important;
+					position: absolute;
+					left: 20px;
+					transform-origin: center left;
+				}
+				&.ginput_full--focus,
+				&.ginput_left--focus,
+				&.ginput_right--focus {
+					label {
+						left: 10px;
+						top: 10px;
+						transform: scale(0.7);
+					}
+					input,
+					select {
+						padding: 30px 20px 10px 20px !important;
+					}
+				}
+			}
+		}
+		&__last {
+			border-bottom: 1px solid $navy !important;
+		}
+		&__send-icon {
+			position: absolute;
+			right: 20px;
+			transform-origin: center;
+			transform: rotate(225deg);
 		}
 	}
 	.gfield {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: flex-start;
-		position: relative;
-		border: 1px solid $black;
-		padding: 0 !important;
-		&:nth-of-type(1) {
-			border-bottom: 0px;
-			input {
-				font-size: rem(23) !important;
-				line-height: 1 !important;
-				text-align: center;
-				letter-spacing: 10px;
-			}
-		}
-		&:nth-of-type(2) {
-			input {
-				font-size: rem(23) !important;
-				line-height: 1 !important;
-				text-align: center;
-				letter-spacing: 10px;
-			}
-		}
-		&:nth-of-type(3) {
-			display: none;
-		}
-		&:nth-of-type(4) {
-			border: none;
-			margin-top: 80px;
-			.gsection_title {
-				width: 100%;
-				font-size: rem(14);
-				font-weight: 600;
-				margin-bottom: 40px;
-				padding-top: 25px;
-				position: relative;
-				&:after {
-					content: '';
-					display: block;
-					width: 100%;
-					height: 1px;
-					background-color: $black;
-					position: absolute;
-					top: 0px;
-					left: 0px;
-				}
-			}
-		}
-		&:nth-of-type(5),
-		&:nth-of-type(6),
-		&:nth-of-type(7),
-		&:nth-of-type(8),
-		&:nth-of-type(9),
-		&:nth-of-type(10) {
-			border-bottom: 0px;
-		}
-		&:nth-of-type(12) {
-			border: none;
-			margin-top: 80px;
-			.gsection_title {
-				width: 100%;
-				font-size: rem(14);
-				font-weight: 600;
-				margin-bottom: 40px;
-				padding-top: 25px;
-				position: relative;
-				&:after {
-					content: '';
-					display: block;
-					width: 100%;
-					height: 1px;
-					background-color: $black;
-					position: absolute;
-					top: 0px;
-					left: 0px;
-				}
-			}
-		}
-		&:nth-of-type(13) {
-			border: 0px !important;
-			.gfield_label {
-				display: none !important;
-			}
-		}
 		legend {
 			display: none !important;
-		}
-		&--focus {
-			.gfield_label {
-				transform: scale(0.7) translateY(-20px) translateX(-15px);
-			}
-			.ginput_container input,
-			.ginput_container select {
-				padding: 30px 20px 10px 20px !important;
-			}
 		}
 	}
 	.gfield_label {
@@ -146,6 +280,7 @@
 		margin-bottom: 0px !important;
 		position: absolute;
 		left: 20px;
+		top: 30px;
 		transform-origin: top left;
 		transition: 0.5s ease;
 		.gfield_required {
@@ -154,16 +289,12 @@
 	}
 	.ginput_container {
 		width: 100%;
-		input,
-		select {
-			font-size: rem(16) !important;
-			font-weight: 500 !important;
-			line-height: 2 !important;
-			padding: 20px !important;
-			transition: 0.5s ease;
-		}
 	}
 	.gform_footer {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		position: relative;
 		margin: 0 !important;
 		padding: 0 !important;
 		.gform_button {
@@ -173,16 +304,89 @@
 			line-height: 2;
 			text-align: left;
 			padding: 20px;
+			margin: 0 !important;
 			width: 100%;
 			background-color: $teal;
+		}
+	}
+	@include tablet-only {
+		.gform_fields {
+			grid-column-gap: 0 !important;
+		}
+		.field {
+			&__number {
+				border-bottom: 1px solid $navy !important;
+			}
+			&__left {
+				border-right: 0px !important;
+			}
+			&__infos {
+				border-bottom: 1px solid $navy !important;
+				.ginput_left {
+					border-right: 0px !important;
+				}
+			}
+		}
+		.gfield_label {
+			font-size: rem(13) !important;
+			font-weight: 500 !important;
+			margin-bottom: 0px !important;
+			position: absolute;
+			left: 20px;
+			transform-origin: top left;
+			transition: 0.5s ease;
+			.gfield_required {
+				display: none;
+			}
+		}
+		.gform_footer {
+			width: 33.33333%;
+			margin-left: 66.66666% !important;
+			margin-top: 50px !important;
 		}
 	}
 }
 
 @mixin jobForm {
+	.gform_validation_errors {
+		margin: 0 0 15px 0 !important;
+		padding: 15px 20px !important;
+		border-radius: 0px !important;
+		box-shadow: none !important;
+		background-color: $yellow !important;
+		border: 0px !important;
+		.gform_submission_error {
+			font-size: rem(13);
+			font-weight: 500;
+			color: $navy;
+			.gform-icon {
+				display: none;
+			}
+		}
+	}
 	.gform_fields {
 		border-bottom: 1px solid $black;
 		grid-row-gap: 0px !important;
+		.gfield_validation_message,
+		.instruction {
+			font-size: rem(12) !important;
+			margin-top: 0px !important;
+			padding: 15px 20px !important;
+			background-color: $white;
+			border: 0px;
+			border-top: 1px solid $navy;
+		}
+	}
+	.gfield_error {
+		input,
+		select {
+			border: 0px !important;
+		}
+		.gfield_label,
+		.gfield_consent_label,
+		.gchoice label {
+			color: $navy;
+		}
 	}
 	.field {
 		&__infos {
@@ -339,6 +543,12 @@
 				}
 			}
 		}
+		&__send-icon {
+			position: absolute;
+			right: 20px;
+			transform-origin: center;
+			transform: rotate(225deg);
+		}
 	}
 	.gfield_label {
 		font-size: rem(13) !important;
@@ -346,6 +556,7 @@
 		margin-bottom: 0px !important;
 		position: absolute;
 		left: 20px;
+		top: 30px;
 		transform-origin: top left;
 		transition: 0.5s ease;
 		.gfield_required {
@@ -364,6 +575,10 @@
 		}
 	}
 	.gform_footer {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		position: relative;
 		margin: 0 !important;
 		padding: 0 !important;
 		.gform_button {
@@ -373,8 +588,127 @@
 			line-height: 2;
 			text-align: left;
 			padding: 20px;
+			margin: 0 !important;
 			width: 100%;
 			background-color: $teal;
+		}
+	}
+	@include tablet-only {
+		.gform_fields {
+			grid-column-gap: 0 !important;
+		}
+		.field {
+			&__left {
+				border-right: 0px !important;
+			}
+			&__checkboxes {
+				display: flex !important;
+				flex-wrap: wrap !important;
+				align-items: center !important;
+				justify-content: flex-start !important;
+				position: relative !important;
+				border: 1px solid $black !important;
+				border-bottom: 0px !important;
+				padding: 0 !important;
+				& .gfield_label {
+					top: 20px;
+				}
+				& .gfield_checkbox {
+					padding: 50px 20px 30px 20px;
+					.gchoice {
+						position: relative;
+						margin-bottom: 20px;
+						&:last-of-type {
+							margin-bottom: 0px;
+						}
+						label {
+							font-size: rem(13);
+							font-weight: 500;
+							line-height: 1.4;
+							padding-left: 25px;
+						}
+					}
+					.gfield-choice-input {
+						position: absolute;
+						top: 0px;
+						left: 0px;
+						width: 16px;
+						height: 16px;
+						padding: 0 !important;
+						border: 1px solid $navy !important;
+						&:checked {
+							background-image: url('/wp-content/themes/dessercom/assets/src/svg/dessercom-check.svg');
+							transform: opacity 0s ease !important;
+						}
+					}
+				}
+			}
+			&__consent {
+				display: flex !important;
+				flex-wrap: wrap !important;
+				align-items: center !important;
+				justify-content: flex-start !important;
+				position: relative !important;
+				border: 1px solid $black !important;
+				border-bottom: 0px !important;
+				padding: 0 !important;
+				& .gfield_label {
+					display: none !important;
+				}
+				& .ginput_container {
+					position: relative;
+					padding: 30px 20px;
+					.gfield_consent_label {
+						font-size: rem(13);
+						font-weight: 500;
+						line-height: 1.4;
+						padding-left: 25px;
+					}
+					input {
+						position: absolute;
+						width: 16px;
+						height: 16px;
+						padding: 0 !important;
+						border: 1px solid $navy !important;
+						&:checked {
+							background-image: url('/wp-content/themes/dessercom/assets/src/svg/dessercom-check.svg');
+							transform: opacity 0s ease !important;
+						}
+					}
+				}
+			}
+			&__file {
+				&.gfield--width-full {
+					input {
+						padding: 25px 15px !important;
+					}
+				}
+				.ginput_container {
+					input,
+					select {
+						line-height: 1.1 !important;
+					}
+				}
+			}
+		}
+		.gfield_label {
+			font-size: rem(13) !important;
+			font-weight: 500 !important;
+			margin-bottom: 0px !important;
+			position: absolute;
+			left: 20px;
+			transform-origin: top left;
+			transition: 0.5s ease;
+			.gfield_required {
+				display: none;
+			}
+		}
+		.ginput_container {
+			width: 100%;
+			input,
+			select {
+				padding: 15px 20px !important;
+			}
 		}
 	}
 }

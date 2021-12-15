@@ -40,7 +40,11 @@
 		font-size: rem(42);
 		font-weight: 500;
 		color: $navy;
-		word-break: break-all;
+		word-break: break-word;
+		-webkit-hyphens: auto;
+		-moz-hyphens: auto;
+		-ms-hyphens: auto;
+		hyphens: auto;
 		margin-bottom: 10px;
 	}
 	&__subtitle {
@@ -354,7 +358,6 @@
 			width: 62.5%;
 			font-size: rem(70);
 			margin-bottom: 40px;
-			word-break: keep-all;
 		}
 		&__subtitle {
 			width: 50%;

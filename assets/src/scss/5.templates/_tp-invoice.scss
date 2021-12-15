@@ -5,6 +5,7 @@
 .invoice-form {
 	&__container {
 		@include container;
+		padding-bottom: 120px;
 	}
 	&__image {
 		display: none;

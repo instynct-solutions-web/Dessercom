@@ -474,10 +474,24 @@ export default class Wolfpack {
 
 		// Form inputs variables
 		this.formList = document.querySelectorAll('[data-form] .gfield');
+		this.formInfosList = document.querySelectorAll('[data-form] .field__infos span');
+		this.formCardList = document.querySelectorAll('[data-form] .field__card .ginput_full');
 		this.formClass = [];
+		this.formInfosClass = [];
+		this.formCardClass = [];
 		if (this.formList.length !== 0) {
 			for (let i = 0; i < this.formList.length; i += 1) {
 				this.formClass.push(this.formList[i].classList[0]);
+			}
+		}
+		if (this.formInfosList.length !== 0) {
+			for (let i = 0; i < this.formInfosList.length; i += 1) {
+				this.formInfosClass.push(this.formInfosList[i].classList[0]);
+			}
+		}
+		if (this.formCardList.length !== 0) {
+			for (let i = 0; i < this.formCardList.length; i += 1) {
+				this.formCardClass.push(this.formCardList[i].classList[0]);
 			}
 		}
 
@@ -794,6 +808,44 @@ export default class Wolfpack {
 						}
 					} else if (this.formList[i].querySelector('input').value === '' || this.formList[i].querySelector('input').value === null) {
 						this.formFocusOut(i);
+					}
+				});
+			}
+		}
+		if (this.formInfosList.length !== 0) {
+			for (let i = 0; i < this.formInfosList.length; i += 1) {
+				setTimeout(() => {
+					this.formInputSpanList = this.formInfosList[i].querySelectorAll('.ginput_container span');
+					for (let j = 0; j < this.formInputSpanList.length; j += 1) {
+						this.formInputSpan = this.formInputSpanList[j];
+						this.formInputSpan.classList.add('spanDisplay');
+					}
+				}, 100);
+				this.formInfosList[i].addEventListener('focusin', () => {
+					this.formInfosFocusIn(i);
+				});
+				this.formInfosList[i].addEventListener('focusout', () => {
+					if (this.formInfosList[i].querySelector('input').value === '' || this.formInfosList[i].querySelector('input').value === null) {
+						this.formInfosFocusOut(i);
+					}
+				});
+			}
+		}
+		if (this.formCardList.length !== 0) {
+			for (let i = 0; i < this.formCardList.length; i += 1) {
+				setTimeout(() => {
+					this.formInputSpanList = this.formCardList[i].querySelectorAll('.ginput_container span');
+					for (let j = 0; j < this.formInputSpanList.length; j += 1) {
+						this.formInputSpan = this.formInputSpanList[j];
+						this.formInputSpan.classList.add('spanDisplay');
+					}
+				}, 100);
+				this.formCardList[i].addEventListener('focusin', () => {
+					this.formCardFocusIn(i);
+				});
+				this.formCardList[i].addEventListener('focusout', () => {
+					if (this.formCardList[i].querySelector('input').value === '' || this.formCardList[i].querySelector('input').value === null) {
+						this.formCardFocusOut(i);
 					}
 				});
 			}
@@ -1239,5 +1291,21 @@ export default class Wolfpack {
 
 	formFocusOut(index) {
 		this.formList[index].classList.remove(`${this.formClass[index]}--focus`);
+	}
+
+	formInfosFocusIn(index) {
+		this.formInfosList[index].classList.add(`${this.formInfosClass[index]}--focus`);
+	}
+
+	formInfosFocusOut(index) {
+		this.formInfosList[index].classList.remove(`${this.formInfosClass[index]}--focus`);
+	}
+
+	formCardFocusIn(index) {
+		this.formCardList[index].classList.add(`${this.formCardClass[index]}--focus`);
+	}
+
+	formCardFocusOut(index) {
+		this.formCardList[index].classList.remove(`${this.formCardClass[index]}--focus`);
 	}
 }

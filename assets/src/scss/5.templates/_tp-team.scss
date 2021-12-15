@@ -189,6 +189,13 @@
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
 			grid-gap: 16px;
+			&:last-of-type {
+				.team-grid {
+					&__member-content {
+						height: 100%;
+					}
+				}
+			}
 		}
 		&__division-member {
 			margin-bottom: 0px;
