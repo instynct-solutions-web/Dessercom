@@ -9,6 +9,7 @@
 
 	@include min-width($mobile-threshold) {
 		padding: 1em;
+		padding: 0px 40px;
 	}
 
 	@include min-width($tablet-threshold) {

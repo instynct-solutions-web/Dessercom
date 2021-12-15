@@ -3,7 +3,7 @@ import CircleType from 'circletype';
 export default class CircleText {
 	constructor() {
 		this.circleTextList = document.querySelectorAll('[data-circle-text]');
-		this.test = '';
+
 		this.manageEvents();
 	}
 
@@ -22,7 +22,6 @@ export default class CircleText {
 	circleText(thisCircleText, circleClass) {
 		setTimeout(() => {
 			if (window.getComputedStyle(thisCircleText).display !== 'none') {
-				this.test = 'work';
 				if (!thisCircleText.classList.contains(`${circleClass}--circled`)) {
 					const circleText = thisCircleText;
 					const circleType = new CircleType(circleText);

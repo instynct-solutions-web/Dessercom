@@ -2,6 +2,7 @@
 import CalculateHeight from './helpers/_calculateHeight';
 import Wolfpack from './libraries/_wolfpack';
 import CircleText from './modules/_circleText';
+
 import HeroSlider from './modules/_heroSlider';
 import MapShow from './modules/_mapShow';
 import Canvas from './modules/_canvas';
@@ -9,6 +10,12 @@ import VideoToggle from './modules/_videoToggle';
 import ServicesDrawer from './modules/_servicesDrawer';
 import ContactDrawer from './modules/_contactDrawer';
 import ContactShow from './modules/_contactShow';
+import Menu from './modules/_menu';
+import HistorySlider from './modules/_historySlider';
+import JobsSlider from './modules/_jobsSlider';
+import Jobs from './modules/_jobs';
+import TermsPolicies from './modules/_termsPolicies';
+import Forms from './modules/_forms';
 
 const App = {
 	/**
@@ -35,6 +42,21 @@ const App = {
 		const contactDrawer = new ContactDrawer();
 
 		const contactShow = new ContactShow();
+
+		// Circle Text Scripts
+		const circleText = new CircleText();
+		// Menu Scripts
+		const menu = new Menu();
+		// History Slider Scripts
+		const historySlider = new HistorySlider();
+		// Jobs Slider Scripts
+		const jobsSlider = new JobsSlider();
+		// Jobs Scripts
+		const jobs = new Jobs();
+		// TermsPolicies Scripts
+		const termsPolicies = new TermsPolicies();
+		// Forms Scripts
+		const forms = new Forms();
 	},
 };
 
