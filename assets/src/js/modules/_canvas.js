@@ -5,7 +5,9 @@ export default class Canvas {
 	constructor() {
 		// All DOM selector / elements goes here
 		this.container = document.querySelector('[data-canvas-grid]');
-		this.manageEvents();
+		if (this.container) {
+			this.manageEvents();
+		}
 	}
 
 	manageEvents() {
