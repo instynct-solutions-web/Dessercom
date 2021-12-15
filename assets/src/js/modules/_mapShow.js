@@ -4,8 +4,9 @@ export default class MapShow {
 		this.showMapButton = document.querySelector(' [data-map-show]');
 		this.closeMapButton = document.querySelector('[data-map-close]');
 		this.hero = document.querySelector('[data-map-hero]');
-
-		this.manageEvents();
+		if (this.showMapButton) {
+			this.manageEvents();
+		}
 	}
 
 	manageEvents() {

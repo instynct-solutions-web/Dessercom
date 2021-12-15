@@ -93,6 +93,30 @@
 	}
 }
 
+@mixin days {
+	font: 500 rem(22) $font-family-default;
+	line-height: 1.2em;
+	color: $navy;
+	@include min-width($mobile-threshold) {
+		font-size: rem(22);
+	}
+	@include min-width($tablet-threshold) {
+		font-size: rem(22);
+	}
+}
+
+@mixin hours {
+	font: 500 rem(30) $font-family-default;
+	line-height: 1.2em;
+	color: $navy;
+	@include min-width($mobile-threshold) {
+		font-size: rem(30);
+	}
+	@include min-width($tablet-threshold) {
+		font-size: rem(30);
+	}
+}
+
 @mixin list {
 	li {
 		display: flex;

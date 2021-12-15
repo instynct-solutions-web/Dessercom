@@ -7,6 +7,8 @@ import MapShow from './modules/_mapShow';
 import Canvas from './modules/_canvas';
 import VideoToggle from './modules/_videoToggle';
 import ServicesDrawer from './modules/_servicesDrawer';
+import ContactDrawer from './modules/_contactDrawer';
+import ContactShow from './modules/_contactShow';
 
 const App = {
 	/**
@@ -29,6 +31,10 @@ const App = {
 		const canvas = new Canvas();
 
 		const servicesDrawer = new ServicesDrawer();
+
+		const contactDrawer = new ContactDrawer();
+
+		const contactShow = new ContactShow();
 	},
 };
 

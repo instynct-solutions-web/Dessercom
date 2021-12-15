@@ -1,9 +1,9 @@
-export default class ServicesDrawer {
+export default class ContactDrawer {
 	constructor() {
 		// All DOM selector / elements goes here
-		this.toggleList = document.querySelectorAll('[data-services-drawer-toggle]');
-		this.toggleContainerList = document.querySelectorAll('[data-services-drawer-container]');
-		this.toggleIconList = document.querySelectorAll('[data-services-drawer-icon]');
+		this.toggleList = document.querySelectorAll('[data-contact-drawer-toggle]');
+		this.toggleContainerList = document.querySelectorAll('[data-contact-drawer-container]');
+		this.toggleIconList = document.querySelectorAll('[data-contact-drawer-icon]');
 		this.manageEvents();
 	}
 
