@@ -64,6 +64,7 @@
 	top: 0;
 	left: 0;
 	opacity: 1;
+	padding-top: $mobile-header-height;
 	&__svg-container {
 		height: 40vh;
 		display: flex;
@@ -132,6 +133,7 @@
 	&__background {
 		position: absolute;
 		z-index: 0;
+		width: 100%;
 		transform: translateX(-30vh) rotate(-120deg) scale(2);
 	}
 	&__container {

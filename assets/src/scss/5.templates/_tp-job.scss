@@ -98,7 +98,7 @@
 		margin-bottom: 40px;
 	}
 	&__text {
-		font-size: rem(15);
+		font-size: rem(17);
 		font-weight: 500;
 		color: $white;
 		line-height: 1.6;
@@ -187,6 +187,12 @@
 		position: absolute;
 		top: 40px;
 		right: 20px;
+	}
+	&__counter {
+		color: $white;
+		font-size: rem(17);
+		font-weight: 400;
+		margin: 0.5em 0;
 	}
 }
 

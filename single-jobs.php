@@ -76,11 +76,13 @@ get_header(); ?>
                 </ul>
             </div>
             <div class="job-benefits__content">
-                <?php foreach ($benefits['list'] as $item) { ?>
+                <?php
+                $counter = 1;
+                foreach ($benefits['list'] as $item) { ?>
                     <ul class="job-benefits__single-list" data-job-sector>
                         <?php foreach ($item['benefits_list'] as $benefit) { ?>
                             <li class="job-benefits__item">
-                                <span class="job-benefits__counter"></span>
+                                <span class="job-benefits__counter"><?= sprintf('%02d', $counter) ?></span>
                                 <p class="job-benefits__text"><?= $benefit['text'] ?></p>
                                 <?php if ($benefit['subtext']) { ?>
                                     <p class="job-benefits__subtext"><?= $benefit['subtext'] ?></p>
@@ -89,6 +91,7 @@ get_header(); ?>
 
                             </li>
                         <?php
+                            $counter++;
                         } ?>
                     </ul>
                 <?php

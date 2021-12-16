@@ -342,7 +342,7 @@
 
 @include tablet-only {
 	.page-template-tp-jobs {
-		.hero-slider {
+		.tilted-slider {
 			&__list {
 				transform: translateX(-33.33333%) rotate(2deg) scale(0.9);
 			}

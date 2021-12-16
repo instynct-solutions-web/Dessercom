@@ -712,3 +712,166 @@
 		}
 	}
 }
+
+@mixin contactForm {
+	.gform_validation_errors {
+		margin: 0 0 15px 0 !important;
+		padding: 15px 20px !important;
+		border-radius: 0px !important;
+		box-shadow: none !important;
+		background-color: $yellow !important;
+		border: 0px !important;
+		.gform_submission_error {
+			font-size: rem(13);
+			font-weight: 500;
+			color: $navy;
+			.gform-icon {
+				display: none;
+			}
+		}
+	}
+	.gfield_error {
+		input,
+		textarea,
+		select {
+			border: 0px !important;
+		}
+		.gfield_label {
+			color: $navy;
+		}
+	}
+	.gform_fields {
+		grid-row-gap: 0px !important;
+		.validation_message,
+		.instruction {
+			font-size: rem(12) !important;
+			margin-top: 0px !important;
+			padding: 15px 20px !important;
+			background-color: $white;
+			border: 0px;
+			border-top: 1px solid $navy;
+		}
+	}
+	.field {
+		&__dropdown-icon {
+			position: absolute;
+			right: 20px;
+		}
+		&__last {
+			border-bottom: 1px solid $navy !important;
+		}
+		&__default,
+		&__dropdown {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: flex-start;
+			position: relative;
+			border: 1px solid $black;
+			border-bottom: 0px;
+			padding: 0 !important;
+			input,
+			textarea,
+			select {
+				font-size: rem(16) !important;
+				font-weight: 500 !important;
+				line-height: 2 !important;
+				padding: 20px !important;
+				transition: 0.5s ease;
+			}
+			label {
+				font-size: rem(13) !important;
+				font-weight: 500 !important;
+				margin-bottom: 0px !important;
+				padding: 0 !important;
+				position: absolute;
+				left: 20px;
+			}
+			&.gfield--focus {
+				.gfield_label {
+					left: 10px;
+					top: 10px;
+					transform: scale(0.7);
+				}
+				.ginput_container input,
+				.ginput_container textarea,
+				.ginput_container select {
+					padding: 30px 20px 10px 20px !important;
+				}
+			}
+		}
+		&__send-icon {
+			position: absolute;
+			right: 20px;
+			transform-origin: center;
+			transform: rotate(225deg);
+		}
+	}
+	.gfield {
+		legend {
+			display: none !important;
+		}
+	}
+	.gfield_label {
+		font-size: rem(13) !important;
+		font-weight: 500 !important;
+		margin-bottom: 0px !important;
+		position: absolute;
+		left: 20px;
+		top: 30px;
+		transform-origin: top left;
+		transition: 0.5s ease;
+		.gfield_required {
+			display: none;
+		}
+	}
+	.ginput_container {
+		width: 100%;
+	}
+	.gform_footer {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		position: relative;
+		margin: 0 !important;
+		padding: 0 !important;
+		.gform_button {
+			color: $white;
+			font-size: rem(13);
+			font-weight: 600;
+			line-height: 2;
+			text-align: left;
+			padding: 20px;
+			margin: 0 !important;
+			width: 100%;
+			background-color: $teal;
+		}
+	}
+	@include tablet-only {
+		.gform_fields {
+			grid-column-gap: 0 !important;
+		}
+		.field {
+			&__left {
+				border-right: 0px !important;
+			}
+		}
+		.gfield_label {
+			font-size: rem(13) !important;
+			font-weight: 500 !important;
+			margin-bottom: 0px !important;
+			position: absolute;
+			left: 20px;
+			transform-origin: top left;
+			transition: 0.5s ease;
+			.gfield_required {
+				display: none;
+			}
+		}
+		.gform_footer {
+			width: 33.33333%;
+			margin-left: 66.66666% !important;
+			margin-top: 50px !important;
+		}
+	}
+}

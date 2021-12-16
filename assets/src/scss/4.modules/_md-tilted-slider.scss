@@ -2,7 +2,7 @@
 // MODULES - Titled Slider
 // ==========================================================================
 
-.hero-slider {
+.tilted-slider {
 	&__container {
 		@include container;
 		height: 500px;
@@ -44,7 +44,7 @@
 }
 
 @include tablet-only {
-	.hero-slider {
+	.tilted-slider {
 		margin-top: 30px;
 		margin-bottom: 75px;
 		&__container {

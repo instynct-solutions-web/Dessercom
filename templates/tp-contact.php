@@ -8,7 +8,7 @@ get_header(); ?>
 
 <?php
 $media = get_field('media') ?>
-<section class="contact-media">
+<section data-contact-media class="contact-media">
     <div class="contact-media__container">
         <div class="contact-media__cta-container">
             <div data-contact-close class="contact-media__cta">
@@ -178,7 +178,7 @@ $contact = get_field('form'); ?>
     <img src="<?= $contact['image']['url'] ?>" alt="<?= $contact['image']['alt'] ?>" class="contact-form__background">
     <div class="contact-form__container">
         <h2 class="contact-form__title"><?= $contact['title'] ?></h2>
-        <div class="contact-form__form-container">
+        <div data-form class="contact-form__form-container">
             <?php
             echo do_shortcode('[gravityform id="2" title="false" description="false" ajax="false"]'); ?>
         </div>

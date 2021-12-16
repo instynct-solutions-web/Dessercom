@@ -3,9 +3,15 @@
 // ==========================================================================
 .contact-media {
 	background-color: $teal;
+	padding-top: $mobile-header-height;
 	position: absolute;
 	top: 0;
 	left: 0;
+	transform: translateY(-100%);
+	transition: 0.3s ease-in-out transform;
+	&--show {
+		transform: translateY(0);
+	}
 	&__container {
 		@include container;
 	}
@@ -70,7 +76,7 @@
 		margin: 2em 0;
 		position: absolute;
 		right: 0;
-		top: 0;
+		top: $mobile-header-height;
 	}
 	&__cta {
 		position: relative;
@@ -283,5 +289,28 @@
 		margin-left: 0.5em;
 		font-size: rem(14);
 		font-weight: 500;
+	}
+}
+
+.contact-form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&__container {
+		@include container;
+	}
+	&__background {
+		width: 100%;
+		transform: scale(2.05);
+		position: absolute;
+		filter: brightness(0.3);
+	}
+	&__form-container {
+		@include contactForm;
+		background-color: $white;
+		position: relative;
+	}
+	.gform_footer {
+		margin: 1em 0 !important;
 	}
 }
