@@ -1,0 +1,532 @@
+// ==========================================================================
+// TEMPLATES - Job
+// ==========================================================================
+
+.jobs-hero {
+	position: relative;
+	&__container {
+		@include container;
+		padding-bottom: 150px;
+	}
+	&__info {
+		margin-bottom: 30px;
+	}
+	&__link {
+		display: inline-block;
+		font-size: rem(13);
+		font-weight: 500;
+		color: $black;
+		opacity: 0.3;
+		padding: 0 20px 15px 20px;
+		position: relative;
+		margin-bottom: 50px;
+		&:after {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 100%;
+			background-color: $black;
+			position: absolute;
+			left: 0px;
+			bottom: 0px;
+		}
+	}
+	&__link-icon {
+		position: relative;
+		top: 3px;
+		margin-right: 10px;
+	}
+	&__title {
+		font-size: rem(42);
+		font-weight: 500;
+		color: $navy;
+		word-break: break-word;
+		-webkit-hyphens: auto;
+		-moz-hyphens: auto;
+		-ms-hyphens: auto;
+		hyphens: auto;
+		margin-bottom: 10px;
+	}
+	&__subtitle {
+		font-size: rem(13);
+		font-weight: 500;
+		color: $navy;
+		line-height: 1.5;
+	}
+	&__image {
+		width: 100%;
+		transform: translateX(-40px);
+	}
+	&__background-image {
+		position: absolute;
+		transform-origin: center;
+		transform: rotate(240deg);
+		bottom: 50px;
+		right: -20%;
+	}
+}
+
+.job-benefits {
+	position: relative;
+	background-color: $navy;
+	margin-top: 25px;
+	position: relative;
+	&__background {
+		display: none;
+	}
+	&__container {
+		@include container;
+		padding-top: 90px;
+		padding-bottom: 125px;
+		position: relative;
+		z-index: 1;
+	}
+	&__logo {
+		position: absolute;
+		width: 25px;
+		right: 15px;
+		bottom: 40px;
+	}
+	&__info {
+		margin-bottom: 80px;
+	}
+	&__title {
+		font-size: rem(25);
+		font-weight: 500;
+		color: $white;
+		width: 83.33333%;
+		margin-bottom: 40px;
+	}
+	&__text {
+		font-size: rem(17);
+		font-weight: 500;
+		color: $white;
+		line-height: 1.6;
+	}
+	&__sector-list {
+		margin-bottom: 80px;
+	}
+	&__sector-item {
+		margin-bottom: 15px;
+		&:last-of-type {
+			margin-bottom: 0px;
+		}
+		&--selected {
+			.job-benefits {
+				&__sector-button {
+					background-color: #4a5c6d;
+				}
+			}
+		}
+	}
+	&__sector-button {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		justify-content: space-between;
+		width: 66.66666%;
+		padding: 15px;
+		border: 1px solid $white;
+	}
+	&__sector-text {
+		font-size: rem(13);
+		font-weight: 500;
+		line-height: 1.4;
+		color: $white;
+		width: 33.33333%;
+	}
+	&__sector-icon {
+		transform-origin: center;
+		transform: rotate(225deg);
+	}
+	&__item {
+		width: 83.33333%;
+		padding-top: 15px;
+		margin-bottom: 50px;
+		position: relative;
+		&:last-of-type {
+			margin-bottom: 0px;
+		}
+		&:before {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 100%;
+			background-color: $white;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+	}
+	&__item-num {
+		font-size: rem(17);
+		font-weight: 400;
+		color: $white;
+		margin-bottom: 10px;
+	}
+	&__item-text {
+		font-size: rem(17);
+		font-weight: 500;
+		line-height: 1.4;
+		color: $white;
+	}
+	&__single-list {
+		display: none;
+		&--selected {
+			display: block;
+		}
+	}
+	&__subtext {
+		font-size: rem(14);
+		font-weight: 500;
+		line-height: 1.4;
+		color: $white;
+		margin-top: 20px;
+	}
+	&__icon {
+		position: absolute;
+		top: 40px;
+		right: 20px;
+	}
+	&__counter {
+		color: $white;
+		font-size: rem(17);
+		font-weight: 400;
+		margin: 0.5em 0;
+	}
+}
+
+.jobs-description {
+	&__container {
+		@include container;
+		padding-top: 50px;
+		padding-bottom: 80px;
+	}
+	&__top {
+		padding-top: 40px;
+		margin-bottom: 60px;
+		position: relative;
+		&:after {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 100%;
+			background-color: $navy;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+	}
+	&__note {
+		font-size: rem(14);
+		font-weight: 500;
+		color: $navy;
+		line-height: 1.5;
+		width: 33.33333%;
+	}
+	&__information {
+		margin-bottom: 50px;
+	}
+	&__information-title {
+		font-size: rem(30);
+		font-weight: 500;
+		color: $navy;
+		margin-bottom: 40px;
+	}
+	&__text {
+		font-size: rem(13);
+		font-weight: 500;
+		line-height: 1.5;
+		color: $navy;
+		margin-bottom: 30px;
+	}
+	&__image,
+	&__image-large {
+		width: calc(100% + 32px);
+		transform: translateX(-16px);
+		margin: 30px 0;
+	}
+	&__requirement-title {
+		margin-top: 20px;
+		font-size: rem(20);
+		font-weight: 500;
+		color: $navy;
+		margin-bottom: 30px;
+	}
+	&__experience,
+	&__formation {
+		margin-bottom: 30px;
+	}
+	&__skills {
+		margin-bottom: 60px;
+	}
+	&__experience-title,
+	&__formation-title,
+	&__skills-title,
+	&__schedule-title {
+		font-size: rem(15);
+		font-weight: 500;
+		color: $navy;
+		margin-bottom: 10px;
+	}
+	&__experience-text,
+	&__formation-text,
+	&__schedule-text {
+		font-size: rem(13);
+		font-weight: 500;
+		line-height: 1.5;
+		color: $navy;
+	}
+	&__schedule-subtext {
+		font-size: rem(11);
+		font-weight: 500;
+		line-height: 1.5;
+		color: $navy;
+		margin-top: 15px;
+	}
+	&__skills-item {
+		font-size: rem(13);
+		font-weight: 500;
+		line-height: 1.3;
+		color: $navy;
+		margin-bottom: 10px;
+		padding-left: 20px;
+		position: relative;
+		&:last-of-type {
+			margin-bottom: 0px;
+		}
+		&:after {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 10px;
+			background-color: #a4abb1;
+			position: absolute;
+			top: 6px;
+			left: 0px;
+		}
+	}
+	&__schedule {
+		margin-top: 60px;
+	}
+}
+
+.jobs-form {
+	&__container {
+		@include container;
+		padding-top: 50px;
+		padding-bottom: 120px;
+	}
+	&__top {
+		padding-top: 50px;
+		margin-bottom: 80px;
+		position: relative;
+		&:before {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 100%;
+			background-color: $navy;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+	}
+	&__note {
+		font-size: rem(30);
+		font-weight: 500;
+		line-height: 1.2;
+		color: $navy;
+		margin-bottom: 0px;
+	}
+	&__main {
+		@include jobForm;
+	}
+}
+
+@include tablet-only {
+	.jobs-hero {
+		&__container {
+			padding-top: 40px;
+			padding-bottom: 500px;
+			position: relative;
+		}
+		&__main {
+			padding: 0 35px;
+		}
+		&__info {
+			margin-bottom: 0px;
+		}
+		&__link {
+			margin-bottom: 85px;
+		}
+		&__title {
+			width: 62.5%;
+			font-size: rem(70);
+			margin-bottom: 40px;
+		}
+		&__subtitle {
+			width: 50%;
+		}
+		&__image {
+			position: absolute;
+			top: -40px;
+			right: -190px;
+			width: calc(100% - 80px);
+			transform: translateX(0px);
+		}
+		&__background-image {
+			bottom: -40px;
+			width: 50%;
+			height: 50%;
+		}
+	}
+	.job-benefits {
+		&__container {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			padding-top: 100px;
+			padding-bottom: 100px;
+			position: relative;
+		}
+		&__background {
+			display: block;
+			position: absolute;
+			width: 100%;
+			padding: 0 40px;
+		}
+		&__sector-background {
+			display: none;
+			font-size: rem(187);
+			font-weight: 500;
+			line-height: 1.1;
+			color: $gray;
+			opacity: 0.05;
+			&--selected {
+				display: block;
+			}
+		}
+		&__title {
+			width: 25%;
+			margin-bottom: 0px;
+		}
+		&__sector-list {
+			width: 25%;
+			position: absolute;
+			left: 40px;
+			bottom: 100px;
+			margin-bottom: 0px;
+		}
+		&__sector-button {
+			width: 100%;
+		}
+		&__single-list {
+			width: 50%;
+			min-height: 300px;
+			margin: 0 12.5% 0 37.5%;
+		}
+		&__item {
+			width: 100%;
+			margin-bottom: 40px;
+			&:last-of-type {
+				margin-bottom: 0px;
+			}
+		}
+		&__subtext {
+			font-size: rem(17);
+		}
+		&__text {
+			font-size: rem(17);
+		}
+		&__icon {
+			position: absolute;
+			top: 40px;
+			right: 20px;
+		}
+	}
+	.jobs-description {
+		&__container {
+			padding-top: 60px;
+			padding-bottom: 60px;
+		}
+		&__top {
+			margin-bottom: 80px;
+		}
+		&__note {
+			width: 50%;
+		}
+		&__information {
+			display: flex;
+			flex-wrap: wrap;
+			width: 75%;
+			margin: 0 12.5% 50px 12.5%;
+		}
+		&__information-title {
+			width: 100%;
+		}
+		&__information-content {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		&__text {
+			width: 66.66666%;
+			padding-right: 40px;
+			margin-bottom: 0px;
+		}
+		&__image {
+			object-fit: contain;
+			object-position: top;
+			width: 33.33333%;
+			transform: translateX(0px);
+			margin: 0;
+		}
+		&__image-large {
+			width: 100%;
+			transform: translateX(0px);
+			margin: 0;
+		}
+		&__requirements {
+			display: flex;
+			flex-wrap: wrap;
+			width: 75%;
+			margin: 0 12.5% 50px 12.5%;
+		}
+		&__requirement-title {
+			margin-top: 0px;
+		}
+		&__experience,
+		&__formation {
+			width: 100%;
+			margin-bottom: 20px;
+		}
+		&__skills {
+			width: 100%;
+			margin-top: 30px;
+		}
+	}
+	.jobs-form {
+		&__container {
+			padding-bottom: 120px;
+		}
+		&__top {
+			width: 37.5%;
+			margin: 0 37.5% 80px 12.5%;
+			&:before {
+				content: '';
+				display: block;
+				height: 1px;
+				width: 100%;
+				background-color: $navy;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+		}
+		&__main {
+			width: 75%;
+			margin: 0 12.5% 0 12.5%;
+		}
+	}
+}

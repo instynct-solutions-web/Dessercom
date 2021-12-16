@@ -69,13 +69,16 @@
 		"webpack-stream": "6.1.2"
 	},
 	"dependencies": {
+		"circletype": "^2.3.0",
 		"flickity": "^2.2.2",
 		"flickity-as-nav-for": "^2.0.1",
 		"flickity-fade": "^1.0.0",
 		"flickity-imagesloaded": "^2.0.0",
+		"flickity-sync": "^2.0.0",
 		"gsap": "^3.7.0",
 		"jquery": "3.6.0",
 		"jquery-bridget": "^3.0.0",
+		"p5": "^1.4.0",
 		"scrollmagic": "^2.0.8",
 		"scrollmagic-plugin-gsap": "^1.0.4",
 		"smooth-scrollbar": "^8.6.2",

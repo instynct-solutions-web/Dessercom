@@ -7,9 +7,9 @@
 
 @mixin title-1 {
 	font: 500 rem(43) $font-family-title;
-	line-height: 1em;
+	line-height: 1.1em;
 	margin-bottom: 0.5em;
-	color: $black;
+	color: $navy;
 
 	@include min-width($mobile-threshold) {
 		font-size: rem(70);
@@ -23,7 +23,7 @@
 	font: 500 rem(45) $font-family-title;
 	line-height: 1em;
 	margin-bottom: 0.5em;
-	color: $black;
+	color: $navy;
 
 	@include min-width($mobile-threshold) {
 		font-size: rem(45);
@@ -37,7 +37,7 @@
 	font: 500 rem(35) $font-family-title;
 	line-height: 1em;
 	margin-bottom: 0.5em;
-	color: $black;
+	color: $navy;
 
 	@include min-width($mobile-threshold) {
 		font-size: rem(35);
@@ -51,8 +51,7 @@
 	font: 500 rem(15) $font-family-title;
 	line-height: 1em;
 	margin-bottom: 0.5em;
-	color: $black;
-
+	color: $navy;
 	@include min-width($mobile-threshold) {
 		font-size: rem(22);
 	}

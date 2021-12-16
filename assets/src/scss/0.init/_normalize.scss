@@ -34,6 +34,7 @@ dd {
 html.website {
 	pointer-events: none;
 	overflow: hidden;
+	-webkit-font-smoothing: antialiased;
 }
 
 /* Set core body defaults */
@@ -86,7 +87,6 @@ a:not([class]) {
 /* Make images easier to work with */
 img {
 	display: block;
-	max-width: 100%;
 	height: auto;
 }
 

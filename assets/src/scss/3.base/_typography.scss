@@ -36,6 +36,14 @@ p,
 	@include B3C;
 }
 
+.days {
+	@include days;
+}
+
+.hours {
+	@include hours;
+}
+
 // Highlight color
 ::selection {
 	border: 0;

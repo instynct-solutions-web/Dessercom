@@ -12,6 +12,8 @@
 @import '2.mixins/functions';
 @import '2.mixins/titles';
 @import '2.mixins/typography';
+@import '2.mixins/forms';
+@import '2.mixins/filters';
 
 @import '3.base/form';
 @import '3.base/titles';
@@ -22,12 +24,25 @@
 @import '4.modules/md-header';
 @import '4.modules/md-footer';
 @import '4.modules/md-cursors';
+@import '4.modules/md-tilted-slider';
 
 @import '5.templates/tp-home';
+@import '5.templates/tp-pricing';
+@import '5.templates/tp-invoice';
+@import '5.templates/tp-about';
+@import '5.templates/tp-terms';
+@import '5.templates/tp-faq';
+@import '5.templates/tp-jobs';
+@import '5.templates/tp-job';
+@import '5.templates/tp-team';
 @import '5.templates/tp-styleguide';
+@import '5.templates/tp-services';
+@import '5.templates/tp-contact';
+@import '5.templates/tp-404';
 
 @import '6.print/print';
 
 @import '7.plugins/wolfpack';
+@import '7.plugins/social';
 @import '7.plugins/flickity';
 @import '7.plugins/utils';

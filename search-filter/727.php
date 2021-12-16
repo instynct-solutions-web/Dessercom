@@ -6,9 +6,16 @@
             $question = get_field('question')
             // Get project ACF Field
     ?>
-            <li class="faq__answer">
+            <li class="faq__answer" data-terms-policies>
                 <div class="faq__answer-top">
-                    <h4 class="faq__answer-title"><?= the_title() ?></h4>
+                    <h4 class="faq__answer-title" data-terms-policies-title>
+                        <?= the_title() ?>
+                        <svg class="faq__answer-icon" xmlns="http://www.w3.org/2000/svg" width="12.828" height="7.414" viewBox="0 0 12.828 7.414">
+                            <g id="Groupe_1175" data-name="Groupe 1175" transform="translate(1.414 -22.704)">
+                                <path id="Tracé_3" data-name="Tracé 3" d="M0,0,5,5l5-5" transform="translate(0 24.118)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />
+                            </g>
+                        </svg>
+                    </h4>
                 </div>
                 <div class="faq__answer-content">
                     <p class="faq__answer-text"><?= $question['text'] ?></p>
