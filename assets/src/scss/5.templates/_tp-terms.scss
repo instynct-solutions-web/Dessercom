@@ -125,3 +125,38 @@
 		}
 	}
 }
+
+@include desktop-only {
+	.policies {
+		overflow: hidden;
+		&__background {
+			top: auto;
+			right: -30%;
+			bottom: 0px;
+			width: 60%;
+			height: 60%;
+		}
+		&__container {
+			padding-top: 100px;
+			padding-bottom: 180px;
+		}
+		&__title {
+			width: 41.66666%;
+			padding: 0;
+			margin-bottom: 85px;
+		}
+		&__item {
+			margin-bottom: 50px;
+		}
+		&__item-title {
+			font-size: rem(20);
+			margin-bottom: 55px;
+		}
+		&__text {
+			p,
+			li {
+				font-size: rem(16);
+			}
+		}
+	}
+}

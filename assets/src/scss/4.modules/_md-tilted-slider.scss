@@ -71,3 +71,20 @@
 		}
 	}
 }
+
+@include desktop-only {
+	.tilted-slider {
+		margin-top: 0px;
+		margin-bottom: 0px;
+		&__title {
+			width: 33.33333%;
+			margin: 0 33.33333%;
+		}
+		&__list {
+			transform: translateX(-33.33333%) rotate(-1deg) scale(0.9);
+		}
+		&__item {
+			width: calc(20% - 10px);
+		}
+	}
+}
