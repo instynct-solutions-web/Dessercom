@@ -70,3 +70,21 @@
 		}
 	}
 }
+
+@include desktop-only {
+	.error {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		&__title {
+			width: 66.66666%;
+			font-size: rem(90);
+		}
+		&__button {
+			font-size: rem(15);
+		}
+		&__background {
+			transform: scale(4) rotate(210deg) translateX(-60%) translateY(50%);
+		}
+	}
+}
