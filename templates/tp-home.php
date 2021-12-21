@@ -9,7 +9,7 @@ get_header(); ?>
 
 <?php
 $hero = get_field('hero'); ?>
-<section class="hero-slider">
+<section class="hero-slider" data-wolfpack-section>
     <div class="hero-slider__container">
         <ul data-hero-slider class="hero-slider__list">
             <?php foreach ($hero['list'] as $item) { ?>
@@ -68,7 +68,7 @@ $hero = get_field('hero'); ?>
 <?php
 $highlight = get_field('highlight');
 ?>
-<section class="home-highlight">
+<section class="home-highlight" data-wolfpack-section>
     <div class="home-highlight__top-container">
         <div class="home-highlight__text-container">
             <h1 class="home-highlight__text"><?= $highlight['text']  ?></h1>
@@ -95,7 +95,7 @@ $highlight = get_field('highlight');
 $services = get_field('services');
 $index = 0;
 ?>
-<section class="home-services">
+<section class="home-services" data-wolfpack-section>
     <div class="home-services__container">
         <div class="home-services__background">
             <?php foreach ($services['list'] as $item) { ?>
@@ -140,7 +140,7 @@ $index = 0;
 </section>
 
 <?php $promo = get_field('promo') ?>
-<section data-cursor-class="video" data-cursor data-cursor-text="<?= $promo['text'] ?>" class="home-promo">
+<section data-cursor-class="video" data-wolfpack-section data-cursor data-cursor-text="<?= $promo['text'] ?>" class="home-promo">
     <div class="home-promo__container">
         <ul data-video-overlay class="home-promo__list">
             <?php foreach ($promo['list'] as $list) { ?>
@@ -167,7 +167,7 @@ $index = 0;
 <?php
 $commitments = get_field('commitment');
 ?>
-<section class="home-commitment">
+<section class="home-commitment" data-wolfpack-section>
     <div class="home-commitment__container">
         <div class="home-commitment__top">
             <svg class="home-commitment__icon" viewBox="0 0 786.511 708.195">
@@ -197,7 +197,7 @@ $commitments = get_field('commitment');
 </section>
 
 <?php $social = get_field('social') ?>
-<section class="home-social">
+<section class="home-social" data-wolfpack-section>
     <div class="home-social__container">
         <div class="home-social__title-container">
             <svg class="home-social__icon" viewBox="0 0 786.511 708.195">

@@ -8,7 +8,21 @@ export default class HomeServices {
 
 	manageEvents() {
 		if (this.serviceList.length !== 0) {
-			this.loopService();
+			if (window.innerWidth > 768 && window.innerWidth < 1024) {
+				this.loopService();
+			} else if (window.innerWidth > 1024) {
+				this.openService(0);
+				for (let i = 0; i < this.serviceList.length; i += 1) {
+					this.serviceList[i].addEventListener('mouseenter', () => {
+						for (let j = 0; j < this.serviceList.length; j += 1) {
+							if (this.serviceList[j] !== this.serviceList[i]) {
+								this.closeService(j);
+							}
+						}
+						this.openService(i);
+					});
+				}
+			}
 		}
 	}
 
