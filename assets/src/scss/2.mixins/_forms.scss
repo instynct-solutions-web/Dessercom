@@ -148,6 +148,9 @@
 				border-left: 1px solid $navy;
 				border-right: 1px solid $navy;
 			}
+			.gfield_label_before_complex {
+				display: none !important;
+			}
 			&.gfield_error {
 				.ginput_full {
 					label {
@@ -343,6 +346,45 @@
 			width: 33.33333%;
 			margin-left: 66.66666% !important;
 			margin-top: 50px !important;
+		}
+	}
+	@include desktop-only {
+		.field {
+			&__title {
+				.gsection_title {
+					font-size: rem(16);
+					margin-bottom: 50px;
+					padding-top: 20px;
+				}
+			}
+			&__default,
+			&__dropdown {
+				label {
+					font-size: rem(15) !important;
+				}
+			}
+			&__card {
+				.ginput_full {
+					label {
+						font-size: rem(15) !important;
+					}
+				}
+			}
+			&__infos {
+				span {
+					label {
+						font-size: rem(15) !important;
+					}
+				}
+			}
+		}
+		.gfield_label {
+			font-size: rem(15) !important;
+		}
+		.gform_footer {
+			.gform_button {
+				font-size: rem(15);
+			}
 		}
 	}
 }
@@ -711,6 +753,32 @@
 			}
 		}
 	}
+	@include desktop-only {
+		.gfield_label {
+			top: 25px;
+			font-size: rem(15) !important;
+		}
+		.gform_footer {
+			.gform_button {
+				font-size: rem(15);
+			}
+		}
+		.field {
+			&__file {
+				&.gfield--width-full {
+					input {
+						padding: 20px !important;
+					}
+				}
+				.ginput_container {
+					input,
+					select {
+						line-height: 2 !important;
+					}
+				}
+			}
+		}
+	}
 }
 
 @mixin contactForm {
@@ -775,7 +843,7 @@
 			select {
 				font-size: rem(16) !important;
 				font-weight: 500 !important;
-				line-height: 2 !important;
+				line-height: 1 !important;
 				padding: 20px !important;
 				transition: 0.5s ease;
 			}
@@ -818,7 +886,7 @@
 		margin-bottom: 0px !important;
 		position: absolute;
 		left: 20px;
-		top: 30px;
+		top: 23px;
 		transform-origin: top left;
 		transition: 0.5s ease;
 		.gfield_required {
@@ -844,7 +912,7 @@
 			padding: 20px;
 			margin: 0 !important;
 			width: 100%;
-			background-color: $teal;
+			background-color: $navy;
 		}
 	}
 	@include tablet-only {
@@ -868,10 +936,15 @@
 				display: none;
 			}
 		}
+	}
+	@include desktop-only {
+		.gfield_label {
+			font-size: rem(15) !important;
+		}
 		.gform_footer {
-			width: 33.33333%;
-			margin-left: 66.66666% !important;
-			margin-top: 50px !important;
+			.gform_button {
+				font-size: rem(15);
+			}
 		}
 	}
 }

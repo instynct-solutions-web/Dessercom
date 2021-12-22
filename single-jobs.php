@@ -76,9 +76,9 @@ get_header(); ?>
                 </ul>
             </div>
             <div class="job-benefits__content">
-                <?php
-                $counter = 1;
-                foreach ($benefits['list'] as $item) { ?>
+                <?php foreach ($benefits['list'] as $item) {
+                    $counter = 1;
+                ?>
                     <ul class="job-benefits__single-list" data-job-sector>
                         <?php foreach ($item['benefits_list'] as $benefit) { ?>
                             <li class="job-benefits__item">

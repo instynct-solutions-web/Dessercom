@@ -3,9 +3,34 @@ import TweenMax from 'gsap';
 
 export default class Wolfpack {
 	constructor() {
+		window.addEventListener(
+			'pageshow',
+			function (evt) {
+				if (evt.persisted) {
+					setTimeout(function () {
+						window.location.reload();
+					}, 10);
+				}
+			},
+			false
+		);
+
 		// Stop default behaviour
 		window.scrollTo(0, 0);
 		window.event.preventDefault();
+
+		// Virtual scroll variables
+		if (window.innerWidth >= 1024) {
+			this.virtualScroll = new VirtualScroll({
+				mouseMultiplier: 0.4,
+				touchMultiplier: 2,
+			});
+		} else {
+			this.virtualScroll = new VirtualScroll({
+				mouseMultiplier: 0.7,
+				touchMultiplier: 2,
+			});
+		}
 
 		// Page transition variables
 		this.pageTransition = document.querySelector('[data-page-transition]');
@@ -46,19 +71,6 @@ export default class Wolfpack {
 		window.addEventListener('resize', () => {
 			this.windowHeight = window.innerHeight;
 		});
-
-		// Virtual scroll variables
-		if (window.innerWidth >= 1024) {
-			this.virtualScroll = new VirtualScroll({
-				mouseMultiplier: 0.4,
-				touchMultiplier: 2,
-			});
-		} else {
-			this.virtualScroll = new VirtualScroll({
-				mouseMultiplier: 1,
-				touchMultiplier: 2,
-			});
-		}
 
 		// Wolfpack variables
 		this.wolfpackList = document.querySelectorAll('[data-wolfpack]');

@@ -141,3 +141,43 @@
 		}
 	}
 }
+
+@include desktop-only {
+	.faq {
+		overflow: hidden;
+		&__container {
+			padding-top: 100px;
+			padding-bottom: 180px;
+		}
+		&__title {
+			margin-bottom: 60px;
+		}
+		&__main {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-start;
+		}
+		&__filters {
+			width: 25%;
+			padding: 0 50px 0 0;
+			margin: 0;
+		}
+		&__questions {
+			width: 66.66666%;
+		}
+		&__answer {
+			width: 100%;
+			margin: 0 0 50px 0;
+		}
+		&__answer-title {
+			font-size: rem(20);
+			margin-bottom: 55px;
+		}
+		&__text {
+			p,
+			li {
+				font-size: rem(16);
+			}
+		}
+	}
+}

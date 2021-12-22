@@ -8,9 +8,7 @@ get_header(); ?>
 
 <?php $form = get_field('form') ?>
 <section class="invoice-form">
-    <img src="<?= $form['background']['url'] ?>" alt="<?= $form['background']['alt'] ?>" class="invoice-form__image">
     <div class="invoice-form__container">
-        <img src="<?= $form['image']['url'] ?>" alt="<?= $form['image']['alt'] ?>" class="invoice-form__image">
         <a href="<?= $form['link']['url'] ?>" class="invoice-form__cta">
             <span class="invoice-form__cta-text" data-circle-text>
                 <?= $form['link']['title'] ?>
@@ -27,6 +25,7 @@ get_header(); ?>
         </a>
         <h1 class="invoice-form__title"><?= $form['title'] ?></h1>
         <div class="invoice-form__header">
+            <img src="<?= $form['image']['url'] ?>" alt="<?= $form['image']['alt'] ?>" class="invoice-form__image">
             <p class="invoice-form__header-title"><?= $form['section_title'] ?></p>
             <svg class="invoice-form__header-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                 <g id="Groupe_178" data-name="Groupe 178" transform="translate(-424 -480)" opacity="0.5">
@@ -39,6 +38,7 @@ get_header(); ?>
                     </g>
                 </g>
             </svg>
+            <img src="<?= $form['background']['url'] ?>" alt="<?= $form['background']['alt'] ?>" class="invoice-form__background">
         </div>
         <div class="invoice-form__body" data-form>
             <?php

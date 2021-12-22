@@ -3,7 +3,6 @@
 // ==========================================================================
 
 .tilted-slider {
-	padding-bottom: 5em;
 	&__container {
 		@include container;
 		height: 500px;
@@ -11,7 +10,6 @@
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: center;
-		position: relative;
 	}
 	&__title {
 		font-size: rem(38);
@@ -43,14 +41,6 @@
 		object-fit: cover;
 		object-position: center;
 	}
-	&__illustration {
-		position: absolute;
-		bottom: 0;
-		z-index: 2;
-		width: 100%;
-		transform: translate(45%, 10%);
-		pointer-events: none;
-	}
 }
 
 @include tablet-only {
@@ -78,6 +68,23 @@
 			height: 100%;
 			object-fit: cover;
 			object-position: center;
+		}
+	}
+}
+
+@include desktop-only {
+	.tilted-slider {
+		margin-top: 0px;
+		margin-bottom: 0px;
+		&__title {
+			width: 33.33333%;
+			margin: 0 33.33333%;
+		}
+		&__list {
+			transform: translateX(-33.33333%) rotate(-1deg) scale(0.9);
+		}
+		&__item {
+			width: calc(20% - 10px);
 		}
 	}
 }

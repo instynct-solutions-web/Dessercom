@@ -108,4 +108,19 @@
 		padding-left: 0px !important;
 		margin-left: 5px;
 	}
+
+	@include desktop-only {
+		.sf-field-taxonomy-zone,
+		.sf-field-taxonomy-type {
+			h4 {
+				margin-bottom: 35px;
+			}
+		}
+		.sf-label-radio {
+			font-size: rem(22);
+		}
+		.sf-count {
+			font-size: rem(17);
+		}
+	}
 }

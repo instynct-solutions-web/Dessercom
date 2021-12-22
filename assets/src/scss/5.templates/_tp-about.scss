@@ -454,3 +454,197 @@
 		}
 	}
 }
+
+@include desktop-only {
+	.about-philosophy {
+		&__container {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-start;
+			padding-top: 200px;
+			padding-bottom: 160px;
+			position: relative;
+			&:before {
+				content: '';
+				display: block;
+				width: 100%;
+				height: 1px;
+				background-color: $black;
+				position: absolute;
+				top: 80px;
+				left: 0px;
+				opacity: 0.3;
+			}
+		}
+		&__aside {
+			width: 8.333333%;
+			margin-right: 8.33333%;
+			padding-top: 0px;
+			margin-bottom: 0px;
+			&:before {
+				display: none;
+			}
+		}
+		&__note {
+			font-size: rem(16);
+			width: 100%;
+		}
+		&__main {
+			width: 75%;
+		}
+		&__text {
+			width: 100%;
+			margin: 0;
+			font-size: rem(40);
+			color: $white;
+		}
+	}
+	.about-mission {
+		&__container {
+			padding-bottom: 230px;
+		}
+		&__top {
+			padding-top: 45px;
+			margin-bottom: 140px;
+		}
+		&__note {
+			font-size: rem(16);
+			margin: 0;
+		}
+		&__icon {
+			margin-right: 25px;
+		}
+		&__list {
+			grid-gap: 8.33333%;
+		}
+		&__counter {
+			font-size: rem(180);
+			line-height: 1;
+		}
+		&__title {
+			margin-bottom: 40px;
+		}
+		&__text {
+			font-size: rem(16);
+		}
+	}
+	.about-history {
+		&__container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			padding-top: 110px;
+			padding-bottom: 230px;
+			position: initial;
+			&:after {
+				content: '';
+				display: block;
+				height: 1px;
+				width: calc(100% - 240px);
+				max-width: 1440px;
+				margin: 0 120px;
+				background-color: $teal;
+				position: absolute;
+				bottom: 80px;
+			}
+		}
+		&__title {
+			font-size: rem(50);
+			width: 25%;
+			margin-right: 75%;
+			margin-bottom: 80px;
+		}
+		&__dates {
+			width: 33.33333%;
+			margin-left: 8.33333%;
+			margin-right: 58.33333%;
+			margin-bottom: 20px;
+			&:after {
+				width: 55%;
+			}
+		}
+		&__date-item {
+			margin-right: 80px;
+		}
+		&__media {
+			top: 0px;
+			height: 100%;
+		}
+		&__media-list {
+			height: 100%;
+			.flickity-viewport {
+				height: 100% !important;
+			}
+		}
+		&__media-item {
+			height: 100%;
+		}
+		&__background-image {
+			transform-origin: center;
+			transform: scale(1.7) translateX(10%) translateY(0px);
+		}
+		&__foreground-image {
+			width: 80%;
+			max-width: 750px;
+		}
+		&__content {
+			width: 25%;
+			margin-left: 8.33333%;
+			margin-right: 66.66666%;
+		}
+		&__content-title {
+			width: 100%;
+			margin-bottom: 15px;
+		}
+		&__content-text {
+			font-size: rem(16);
+			width: 100%;
+		}
+		&__button-container {
+			display: none;
+		}
+	}
+	.about-funding {
+		&__container {
+			padding-top: 170px;
+			padding-bottom: 180px;
+			position: relative;
+		}
+		&__background {
+			width: 25%;
+			right: 120px;
+		}
+		&__foreground {
+			padding: 0px;
+		}
+		&__info {
+			margin-left: 8.33333%;
+			width: 33.33333%;
+			margin-right: 58.33333;
+			margin-bottom: 80px;
+		}
+		&__title {
+			font-size: rem(35);
+			margin-bottom: 45px;
+		}
+		&__text {
+			font-size: rem(16);
+		}
+		&__list {
+			width: 83.33333%;
+			margin: 0 8.33333%;
+			grid-gap: 100px;
+		}
+		&__item {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		&__logo {
+			margin-bottom: 30px;
+		}
+		&__link {
+			font-size: rem(15);
+		}
+	}
+}

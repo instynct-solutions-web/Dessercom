@@ -296,21 +296,360 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	&__container {
-		@include container;
-	}
 	&__background {
 		width: 100%;
 		transform: scale(2.05);
 		position: absolute;
 		filter: brightness(0.3);
 	}
+	&__container {
+		@include container;
+		padding-top: 90px;
+		padding-bottom: 120px;
+	}
+	&__title {
+		font-size: rem(25);
+		font-weight: 500;
+		margin-bottom: 80px;
+		padding-top: 40px;
+		padding-right: 16.66666%;
+		position: relative;
+		&:after {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 100%;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			background-color: $navy;
+		}
+	}
 	&__form-container {
 		@include contactForm;
 		background-color: $white;
 		position: relative;
 	}
-	.gform_footer {
-		margin: 1em 0 !important;
+}
+
+@include tablet-only {
+	.contact-media {
+		overflow: hidden;
+		z-index: 1;
+		&__container {
+			padding-bottom: 180px;
+			position: relative;
+			z-index: 1;
+		}
+		&__title {
+			font-size: rem(70);
+			width: 37.5%;
+			margin-left: 35px;
+			margin-bottom: 50px;
+		}
+		&__list {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: 40px;
+			padding: 0 35px;
+		}
+		&__member {
+			margin: 0;
+		}
+		&__image {
+			width: calc(100% - 35px);
+			margin: 0 0 50px 0;
+		}
+		&__name {
+			margin: 0 0 15px 0;
+		}
+		&__position {
+			margin: 0 0 10px 0;
+		}
+		&__background {
+			transform: translateY(50%) translateX(50%) rotate(342deg) scale(3);
+		}
+		&__cta-container {
+			margin: 0;
+			top: 0px;
+			right: 40px;
+		}
+	}
+	.contact-hero {
+		&__map-container {
+			svg {
+				transform: translateX(27.5%) translateY(-35%) scale(1);
+			}
+		}
+		&__cta-container {
+			margin: 0;
+			right: 40px;
+			top: 40px;
+		}
+		&__container {
+			padding-top: 200px;
+			padding-bottom: 100px;
+		}
+		&__title {
+			height: auto;
+			width: 62.5%;
+			font-size: rem(70);
+			margin-bottom: 50px;
+		}
+		&__list {
+			width: 50%;
+		}
+		&__item {
+			margin: 0 0 30px 0;
+		}
+		&__address {
+			margin: 15px 0 20px 0;
+		}
+		&__hours {
+			margin: 0 0 25px 0;
+		}
+		&__phone-item {
+			display: flex;
+			align-items: center;
+		}
+		&__phone-type {
+			margin-right: 0.5em;
+			font-weight: 400;
+			font-size: rem(14);
+		}
+		&__phone-number {
+			color: $navy;
+			font-size: rem(14);
+		}
+		&__item-icon {
+			width: rem(13);
+			transform: rotate(45deg);
+			transition: transform 0.3s ease-in-out;
+			&--open {
+				transform: rotate(0);
+			}
+		}
+		&__body {
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 0.3s ease-out;
+			&--open {
+				max-height: rem(1000);
+				transition: max-height 0.3s ease-in;
+			}
+		}
+	}
+	.contact-support {
+		&__background {
+			position: absolute;
+			width: calc(50% - 50px);
+			height: 100%;
+			overflow: hidden;
+		}
+		&__foreground-image {
+			width: 130%;
+			height: 130%;
+		}
+		&__container {
+			padding-top: 150px;
+			padding-bottom: 60px;
+		}
+		&__note {
+			top: 60px;
+			left: 40px;
+			width: 25%;
+			z-index: 2;
+		}
+		&__info {
+			width: 50%;
+			margin-left: 50%;
+			padding-bottom: 120px;
+			&:after {
+				width: 200%;
+				left: auto;
+				right: 0px;
+				z-index: 1;
+			}
+		}
+	}
+	.contact-form {
+		&__background {
+			transform: scale(1.5);
+		}
+		&__container {
+			width: 100%;
+			padding-top: 90px;
+			padding-bottom: 120px;
+		}
+		&__title {
+			width: 50%;
+			margin-left: 35px;
+			margin-bottom: 60px;
+			padding-right: 50px;
+		}
+		&__form-container {
+			width: 75%;
+			margin: 0 12.5%;
+		}
+	}
+}
+
+@include desktop-only {
+	.contact-media {
+		padding-top: 150px;
+		&__container {
+			padding-bottom: 130px;
+		}
+		&__title {
+			font-size: rem(70);
+			width: 41.66666%;
+			margin-bottom: 40px;
+		}
+		&__list {
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 80px;
+		}
+		&__image {
+			width: 75%;
+			margin-bottom: 40px;
+		}
+		&__name {
+			font-size: rem(30);
+			margin-bottom: 10px;
+		}
+		&__position {
+			font-size: rem(16);
+			margin-bottom: 10px;
+		}
+		&__function {
+			font-size: rem(16);
+		}
+		&__contact {
+			margin-top: 19px;
+			margin-bottom: 0px;
+			padding: 20px 0 0 0;
+		}
+		&__phone {
+			font-size: rem(17);
+			margin-bottom: 10px;
+		}
+		&__email {
+			font-size: rem(17);
+		}
+	}
+	.contact-hero {
+		&__map-container {
+			height: calc(100vh - 115px);
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-end;
+			justify-content: flex-end;
+			svg {
+				position: absolute;
+				width: 70%;
+				height: auto;
+				transform: translateX(20%) translateY(-10%) scale(1);
+			}
+		}
+		&__cta-container {
+			right: 100px;
+		}
+		&__container {
+			padding-top: 120px;
+		}
+		&__title {
+			font-size: rem(70);
+			width: 33.33333%;
+			margin-bottom: 55px;
+		}
+		&__list {
+			width: 33.33333%;
+			padding-left: 50px;
+		}
+		&__name {
+			font-size: rem(30);
+		}
+		&__suffix {
+			font-size: rem(14);
+		}
+		&__address {
+			margin: 15px 0 25px 0;
+			font-size: rem(16);
+		}
+		&__hours {
+			margin-bottom: 15px;
+		}
+		&__phone-type,
+		&__phone-number {
+			font-size: rem(17);
+		}
+	}
+	.contact-support {
+		&__background {
+			width: 50%;
+		}
+		&__foreground-image {
+			width: calc(100% - 120px);
+			height: 100%;
+			max-width: 600px;
+			max-height: 600px;
+		}
+		&__container {
+			padding-top: 190px;
+			padding-bottom: 80px;
+		}
+		&__note {
+			font-size: rem(16);
+			width: 8.33333%;
+			top: 110px;
+			left: 100px;
+		}
+		&__info {
+			width: 33.33333%;
+			margin-right: 8.33333%;
+			margin-left: 58.33333%;
+			padding-bottom: 150px;
+			&:after {
+				width: 300%;
+				left: -175%;
+			}
+		}
+		&__title {
+			font-size: rem(45);
+			margin-bottom: 40px;
+		}
+		&__text {
+			font-size: rem(30);
+			margin-bottom: 30px;
+		}
+		&__phone-list {
+			margin: 0;
+		}
+		&__phone-type,
+		&__phone-number {
+			font-size: rem(17);
+		}
+	}
+	.contact-form {
+		&__background {
+			transform: scale(1.5);
+		}
+		&__container {
+			padding-top: 180px;
+			padding-bottom: 180px;
+		}
+		&__title {
+			width: 75%;
+			margin-left: 12.5%;
+			margin-right: 12.5%;
+			margin-bottom: 50px;
+			padding-right: 0px;
+			padding-top: 20px;
+			font-size: rem(35);
+		}
+		&__form-container {
+			width: 75%;
+			margin: 0 12.5%;
+		}
 	}
 }

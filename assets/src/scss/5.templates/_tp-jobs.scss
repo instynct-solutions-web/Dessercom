@@ -572,3 +572,174 @@
 		}
 	}
 }
+
+@include desktop-only {
+	.jobs-benefits {
+		margin-top: 50px;
+		&__background {
+			top: -40%;
+			left: -25%;
+			width: 50%;
+		}
+		&__container {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-start;
+			padding-top: 240px;
+			padding-bottom: 0px;
+			overflow: hidden;
+		}
+		&__logo {
+			top: 55px;
+			right: 65px;
+		}
+		&__info {
+			width: 41.66666%;
+			margin-left: 8.33333%;
+			margin-right: 8.33333%;
+			margin-bottom: 240px;
+		}
+		&__title {
+			font-size: rem(35);
+			margin-bottom: 25px;
+		}
+		&__text {
+			font-size: rem(19);
+		}
+		&__list-container {
+			position: relative;
+			width: 33.33333%;
+			top: auto;
+			right: auto;
+			max-height: 500px;
+		}
+		&__item {
+			padding-top: 20px;
+			margin-bottom: 80px;
+		}
+		&__item-num {
+			font-size: rem(17);
+			margin-bottom: 15px;
+		}
+		&__item-text {
+			font-size: rem(22);
+		}
+	}
+	.jobs-values {
+		&__container {
+			padding-top: 140px;
+			padding-bottom: 180px;
+		}
+		&__info {
+			margin-bottom: 0px;
+		}
+		&__title {
+			font-size: rem(30);
+			width: 25%;
+		}
+		&__name-list {
+			width: 16.66666%;
+			bottom: 180px;
+			left: 100px;
+		}
+		&__name-item {
+			margin-bottom: 25px;
+			&:last-of-type {
+				margin-bottom: 0px;
+			}
+		}
+		&__name {
+			font-size: rem(22);
+		}
+		&__grid-list {
+			grid-gap: 120px;
+		}
+		&__toggler {
+			font-size: rem(22);
+			width: 25px;
+			height: 25px;
+		}
+		&__text {
+			font-size: rem(19);
+		}
+	}
+	.jobs-internship {
+		&__background {
+			width: 50%;
+		}
+		&__foreground-image {
+			width: calc(100% - 120px);
+			height: 100%;
+			max-width: 600px;
+			max-height: 600px;
+		}
+		&__container {
+			padding-top: 190px;
+			padding-bottom: 80px;
+		}
+		&__note {
+			font-size: rem(16);
+			width: 8.33333%;
+			top: 110px;
+			left: 100px;
+		}
+		&__info {
+			width: 33.33333%;
+			margin-right: 8.33333%;
+			margin-left: 58.33333%;
+			padding-bottom: 150px;
+			&:after {
+				width: 300%;
+				left: -175%;
+			}
+		}
+		&__title {
+			font-size: rem(45);
+			margin-bottom: 30px;
+		}
+		&__text {
+			font-size: rem(19);
+			margin-bottom: 70px;
+		}
+		&__link {
+			font-size: rem(15);
+		}
+	}
+	.jobs-careers {
+		&__container {
+			padding-top: 90px;
+			padding-bottom: 160px;
+		}
+		&__title {
+			width: 16.66666%;
+			margin-bottom: 0px;
+		}
+		&__filter {
+			width: 25%;
+			margin-right: 8.33333%;
+			margin-top: 60px;
+		}
+		&__job {
+			padding: 30px;
+		}
+		&__header {
+			margin-bottom: 40px;
+		}
+		&__job-name {
+			font-size: rem(22);
+		}
+		&__location {
+			font-size: rem(14);
+		}
+		&__job-link {
+			font-size: rem(15);
+		}
+		&__pagination {
+			margin-top: 50px;
+			.page-numbers {
+				font-size: rem(21);
+				line-height: 1.8;
+			}
+		}
+	}
+}

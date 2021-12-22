@@ -9,7 +9,7 @@ get_header(); ?>
 
 <?php
 $hero = get_field('hero'); ?>
-<section class="hero-slider">
+<section class="hero-slider" data-wolfpack-section>
     <div class="hero-slider__container">
         <ul data-hero-slider class="hero-slider__list">
             <?php foreach ($hero['list'] as $item) { ?>
@@ -68,21 +68,19 @@ $hero = get_field('hero'); ?>
 <?php
 $highlight = get_field('highlight');
 ?>
-<section class="home-highlight">
+<section class="home-highlight" data-wolfpack-section>
     <div class="home-highlight__top-container">
         <div class="home-highlight__text-container">
             <h1 class="home-highlight__text"><?= $highlight['text']  ?></h1>
         </div>
-        <div class="home-highlight__image-container">
-            <img class="home-highlight__image" src="<?= $highlight['image']['url']  ?>" alt="<?= $highlight['image']['alt'] ?>">
-
-            <svg class="home-highlight__mask" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 335.4 302.3">
-                <polygon class="cls-1" points="213.3 160.5 214 160.5 214 160.3 213.6 160 213.3 160.5" />
-                <polygon class="cls-1" points="123.1 160.5 123.4 160.5 123.1 159.8 123.1 160.5" />
-                <path class="cls-1" d="M331.2,0H0V302.2H335.4V0ZM281.1,298.1a64.19,64.19,0,0,1-25.1-8.3l-88.1-51.3.1.1L79.7,289.5c-26.2,14.9-57.6,9.2-70.1-12.7S8.3,225,34.5,210l88.6-50.4.1.1c-.1-8.7-.5-98.9-.5-101.2,0-29,18.9-52.6,42.7-54.5h6C195.1,6,214,29.6,214,58.6V160.3c6.2,3.6,85.9,49.4,87.9,50.6,17.1,10,27.6,26.3,29.3,42.5v8.8a39.78,39.78,0,0,1-5.1,15.7c-6.9,11.8-19.3,18.8-33.4,20.3H281.1Z" />
-            </svg>
-
-        </div>
+        <svg class="home-highlight__image" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 181.567 163.488">
+            <defs>
+                <pattern id="image" patternContentUnits="objectBoundingBox" width="1" height="1">
+                    <image x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice" xlink:href="<?= $highlight['image']['url']  ?>"></image>
+                </pattern>
+            </defs>
+            <path id="Tracé_974" data-name="Tracé 974" d="M178.728,151.529c-6.956,12.172-24.362,15.327-38.914,7.036-1.2-.695-49.044-28.243-49.044-28.243l.049-.08L41.9,158.725c-14.49,8.4-31.927,5.4-38.963-6.686v-.031C-4.1,139.9,1.926,123.262,16.392,114.835c1.15-.64,45.384-26.1,48.834-28.077v.129H65.6l-.16-.264-.215.135V30.3C65.227,13.562,76.593,0,90.6,0s25.383,13.562,25.383,30.3c0,1.31-.24,51.375-.271,56.215l-.209.369h.209v-.369l.031-.055,49.179,28C179.478,122.751,185.653,139.333,178.728,151.529Z" transform="translate(0)" fill="url(#image)" />
+        </svg>
     </div>
     <div class="home-highlight__bottom-container">
         <div class="home-highlight__note-wrapper">
@@ -95,25 +93,33 @@ $highlight = get_field('highlight');
 
 <?php
 $services = get_field('services');
+$index = 0;
 ?>
-<section class="home-services">
+<section class="home-services" data-wolfpack-section>
     <div class="home-services__container">
         <div class="home-services__background">
-            <ul class="home-services__backgound-list">
-                <?php foreach ($services['list'] as $item) { ?>
-                    <li class="home-services__background-item">
-                        <img class="home-services__backgound-image" src="<?= $item['background']['url'] ?>" alt="<?= $item['background']['alt'] ?>">
-                    </li>
-                <?php
-                } ?>
-            </ul>
+            <?php foreach ($services['list'] as $item) { ?>
+                <?php $index++; ?>
+                <div class="home-services__background-item" data-home-service-image>
+                    <svg class="home-services__foreground-image" xmlns="http://www.w3.org/2000/svg" width="181.567" height="163.488" viewBox="0 0 181.567 163.488">
+                        <defs>
+                            <pattern id="image-<?= $index ?>" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                <image x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice" xlink:href="<?= $item['image']['url']  ?>"></image>
+                            </pattern>
+                        </defs>
+                        <path id="Tracé_974" data-name="Tracé 974" d="M178.728,151.529c-6.956,12.172-24.362,15.327-38.914,7.036-1.2-.695-49.044-28.243-49.044-28.243l.049-.08L41.9,158.725c-14.49,8.4-31.927,5.4-38.963-6.686v-.031C-4.1,139.9,1.926,123.262,16.392,114.835c1.15-.64,45.384-26.1,48.834-28.077v.129H65.6l-.16-.264-.215.135V30.3C65.227,13.562,76.593,0,90.6,0s25.383,13.562,25.383,30.3c0,1.31-.24,51.375-.271,56.215l-.209.369h.209v-.369l.031-.055,49.179,28C179.478,122.751,185.653,139.333,178.728,151.529Z" transform="translate(0)" fill="url(#image-<?= $index ?>)" />
+                    </svg>
+                    <img class="home-services__backgound-image" src="<?= $item['background']['url'] ?>" alt="<?= $item['background']['alt'] ?>">
+                </div>
+            <?php
+            } ?>
         </div>
         <div class="home-services__foreground">
             <div class="home-services__info">
                 <h2 class="home-services__note"><?= $services['top_note'] ?></h2>
                 <ul class="home-services__list">
                     <?php foreach ($services['list'] as $item) { ?>
-                        <li class="home-services__item">
+                        <li class="home-services__item" data-home-service>
                             <a href="<?= $item['link']['url'] ?>" class="home-services__link"><?= $item['link']['title'] ?>
                                 <span class="home-services__arrow">
                                     <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.19 14.19">
@@ -129,21 +135,12 @@ $services = get_field('services');
                     } ?>
                 </ul>
             </div>
-            <div class="home-services__media">
-                <ul class="home-services__media-list">
-                    <?php foreach ($services['list'] as $item) { ?>
-                        <li class="home-services__media-item">
-                            <img class="home-services__image" src="<?= $item['image']['url']  ?>" alt="<?= $item['image']['alt']  ?>">
-                        </li>
-                    <?php
-                    } ?>
-                </ul>
-            </div>
         </div>
     </div>
 </section>
+
 <?php $promo = get_field('promo') ?>
-<section data-cursor-class="video" data-cursor data-cursor-text="<?= $promo['text'] ?>" class="home-promo">
+<section data-cursor-class="video" data-wolfpack-section data-cursor data-cursor-text="<?= $promo['text'] ?>" class="home-promo">
     <div class="home-promo__container">
         <ul data-video-overlay class="home-promo__list">
             <?php foreach ($promo['list'] as $list) { ?>
@@ -151,12 +148,10 @@ $services = get_field('services');
                     <ul data-marquee data-marquee-speed="60" class="home-promo__word-list">
                         <?php foreach ($list['adjectives_list'] as $item) { ?>
                             <li class="home-promo__word"><?= $item['adjective'] ?></li>
-                        <?php
-                        } ?>
+                        <?php } ?>
                     </ul>
                 </li>
-            <?php
-            } ?>
+            <?php } ?>
         </ul>
         <div class="home-promo__video-container">
             <?= $promo['video'] ?>
@@ -165,7 +160,6 @@ $services = get_field('services');
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 15">
                 <path id="Polygone_14" data-name="Polygone 14" d="M6.674,1.212a1,1,0,0,1,1.652,0l5.608,8.225A1,1,0,0,1,13.108,11H1.892a1,1,0,0,1-.826-1.563Z" transform="translate(11) rotate(90)" fill="#00938f" />
             </svg>
-
         </div>
     </div>
 </section>
@@ -173,7 +167,7 @@ $services = get_field('services');
 <?php
 $commitments = get_field('commitment');
 ?>
-<section class="home-commitment">
+<section class="home-commitment" data-wolfpack-section>
     <div class="home-commitment__container">
         <div class="home-commitment__top">
             <svg class="home-commitment__icon" viewBox="0 0 786.511 708.195">
@@ -203,7 +197,7 @@ $commitments = get_field('commitment');
 </section>
 
 <?php $social = get_field('social') ?>
-<section class="home-social">
+<section class="home-social" data-wolfpack-section>
     <div class="home-social__container">
         <div class="home-social__title-container">
             <svg class="home-social__icon" viewBox="0 0 786.511 708.195">

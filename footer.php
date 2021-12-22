@@ -2,8 +2,7 @@
 <?php
 $footer = get_field('footer', 'options');
 ?>
-
-<footer class="footer">
+<footer class="footer" data-wolfpack-section>
     <div class="footer__container">
         <div class="footer__brand">
             <div class="footer__logo-container">

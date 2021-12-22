@@ -154,6 +154,4 @@
 	<div class="page-body">
 		<div data-calc-mobile data-wolfpack="main" class="wolfpack-container">
 			<div class="page-wrapper">
-
-
 				<main role="main">

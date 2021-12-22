@@ -209,3 +209,88 @@
 		}
 	}
 }
+
+@include desktop-only {
+	.team-hero {
+		&__container {
+			padding-top: 20px;
+			padding-bottom: 90px;
+		}
+		&__top {
+			padding-top: 35px;
+			padding-left: 0px;
+			padding-right: 0px;
+			margin-bottom: 110px;
+		}
+		&__icon {
+			margin-right: 25px;
+		}
+		&__note {
+			font-size: rem(16);
+		}
+		&__main {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-start;
+			padding: 0;
+		}
+		&__info {
+			width: 33.33333%;
+			margin-right: 8.33333%;
+			padding-top: 130px;
+		}
+		&__title {
+			width: 100%;
+			font-size: rem(70);
+			margin-bottom: 15px;
+		}
+		&__text {
+			width: 100%;
+			font-size: rem(19);
+		}
+		&__image {
+			width: 58.33333%;
+			position: relative;
+			top: auto;
+			right: auto;
+		}
+	}
+	.team-grid {
+		&__container {
+			padding-top: 90px;
+			padding-bottom: 170px;
+		}
+		&__top {
+			width: 25%;
+			margin-bottom: 0px;
+		}
+		&__title {
+			font-size: rem(40);
+		}
+		&__division-list {
+			width: 25%;
+			padding-top: 60px;
+		}
+		&__members {
+			width: 75%;
+		}
+		&__division-grid {
+			grid-template-columns: repeat(3, 1fr);
+			grid-row-gap: 30px;
+			grid-column-gap: 16px;
+		}
+		&__image {
+			height: 250px;
+		}
+		&__member-content {
+			height: calc(100% - 250px);
+			padding: 20px 20px 40px 20px;
+		}
+		&__name {
+			font-size: rem(22);
+		}
+		&__position {
+			font-size: rem(14);
+		}
+	}
+}
