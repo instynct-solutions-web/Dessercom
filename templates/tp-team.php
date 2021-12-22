@@ -8,7 +8,7 @@ get_header(); ?>
 
 <?php
 $hero = get_field('hero'); ?>
-<section class="team-hero">
+<section data-wolfpack-section class="team-hero">
     <div class="team-hero__container">
         <div class="team-hero__top">
             <img src="<?= $hero['icon']['url'] ?>" alt="<?= $hero['icon']['alt'] ?>" class="team-hero__icon">
@@ -37,7 +37,7 @@ $terms = get_terms(array(
     'taxonomy' => 'division',
     'hide_empty' => true,
 )); ?>
-<section class="team-grid">
+<section data-wolfpack-section class="team-grid">
     <div class="team-grid__container">
         <div class="team-grid__top">
             <h2 class="team-grid__title"><?= $team['title'] ?></h2>

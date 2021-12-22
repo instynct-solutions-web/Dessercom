@@ -9,7 +9,7 @@ Template Name: Jobs
 get_header(); ?>
 
 <?php $hero = get_field('hero') ?>
-<section class="jobs-hero">
+<section data-wolfpack-section class="jobs-hero">
     <div class="jobs-hero__container">
         <div class="jobs-hero__main">
             <a target="<?= $hero['link']['target'] ?>" href="<?= $hero['link']['url'] ?>" class="jobs-hero__link">
@@ -47,7 +47,7 @@ get_header(); ?>
 </section>
 
 <?php $benefits = get_field('benefits') ?>
-<section class="job-benefits">
+<section data-wolfpack-section class="job-benefits">
     <div class="job-benefits__container">
         <div class="job-benefits__background">
             <?php foreach ($benefits['list'] as $item) { ?>
@@ -105,7 +105,7 @@ get_header(); ?>
 </section>
 
 <?php $description = get_field('description') ?>
-<section class="jobs-description">
+<section data-wolfpack-section class="jobs-description">
     <div class="jobs-description__container">
         <div class="jobs-description__top">
             <h2 class="jobs-description__note"><?= $description['note'] ?></h2>
@@ -157,7 +157,7 @@ get_header(); ?>
 </section>
 
 <?php $form = get_field('form') ?>
-<section class="jobs-form">
+<section data-wolfpack-section class="jobs-form">
     <div class="jobs-form__container">
         <div class="jobs-form__top">
             <h2 class="jobs-form__note"><?= $form['title'] ?></h2>

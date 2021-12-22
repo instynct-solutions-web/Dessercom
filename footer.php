@@ -30,6 +30,16 @@ $footer = get_field('footer', 'options');
 </div>
 <?php wp_footer(); ?>
 
+<script>
+    window.onUsersnapCXLoad = function(api) {
+        api.init();
+    }
+    var script = document.createElement('script');
+    script.defer = 1;
+    script.src = 'https://widget.usersnap.com/global/load/8d2dcd87-5ad0-426a-9079-e74390e160d5?onload=onUsersnapCXLoad';
+    document.getElementsByTagName('head')[0].appendChild(script);
+</script>
+
 </body>
 
 </html>

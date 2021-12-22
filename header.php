@@ -49,8 +49,8 @@
 			</div>
 		</div>
 
-		<div class="header__navigation navigation" data-navigation>
-			<div class="navigation__container">
+		<div class="header__navigation navigation" data-calc-mobile data-navigation>
+			<div class="navigation__container" data-wolfpack>
 				<nav role="navigation" class="header__main-nav header__main-nav--mobile">
 					<ul class="header__main-nav-container">
 						<li class="header__main-nav-item">

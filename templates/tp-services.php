@@ -7,8 +7,7 @@ Template Name: Services
 get_header(); ?>
 <?php
 $map = get_field('map') ?>
-<section data-calc-mobile data-map class="services-map">
-
+<section data-stay data-calc-mobile data-map class="services-map">
     <div class="services-map__svg-container">
         <?php get_template_part('modules/md-map'); ?>
     </div>
@@ -41,11 +40,10 @@ $map = get_field('map') ?>
             </span>
         </div>
     </div>
-
 </section>
 
 <?php $hero = get_field('hero') ?>
-<section data-map-hero class="services-hero">
+<section data-wolfpack-section data-map-hero class="services-hero">
     <div class="services-hero__background-container">
         <img src="<?= $hero['background']['url'] ?>" alt="<?= $hero['background']['alt'] ?>" class="services-hero__background-map">
     </div>
@@ -82,7 +80,7 @@ $map = get_field('map') ?>
 
 <?php
 $extra = get_field('services_ext'); ?>
-<section class="services-extra">
+<section data-wolfpack-section class="services-extra">
     <img src="<?= $extra['image']['url'] ?>" alt="<?= $extra['image']['alt'] ?>" class="services-extra__background">
     <div class="services-extra__container">
         <div class="services-extra__logo-container">
@@ -111,7 +109,7 @@ $extra = get_field('services_ext'); ?>
 </section>
 <?php
 $paramedic = get_field('services_paramedic'); ?>
-<section class="services-paramedic">
+<section data-wolfpack-section class="services-paramedic">
     <div class="services-paramedic__container">
         <div class="services-paramedic__top">
             <svg class="services-paramedic__icon" viewBox="0 0 786.511 708.195">
@@ -151,7 +149,7 @@ $paramedic = get_field('services_paramedic'); ?>
 
 <?php
 $support = get_field('support') ?>
-<section class="services-support">
+<section data-wolfpack-section class="services-support">
     <div class="services-support__container">
         <div class="services-support__background">
             <div data-canvas-grid class="services-support__canvas"></div>
@@ -170,7 +168,7 @@ $support = get_field('support') ?>
 
 <?php
 $other = get_field('other') ?>
-<section class="services-other">
+<section data-wolfpack-section class="services-other">
     <div class="services-other__container">
         <div class="services-other__top">
             <h2 class="services-other__title"><?= $other['title'] ?></h2>

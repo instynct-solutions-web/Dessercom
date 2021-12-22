@@ -8,8 +8,8 @@ get_header(); ?>
 
 <?php
 $media = get_field('media') ?>
-<section data-contact-media class="contact-media">
-    <div class="contact-media__container">
+<section data-stay data-calc-mobile data-contact-media class="contact-media">
+    <div data-wolfpack class="contact-media__container">
         <div class="contact-media__cta-container">
             <div data-contact-close class="contact-media__cta">
                 <span class="contact-media__cta-text" data-circle-text>
@@ -62,7 +62,7 @@ $media = get_field('media') ?>
 </section>
 
 <?php $hero = get_field('hero'); ?>
-<section data-contact-hero class="contact-hero">
+<section data-wolfpack-section data-contact-hero class="contact-hero">
     <div class="contact-hero__map-container">
         <?php get_template_part('modules/md-map-contact'); ?>
     </div>
@@ -129,15 +129,12 @@ $media = get_field('media') ?>
                 </ul>
             <?php } ?>
         </div>
-
-
     </div>
-
-
 </section>
+
 <?php
 $support = get_field('support') ?>
-<section class="contact-support">
+<section data-wolfpack-section class="contact-support">
     <div class="contact-support__background">
         <svg class="contact-support__foreground-image" xmlns="http://www.w3.org/2000/svg" width="181.567" height="163.488" viewBox="0 0 181.567 163.488">
             <defs>
@@ -174,7 +171,7 @@ $support = get_field('support') ?>
 
 <?php
 $contact = get_field('form'); ?>
-<section class="contact-form">
+<section data-wolfpack-section class="contact-form">
     <img src="<?= $contact['image']['url'] ?>" alt="<?= $contact['image']['alt'] ?>" class="contact-form__background">
     <div class="contact-form__container">
         <h2 class="contact-form__title"><?= $contact['title'] ?></h2>

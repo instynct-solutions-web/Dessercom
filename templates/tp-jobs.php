@@ -10,7 +10,7 @@ get_header(); ?>
 
 <?php
 $benefits = get_field('benefits') ?>
-<section class="jobs-benefits">
+<section data-wolfpack-section class="jobs-benefits">
     <img src="<?= $benefits['image']['url'] ?>" alt="<?= $benefits['image']['alt'] ?>" class="jobs-benefits__background">
     <div class="jobs-benefits__container">
         <img src="<?= $benefits['icon']['url'] ?>" alt="<?= $benefits['icon']['alt'] ?>" class="jobs-benefits__logo">
@@ -39,7 +39,7 @@ $benefits = get_field('benefits') ?>
 
 <?php
 $values = get_field('benefits_2') ?>
-<section class="jobs-values">
+<section data-wolfpack-section class="jobs-values">
     <div class="jobs-values__container">
         <div class="jobs-values__info">
             <h2 class="jobs-values__title"><?= $values['title'] ?></h2>
@@ -91,7 +91,7 @@ $values = get_field('benefits_2') ?>
 </section>
 
 <?php $internship = get_field('internship') ?>
-<section class="jobs-internship">
+<section data-wolfpack-section class="jobs-internship">
     <div class="jobs-internship__background">
         <svg class="jobs-internship__foreground-image" xmlns="http://www.w3.org/2000/svg" width="181.567" height="163.488" viewBox="0 0 181.567 163.488">
             <defs>
@@ -124,7 +124,7 @@ $values = get_field('benefits_2') ?>
 </section>
 
 <?php $careers = get_field('careers') ?>
-<section class="jobs-careers">
+<section data-wolfpack-section class="jobs-careers">
     <div class="jobs-careers__container">
         <div class="jobs-careers__top">
             <h2 class="jobs-careers__title"><?= $careers['title'] ?></h2>

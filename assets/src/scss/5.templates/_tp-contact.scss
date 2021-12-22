@@ -4,17 +4,27 @@
 
 .contact-media {
 	background-color: $teal;
-	padding-top: $mobile-header-height;
 	position: absolute;
+	z-index: 1;
 	top: 0;
 	left: 0;
-	transform: translateY(-100%);
+	opacity: 0;
+	pointer-events: none;
 	transition: 0.3s ease-in-out transform;
+	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) !important;
 	&--show {
-		transform: translateY(0);
+		opacity: 1;
+		pointer-events: all;
+		.contact-media {
+			&__container {
+				pointer-events: all !important;
+			}
+		}
 	}
 	&__container {
 		@include container;
+		padding-top: 100px;
+		pointer-events: none !important;
 	}
 	&__title {
 		color: $white;
@@ -74,10 +84,10 @@
 	&__cta-container {
 		display: flex;
 		justify-content: flex-end;
-		margin: 2em 0;
+		margin: 0;
 		position: absolute;
 		right: 0;
-		top: $mobile-header-height;
+		top: 100px;
 	}
 	&__cta {
 		position: relative;
@@ -101,7 +111,7 @@
 	background-color: $white;
 	transition: opacity ease-in-out 0.25s;
 	&--hide {
-		opacity: 0;
+		opacity: 1;
 		pointer-events: none;
 	}
 	&__container {
@@ -339,7 +349,8 @@
 		overflow: hidden;
 		z-index: 1;
 		&__container {
-			padding-bottom: 180px;
+			padding-top: 150px;
+			padding-bottom: 100px;
 			position: relative;
 			z-index: 1;
 		}
@@ -373,7 +384,7 @@
 		}
 		&__cta-container {
 			margin: 0;
-			top: 0px;
+			top: 150px;
 			right: 40px;
 		}
 	}
@@ -498,8 +509,8 @@
 
 @include desktop-only {
 	.contact-media {
-		padding-top: 150px;
 		&__container {
+			padding-top: 165px;
 			padding-bottom: 130px;
 		}
 		&__title {

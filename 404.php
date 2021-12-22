@@ -9,7 +9,7 @@
 
 <?php get_header(); ?>
 
-<section class="error">
+<section data-wolfpack-section class="error">
     <div class="error__container">
         <h1 class="error__title">L’utilisation d’un navigateur moderne est requis</h1>
         <a class="error__button" href="/" target="">

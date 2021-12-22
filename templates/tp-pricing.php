@@ -7,7 +7,7 @@ Template Name: Pricing
 get_header(); ?>
 
 <?php $hero = get_field('hero') ?>
-<section class="pricing-hero">
+<section data-wolfpack-section class="pricing-hero">
     <img src="<?= $hero['background']['url'] ?>" alt="<?= $hero['background']['alt'] ?>" class="pricing-hero__background">
     <div class="pricing-hero__container">
         <div class="pricing-hero__top">
@@ -61,7 +61,7 @@ get_header(); ?>
 
 <?php
 $transport = get_field('transport') ?>
-<section class="pricing-transport">
+<section data-wolfpack-section class="pricing-transport">
     <div class="pricing-transport__container">
         <div class="pricing-transport__top-container">
             <div class="pricing-transport__top">
