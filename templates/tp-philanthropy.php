@@ -29,11 +29,12 @@ $highlight = get_field('highlight') ?>
             <h2 class="philanthropy-financing__note"><?= $financing['title'] ?></>
         </div>
         <div class="philanthropy-financing__main">
-            <div class="philanthropy-financing__amount-container">
-                <p class="philanthropy-financing__amount"><?= $financing['amount'] ?></p>
-            </div>
+
             <?php if ($financing['list']) { ?>
                 <div class="philanthropy-financing__logo-container">
+                    <div class="philanthropy-financing__amount-container">
+                        <p class="philanthropy-financing__amount"><?= $financing['amount'] ?></p>
+                    </div>
                     <ul class="philanthropy-financing__list">
                         <?php foreach ($financing['list'] as $logo) { ?>
                             <li class="philanthropy-financing__item">
