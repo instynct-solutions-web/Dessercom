@@ -539,8 +539,9 @@
 			margin-bottom: 0px;
 		}
 		&__image {
-			top: -130px;
+			top: 0px;
 			left: -50px;
+			margin-top: -130px;
 			margin-left: -100px;
 			width: calc(50% + 100px);
 			height: auto;

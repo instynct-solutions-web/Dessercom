@@ -109,11 +109,6 @@
 
 .contact-hero {
 	background-color: $white;
-	transition: opacity ease-in-out 0.25s;
-	&--hide {
-		opacity: 1;
-		pointer-events: none;
-	}
 	&__container {
 		@include container;
 		position: relative;
@@ -130,6 +125,26 @@
 	}
 	&__item {
 		margin: 1em 0 2em 0;
+		&:nth-of-type(2) {
+			.contact-hero {
+				&__item-icon {
+					path,
+					line {
+						stroke: #58c1be;
+					}
+				}
+			}
+		}
+		&:nth-of-type(3) {
+			.contact-hero {
+				&__item-icon {
+					path,
+					line {
+						stroke: #bbd6d5;
+					}
+				}
+			}
+		}
 	}
 	&__title {
 		height: 100vh;
@@ -174,11 +189,23 @@
 	}
 	&__item-icon {
 		width: rem(13);
-		transform: rotate(45deg);
-		transition: transform 0.3s ease-in-out;
 		&--open {
-			transform: rotate(0);
+			.contact-hero {
+				&__item-close {
+					display: block;
+				}
+				&__item-open {
+					display: none;
+				}
+			}
 		}
+	}
+	&__item-close {
+		display: none;
+	}
+	&__item-open {
+		display: block;
+		transform: rotate(45deg);
 	}
 	&__body {
 		max-height: 0;
@@ -212,6 +239,7 @@
 		position: absolute;
 		height: rem(20);
 		width: rem(20);
+		transform: rotate(90deg);
 	}
 }
 
@@ -434,14 +462,6 @@
 			color: $navy;
 			font-size: rem(14);
 		}
-		&__item-icon {
-			width: rem(13);
-			transform: rotate(45deg);
-			transition: transform 0.3s ease-in-out;
-			&--open {
-				transform: rotate(0);
-			}
-		}
 		&__body {
 			max-height: 0;
 			overflow: hidden;
@@ -576,7 +596,7 @@
 			margin-bottom: 55px;
 		}
 		&__list {
-			width: 33.33333%;
+			width: 60%;
 			padding-left: 50px;
 		}
 		&__name {
@@ -663,6 +683,14 @@
 		&__form-container {
 			width: 75%;
 			margin: 0 12.5%;
+		}
+	}
+}
+
+@include min-width(1350px) {
+	.contact-hero {
+		&__list {
+			width: 40%;
 		}
 	}
 }

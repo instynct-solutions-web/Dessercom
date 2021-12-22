@@ -94,7 +94,7 @@ $media = get_field('media') ?>
                                 <div data-contact-drawer-toggle class="contact-hero__header">
                                     <p class="contact-hero__name"><?= $item['name'] ?><span class="contact-hero__suffix"><?= $item['suffix'] ?></span></p>
                                     <div data-contact-drawer-icon data-services-drawer-icon class="contact-hero__item-icon">
-                                        <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.1 16.66">
+                                        <svg class="contact-hero__item-close" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.1 16.66">
                                             <g id="Groupe_1000" data-name="Groupe 1000">
                                                 <g id="Groupe_999" data-name="Groupe 999">
                                                     <g id="Groupe_796" data-name="Groupe 796">
@@ -102,6 +102,12 @@ $media = get_field('media') ?>
                                                     </g>
                                                     <line id="Ligne_133" data-name="Ligne 133" x1="1" y1="1" x2="16.1" y2="15.63" style="fill: none;stroke: #008884;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
                                                 </g>
+                                            </g>
+                                        </svg>
+                                        <svg class="contact-hero__item-open" xmlns="http://www.w3.org/2000/svg" width="16.955" height="18.75" viewBox="0 0 16.955 18.75">
+                                            <g id="Groupe_802" data-name="Groupe 802" transform="translate(1.414 -13.432)">
+                                                <path id="Tracé_3" data-name="Tracé 3" d="M0,0,7.063,7.063,14.127,0" transform="translate(0 24.118)" fill="none" stroke="#008884" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />
+                                                <line id="Ligne_1" data-name="Ligne 1" y1="16.75" transform="translate(7.064 14.432)" fill="none" stroke="#008884" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" />
                                             </g>
                                         </svg>
                                     </div>

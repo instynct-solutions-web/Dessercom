@@ -3,14 +3,7 @@
 // ==========================================================================
 
 .services-hero {
-	opacity: 1;
 	background-color: $white;
-	transition: opacity ease-in-out 0.25s;
-	pointer-events: initial;
-	&--hide {
-		opacity: 0;
-		pointer-events: none;
-	}
 	&__container {
 		@include container;
 		position: relative;
@@ -331,15 +324,26 @@
 		display: flex;
 		justify-content: flex-end;
 		svg {
-			width: 15px;
-			transform: rotate(45deg);
-			transition: transform 0.3s ease-in-out;
 		}
 		&--open {
-			svg {
-				transform: rotate(0deg);
+			.services-other {
+				&__item-close {
+					display: block;
+				}
+				&__item-open {
+					display: none;
+				}
 			}
 		}
+	}
+	&__item-close {
+		display: none;
+		width: 15px;
+	}
+	&__item-open {
+		width: 20px;
+		height: 20px;
+		transform: rotate(45deg);
 	}
 	&__item-text {
 		@include container;
@@ -714,6 +718,8 @@
 			margin-left: 8.33333%;
 			margin-right: 8.33333%;
 			margin-bottom: 240px;
+			position: relative;
+			z-index: 3;
 		}
 		&__title {
 			font-size: rem(35);
@@ -743,6 +749,9 @@
 		}
 		&__item-text {
 			font-size: rem(22);
+		}
+		&:after {
+			height: 500px;
 		}
 	}
 	.services-paramedic {
@@ -879,11 +888,16 @@
 		&__list {
 			width: calc(75% - 20px);
 			margin-left: 20px;
+			padding-top: 50px;
 			grid-template-columns: repeat(3, 1fr);
 			grid-gap: 25px;
 		}
+		&__item-header {
+			height: 160px;
+		}
 		&__item-title {
 			font-size: rem(22);
+			min-height: 0px;
 		}
 		&__item-text {
 			font-size: rem(16);

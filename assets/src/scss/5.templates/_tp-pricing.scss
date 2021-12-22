@@ -60,16 +60,38 @@
 		&:nth-of-type(2) {
 			background-color: $teal;
 		}
+		&--closed {
+			.pricing-hero {
+				&__sublist {
+					display: none;
+				}
+				&__drawer-close {
+					display: block;
+				}
+				&__drawer-open {
+					display: none;
+				}
+			}
+		}
 	}
 	&__drawer-button {
 		position: absolute;
 		top: 20px;
 		right: 20px;
 	}
+	&__drawer-open {
+		transform: rotate(45deg);
+	}
+	&__drawer-close {
+		display: none;
+	}
 	&__drawer-title {
 		color: $white;
 		font-size: rem(21);
-		margin-bottom: 30px;
+		margin-bottom: 0px;
+	}
+	&__sublist {
+		margin-top: 30px;
 	}
 	&__subitem {
 		display: grid;
@@ -319,7 +341,7 @@
 			width: 100%;
 		}
 		&__item {
-			padding: 45px 45px 75px 45px;
+			padding: 45px;
 		}
 		&__drawer-button {
 			top: 45px;
@@ -327,7 +349,10 @@
 		}
 		&__drawer-title {
 			font-size: rem(35);
-			margin-bottom: 35px;
+		}
+		&__sublist {
+			margin-top: 35px;
+			margin-bottom: 30px;
 		}
 		&__subitem {
 			margin-bottom: 25px;
