@@ -3,6 +3,7 @@ import CalculateHeight from './helpers/_calculateHeight';
 import Wolfpack from './libraries/_wolfpack';
 import CircleText from './modules/_circleText';
 import HeroSlider from './modules/_heroSlider';
+import ResearchSlider from './modules/_researchSlider';
 import MapShow from './modules/_mapShow';
 import Canvas from './modules/_canvas';
 import VideoToggle from './modules/_videoToggle';
@@ -54,6 +55,8 @@ const App = {
 		const termsPolicies = new TermsPolicies();
 		// Forms Scripts
 		const forms = new Forms();
+
+		const researchSlider = new ResearchSlider();
 	},
 };
 

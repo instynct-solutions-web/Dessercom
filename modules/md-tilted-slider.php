@@ -23,13 +23,10 @@ $hero = get_field('hero'); ?>
             <?php
             } ?>
         </ul>
-        <?php
-        if ($hero['illustration']) { ?>
-            <div class="tilted-slider__illustration">
-                <img src="<?= $hero['illustration']['url'] ?>" alt="<?= $hero['illustration']['alt'] ?>" class="tilted-slider__illustration">
-            </div>
-        <?php
-        } ?>
-
     </div>
+    <?php
+    if ($hero['illustration']) { ?>
+        <img src="<?= $hero['illustration']['url'] ?>" alt="<?= $hero['illustration']['alt'] ?>" class="tilted-slider__illustration">
+    <?php
+    } ?>
 </section>

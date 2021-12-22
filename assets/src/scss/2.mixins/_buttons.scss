@@ -107,17 +107,17 @@
 @mixin button-download {
 	background-color: $navy;
 	display: inline-flex;
-	margin: 1em;
+	margin: 1em 0;
 	padding: 1.3em 1.5em;
 	font-size: 15px;
 	font-weight: 500;
 	color: white;
 	align-items: baseline;
-	justify-content: center;
+	justify-content: space-between;
 	&::after {
 		content: '';
-		width: 10px;
-		height: 16px;
+		width: 16x;
+		height: 20px;
 		display: block;
 		background-image: url('../svg/download.svg');
 		background-size: contain;
