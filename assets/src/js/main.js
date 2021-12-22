@@ -17,6 +17,7 @@ import Jobs from './modules/_jobs';
 import TermsPolicies from './modules/_termsPolicies';
 import Forms from './modules/_forms';
 import HomeServices from './modules/_homeServices';
+import Pricing from './modules/_pricing';
 
 const App = {
 	/**
@@ -60,6 +61,8 @@ const App = {
 		const researchSlider = new ResearchSlider();
 		// Home Services Scripts
 		const homeServices = new HomeServices();
+		// Pricing Scripts
+		const pricing = new Pricing();
 	},
 };
 

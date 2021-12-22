@@ -11,7 +11,7 @@ get_header(); ?>
 <?php
 $philosophy = get_field('philosophy'); ?>
 
-<section class="about-philosophy">
+<section data-wolfpack-section class="about-philosophy">
     <div class="about-philosophy__container">
         <div class="about-philosophy__aside">
             <h2 class="about-philosophy__note"><?= $philosophy['note'] ?></h2>
@@ -24,7 +24,7 @@ $philosophy = get_field('philosophy'); ?>
 
 <?php
 $mission = get_field('mission') ?>
-<section class="about-mission">
+<section data-wolfpack-section class="about-mission">
     <div class="about-mission__container">
         <div class="about-mission__top">
             <h2 class="about-mission__note">
@@ -60,7 +60,7 @@ $history = get_field('history');
 $index = 0;
 $indexBackground = 0;
 ?>
-<section class="about-history">
+<section data-wolfpack-section class="about-history">
     <div class="about-history__container">
         <h2 class="about-history__title"><?= $history['title'] ?></h2>
         <div class="about-history__dates">
@@ -140,7 +140,7 @@ $indexBackground = 0;
 </section>
 
 <?php $funding = get_field('funding'); ?>
-<section class="about-funding">
+<section data-wolfpack-section class="about-funding">
     <div class="about-funding__container">
         <div class="about-funding__background">
             <canvas data-canvas-grid class="about-funding__canvas"></canvas>

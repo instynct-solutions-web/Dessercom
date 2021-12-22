@@ -6,7 +6,7 @@ Module Name: Tilted Slider
 
 <?php
 $hero = get_field('hero'); ?>
-<section class="tilted-slider">
+<section data-wolfpack-section class="tilted-slider">
     <div class="tilted-slider__container">
         <?php
         if ($hero['title']) { ?>

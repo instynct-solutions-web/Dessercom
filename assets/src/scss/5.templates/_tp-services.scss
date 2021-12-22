@@ -2,14 +2,7 @@
 // TEMPLATE - Services
 // ==========================================================================
 .services-hero {
-	opacity: 1;
 	background-color: $white;
-	transition: opacity ease-in-out 0.25s;
-	pointer-events: initial;
-	&--hide {
-		opacity: 0;
-		pointer-events: none;
-	}
 	&__container {
 		@include container;
 		position: relative;
@@ -56,17 +49,17 @@
 .services-map {
 	background-color: $white;
 	height: 100vh;
-	display: flex;
+	display: none;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	position: absolute;
 	top: 0;
 	left: 0;
-	opacity: 0;
-	padding-top: $mobile-header-height;
+	z-index: 1;
+	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) !important;
 	&--show {
-		opacity: 1;
+		display: flex;
 	}
 	&__svg-container {
 		height: 40vh;
@@ -330,15 +323,26 @@
 		display: flex;
 		justify-content: flex-end;
 		svg {
-			width: 15px;
-			transform: rotate(45deg);
-			transition: transform 0.3s ease-in-out;
 		}
 		&--open {
-			svg {
-				transform: rotate(0deg);
+			.services-other {
+				&__item-close {
+					display: block;
+				}
+				&__item-open {
+					display: none;
+				}
 			}
 		}
+	}
+	&__item-close {
+		display: none;
+		width: 15px;
+	}
+	&__item-open {
+		width: 20px;
+		height: 20px;
+		transform: rotate(45deg);
 	}
 	&__item-text {
 		@include container;
@@ -665,7 +669,7 @@
 			display: flex;
 			flex-wrap: wrap;
 			align-items: flex-start;
-			justify-content: center;
+			justify-content: flex-end;
 			flex-direction: column;
 			width: 100%;
 			height: 100%;
@@ -674,7 +678,7 @@
 		}
 		&__scroll-wrapper {
 			width: 25%;
-			margin-bottom: 90px;
+			margin-bottom: 50px;
 		}
 		&__list {
 			grid-template-columns: repeat(1, 1fr);
@@ -686,6 +690,9 @@
 		}
 		&__region-name {
 			font-size: rem(19);
+		}
+		&__back-button {
+			margin-bottom: 40px;
 		}
 	}
 	.services-extra {
@@ -710,6 +717,8 @@
 			margin-left: 8.33333%;
 			margin-right: 8.33333%;
 			margin-bottom: 240px;
+			position: relative;
+			z-index: 3;
 		}
 		&__title {
 			font-size: rem(35);
@@ -739,6 +748,9 @@
 		}
 		&__item-text {
 			font-size: rem(22);
+		}
+		&:after {
+			height: 500px;
 		}
 	}
 	.services-paramedic {
@@ -875,11 +887,16 @@
 		&__list {
 			width: calc(75% - 20px);
 			margin-left: 20px;
+			padding-top: 50px;
 			grid-template-columns: repeat(3, 1fr);
 			grid-gap: 25px;
 		}
+		&__item-header {
+			height: 160px;
+		}
 		&__item-title {
 			font-size: rem(22);
+			min-height: 0px;
 		}
 		&__item-text {
 			font-size: rem(16);

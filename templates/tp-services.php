@@ -7,8 +7,7 @@ Template Name: Services
 get_header(); ?>
 <?php
 $map = get_field('map') ?>
-<section data-calc-mobile data-map class="services-map">
-
+<section data-stay data-calc-mobile data-map class="services-map">
     <div class="services-map__svg-container">
         <?php get_template_part('modules/md-map'); ?>
     </div>
@@ -41,11 +40,10 @@ $map = get_field('map') ?>
             </span>
         </div>
     </div>
-
 </section>
 
 <?php $hero = get_field('hero') ?>
-<section data-map-hero class="services-hero">
+<section data-wolfpack-section data-map-hero class="services-hero">
     <div class="services-hero__background-container">
         <img src="<?= $hero['background']['url'] ?>" alt="<?= $hero['background']['alt'] ?>" class="services-hero__background-map">
     </div>
@@ -82,7 +80,7 @@ $map = get_field('map') ?>
 
 <?php
 $extra = get_field('services_ext'); ?>
-<section class="services-extra">
+<section data-wolfpack-section class="services-extra">
     <img src="<?= $extra['image']['url'] ?>" alt="<?= $extra['image']['alt'] ?>" class="services-extra__background">
     <div class="services-extra__container">
         <div class="services-extra__logo-container">
@@ -111,7 +109,7 @@ $extra = get_field('services_ext'); ?>
 </section>
 <?php
 $paramedic = get_field('services_paramedic'); ?>
-<section class="services-paramedic">
+<section data-wolfpack-section class="services-paramedic">
     <div class="services-paramedic__container">
         <div class="services-paramedic__top">
             <svg class="services-paramedic__icon" viewBox="0 0 786.511 708.195">
@@ -151,7 +149,7 @@ $paramedic = get_field('services_paramedic'); ?>
 
 <?php
 $support = get_field('support') ?>
-<section class="services-support">
+<section data-wolfpack-section class="services-support">
     <div class="services-support__container">
         <div class="services-support__background">
             <div data-canvas-grid class="services-support__canvas"></div>
@@ -170,7 +168,7 @@ $support = get_field('support') ?>
 
 <?php
 $other = get_field('other') ?>
-<section class="services-other">
+<section data-wolfpack-section class="services-other">
     <div class="services-other__container">
         <div class="services-other__top">
             <h2 class="services-other__title"><?= $other['title'] ?></h2>
@@ -185,7 +183,13 @@ $other = get_field('other') ?>
                         <div data-services-drawer-toggle class="services-other__item-header">
                             <h4 class="services-other__item-title"><?= $item['name'] ?></h4>
                             <div data-services-drawer-icon class="services-other__item-icon">
-                                <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.1 16.66">
+                                <svg class="services-other__item-open" xmlns="http://www.w3.org/2000/svg" width="22.614" height="25.458" viewBox="0 0 22.614 25.458">
+                                    <g id="Groupe_1004" data-name="Groupe 1004" transform="translate(1.414 -13.432)">
+                                        <path id="Tracé_3" data-name="Tracé 3" d="M0,0,9.892,9.892,19.785,0" transform="translate(0 27.997)" fill="none" stroke="#008884" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />
+                                        <line id="Ligne_1" data-name="Ligne 1" y1="23.458" transform="translate(9.893 14.432)" fill="none" stroke="#008884" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" />
+                                    </g>
+                                </svg>
+                                <svg class="services-other__item-close" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.1 16.66">
                                     <g id="Groupe_1000" data-name="Groupe 1000">
                                         <g id="Groupe_999" data-name="Groupe 999">
                                             <g id="Groupe_796" data-name="Groupe 796">

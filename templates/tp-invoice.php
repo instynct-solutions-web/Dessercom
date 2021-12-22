@@ -7,7 +7,7 @@ Template Name: Invoice
 get_header(); ?>
 
 <?php $form = get_field('form') ?>
-<section class="invoice-form">
+<section data-wolfpack-section class="invoice-form">
     <div class="invoice-form__container">
         <a href="<?= $form['link']['url'] ?>" class="invoice-form__cta">
             <span class="invoice-form__cta-text" data-circle-text>

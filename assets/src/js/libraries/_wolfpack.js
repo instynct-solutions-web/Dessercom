@@ -121,24 +121,43 @@ export default class Wolfpack {
 			}
 			window.addEventListener('load', () => {
 				for (let i = 0; i < this.wolfpackList.length; i += 1) {
-					this.wolfpackHeight[i] = document.querySelectorAll('[data-wolfpack]')[i].scrollHeight;
-					this.wolfpackParentHeight[i] = document.querySelectorAll('[data-wolfpack]')[i].parentNode.offsetHeight;
-					this.wolfpackScrollLimit[i] = (this.wolfpackHeight[i] - this.wolfpackParentHeight[i]) * -1;
-					this.wolfpackSectionList[i] = document.querySelectorAll('[data-wolfpack]')[i].querySelectorAll('[data-wolfpack-section]');
-					if (this.wolfpackSectionList[i].length !== 0) {
-						for (let j = 0; j < this.wolfpackSectionList[i].length; j += 1) {
-							this.wolfpackSectionTopList[i][j] = this.wolfpackSectionList[i][j].offsetTop;
-							this.wolfpackSectionBottomList[i][j] = this.wolfpackSectionTopList[i][j] + this.wolfpackSectionList[i][j].getBoundingClientRect().height + this.windowHeight;
+					setTimeout(() => {
+						this.wolfpackHeight[i] = this.wolfpackList[i].scrollHeight;
+						this.wolfpackParentHeight[i] = this.wolfpackList[i].parentNode.offsetHeight;
+						this.wolfpackScrollLimit[i] = (this.wolfpackHeight[i] - this.wolfpackParentHeight[i]) * -1;
+						this.wolfpackSectionList[i] = this.wolfpackList[i].querySelectorAll('[data-wolfpack-section]');
+						if (this.wolfpackSectionList[i].length !== 0) {
+							for (let j = 0; j < this.wolfpackSectionList[i].length; j += 1) {
+								this.wolfpackSectionTopList[i][j] = this.wolfpackSectionList[i][j].offsetTop;
+								this.wolfpackSectionBottomList[i][j] = this.wolfpackSectionTopList[i][j] + this.wolfpackSectionList[i][j].getBoundingClientRect().height + this.windowHeight;
+							}
+						}
+						this.positionInit();
+					}, 1000);
+				}
+			});
+			window.addEventListener('click', () => {
+				setTimeout(() => {
+					for (let i = 0; i < this.wolfpackList.length; i += 1) {
+						this.wolfpackHeight[i] = this.wolfpackList[i].scrollHeight;
+						this.wolfpackParentHeight[i] = this.wolfpackList[i].parentNode.offsetHeight;
+						this.wolfpackScrollLimit[i] = (this.wolfpackHeight[i] - this.wolfpackParentHeight[i]) * -1;
+						this.wolfpackSectionList[i] = this.wolfpackList[i].querySelectorAll('[data-wolfpack-section]');
+						if (this.wolfpackSectionList[i].length !== 0) {
+							for (let j = 0; j < this.wolfpackSectionList[i].length; j += 1) {
+								this.wolfpackSectionTopList[i][j] = this.wolfpackSectionList[i][j].offsetTop;
+								this.wolfpackSectionBottomList[i][j] = this.wolfpackSectionTopList[i][j] + this.wolfpackSectionList[i][j].getBoundingClientRect().height + this.windowHeight;
+							}
 						}
 					}
-				}
+				}, 500);
 			});
 			window.addEventListener('resize', () => {
 				for (let i = 0; i < this.wolfpackList.length; i += 1) {
-					this.wolfpackHeight[i] = document.querySelectorAll('[data-wolfpack]')[i].scrollHeight;
-					this.wolfpackParentHeight[i] = document.querySelectorAll('[data-wolfpack]')[i].parentNode.offsetHeight;
+					this.wolfpackHeight[i] = this.wolfpackList[i].scrollHeight;
+					this.wolfpackParentHeight[i] = this.wolfpackList[i].parentNode.offsetHeight;
 					this.wolfpackScrollLimit[i] = (this.wolfpackHeight[i] - this.wolfpackParentHeight[i]) * -1;
-					this.wolfpackSectionList[i] = document.querySelectorAll('[data-wolfpack]')[i].querySelectorAll('[data-wolfpack-section]');
+					this.wolfpackSectionList[i] = this.wolfpackList[i].querySelectorAll('[data-wolfpack-section]');
 					if (this.wolfpackSectionList[i].length !== 0) {
 						for (let j = 0; j < this.wolfpackSectionList[i].length; j += 1) {
 							this.wolfpackSectionTopList[i][j] = this.wolfpackSectionList[i][j].offsetTop;
@@ -147,19 +166,12 @@ export default class Wolfpack {
 					}
 				}
 			});
-		}
-
-		// Wolfpack configurations
-		if (this.wolfpackList.length !== 0) {
-			for (let i = 0; i < this.wolfpackList.length; i += 1) {
-				// Create custom scrollbar
-				this.createScrollbar(i);
-			}
 		}
 
 		// Scrollbar variables
 		this.scrollbarList = document.querySelectorAll('[data-scrollbar]');
 		this.scrollbarThumbList = document.querySelectorAll('[data-scrollbar-thumb]');
+		this.scrollbarIndex = [];
 		this.scrollbarCurrentY = [];
 		this.scrollbarTargetY = [];
 		this.scrollbarHeight = [];
@@ -168,13 +180,29 @@ export default class Wolfpack {
 		this.scrollbarTransform = [];
 		if (this.scrollbarList.length !== 0) {
 			for (let i = 0; i < this.scrollbarList.length; i += 1) {
+				this.scrollbarIndex.push(this.scrollbarList[i].getAttribute('data-scrollbar-index'));
 				this.scrollbarCurrentY.push(0);
 				this.scrollbarTargetY.push(0);
 				this.scrollbarHeight.push(this.scrollbarList[i].offsetHeight);
-				this.scrollbarThumbHeight.push((this.scrollbarHeight[i] * this.wolfpackParentHeight[i]) / this.wolfpackHeight[i]);
+				this.scrollbarThumbHeight.push((this.scrollbarHeight[i] * this.wolfpackParentHeight[this.scrollbarIndex[i]]) / this.wolfpackHeight[this.scrollbarIndex[i]]);
 				this.scrollbarScrollLimit.push((this.scrollbarHeight[i] - this.scrollbarThumbHeight[i]) * -1);
 				this.scrollbarTransform.push(`matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`);
 			}
+			window.addEventListener('load', () => {
+				for (let i = 0; i < this.scrollbarList.length; i += 1) {
+					setTimeout(() => {
+						this.scrollbarIndex[i] = this.scrollbarList[i].getAttribute('data-scrollbar-index');
+						this.scrollbarCurrentY[i] = 0;
+						this.scrollbarTargetY[i] = 0;
+						this.scrollbarHeight[i] = this.scrollbarList[i].offsetHeight;
+						this.scrollbarThumbHeight[i] = (this.scrollbarHeight[i] * this.wolfpackParentHeight[this.scrollbarIndex[i]]) / this.wolfpackHeight[this.scrollbarIndex[i]];
+						this.scrollbarScrollLimit[i] = (this.scrollbarHeight[i] - this.scrollbarThumbHeight[i]) * -1;
+						this.scrollbarTransform[i] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
+						// Update scrollbar height
+						this.updateScrollbar(i);
+					}, 1010);
+				}
+			});
 		}
 
 		// Location variables
@@ -183,6 +211,10 @@ export default class Wolfpack {
 		this.locationTop = 0;
 		if (window.location.hash) {
 			this.locationElement = document.querySelector(this.locationHash);
+			window.history.pushState(null, null, '#noscroll');
+			setTimeout(() => {
+				window.history.pushState(null, null, this.locationHash);
+			}, 1);
 		}
 
 		// Anchors variables
@@ -251,25 +283,28 @@ export default class Wolfpack {
 		this.tadamThresholdMobile = [];
 		this.tadamVisible = [];
 		if (this.tadamList.length !== 0) {
-			for (let i = 0; i < this.tadamList.length; i += 1) {
-				this.tadamTop.push(this.tadamList[i].getBoundingClientRect().y);
-				if (this.tadamList[i].getAttribute('data-tadam-repeat') === 'true') {
-					this.tadamRepeat.push(true);
-				} else {
-					this.tadamRepeat.push(false);
+			setTimeout(() => {
+				for (let i = 0; i < this.tadamList.length; i += 1) {
+					this.tadamTop.push(this.tadamList[i].getBoundingClientRect().y);
+
+					if (this.tadamList[i].getAttribute('data-tadam-repeat') === 'true') {
+						this.tadamRepeat.push(true);
+					} else {
+						this.tadamRepeat.push(false);
+					}
+					if (this.tadamList[i].getAttribute('data-tadam-threshold-mobile')) {
+						this.tadamThresholdMobile.push(this.tadamList[i].getAttribute('data-tadam-threshold-mobile'));
+					} else {
+						this.tadamThresholdMobile.push('100');
+					}
+					if (this.tadamList[i].getAttribute('data-tadam-threshold')) {
+						this.tadamThreshold.push(this.tadamList[i].getAttribute('data-tadam-threshold'));
+					} else {
+						this.tadamThreshold.push('200');
+					}
+					this.tadamVisible.push(parseFloat(this.tadamTop[i]) + parseFloat(this.tadamThreshold[i]));
 				}
-				if (this.tadamList[i].getAttribute('data-tadam-threshold-mobile')) {
-					this.tadamThresholdMobile.push(this.tadamList[i].getAttribute('data-tadam-threshold-mobile'));
-				} else {
-					this.tadamThresholdMobile.push('100');
-				}
-				if (this.tadamList[i].getAttribute('data-tadam-threshold')) {
-					this.tadamThreshold.push(this.tadamList[i].getAttribute('data-tadam-threshold'));
-				} else {
-					this.tadamThreshold.push('200');
-				}
-				this.tadamVisible.push(parseFloat(this.tadamTop[i]) + parseFloat(this.tadamThreshold[i]));
-			}
+			}, 100);
 			window.addEventListener('resize', () => {
 				for (let i = 0; i < this.tadamList.length; i += 1) {
 					this.tadamTop[i] = this.tadamList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
@@ -484,28 +519,78 @@ export default class Wolfpack {
 			}
 		}
 
-		// Form inputs variables
-		this.formList = document.querySelectorAll('[data-form] .gfield');
-		this.formInfosList = document.querySelectorAll('[data-form] .field__infos span');
-		this.formCardList = document.querySelectorAll('[data-form] .field__card .ginput_full');
-		this.formClass = [];
-		this.formInfosClass = [];
-		this.formCardClass = [];
-		if (this.formList.length !== 0) {
-			for (let i = 0; i < this.formList.length; i += 1) {
-				this.formClass.push(this.formList[i].classList[0]);
+		// FORM LABELS
+		jQuery(document).bind('gform_post_render', () => {
+			setTimeout(() => {
+				window.scrollTo(0, 0);
+			}, 50);
+			this.formsList = document.querySelectorAll('[data-form]');
+			this.formChanged = [];
+			this.formParentPosition = [];
+			this.formClass = [];
+			this.fieldList = [];
+			if (this.formsList.length !== 0) {
+				for (let i = 0; i < this.formsList.length; i += 1) {
+					this.formChanged.push(false);
+					this.fieldList.push([]);
+				}
 			}
-		}
-		if (this.formInfosList.length !== 0) {
-			for (let i = 0; i < this.formInfosList.length; i += 1) {
-				this.formInfosClass.push(this.formInfosList[i].classList[0]);
+			if (this.formsList.length !== 0) {
+				for (let i = 0; i < this.formsList.length; i += 1) {
+					if (!this.formChanged[i]) {
+						this.formChanged[i] = true;
+						this.fieldList[i] = this.formsList[i].querySelectorAll('.gfield');
+						this.formParentPosition.push(this.formsList[i].getBoundingClientRect().y);
+						this.formList = this.formsList[i].querySelectorAll('.gfield');
+						this.formClass.push([]);
+						if (this.fieldList[i].length !== 0) {
+							for (let j = 0; j < this.fieldList[i].length; j += 1) {
+								this.formClass[i].push(this.fieldList[i][j].classList[0]);
+							}
+						}
+						if (this.fieldList[i].length !== 0) {
+							for (let j = 0; j < this.fieldList[i].length; j += 1) {
+								this.fieldList[i][j].addEventListener('focusin', () => {
+									this.formFocusIn(this.fieldList[i][j], i, j);
+								});
+								this.fieldList[i][j].addEventListener('focusout', () => {
+									if (this.fieldList[i][j].querySelector('.ginput_container').classList.contains('ginput_complex')) {
+										if (this.fieldList[i][j].querySelector('input').value === '' || this.fieldList[i][j].querySelector('input').value === null) {
+											this.formFocusOut(this.fieldList[i][j], i, j);
+										}
+									} else if (this.fieldList[i][j].querySelector('.ginput_container').classList.contains('ginput_container_textarea')) {
+										if (this.fieldList[i][j].querySelector('textarea').value === '' || this.fieldList[i][j].querySelector('textarea').value === null) {
+											this.formFocusOut(this.fieldList[i][j], i, j);
+										}
+									} else if (this.fieldList[i][j].querySelector('.ginput_container').classList.contains('ginput_container_select')) {
+										if (this.fieldList[i][j].querySelector('select').value === '' || this.fieldList[i][j].querySelector('select').value === null) {
+											this.formFocusOut(this.fieldList[i][j], i, j);
+										}
+									} else if (this.fieldList[i][j].querySelector('input').value === '' || this.fieldList[i][j].querySelector('input').value === null) {
+										this.formFocusOut(this.fieldList[i][j], i, j);
+									}
+								});
+								if (this.fieldList[i][j].querySelector('.ginput_container') && this.fieldList[i][j].querySelector('.ginput_container').classList.contains('ginput_complex')) {
+									if (this.fieldList[i][j].querySelector('input').value !== '') {
+										this.formFocusIn(this.fieldList[i][j], i, j);
+									}
+								} else if (this.fieldList[i][j].querySelector('.ginput_container') && this.fieldList[i][j].querySelector('.ginput_container').classList.contains('ginput_container_textarea')) {
+									if (this.fieldList[i][j].querySelector('textarea').value !== '') {
+										this.formFocusIn(this.fieldList[i][j], i, j);
+									}
+								} else if (this.fieldList[i][j].querySelector('.ginput_container') && this.fieldList[i][j].querySelector('.ginput_container').classList.contains('ginput_container_select')) {
+									if (this.fieldList[i][j].querySelector('select').value !== '') {
+										this.formFocusIn(this.fieldList[i][j], i, j);
+									}
+								} else if (this.fieldList[i][j].querySelector('input') && this.fieldList[i][j].querySelector('input').value !== '') {
+									this.formFocusIn(this.fieldList[i][j], i, j);
+								}
+							}
+						}
+					}
+				}
 			}
-		}
-		if (this.formCardList.length !== 0) {
-			for (let i = 0; i < this.formCardList.length; i += 1) {
-				this.formCardClass.push(this.formCardList[i].classList[0]);
-			}
-		}
+		});
 
 		// Links data-cursor
 		for (let i = 0; i < document.querySelectorAll('a').length; i += 1) {
@@ -556,7 +641,7 @@ export default class Wolfpack {
 				this.wolfpackHovering[this.wolfpackMainIndex] = true;
 
 				if (window.innerWidth >= 1024) {
-					document.querySelectorAll('[data-wolfpack]')[i].addEventListener('mouseenter', () => {
+					this.wolfpackList[i].addEventListener('mouseenter', () => {
 						if (!this.anchorScrolling) {
 							this.scrolling = false;
 						}
@@ -572,17 +657,21 @@ export default class Wolfpack {
 							}
 						}
 					});
-					document.querySelectorAll('[data-wolfpack]')[i].addEventListener('mouseleave', () => {
-						this.scrolling = false;
+					this.wolfpackList[i].addEventListener('mouseleave', () => {
+						if (!this.anchorScrolling) {
+							this.scrolling = false;
+						}
 						this.wolfpackHovering[i] = false;
-						if (document.querySelectorAll('[data-wolfpack]')[i] !== document.querySelectorAll('[data-wolfpack]')[this.wolfpackMainIndex]) {
+						if (this.wolfpackList[i] !== this.wolfpackList[this.wolfpackMainIndex]) {
 							this.wolfpackHovering[this.wolfpackMainIndex] = true;
 						}
 					});
 				} else {
-					document.querySelectorAll('[data-wolfpack]')[i].addEventListener('pointerenter', () => {
+					this.wolfpackList[i].addEventListener('pointerenter', () => {
 						if (!this.wolfpackHovering[i]) {
-							this.scrolling = false;
+							if (!this.anchorScrolling) {
+								this.scrolling = false;
+							}
 							this.wolfpackHovering[i] = true;
 							for (let j = 0; j < this.wolfpackList.length; j += 1) {
 								if (this.wolfpackList[j] !== this.wolfpackList[i]) {
@@ -597,14 +686,11 @@ export default class Wolfpack {
 						}
 					});
 				}
-
-				// Update scrollbar height
-				this.updateScrollbar(i);
 			}
 		}
 
 		// Init first loop
-		if (this.wolfpackList.length !== 0) {
+		if (this.wolfpackList.length !== 0 && !this.locationHash) {
 			for (let i = 0; i < this.wolfpackList.length; i += 1) {
 				if (i !== this.wolfpackMainIndex && this.wolfpackSectionList[i].length === 0) {
 					if (this.wolfpackHovering[i]) {
@@ -658,116 +744,82 @@ export default class Wolfpack {
 		if (this.scrollbarThumbList.length !== 0) {
 			for (let i = 0; i < this.scrollbarThumbList.length; i += 1) {
 				this.scrollbarThumbList[i].addEventListener('mousedown', (e) => {
-					if (this.wolfpackSectionList[i].length === 0) {
-						this.wolfpackDragging[i] = true;
+					if (this.wolfpackSectionList[this.scrollbarIndex[i]].length === 0) {
+						this.wolfpackDragging[this.scrollbarIndex[i]] = true;
 						this.currentMousePosotion = e.clientY;
-						this.showScrollbar(i);
+						this.showScrollbar(this.scrollbarIndex[i]);
 						document.querySelector('body').classList.add('dragging');
 						document.addEventListener('mousemove', (f) => {
-							if (this.wolfpackDragging[i]) {
+							if (this.wolfpackDragging[this.scrollbarIndex[i]]) {
 								f.preventDefault();
 								if (!this.scrolling) {
-									this.startLoop(i);
-									this.showScrollbar(i);
+									this.startLoop(this.scrollbarIndex[i]);
+									this.showScrollbar(this.scrollbarIndex[i]);
 								}
 								this.scrolling = true;
-								this.wolfpackTargetY[i] = parseFloat((document.querySelectorAll('[data-wolfpack]')[i].parentNode.getBoundingClientRect().y - f.clientY) * this.wolfpackHeight[i]) / this.wolfpackParentHeight[i];
-								this.wolfpackTargetY[i] = Math.max((this.wolfpackHeight[i] - this.wolfpackParentHeight[i]) * -1, this.wolfpackTargetY[i]);
-								this.wolfpackTargetY[i] = Math.min(0, this.wolfpackTargetY[i]);
-								this.scrollbarTargetY[i] = Math.abs((this.scrollbarHeight[i] * this.wolfpackTargetY[i]) / this.wolfpackHeight[i]);
+								this.dragTargetY(f.clientY, this.scrollbarIndex[i]);
 							}
 						});
 					} else {
-						this.wolfpackDragging[i] = true;
+						this.wolfpackDragging[this.scrollbarIndex[i]] = true;
 						this.currentMousePosotion = e.clientY;
 						this.showScrollbar(i);
 						document.querySelector('body').classList.add('dragging');
 						document.addEventListener('mousemove', (f) => {
-							if (this.wolfpackDragging[i]) {
+							if (this.wolfpackDragging[this.scrollbarIndex[i]]) {
 								f.preventDefault();
 								if (!this.scrolling) {
-									this.startLoopSections(i);
+									this.startLoopSections(this.scrollbarIndex[i]);
 									this.showScrollbar(i);
 								}
 								this.scrolling = true;
-								this.wolfpackTargetY[i] = parseFloat((document.querySelectorAll('[data-wolfpack]')[i].parentNode.getBoundingClientRect().y - f.clientY) * this.wolfpackHeight[i]) / this.wolfpackParentHeight[i];
-								this.wolfpackTargetY[i] = Math.max((this.wolfpackHeight[i] - this.wolfpackParentHeight[i]) * -1, this.wolfpackTargetY[i]);
-								this.wolfpackTargetY[i] = Math.min(0, this.wolfpackTargetY[i]);
-								this.scrollbarTargetY[i] = Math.abs((this.scrollbarHeight[i] * this.wolfpackTargetY[i]) / this.wolfpackHeight[i]);
+								this.dragTargetY(f.clientY, this.scrollbarIndex[i]);
 							}
 						});
 					}
 				});
 				document.addEventListener('mouseup', () => {
 					this.scrolling = false;
-					this.wolfpackDragging[i] = false;
+					this.wolfpackDragging[this.scrollbarIndex[i]] = false;
 					this.hideScrollbar(i);
 					document.querySelector('body').classList.remove('dragging');
 				});
 			}
 		}
 
-		// Position init
-		if (this.locationHash) {
-			window.history.pushState(null, null, '#noscroll');
-			setTimeout(() => {
-				window.history.pushState(null, null, this.locationHash);
-			}, 1);
-			this.locationTop = this.locationElement.getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
-			setTimeout(() => {
-				if (this.wolfpackSectionList[this.wolfpackMainIndex].length === 0) {
-					if (!this.scrolling) {
-						this.startLoop(this.wolfpackMainIndex);
-						this.showScrollbar(this.wolfpackMainIndex);
-						this.scrollTimer(this.wolfpackMainIndex);
-					}
-					this.scrolling = true;
-					this.updateTargetY(-Math.abs(this.locationTop), this.wolfpackMainIndex);
-					this.time = 10;
-				} else {
-					if (!this.scrolling) {
-						this.startLoopSections(this.wolfpackMainIndex);
-						this.showScrollbar(this.wolfpackMainIndex);
-						this.scrollTimerSections(this.wolfpackMainIndex);
-					}
-					this.scrolling = true;
-					this.updateTargetY(-Math.abs(this.locationTop), this.wolfpackMainIndex);
-					this.time = 10;
-				}
-			}, 10);
-		}
-
 		// Anchor init
 		if (this.anchorList.length !== 0) {
 			for (let i = 0; i < this.anchorList.length; i += 1) {
-				this.anchorList[i].addEventListener('click', (e) => {
-					e.preventDefault();
-					if (this.wolfpackSectionList[this.wolfpackMainIndex].length === 0) {
-						if (!this.anchorScrolling) {
-							this.anchorScrolling = true;
+				if (!this.anchorList[i].classList.contains('no-anchor')) {
+					this.anchorList[i].addEventListener('click', (e) => {
+						e.preventDefault();
+						if (this.wolfpackSectionList[this.wolfpackMainIndex].length === 0) {
+							if (!this.anchorScrolling) {
+								this.anchorScrolling = true;
+							}
+							if (!this.scrolling) {
+								this.startLoop(this.wolfpackMainIndex);
+								this.showScrollbar(this.wolfpackMainIndex);
+								this.scrollTimer(this.wolfpackMainIndex);
+							}
+							this.scrolling = true;
+							this.updateTargetY(-(this.anchorLocationTop[i] + this.wolfpackCurrentY[this.wolfpackMainIndex]), this.wolfpackMainIndex);
+							this.time = 10;
+						} else {
+							if (!this.anchorScrolling) {
+								this.anchorScrolling = true;
+							}
+							if (!this.scrolling) {
+								this.startLoopSections(this.wolfpackMainIndex);
+								this.showScrollbar(this.wolfpackMainIndex);
+								this.scrollTimerSections(this.wolfpackMainIndex);
+							}
+							this.scrolling = true;
+							this.updateTargetY(-(this.anchorLocationTop[i] + this.wolfpackCurrentY[this.wolfpackMainIndex]), this.wolfpackMainIndex);
+							this.time = 10;
 						}
-						if (!this.scrolling) {
-							this.startLoop(this.wolfpackMainIndex);
-							this.showScrollbar(this.wolfpackMainIndex);
-							this.scrollTimer(this.wolfpackMainIndex);
-						}
-						this.scrolling = true;
-						this.updateTargetY(-(this.anchorLocationTop[i] + this.wolfpackCurrentY[this.wolfpackMainIndex]), this.wolfpackMainIndex);
-						this.time = 10;
-					} else {
-						if (!this.anchorScrolling) {
-							this.anchorScrolling = true;
-						}
-						if (!this.scrolling) {
-							this.startLoopSections(this.wolfpackMainIndex);
-							this.showScrollbar(this.wolfpackMainIndex);
-							this.scrollTimerSections(this.wolfpackMainIndex);
-						}
-						this.scrolling = true;
-						this.updateTargetY(-(this.anchorLocationTop[i] + this.wolfpackCurrentY[this.wolfpackMainIndex]), this.wolfpackMainIndex);
-						this.time = 10;
-					}
-				});
+					});
+				}
 			}
 		}
 
@@ -789,77 +841,6 @@ export default class Wolfpack {
 		if (this.separateWordList.length !== 0) {
 			for (let i = 0; i < this.separateWordList.length; i += 1) {
 				this.separateWords(i);
-			}
-		}
-
-		// FORM LABELS
-		if (this.formList.length !== 0) {
-			for (let i = 0; i < this.formList.length; i += 1) {
-				setTimeout(() => {
-					this.formInputSpanList = this.formList[i].querySelectorAll('.ginput_container span');
-					for (let j = 0; j < this.formInputSpanList.length; j += 1) {
-						this.formInputSpan = this.formInputSpanList[j];
-						this.formInputSpan.classList.add('spanDisplay');
-					}
-				}, 100);
-				this.formList[i].addEventListener('focusin', () => {
-					this.formFocusIn(i);
-				});
-				this.formList[i].addEventListener('focusout', () => {
-					if (this.formList[i].querySelector('.ginput_container').classList.contains('ginput_complex')) {
-						if (this.formList[i].querySelector('input').value === '' || this.formList[i].querySelector('input').value === null) {
-							this.formFocusOut(i);
-						}
-					} else if (this.formList[i].querySelector('.ginput_container').classList.contains('ginput_container_textarea')) {
-						if (this.formList[i].querySelector('textarea').value === '' || this.formList[i].querySelector('textarea').value === null) {
-							this.formFocusOut(i);
-						}
-					} else if (this.formList[i].querySelector('.ginput_container').classList.contains('ginput_container_select')) {
-						if (this.formList[i].querySelector('select').value === '' || this.formList[i].querySelector('select').value === null) {
-							this.formFocusOut(i);
-						}
-					} else if (this.formList[i].querySelector('input').value === '' || this.formList[i].querySelector('input').value === null) {
-						this.formFocusOut(i);
-					}
-				});
-			}
-		}
-		if (this.formInfosList.length !== 0) {
-			for (let i = 0; i < this.formInfosList.length; i += 1) {
-				setTimeout(() => {
-					this.formInputSpanList = this.formInfosList[i].querySelectorAll('.ginput_container span');
-					for (let j = 0; j < this.formInputSpanList.length; j += 1) {
-						this.formInputSpan = this.formInputSpanList[j];
-						this.formInputSpan.classList.add('spanDisplay');
-					}
-				}, 100);
-				this.formInfosList[i].addEventListener('focusin', () => {
-					this.formInfosFocusIn(i);
-				});
-				this.formInfosList[i].addEventListener('focusout', () => {
-					if (this.formInfosList[i].querySelector('input').value === '' || this.formInfosList[i].querySelector('input').value === null) {
-						this.formInfosFocusOut(i);
-					}
-				});
-			}
-		}
-		if (this.formCardList.length !== 0) {
-			for (let i = 0; i < this.formCardList.length; i += 1) {
-				setTimeout(() => {
-					this.formInputSpanList = this.formCardList[i].querySelectorAll('.ginput_container span');
-					for (let j = 0; j < this.formInputSpanList.length; j += 1) {
-						this.formInputSpan = this.formInputSpanList[j];
-						this.formInputSpan.classList.add('spanDisplay');
-					}
-				}, 100);
-				this.formCardList[i].addEventListener('focusin', () => {
-					this.formCardFocusIn(i);
-				});
-				this.formCardList[i].addEventListener('focusout', () => {
-					if (this.formCardList[i].querySelector('input').value === '' || this.formCardList[i].querySelector('input').value === null) {
-						this.formCardFocusOut(i);
-					}
-				});
 			}
 		}
 
@@ -901,12 +882,40 @@ export default class Wolfpack {
 		}
 	}
 
-	createScrollbar(index) {
-		document.querySelectorAll('[data-wolfpack]')[index].parentNode.innerHTML = this.scrollbarCode + document.querySelectorAll('[data-wolfpack]')[index].parentNode.innerHTML;
+	positionInit() {
+		// Position init
+		if (this.locationHash) {
+			this.locationTop = this.locationElement.offsetTop + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
+			if (this.wolfpackSectionList[this.wolfpackMainIndex].length === 0) {
+				if (!this.anchorScrolling) {
+					this.anchorScrolling = true;
+				}
+				if (!this.scrolling) {
+					this.startLoop(this.wolfpackMainIndex);
+					this.scrollTimer(this.wolfpackMainIndex);
+				}
+				this.scrolling = true;
+				this.updateTargetY(-Math.abs(this.locationTop), this.wolfpackMainIndex);
+				this.time = 10;
+			} else {
+				if (!this.anchorScrolling) {
+					this.anchorScrolling = true;
+				}
+				if (!this.scrolling) {
+					this.startLoopSections(this.wolfpackMainIndex);
+					this.scrollTimerSections(this.wolfpackMainIndex);
+				}
+				this.scrolling = true;
+				this.updateTargetY(-Math.abs(this.locationTop), this.wolfpackMainIndex);
+				this.time = 10;
+			}
+		}
 	}
 
 	updateScrollbar(index) {
-		document.querySelectorAll('[data-scrollbar-thumb]')[index].style.height = `${this.scrollbarThumbHeight[index]}px`;
+		if (this.scrollbarThumbList[index]) {
+			this.scrollbarThumbList[index].style.height = `${this.scrollbarThumbHeight[index]}px`;
+		}
 	}
 
 	scrollTimer(index) {
@@ -939,17 +948,40 @@ export default class Wolfpack {
 		this.wolfpackTargetY[index] += e;
 		this.wolfpackTargetY[index] = Math.max(this.wolfpackScrollLimit[index], this.wolfpackTargetY[index]);
 		this.wolfpackTargetY[index] = Math.min(0, this.wolfpackTargetY[index]);
-		this.scrollbarTargetY[index] = Math.abs((this.scrollbarHeight[index] * this.wolfpackTargetY[index]) / this.wolfpackHeight[index]);
+		for (let i = 0; i < this.scrollbarList.length; i += 1) {
+			if (parseFloat(index) === parseFloat(this.scrollbarIndex[i])) {
+				this.scrollbarTargetY[i] = Math.abs((this.scrollbarHeight[i] * this.wolfpackTargetY[index]) / this.wolfpackHeight[index]);
+			}
+		}
+	}
+
+	dragTargetY(e, index) {
+		this.wolfpackTargetY[index] = parseFloat((this.wolfpackList[index].parentNode.getBoundingClientRect().y - e) * this.wolfpackHeight[index]) / this.wolfpackParentHeight[index];
+		this.wolfpackTargetY[index] = Math.max((this.wolfpackHeight[index] - this.wolfpackParentHeight[index]) * -1, this.wolfpackTargetY[index]);
+		this.wolfpackTargetY[index] = Math.min(0, this.wolfpackTargetY[index]);
+		for (let i = 0; i < this.scrollbarList.length; i += 1) {
+			if (parseFloat(index) === parseFloat(this.scrollbarIndex[i])) {
+				this.scrollbarTargetY[i] = Math.abs((this.scrollbarHeight[i] * this.wolfpackTargetY[index]) / this.wolfpackHeight[index]);
+			}
+		}
 	}
 
 	showScrollbar(index) {
-		this.scrollbarClass = document.querySelectorAll('[data-scrollbar]')[index].classList[0]; // eslint-disable-line
-		document.querySelectorAll('[data-scrollbar]')[index].classList.add(`${this.scrollbarClass}--show`);
+		for (let i = 0; i < this.scrollbarList.length; i += 1) {
+			if (parseFloat(index) === parseFloat(this.scrollbarIndex[i])) {
+				this.scrollbarClass = this.scrollbarList[i].classList[0]; // eslint-disable-line
+				this.scrollbarList[i].classList.add(`${this.scrollbarClass}--show`);
+			}
+		}
 	}
 
 	hideScrollbar(index) {
-		this.scrollbarClass = document.querySelectorAll('[data-scrollbar]')[index].classList[0]; // eslint-disable-line
-		document.querySelectorAll('[data-scrollbar]')[index].classList.remove(`${this.scrollbarClass}--show`);
+		for (let i = 0; i < this.scrollbarList.length; i += 1) {
+			if (parseFloat(index) === parseFloat(this.scrollbarIndex[i])) {
+				this.scrollbarClass = this.scrollbarList[i].classList[0]; // eslint-disable-line
+				this.scrollbarList[i].classList.remove(`${this.scrollbarClass}--show`);
+			}
+		}
 	}
 
 	startLoop(index) {
@@ -984,42 +1016,70 @@ export default class Wolfpack {
 
 	updateCurrentY(index) {
 		this.wolfpackCurrentY[index] += Math.round(((this.wolfpackTargetY[index] - this.wolfpackCurrentY[index]) * this.ease + Number.EPSILON) * 1000) / 1000;
-		this.scrollbarCurrentY[index] += Math.round(((this.scrollbarTargetY[index] - this.scrollbarCurrentY[index]) * this.ease + Number.EPSILON) * 1000) / 1000;
+		for (let i = 0; i < this.scrollbarList.length; i += 1) {
+			if (parseFloat(index) === parseFloat(this.scrollbarIndex[i])) {
+				this.scrollbarCurrentY[i] += Math.round(((this.scrollbarTargetY[i] - this.scrollbarCurrentY[i]) * this.ease + Number.EPSILON) * 1000) / 1000;
+			}
+		}
 	}
 
 	updateTransform(index) {
 		if (this.wolfpackCurrentY[index] > -0.5) {
 			this.wolfpackTransform[index] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
-			this.scrollbarTransform[index] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
+			for (let i = 0; i < this.scrollbarList.length; i += 1) {
+				if (parseFloat(index) === parseFloat(this.scrollbarIndex[i])) {
+					this.scrollbarTransform[i] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
+				}
+			}
 		} else {
 			this.wolfpackTransform[index] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${this.wolfpackCurrentY[index]}, 0, 1)`;
-			this.scrollbarTransform[index] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${this.scrollbarCurrentY[index]}, 0, 1)`;
+			for (let i = 0; i < this.scrollbarList.length; i += 1) {
+				if (parseFloat(index) === parseFloat(this.scrollbarIndex[i])) {
+					this.scrollbarTransform[i] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${this.scrollbarCurrentY[i]}, 0, 1)`;
+				}
+			}
 		}
-		document.querySelectorAll('[data-wolfpack]')[index].style.transform = this.wolfpackTransform[index];
-		document.querySelectorAll('[data-scrollbar-thumb]')[index].style.transform = this.scrollbarTransform[index];
+		this.wolfpackList[index].style.transform = this.wolfpackTransform[index];
+		for (let i = 0; i < this.scrollbarList.length; i += 1) {
+			if (parseFloat(index) === parseFloat(this.scrollbarIndex[i])) {
+				this.scrollbarThumbList[i].style.transform = this.scrollbarTransform[i];
+			}
+		}
 	}
 
 	updateTransformSections(index) {
 		if (this.wolfpackCurrentY[index] > -0.5) {
 			this.wolfpackTransform[index] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
-			this.scrollbarTransform[index] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
+			for (let i = 0; i < this.scrollbarList.length; i += 1) {
+				if (parseFloat(index) === parseFloat(this.scrollbarIndex[i])) {
+					this.scrollbarTransform[i] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
+				}
+			}
 		} else {
 			this.wolfpackTransform[index] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${this.wolfpackCurrentY[index]}, 0, 1)`;
-			this.scrollbarTransform[index] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${this.scrollbarCurrentY[index]}, 0, 1)`;
+			for (let i = 0; i < this.scrollbarList.length; i += 1) {
+				if (parseFloat(index) === parseFloat(this.scrollbarIndex[i])) {
+					this.scrollbarTransform[i] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${this.scrollbarCurrentY[i]}, 0, 1)`;
+				}
+			}
 		}
-		document.querySelectorAll('[data-scrollbar-thumb]')[index].style.transform = this.scrollbarTransform[index];
+		for (let i = 0; i < this.scrollbarList.length; i += 1) {
+			if (parseFloat(index) === parseFloat(this.scrollbarIndex[i])) {
+				this.scrollbarThumbList[i].style.transform = this.scrollbarTransform[i];
+			}
+		}
 	}
 
 	detectWolfpackSection(index) {
 		for (let i = 0; i < this.wolfpackSectionList[index].length; i += 1) {
 			if (this.wolfpackScrollPosition[index] + this.windowHeight >= this.wolfpackSectionTopList[index][i] && this.wolfpackScrollPosition[index] - this.windowHeight < this.wolfpackSectionBottomList[index][i]) {
-				document.querySelectorAll('[data-wolfpack-section]')[i].style.transform = this.wolfpackTransform[index];
-				document.querySelectorAll('[data-wolfpack-section]')[i].style.pointerEvents = 'all';
-				document.querySelectorAll('[data-wolfpack-section]')[i].style.opacity = '1';
+				this.wolfpackSectionList[index][i].style.transform = this.wolfpackTransform[index];
+				this.wolfpackSectionList[index][i].style.pointerEvents = 'all';
+				this.wolfpackSectionList[index][i].style.opacity = '1';
 			} else {
-				document.querySelectorAll('[data-wolfpack-section]')[i].style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
-				document.querySelectorAll('[data-wolfpack-section]')[i].style.pointerEvents = 'none';
-				document.querySelectorAll('[data-wolfpack-section]')[i].style.opacity = '0';
+				this.wolfpackSectionList[index][i].style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
+				this.wolfpackSectionList[index][i].style.pointerEvents = 'none';
+				this.wolfpackSectionList[index][i].style.opacity = '0';
 			}
 		}
 	}
@@ -1079,7 +1139,7 @@ export default class Wolfpack {
 		if (this.stayList.length !== 0) {
 			for (let i = 0; i < this.stayList.length; i += 1) {
 				this.stayTransform[i] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex])}, 0, 1)`;
-				document.querySelectorAll('[data-stay]')[i].style.transform = this.stayTransform[i];
+				this.stayList[i].style.transform = this.stayTransform[i];
 			}
 		}
 	}
@@ -1088,7 +1148,7 @@ export default class Wolfpack {
 		if (this.stayList.length !== 0) {
 			for (let i = 0; i < this.stayList.length; i += 1) {
 				this.stayTransform[i] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
-				document.querySelectorAll('[data-stay]')[i].style.transform = this.stayTransform[i];
+				this.stayList[i].style.transform = this.stayTransform[i];
 			}
 		}
 	}
@@ -1097,15 +1157,15 @@ export default class Wolfpack {
 		if (this.headerDisappearList.length !== 0) {
 			for (let i = 0; i < this.headerDisappearList.length; i += 1) {
 				if (Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]) >= this.headerDisappearSmall[i]) {
-					document.querySelectorAll('[data-header-disappear]')[i].classList.add(`${this.headerDisappearList[i].classList[0]}--small`);
+					this.headerDisappearList[i].classList.add(`${this.headerDisappearList[i].classList[0]}--small`);
 				} else {
-					document.querySelectorAll('[data-header-disappear]')[i].classList.remove(`${this.headerDisappearList[i].classList[0]}--small`);
+					this.headerDisappearList[i].classList.remove(`${this.headerDisappearList[i].classList[0]}--small`);
 				}
 				if (Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]) >= this.headerDisappearHide[i]) {
 					if (this.wolfpackDirection[this.wolfpackMainIndex] === 'down') {
-						document.querySelectorAll('[data-header-disappear]')[i].classList.add(`${this.headerDisappearList[i].classList[0]}--hide`);
+						this.headerDisappearList[i].classList.add(`${this.headerDisappearList[i].classList[0]}--hide`);
 					} else {
-						document.querySelectorAll('[data-header-disappear]')[i].classList.remove(`${this.headerDisappearList[i].classList[0]}--hide`);
+						this.headerDisappearList[i].classList.remove(`${this.headerDisappearList[i].classList[0]}--hide`);
 					}
 				}
 			}
@@ -1120,19 +1180,19 @@ export default class Wolfpack {
 					this.parallaxPositionY[i] = this.parallaxCurrentPosition[i] - this.parallaxTop[i];
 					this.parallaxScrollVariable[i] = this.parallaxPositionY[i] / this.parallaxSpeed[i];
 					this.parallaxTransform[i] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${this.parallaxScrollVariable[i]}, 0, 1)`;
-					document.querySelectorAll('[data-parallax]')[i].style.transform = this.parallaxTransform[i];
+					this.parallaxList[i].style.transform = this.parallaxTransform[i];
 				}
 			}
 		}
 	}
 
 	marquee(index) {
-		document.querySelectorAll('[data-marquee]')[index].innerHTML = this.marqueeNewHTML[index];
-		document.querySelectorAll('[data-marquee]')[index].style.width = '100%';
+		this.marqueeList[index].innerHTML = this.marqueeNewHTML[index];
+		this.marqueeList[index].style.width = '100%';
 		this.marqueeContainerList = document.querySelectorAll('[data-marquee-container]');
 		for (let i = 0; i < this.marqueeContainerList.length; i += 1) {
 			this.marqueeContainerHTML = this.marqueeContainerList[i].innerHTML;
-			document.querySelectorAll('[data-marquee-container]')[i].innerHTML = this.marqueeContainerHTML + this.marqueeContainerHTML;
+			this.marqueeContainerList[i].innerHTML = this.marqueeContainerHTML + this.marqueeContainerHTML;
 		}
 	}
 
@@ -1142,7 +1202,7 @@ export default class Wolfpack {
 				this.followMeStart[i] = this.wolfpackScrollPosition[this.wolfpackMainIndex] - this.windowHeight;
 				if (this.followMeStart[i] >= this.followMeTop[i] && this.followMeStart[i] <= this.followMeStop[i]) {
 					this.followMeTransform[i] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]) - this.followMeTop[i]}, 0, 1)`;
-					document.querySelectorAll('[data-follow-me]')[i].style.transform = this.followMeTransform[i];
+					this.followMeList[i].style.transform = this.followMeTransform[i];
 				}
 			}
 		}
@@ -1154,7 +1214,7 @@ export default class Wolfpack {
 				if (this.wolfpackScrollPosition[this.wolfpackMainIndex] >= this.animationSequenceTop[i] && this.wolfpackScrollPosition[this.wolfpackMainIndex] < this.animationSequenceStop[i]) {
 					this.animationPositionY[i] = this.wolfpackScrollPosition[this.wolfpackMainIndex] - this.animationSequenceTop[i];
 					this.animationScrollVariable[i] = this.animationPositionY[i] / this.animationTimeline[i];
-					document.querySelectorAll('[data-animation]')[i].style.setProperty(`--scroll-${i}`, this.animationScrollVariable[i]);
+					this.animationSequenceList[i].style.setProperty(`--scroll-${i}`, this.animationScrollVariable[i]);
 				}
 			}
 		}
@@ -1164,11 +1224,11 @@ export default class Wolfpack {
 		if (this.tadamList.length !== 0) {
 			for (let i = 0; i < this.tadamList.length; i += 1) {
 				if (this.tadamThreshold[i] === '-1') {
-					document.querySelectorAll('[data-tadam]')[i].classList.add(`${this.tadamList[i].classList[0]}--animate`);
+					this.tadamList[i].classList.add(`${this.tadamList[i].classList[0]}--animate`);
 				} else if (this.wolfpackScrollPosition[this.wolfpackMainIndex] >= this.tadamVisible[i]) {
-					document.querySelectorAll('[data-tadam]')[i].classList.add(`${this.tadamList[i].classList[0]}--animate`);
+					this.tadamList[i].classList.add(`${this.tadamList[i].classList[0]}--animate`);
 				} else if (this.tadamRepeat[i]) {
-					document.querySelectorAll('[data-tadam]')[i].classList.remove(`${this.tadamList[i].classList[0]}--animate`);
+					this.tadamList[i].classList.remove(`${this.tadamList[i].classList[0]}--animate`);
 				}
 			}
 		}
@@ -1213,7 +1273,7 @@ export default class Wolfpack {
 				}
 				this.separateLetterInitialDelay[index] += parseFloat(this.separateLetterDelay[index]);
 			}
-			document.querySelectorAll('[data-letters]')[index].innerHTML = `${this.separateLetterList[index].innerHTML}<div class="${this.separateLetterClass[index]}-line separate-character__line">${this.separateCharacterLineContent}</div>`;
+			this.separateLetterLines[index].innerHTML = `${this.separateLetterList[index].innerHTML}<div class="${this.separateLetterClass[index]}-line separate-character__line">${this.separateCharacterLineContent}</div>`;
 		}
 	}
 
@@ -1230,7 +1290,7 @@ export default class Wolfpack {
 				}
 				this.separateWordInitialDelay[index] += parseFloat(this.separateWordDelay[index]);
 			}
-			document.querySelectorAll('[data-words]')[index].innerHTML += `<div class="${this.separateWordClass[index]}-line separate-word__line">${this.separateWordLineContent}</div>`;
+			this.separateWordLines[index].innerHTML += `<div class="${this.separateWordClass[index]}-line separate-word__line">${this.separateWordLineContent}</div>`;
 		}
 	}
 
@@ -1297,27 +1357,11 @@ export default class Wolfpack {
 		}, 10);
 	}
 
-	formFocusIn(index) {
-		this.formList[index].classList.add(`${this.formClass[index]}--focus`);
+	formFocusIn(field, mainIndex, index) {
+		field.classList.add(`${this.formClass[mainIndex][index]}--focus`);
 	}
 
-	formFocusOut(index) {
-		this.formList[index].classList.remove(`${this.formClass[index]}--focus`);
-	}
-
-	formInfosFocusIn(index) {
-		this.formInfosList[index].classList.add(`${this.formInfosClass[index]}--focus`);
-	}
-
-	formInfosFocusOut(index) {
-		this.formInfosList[index].classList.remove(`${this.formInfosClass[index]}--focus`);
-	}
-
-	formCardFocusIn(index) {
-		this.formCardList[index].classList.add(`${this.formCardClass[index]}--focus`);
-	}
-
-	formCardFocusOut(index) {
-		this.formCardList[index].classList.remove(`${this.formCardClass[index]}--focus`);
+	formFocusOut(field, mainIndex, index) {
+		field.classList.remove(`${this.formClass[mainIndex][index]}--focus`);
 	}
 }

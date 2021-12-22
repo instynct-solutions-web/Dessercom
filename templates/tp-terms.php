@@ -8,7 +8,7 @@ get_header(); ?>
 
 <?php
 $questions = get_field('terms') ?>
-<section class="policies">
+<section data-wolfpack-section class="policies">
     <svg class="policies__background" xmlns="http://www.w3.org/2000/svg" width="379.912" height="608.358" viewBox="0 0 379.912 608.358">
         <g id="Groupe_157" data-name="Groupe 157" transform="translate(3 3)">
             <path id="Tracé_47" data-name="Tracé 47" d="M0,602.349V186.616H.062C.216,83.548,83.826,0,186.987,0S373.758,83.548,373.912,186.616V602.349" transform="translate(0 0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="6" />
