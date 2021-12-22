@@ -9,9 +9,8 @@
 		padding: 1em 0;
 	}
 	&__note {
-		font-size: rem(14);
+		@include note;
 		width: rem(85);
-		line-height: 1.2em;
 	}
 	&__text {
 		font-size: rem(20);
@@ -45,7 +44,7 @@
 		margin-right: 0.5em;
 	}
 	&__note {
-		font-size: rem(14);
+		@include note;
 		margin-bottom: -0.2em;
 	}
 	&__amount-container {
@@ -556,12 +555,202 @@
 
 @include desktop-only {
 	.tilted-slider {
+		margin-top: 0px;
+		margin-bottom: 0px;
+		&__title {
+			width: 33.33333%;
+			margin: 0 33.33333%;
+		}
+		&__list {
+			transform: translateX(-33.33333%) rotate(-1deg) scale(0.9);
+		}
+		&__item {
+			width: calc(20% - 10px);
+		}
 		&__illustration {
 			width: 50%;
 			transform: translate(150%, 25%);
 		}
-		&__item {
-			width: calc(20% - 10px);
+	}
+	.philanthropy-highlight {
+		&__note-container {
+			margin-right: 8em;
+			margin-top: 1em;
+		}
+		&__text {
+			font-size: rem(40);
+			width: 75%;
+		}
+	}
+	.philanthropy-financing {
+		&__icon {
+			margin-right: 1.5em;
+		}
+		&__amount-container {
+			width: 100%;
+		}
+		&__amount {
+			font-size: rem(220);
+		}
+		&__list {
+			column-gap: 10em;
+			row-gap: 5em;
+		}
+		&__bottom-icon {
+			width: rem(40);
+			margin: 4em auto 2em auto;
+		}
+	}
+	.philanthropy-house {
+		padding-bottom: 10em;
+		&__top {
+			margin-top: 2em;
+		}
+		&__title {
+			font-size: rem(50);
+			width: 100%;
+		}
+		&__text {
+			font-size: rem(20);
+			width: 70%;
+		}
+		&__subtext {
+			font-size: rem(16);
+			width: 70%;
+		}
+		&__media {
+			padding: 0;
+		}
+		&__image {
+			width: 90%;
+			transform: translateX(-15%);
+		}
+		&__toggle {
+			transform: translateY(-75px);
+		}
+	}
+	.philanthropy-research {
+		&__top {
+			margin-top: 2em;
+		}
+		&__text-container {
+			width: 65%;
+		}
+		&__text {
+			font-size: rem(40);
+			line-height: 1.35em;
+			width: 90%;
+		}
+		&__foreground {
+			justify-content: space-between;
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+		&__background {
+			min-height: rem(1000);
+		}
+		&__background-list {
+			flex-basis: 50%;
+			transition: flex-basis 0.3s ease-in-out;
+			&--visible {
+				flex-basis: 130%;
+			}
+		}
+		&__toggle-container {
+			position: relative;
+			width: 15%;
+			align-self: center;
+		}
+		&__toggle {
+			width: 60px;
+			height: 60px;
+		}
+		&__left-container {
+			justify-content: flex-end;
+		}
+		&__close-container {
+			margin-bottom: 5em;
+			margin-top: 3em;
+		}
+		&__close {
+			width: 60px;
+			height: 60px;
+		}
+		&__logo {
+			width: rem(40);
+		}
+	}
+	.philanthropy-borders {
+		&__note {
+			width: 100%;
+		}
+		&__top {
+			margin-top: 2em;
+		}
+		&__title {
+			font-size: rem(50);
+			width: 80%;
+		}
+		&__text {
+			font-size: rem(20);
+			width: 70%;
+		}
+		&__subtext {
+			font-size: rem(16);
+			width: 70%;
+		}
+		&__media {
+			padding: 0;
+		}
+		&__main {
+			@include container;
+		}
+		&__info {
+			padding-left: 6.25em;
+		}
+		&__image {
+			width: 90%;
+			transform: translateX(-15%);
+		}
+		&__toggle {
+			transform: translate(150px, -75px);
+		}
+		&__data-list {
+			max-width: rem(400);
+		}
+		&__image {
+			width: 100%;
+			transform: translateX(0);
+		}
+	}
+	.philanthropy-grant {
+		padding-bottom: 10em;
+		&__text {
+			max-width: 50%;
+			font-size: rem(30);
+		}
+		&__link-container {
+			flex-direction: row;
+			padding-left: 6.25em;
+		}
+		&__info {
+			padding-left: 6.25em;
+		}
+		&__background {
+			width: rem(900);
+			transform: translate(25%, 35%) rotate(-25deg);
+			right: 0;
+			bottom: 0;
+		}
+
+		&__link {
+			margin: 0;
+			height: rem(82);
+			display: flex;
+			align-items: center;
+			&--alt {
+				margin-left: 2em;
+			}
 		}
 	}
 }

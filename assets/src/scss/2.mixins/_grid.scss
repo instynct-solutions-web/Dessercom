@@ -14,7 +14,7 @@
 	@include min-width($tablet-threshold) {
 		margin-left: auto;
 		margin-right: auto;
-		padding: 6.25em;
+		padding: 3em 6.25em;
 		max-width: none;
 	}
 }
