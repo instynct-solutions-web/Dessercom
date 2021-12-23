@@ -15,57 +15,68 @@ function custom_tiny_styles($init_array) {
     $style_formats = array(
         array( // LARGE TITLE
             'title' => 'Titre H1',
-            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
+            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6',
             'classes' => 'title-1'
         ),
         array( // REGULAR TITLE
             'title' => 'Titre H2',
-            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
+            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6',
             'classes' => 'title-2'
         ),
         array( // SECTION TITLE
             'title' => 'Titre H3',
-            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
+            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6',
             'classes' => 'title-3'
         ),
         array( // MEDIUM TITLE
             'title' => 'Titre H4',
-            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
+            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6',
             'classes' => 'title-4'
         ),
         array( // MEDIUM TITLE
             'title' => 'Paragraphe',
-            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
+            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6',
             'classes' => 'paragraph'
         ),
         array( // MEDIUM TITLE
             'title' => 'B1',
-            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
+            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6',
             'classes' => 'b1'
         ),
 
         array( // MEDIUM TITLE
             'title' => 'B2',
-            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
+            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6',
             'classes' => 'b2'
         ),
 
         array( // MEDIUM TITLE
             'title' => 'B2I',
-            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
+            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6',
             'classes' => 'b2i'
         ),
 
         array( // MEDIUM TITLE
             'title' => 'B3',
-            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
+            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6',
             'classes' => 'b3'
         ),
 
         array( // MEDIUM TITLE
             'title' => 'B3C',
-            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
+            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6',
             'classes' => 'b3c'
+        ),
+
+        array( // MEDIUM TITLE
+            'title' => 'days',
+            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6',
+            'classes' => 'days'
+        ),
+        array( // MEDIUM TITLE
+            'title' => 'hours',
+            'selector' => 'blockquote,p,h1,h2,h3,h4,h5,h6',
+            'classes' => 'hours'
         ),
 
 

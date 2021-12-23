@@ -1,0 +1,98 @@
+// ==========================================================================
+// TEMPLATES - 404
+// ==========================================================================
+
+.error404 {
+	.header {
+		&__logo {
+			filter: brightness(0) invert(1) grayscale(1);
+		}
+		&__main-nav--desktop .menu .menu-item a {
+			color: $white;
+		}
+	}
+	main {
+		padding-top: 0px;
+	}
+}
+
+.error {
+	padding-top: 120px;
+	min-height: 100vh;
+	background-color: $navy;
+	position: relative;
+	&__container {
+		@include container;
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+	&__title {
+		font-size: rem(40);
+		font-weight: 500;
+		color: $white;
+		margin-bottom: 80px;
+	}
+	&__button {
+		font-size: rem(13);
+		font-weight: 500;
+		color: $white;
+		padding: 0 20px 15px 20px;
+		position: relative;
+		&:after {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 100%;
+			background-color: $white;
+			position: absolute;
+			bottom: 0px;
+			left: 0px;
+		}
+	}
+	&__button-icon {
+		margin-left: 20px;
+		transform-origin: center;
+		transform: rotate(225deg);
+	}
+	&__background {
+		opacity: 0.3;
+		position: absolute;
+		transform-origin: center;
+		transform: rotate(230deg) translateX(0%) translateY(60%);
+	}
+}
+
+@include tablet-only {
+	.error {
+		&__container {
+			padding-top: 100px;
+			padding-bottom: 100px;
+		}
+		&__title {
+			width: 75%;
+			font-size: rem(70);
+			margin-bottom: 150px;
+		}
+		&__background {
+			transform: scale(2) rotate(230deg) translateX(-10%) translateY(80%);
+		}
+	}
+}
+
+@include desktop-only {
+	.error {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		&__title {
+			width: 66.66666%;
+			font-size: rem(90);
+		}
+		&__button {
+			font-size: rem(15);
+		}
+		&__background {
+			transform: scale(4) rotate(210deg) translateX(-60%) translateY(50%);
+		}
+	}
+}

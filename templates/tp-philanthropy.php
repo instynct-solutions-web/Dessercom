@@ -10,7 +10,7 @@ get_header(); ?>
 
 <?php
 $highlight = get_field('highlight') ?>
-<section class="philanthropy-highlight">
+<section class="philanthropy-highlight" data-wolfpack-section>
     <div class="philanthropy-highlight__container">
         <div class="philanthropy-highlight__note-container">
             <h2 class="philanthropy-highlight__note"><?= $highlight['note'] ?></h2>
@@ -22,18 +22,19 @@ $highlight = get_field('highlight') ?>
 </section>
 
 <?php $financing = get_field('financing') ?>
-<section class="philanthropy-financing">
+<section class="philanthropy-financing" data-wolfpack-section>
     <div class="philanthropy-financing__container">
         <div class="philanthropy-financing__top">
             <img src="<?= $financing['icon']['url'] ?>" alt="<?= $financing['icon']['alt'] ?>" class="philanthropy-financing__icon">
             <h2 class="philanthropy-financing__note"><?= $financing['title'] ?></>
         </div>
         <div class="philanthropy-financing__main">
-            <div class="philanthropy-financing__amount-container">
-                <p class="philanthropy-financing__amount"><?= $financing['amount'] ?></p>
-            </div>
+
             <?php if ($financing['list']) { ?>
                 <div class="philanthropy-financing__logo-container">
+                    <div class="philanthropy-financing__amount-container">
+                        <p class="philanthropy-financing__amount"><?= $financing['amount'] ?></p>
+                    </div>
                     <ul class="philanthropy-financing__list">
                         <?php foreach ($financing['list'] as $logo) { ?>
                             <li class="philanthropy-financing__item">
@@ -45,23 +46,29 @@ $highlight = get_field('highlight') ?>
                 </div>
             <?php
             } ?>
-
+            <img src="<?= home_url() . "/wp-content/themes/dessercom/assets/dist/svg/icon-white.svg" ?>" alt="<?= $financing['icon']['alt'] ?>" class="philanthropy-financing__bottom-icon">
         </div>
     </div>
 </section>
 
 <?php
 $house = get_field('house'); ?>
-<section class="philanthropy-house">
+<section class="philanthropy-house" data-wolfpack-section>
     <div class="philanthropy-house__container">
         <div class="philanthropy-house__top">
             <p class="philanthropy-house__note"><?= $house['note'] ?></p>
         </div>
         <div class="philanthropy-house__main">
             <div class="philanthropy-house__media">
-                <img src="<?= $house['list'][0]['image']['url'] ?>" alt="<?= $house['list'][0]['image']['alt'] ?>" class="philanthropy-house__image">
-                <div class="philanthropy-house__mask"></div>
-                <a class="philanthropy-house__toggle">+</a>
+                <svg class="philanthropy-house__image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 181.567 163.488">
+                    <defs>
+                        <pattern id="image" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <image x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice" xlink:href="<?= $house['list'][0]['image']['url']  ?>"></image>
+                        </pattern>
+                    </defs>
+                    <path id="Tracé_974" data-name="Tracé 974" d="M178.728,151.529c-6.956,12.172-24.362,15.327-38.914,7.036-1.2-.695-49.044-28.243-49.044-28.243l.049-.08L41.9,158.725c-14.49,8.4-31.927,5.4-38.963-6.686v-.031C-4.1,139.9,1.926,123.262,16.392,114.835c1.15-.64,45.384-26.1,48.834-28.077v.129H65.6l-.16-.264-.215.135V30.3C65.227,13.562,76.593,0,90.6,0s25.383,13.562,25.383,30.3c0,1.31-.24,51.375-.271,56.215l-.209.369h.209v-.369l.031-.055,49.179,28C179.478,122.751,185.653,139.333,178.728,151.529Z" transform="translate(0)" fill="url(#image)" />
+                </svg>
+                <div class="philanthropy-house__toggle"><a class="philanthropy-house__plus">+</a></div>
             </div>
             <div class="philanthropy-house__info">
                 <h2 class="philanthropy-house__title"><?= $house['title'] ?></h2>
@@ -88,12 +95,27 @@ $house = get_field('house'); ?>
 
 <?php
 $research = get_field('research') ?>
-<section class="philanthropy-research">
+<section class="philanthropy-research" data-wolfpack-section>
     <div class="philanthropy-research__container">
         <div class="philanthropy-research__background">
-            <p class="philanthropy-research__background-text"><?= $research['text'] ?></p>
+            <div class="philanthropy-research__left-container">
+                <p data-research-text class="philanthropy-research__background-text"><?= $research['text'] ?></p>
+                <div class="philanthropy-research__close-container">
+                    <div data-research-slider-close class="philanthropy-research__close">
+                        <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
+                            <g id="Groupe_456" data-name="Groupe 456">
+                                <g id="Groupe_454" data-name="Groupe 454">
+                                    <path id="Tracé_3" data-name="Tracé 3" d="M14,1l5.7,5.7L14,12.41" transform="translate(-0.41 0)" style="fill: none;stroke: #00938f;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
+                                    <line id="Ligne_1" data-name="Ligne 1" x1="19.32" y1="6.7" x2="1" y2="6.7" style="fill: none;stroke: #00938f;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
             <?php if ($research['list']) { ?>
-                <ul class="philanthropy-research__background-list">
+                <ul data-research-slider-images data-research-slider class="philanthropy-research__background-list">
                     <?php foreach ($research['list'] as $item) { ?>
                         <li class="philanthropy-research__background-item">
                             <img src="<?= $item['image']['url'] ?>" alt="<?= $item['image']['alt'] ?>" class="philanthropy-research__background-image">
@@ -103,14 +125,27 @@ $research = get_field('research') ?>
                 </ul>
             <?php
             } ?>
+
         </div>
-        <div class="philanthropy-research__foreground">
+        <div data-research-foreground class="philanthropy-research__foreground">
             <div class="philanthropy-research__top">
                 <img src="<?= $research['icon']['url'] ?>" alt="<?= $research['icon']['alt'] ?>" class="philanthropy-research__icon">
                 <p class="philanthropy-research__note"><?= $research['note'] ?></p>
             </div>
             <div class="philanthropy-research__text-container">
                 <p class="philanthropy-research__text"><?= $research['text'] ?></p>
+            </div>
+            <div class="philanthropy-research__toggle-container">
+                <div data-research-slider-toggle class="philanthropy-research__toggle">
+                    <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
+                        <g id="Groupe_456" data-name="Groupe 456">
+                            <g id="Groupe_454" data-name="Groupe 454">
+                                <path id="Tracé_3" data-name="Tracé 3" d="M14,1l5.7,5.7L14,12.41" transform="translate(-0.41 0)" style="fill: none;stroke: #e7e7e7;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
+                                <line id="Ligne_1" data-name="Ligne 1" x1="19.32" y1="6.7" x2="1" y2="6.7" style="fill: none;stroke: #e7e7e7;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
             </div>
             <img src="<?= $research['icon']['url'] ?>" alt="<?= $research['icon']['alt'] ?>" class="philanthropy-research__logo">
         </div>
@@ -119,13 +154,26 @@ $research = get_field('research') ?>
 
 <?php
 $borders = get_field('borders') ?>
-<section class="philanthropy-borders">
+<section class="philanthropy-borders" data-wolfpack-section>
     <div class="philanthropy-borders__container">
-        <div class="philanthropy-borders__top">
-            <img src="<?= $borders['icon']['url'] ?>" alt="<?= $borders['icon']['alt'] ?>" class="philanthropy-borders__icon">
-            <p class="philanthropy-borders__note"><?= $borders['note'] ?></p>
+        <div class="philanthropy-borders__top-container">
+            <div class="philanthropy-borders__top">
+                <img src="<?= $borders['icon']['url'] ?>" alt="<?= $borders['icon']['alt'] ?>" class="philanthropy-borders__icon">
+                <p class="philanthropy-borders__note"><?= $borders['note'] ?></p>
+            </div>
         </div>
         <div class="philanthropy-borders__main">
+            <div class="philanthropy-borders__media">
+                <svg class="philanthropy-borders__image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 181.567 163.488">
+                    <defs>
+                        <pattern id="image" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <image x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice" xlink:href="<?= $borders['list'][0]['image']['url']  ?>"></image>
+                        </pattern>
+                    </defs>
+                    <path id="Tracé_974" data-name="Tracé 974" d="M178.728,151.529c-6.956,12.172-24.362,15.327-38.914,7.036-1.2-.695-49.044-28.243-49.044-28.243l.049-.08L41.9,158.725c-14.49,8.4-31.927,5.4-38.963-6.686v-.031C-4.1,139.9,1.926,123.262,16.392,114.835c1.15-.64,45.384-26.1,48.834-28.077v.129H65.6l-.16-.264-.215.135V30.3C65.227,13.562,76.593,0,90.6,0s25.383,13.562,25.383,30.3c0,1.31-.24,51.375-.271,56.215l-.209.369h.209v-.369l.031-.055,49.179,28C179.478,122.751,185.653,139.333,178.728,151.529Z" transform="translate(0)" fill="url(#image)" />
+                </svg>
+                <div class="philanthropy-borders__toggle"><a class="philanthropy-borders__plus">+</a></div>
+            </div>
             <div class="philanthropy-borders__info">
                 <h2 class="philanthropy-borders__title"><?= $borders['title'] ?></h2>
                 <?php if ($borders['data_list']) { ?>
@@ -143,11 +191,7 @@ $borders = get_field('borders') ?>
                 } ?>
                 <p class="philanthropy-borders__text"><?= $borders['text'] ?></p>
             </div>
-            <div class="philanthropy-borders__media">
-                <img src="<?= $borders['image_list'][0]['image']['url'] ?>" alt="<?= $borders['image_list'][0]['image']['alt'] ?>" class="philanthropy-borders__image">
-                <div class="philanthropy-borders__mask"></div>
-                <a class="philanthropy-borders__toggle">+</a>
-            </div>
+
         </div>
     </div>
     <?php
@@ -168,7 +212,7 @@ $borders = get_field('borders') ?>
 
 <?php
 $grant = get_field('grant') ?>
-<section class="philanthropy-grant">
+<section class="philanthropy-grant" data-wolfpack-section>
     <img src="<?= $grant['background']['url'] ?>" alt="<?= $grant['background']['alt'] ?>" class="philanthropy-grant__background">
     <div class="philanthropy-grant__container">
         <div class="philanthropy-grant__info">

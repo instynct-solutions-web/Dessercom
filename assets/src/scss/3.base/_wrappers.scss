@@ -2,6 +2,9 @@
 // Base - Wrappers
 // ==========================================================================
 
+main {
+	padding-top: $mobile-header-height;
+}
 .container {
 	@include container;
 }
@@ -11,4 +14,10 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+}
+
+@include desktop-only {
+	main {
+		padding-top: $desktop-header-height;
+	}
 }

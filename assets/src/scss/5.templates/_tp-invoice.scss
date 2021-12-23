@@ -1,0 +1,161 @@
+// ==========================================================================
+// TEMPLATES - Invoice
+// ==========================================================================
+
+.invoice-form {
+	&__container {
+		@include container;
+		padding-bottom: 120px;
+	}
+	&__background {
+		display: none;
+	}
+	&__image {
+		display: none;
+	}
+	&__cta {
+		display: inline-flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		width: 100px;
+		height: 100px;
+		position: absolute;
+		top: 0px;
+		right: 20px;
+		z-index: 1;
+	}
+	&__cta-text {
+		font-size: rem(11);
+		font-weight: 500;
+		color: $black;
+	}
+	&__cta-icon {
+		position: absolute;
+		transform-origin: center;
+		transform: rotate(225deg) translate(-2px, -2px);
+	}
+	&__title {
+		color: $navy;
+		width: 100%;
+		padding-right: 25%;
+		padding-bottom: 85px;
+		padding-top: 75px;
+		margin-bottom: 25px;
+		position: relative;
+		&:after {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 100%;
+			background-color: $black;
+			position: absolute;
+			bottom: 0px;
+			left: 0px;
+		}
+	}
+	&__header {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: flex-start;
+		margin-bottom: 40px;
+	}
+	&__header-title {
+		font-size: rem(14);
+		font-weight: 600;
+	}
+	&__header-icon {
+		margin-left: 15px;
+	}
+	&__body {
+		@include invoiceForm;
+	}
+}
+
+@include tablet-only {
+	.invoice-form {
+		&__cta {
+			top: 0px;
+			right: 40px;
+		}
+		&__cta-text {
+			font-size: rem(12);
+		}
+		&__cta-icon {
+			transform: rotate(45deg) translate(6px, 6px);
+		}
+		&__title {
+			width: 100%;
+			padding-right: 50%;
+			padding-bottom: 100px;
+			padding-top: 150px;
+			&:after {
+				width: calc(100% - 160px);
+				margin: 0 80px;
+			}
+		}
+		&__header {
+			width: calc(100% - 160px);
+			margin: 0 80px 40px 80px;
+		}
+		&__body {
+			width: calc(100% - 160px);
+			margin: 0 80px 120px 80px;
+		}
+	}
+}
+
+@include desktop-only {
+	.invoice-form {
+		&__title {
+			font-size: rem(70);
+			padding-right: 0;
+			padding-bottom: 0;
+			padding-top: 100px;
+			margin-bottom: 130px;
+			&:after {
+				display: none;
+			}
+		}
+		&__header {
+			width: 66.66666%;
+			margin-left: 16.66666%;
+			margin-right: 16.66666%;
+			margin-bottom: 50px;
+			padding-top: 20px;
+			position: relative;
+			&:after {
+				content: '';
+				display: block;
+				height: 1px;
+				width: 100%;
+				background-color: $navy;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+		}
+		&__header-title {
+			font-size: rem(16);
+		}
+		&__image {
+			position: absolute;
+			top: 0px;
+			left: -25%;
+			width: calc(25% - 16px);
+			display: block;
+		}
+		&__background {
+			position: absolute;
+			top: -40px;
+			right: -25%;
+			width: 40%;
+			display: block;
+		}
+		&__body {
+			width: 66.66666%;
+			margin: 0 16.66666% 100px 16.66666%;
+		}
+	}
+}

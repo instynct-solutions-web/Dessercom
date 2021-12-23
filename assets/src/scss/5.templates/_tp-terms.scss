@@ -1,0 +1,169 @@
+// ==========================================================================
+// TEMPLATES - Terms
+// ==========================================================================
+
+.page-template-tp-terms {
+	.page-body {
+		background-color: $gray;
+	}
+}
+
+.policies {
+	position: relative;
+	&__background {
+		top: 50px;
+		position: absolute;
+		transform: rotate(-65deg);
+		transform-origin: center;
+		right: -50%;
+		width: 100%;
+		opacity: 0.3;
+	}
+	&__container {
+		@include container;
+		padding-bottom: 140px;
+		position: relative;
+		z-index: 1;
+	}
+	&__title {
+		font-size: rem(40);
+		font-weight: 500;
+		color: $navy;
+		margin-bottom: 90px;
+	}
+	&__item {
+		margin-bottom: 30px;
+		&--closed {
+			.policies {
+				&__item-icon {
+					transform: rotate(0deg);
+				}
+				&__text {
+					display: none;
+				}
+			}
+		}
+	}
+	&__item-title {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: flex-start;
+		font-size: rem(18);
+		font-weight: 500;
+		color: $navy;
+		margin-bottom: 45px;
+		padding-right: 30px;
+		position: relative;
+		&:after {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 100%;
+			bottom: -15px;
+			left: 0px;
+			position: absolute;
+			background-color: $navy;
+		}
+	}
+	&__item-icon {
+		position: absolute;
+		right: 0px;
+		transform: rotate(180deg);
+	}
+	&__text {
+		padding-bottom: 30px;
+		p {
+			font-size: rem(13);
+			font-weight: 500;
+			line-height: 1.4;
+			color: $navy;
+			margin-bottom: 30px;
+			&:last-of-type {
+				margin-bottom: 0px;
+			}
+		}
+		ul {
+			margin-bottom: 30px;
+		}
+		li {
+			font-size: rem(13);
+			font-weight: 500;
+			line-height: 1.4;
+			color: $navy;
+			margin-bottom: 20px;
+			&:last-of-type {
+				margin-bottom: 0px;
+			}
+		}
+		a {
+			color: $teal;
+		}
+	}
+}
+
+@include tablet-only {
+	.policies {
+		&__background {
+			top: 0px;
+			transform: rotate(-35deg);
+			right: -40%;
+		}
+		&__container {
+			padding-top: 150px;
+			padding-bottom: 120px;
+		}
+		&__title {
+			font-size: rem(70);
+			padding: 0 35px;
+		}
+		&__item {
+			width: 75%;
+			margin: 0 12.5% 30px 12.5%;
+		}
+		&__item-title {
+			margin-bottom: 50px;
+			&:after {
+				bottom: -20px;
+			}
+		}
+		&__text {
+			padding-bottom: 20px;
+		}
+	}
+}
+
+@include desktop-only {
+	.policies {
+		overflow: hidden;
+		&__background {
+			top: auto;
+			right: -30%;
+			bottom: 0px;
+			width: 60%;
+			height: 60%;
+		}
+		&__container {
+			padding-top: 100px;
+			padding-bottom: 180px;
+		}
+		&__title {
+			width: 41.66666%;
+			padding: 0;
+			margin-bottom: 85px;
+		}
+		&__item {
+			margin-bottom: 50px;
+		}
+		&__item-title {
+			font-size: rem(20);
+			margin-bottom: 55px;
+		}
+		&__text {
+			p,
+			li {
+				font-size: rem(16);
+			}
+		}
+	}
+}
