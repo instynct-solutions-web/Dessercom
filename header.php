@@ -30,126 +30,129 @@
 					</g>
 				</g>
 			</svg>
-		</a>
-		<div class="header__nav-container">
-			<nav role="navigation" class="header__main-nav header__main-nav--desktop">
-				<?php wp_nav_menu(array(
-					'theme_location'  => 'navigation'
-				)); ?>
-			</nav>
-			<div class="header__buttons-container">
-				<div class="header__hamburger" data-navigation-button>
-					<span class="header__hamburger-line"></span>
-					<span class="header__hamburger-line"></span>
-					<span class="header__hamburger-line"></span>
+			<<<<<<< HEAD </a>
+				=======
 				</div>
-				<div class="header__button">
-					<a href="<?= $header['button']['url'] ?>" class="header__button-label"><?= $header['button']['title'] ?></a>
+				>>>>>>> alpha/main
+				<div class="header__nav-container">
+					<nav role="navigation" class="header__main-nav header__main-nav--desktop">
+						<?php wp_nav_menu(array(
+							'theme_location'  => 'navigation'
+						)); ?>
+					</nav>
+					<div class="header__buttons-container">
+						<div class="header__hamburger" data-navigation-button>
+							<span class="header__hamburger-line"></span>
+							<span class="header__hamburger-line"></span>
+							<span class="header__hamburger-line"></span>
+						</div>
+						<div class="header__button">
+							<a href="<?= $header['button']['url'] ?>" class="header__button-label"><?= $header['button']['title'] ?></a>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
 
-		<div class="header__navigation navigation" data-calc-mobile data-navigation>
-			<div class="navigation__container" data-wolfpack>
-				<nav role="navigation" class="header__main-nav header__main-nav--mobile">
-					<ul class="header__main-nav-container">
-						<li class="header__main-nav-item">
-							<a href="/services" class="header__main-nav-link">
-								Services
-								<svg class="header__main-nav-icon" xmlns="http://www.w3.org/2000/svg" width="22.917" height="20.954" viewBox="0 0 22.917 20.954">
-									<g id="Groupe_1094" data-name="Groupe 1094" transform="translate(3.924 2.121)">
-										<path id="Tracé_3" data-name="Tracé 3" d="M-2.863,10.394,7.531,0l10.4,10.4" transform="translate(0 0)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3" />
-										<line id="Ligne_1" data-name="Ligne 1" y2="18.833" transform="translate(7.531)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3" />
-									</g>
-								</svg>
-							</a>
-						</li>
-						<li class="header__main-nav-item">
-							<a href="/tarification" class="header__main-nav-link">
-								Tarification
-								<svg class="header__main-nav-icon" xmlns="http://www.w3.org/2000/svg" width="22.917" height="20.954" viewBox="0 0 22.917 20.954">
-									<g id="Groupe_1094" data-name="Groupe 1094" transform="translate(3.924 2.121)">
-										<path id="Tracé_3" data-name="Tracé 3" d="M-2.863,10.394,7.531,0l10.4,10.4" transform="translate(0 0)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3" />
-										<line id="Ligne_1" data-name="Ligne 1" y2="18.833" transform="translate(7.531)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3" />
-									</g>
-								</svg>
-							</a>
-						</li>
-						<li class="header__main-nav-item">
-							<a href="/contact" class="header__main-nav-link">
-								Contact
-								<svg class="header__main-nav-icon" xmlns="http://www.w3.org/2000/svg" width="22.917" height="20.954" viewBox="0 0 22.917 20.954">
-									<g id="Groupe_1094" data-name="Groupe 1094" transform="translate(3.924 2.121)">
-										<path id="Tracé_3" data-name="Tracé 3" d="M-2.863,10.394,7.531,0l10.4,10.4" transform="translate(0 0)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3" />
-										<line id="Ligne_1" data-name="Ligne 1" y2="18.833" transform="translate(7.531)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3" />
-									</g>
-								</svg>
-							</a>
-						</li>
-					</ul>
-				</nav>
-				<nav role="navigation" class="header__sub-nav header__sub-nav">
-					<ul class="header__sub-nav-container">
-						<li class="header__sub-nav-item">
-							<a href="/philanthropie" class="header__sub-nav-link">
-								Philanthropie
-								<svg class="header__sub-nav-icon" xmlns="http://www.w3.org/2000/svg" width="13.686" height="12.527" viewBox="0 0 13.686 12.527">
-									<g id="Groupe_1547" data-name="Groupe 1547" transform="translate(3.57 1.414)">
-										<path id="Tracé_3" data-name="Tracé 3" d="M-2.863,6.134,3.27,0,9.408,6.138" transform="translate(0 0)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
-										<line id="Ligne_1" data-name="Ligne 1" y2="11.113" transform="translate(3.27)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
-									</g>
-								</svg>
-							</a>
-						</li>
-						<li class="header__sub-nav-item">
-							<a href="/a-propos" class="header__sub-nav-link">
-								À propos
-								<svg class="header__sub-nav-icon" xmlns="http://www.w3.org/2000/svg" width="13.686" height="12.527" viewBox="0 0 13.686 12.527">
-									<g id="Groupe_1547" data-name="Groupe 1547" transform="translate(3.57 1.414)">
-										<path id="Tracé_3" data-name="Tracé 3" d="M-2.863,6.134,3.27,0,9.408,6.138" transform="translate(0 0)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
-										<line id="Ligne_1" data-name="Ligne 1" y2="11.113" transform="translate(3.27)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
-									</g>
-								</svg>
-							</a>
-						</li>
-						<li class="header__sub-nav-item">
-							<a href="/equipe" class="header__sub-nav-link">
-								Équipe
-								<svg class="header__sub-nav-icon" xmlns="http://www.w3.org/2000/svg" width="13.686" height="12.527" viewBox="0 0 13.686 12.527">
-									<g id="Groupe_1547" data-name="Groupe 1547" transform="translate(3.57 1.414)">
-										<path id="Tracé_3" data-name="Tracé 3" d="M-2.863,6.134,3.27,0,9.408,6.138" transform="translate(0 0)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
-										<line id="Ligne_1" data-name="Ligne 1" y2="11.113" transform="translate(3.27)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
-									</g>
-								</svg>
-							</a>
-						</li>
-						<li class="header__sub-nav-item">
-							<a href="/carriere-et-stage" class="header__sub-nav-link">
-								Carrière et stage
-								<svg class="header__sub-nav-icon" xmlns="http://www.w3.org/2000/svg" width="13.686" height="12.527" viewBox="0 0 13.686 12.527">
-									<g id="Groupe_1547" data-name="Groupe 1547" transform="translate(3.57 1.414)">
-										<path id="Tracé_3" data-name="Tracé 3" d="M-2.863,6.134,3.27,0,9.408,6.138" transform="translate(0 0)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
-										<line id="Ligne_1" data-name="Ligne 1" y2="11.113" transform="translate(3.27)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
-									</g>
-								</svg>
-							</a>
-						</li>
-						<li class="header__sub-nav-item">
-							<a href="/employes" class="header__sub-nav-link">
-								Section employés
-								<svg class="header__sub-nav-icon" xmlns="http://www.w3.org/2000/svg" width="13.686" height="12.527" viewBox="0 0 13.686 12.527">
-									<g id="Groupe_1547" data-name="Groupe 1547" transform="translate(3.57 1.414)">
-										<path id="Tracé_3" data-name="Tracé 3" d="M-2.863,6.134,3.27,0,9.408,6.138" transform="translate(0 0)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
-										<line id="Ligne_1" data-name="Ligne 1" y2="11.113" transform="translate(3.27)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
-									</g>
-								</svg>
-							</a>
-						</li>
-					</ul>
-				</nav>
-			</div>
-			<img src="<?= $header['background']['url'] ?>" alt="<?= $header['background']['alt'] ?>" class="navigation__image">
-		</div>
+				<div class="header__navigation navigation" data-calc-mobile data-navigation>
+					<div class="navigation__container" data-wolfpack>
+						<nav role="navigation" class="header__main-nav header__main-nav--mobile">
+							<ul class="header__main-nav-container">
+								<li class="header__main-nav-item">
+									<a href="/services" class="header__main-nav-link">
+										Services
+										<svg class="header__main-nav-icon" xmlns="http://www.w3.org/2000/svg" width="22.917" height="20.954" viewBox="0 0 22.917 20.954">
+											<g id="Groupe_1094" data-name="Groupe 1094" transform="translate(3.924 2.121)">
+												<path id="Tracé_3" data-name="Tracé 3" d="M-2.863,10.394,7.531,0l10.4,10.4" transform="translate(0 0)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3" />
+												<line id="Ligne_1" data-name="Ligne 1" y2="18.833" transform="translate(7.531)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3" />
+											</g>
+										</svg>
+									</a>
+								</li>
+								<li class="header__main-nav-item">
+									<a href="/tarification" class="header__main-nav-link">
+										Tarification
+										<svg class="header__main-nav-icon" xmlns="http://www.w3.org/2000/svg" width="22.917" height="20.954" viewBox="0 0 22.917 20.954">
+											<g id="Groupe_1094" data-name="Groupe 1094" transform="translate(3.924 2.121)">
+												<path id="Tracé_3" data-name="Tracé 3" d="M-2.863,10.394,7.531,0l10.4,10.4" transform="translate(0 0)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3" />
+												<line id="Ligne_1" data-name="Ligne 1" y2="18.833" transform="translate(7.531)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3" />
+											</g>
+										</svg>
+									</a>
+								</li>
+								<li class="header__main-nav-item">
+									<a href="/contact" class="header__main-nav-link">
+										Contact
+										<svg class="header__main-nav-icon" xmlns="http://www.w3.org/2000/svg" width="22.917" height="20.954" viewBox="0 0 22.917 20.954">
+											<g id="Groupe_1094" data-name="Groupe 1094" transform="translate(3.924 2.121)">
+												<path id="Tracé_3" data-name="Tracé 3" d="M-2.863,10.394,7.531,0l10.4,10.4" transform="translate(0 0)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3" />
+												<line id="Ligne_1" data-name="Ligne 1" y2="18.833" transform="translate(7.531)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3" />
+											</g>
+										</svg>
+									</a>
+								</li>
+							</ul>
+						</nav>
+						<nav role="navigation" class="header__sub-nav header__sub-nav">
+							<ul class="header__sub-nav-container">
+								<li class="header__sub-nav-item">
+									<a href="/philanthropie" class="header__sub-nav-link">
+										Philanthropie
+										<svg class="header__sub-nav-icon" xmlns="http://www.w3.org/2000/svg" width="13.686" height="12.527" viewBox="0 0 13.686 12.527">
+											<g id="Groupe_1547" data-name="Groupe 1547" transform="translate(3.57 1.414)">
+												<path id="Tracé_3" data-name="Tracé 3" d="M-2.863,6.134,3.27,0,9.408,6.138" transform="translate(0 0)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
+												<line id="Ligne_1" data-name="Ligne 1" y2="11.113" transform="translate(3.27)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
+											</g>
+										</svg>
+									</a>
+								</li>
+								<li class="header__sub-nav-item">
+									<a href="/a-propos" class="header__sub-nav-link">
+										À propos
+										<svg class="header__sub-nav-icon" xmlns="http://www.w3.org/2000/svg" width="13.686" height="12.527" viewBox="0 0 13.686 12.527">
+											<g id="Groupe_1547" data-name="Groupe 1547" transform="translate(3.57 1.414)">
+												<path id="Tracé_3" data-name="Tracé 3" d="M-2.863,6.134,3.27,0,9.408,6.138" transform="translate(0 0)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
+												<line id="Ligne_1" data-name="Ligne 1" y2="11.113" transform="translate(3.27)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
+											</g>
+										</svg>
+									</a>
+								</li>
+								<li class="header__sub-nav-item">
+									<a href="/equipe" class="header__sub-nav-link">
+										Équipe
+										<svg class="header__sub-nav-icon" xmlns="http://www.w3.org/2000/svg" width="13.686" height="12.527" viewBox="0 0 13.686 12.527">
+											<g id="Groupe_1547" data-name="Groupe 1547" transform="translate(3.57 1.414)">
+												<path id="Tracé_3" data-name="Tracé 3" d="M-2.863,6.134,3.27,0,9.408,6.138" transform="translate(0 0)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
+												<line id="Ligne_1" data-name="Ligne 1" y2="11.113" transform="translate(3.27)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
+											</g>
+										</svg>
+									</a>
+								</li>
+								<li class="header__sub-nav-item">
+									<a href="/carriere-et-stage" class="header__sub-nav-link">
+										Carrière et stage
+										<svg class="header__sub-nav-icon" xmlns="http://www.w3.org/2000/svg" width="13.686" height="12.527" viewBox="0 0 13.686 12.527">
+											<g id="Groupe_1547" data-name="Groupe 1547" transform="translate(3.57 1.414)">
+												<path id="Tracé_3" data-name="Tracé 3" d="M-2.863,6.134,3.27,0,9.408,6.138" transform="translate(0 0)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
+												<line id="Ligne_1" data-name="Ligne 1" y2="11.113" transform="translate(3.27)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
+											</g>
+										</svg>
+									</a>
+								</li>
+								<li class="header__sub-nav-item">
+									<a href="/employes" class="header__sub-nav-link">
+										Section employés
+										<svg class="header__sub-nav-icon" xmlns="http://www.w3.org/2000/svg" width="13.686" height="12.527" viewBox="0 0 13.686 12.527">
+											<g id="Groupe_1547" data-name="Groupe 1547" transform="translate(3.57 1.414)">
+												<path id="Tracé_3" data-name="Tracé 3" d="M-2.863,6.134,3.27,0,9.408,6.138" transform="translate(0 0)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
+												<line id="Ligne_1" data-name="Ligne 1" y2="11.113" transform="translate(3.27)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
+											</g>
+										</svg>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<img src="<?= $header['background']['url'] ?>" alt="<?= $header['background']['alt'] ?>" class="navigation__image">
+				</div>
 	</header>
 	<div class="page-body">
 		<div class="scrollbar" data-scrollbar data-scrollbar-index=1><span class="scrollbar__thumb" data-scrollbar-thumb></span></div>

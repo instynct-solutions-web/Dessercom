@@ -48,6 +48,7 @@ $terms = get_terms(array(
                 foreach ($terms as $division) { ?>
                     <li class="team-grid__division-item">
                         <a href="<?= parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); ?>#<?= $division->slug ?>" class="team-grid__division-anchor">
+
                             <?= $division->name ?>
                             <svg class="team-grid__division-icon" xmlns="http://www.w3.org/2000/svg" width="13.384" height="14.515" viewBox="0 0 13.384 14.515">
                                 <g id="Groupe_790" data-name="Groupe 790" transform="translate(1.414 -13.432)">

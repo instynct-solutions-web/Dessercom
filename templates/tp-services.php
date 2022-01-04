@@ -149,7 +149,10 @@ $paramedic = get_field('services_paramedic'); ?>
 
 <?php
 $support = get_field('support') ?>
+
 <section data-wolfpack-section class="services-support" id="transport-medical">
+
+
     <div class="services-support__container">
         <div class="services-support__background">
             <div data-canvas-grid class="services-support__canvas"></div>
@@ -169,6 +172,7 @@ $support = get_field('support') ?>
 <?php
 $other = get_field('other') ?>
 <section data-wolfpack-section class="services-other" id="services-aux-entreprises">
+
     <div class="services-other__container">
         <div class="services-other__top">
             <h2 class="services-other__title"><?= $other['title'] ?></h2>

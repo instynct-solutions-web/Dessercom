@@ -45,6 +45,7 @@
 			position: relative;
 		}
 	}
+
 	@include desktop-only {
 		.sf-label-radio {
 			display: inline-flex;
