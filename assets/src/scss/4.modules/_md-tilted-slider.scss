@@ -10,6 +10,7 @@
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: center;
+		position: relative;
 	}
 	&__title {
 		font-size: rem(38);
@@ -76,6 +77,10 @@
 	.tilted-slider {
 		margin-top: 0px;
 		margin-bottom: 0px;
+		&__container {
+			min-height: 800px;
+			height: 70vh;
+		}
 		&__title {
 			width: 33.33333%;
 			margin: 0 33.33333%;
