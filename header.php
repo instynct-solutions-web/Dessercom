@@ -136,7 +136,7 @@
 							</a>
 						</li>
 						<li class="header__sub-nav-item">
-							<a href="/employes" class="header__sub-nav-link">
+							<a href="https://portail.dessercom.com/login?&page=%2Fmain%2F" target="_blank" class="header__sub-nav-link">
 								Section employés
 								<svg class="header__sub-nav-icon" xmlns="http://www.w3.org/2000/svg" width="13.686" height="12.527" viewBox="0 0 13.686 12.527">
 									<g id="Groupe_1547" data-name="Groupe 1547" transform="translate(3.57 1.414)">
