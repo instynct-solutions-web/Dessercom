@@ -58,6 +58,7 @@ function create_post_type() {
                 'not_found_in_trash' => 'Aucun résultat dans la corbeille'
             ),
             'public' => true,
+            'publicly_queryable' => false,
             'has_archive' => false,
             'menu_position' => 21,
             'menu_icon' => 'dashicons-groups',
@@ -91,6 +92,7 @@ function create_post_type() {
                 'not_found_in_trash' => 'Aucun résultat dans la corbeille'
             ),
             'public' => true,
+            'publicly_queryable' => false,
             'has_archive' => false,
             'menu_position' => 21,
             'menu_icon' => 'dashicons-info',

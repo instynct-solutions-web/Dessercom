@@ -66,10 +66,10 @@
 					display: none;
 				}
 				&__drawer-close {
-					display: block;
+					display: none;
 				}
 				&__drawer-open {
-					display: none;
+					display: block;
 				}
 			}
 		}
@@ -81,9 +81,10 @@
 	}
 	&__drawer-open {
 		transform: rotate(45deg);
+		display: none;
 	}
 	&__drawer-close {
-		display: none;
+		display: block;
 	}
 	&__drawer-title {
 		color: $white;
