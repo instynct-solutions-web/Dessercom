@@ -183,7 +183,12 @@ $contact = get_field('form'); ?>
         <h2 class="contact-form__title"><?= $contact['title'] ?></h2>
         <div data-form class="contact-form__form-container">
             <?php
-            echo do_shortcode('[gravityform id="2" title="false" description="false" ajax="false"]'); ?>
+            if (ICL_LANGUAGE_CODE == 'en') {
+                echo do_shortcode('[gravityform id="9" title="false" description="false" ajax="false"]');
+            }
+            if (ICL_LANGUAGE_CODE == 'fr') {
+                echo do_shortcode('[gravityform id="2" title="false" description="false" ajax="false"]');
+            } ?>
         </div>
     </div>
 </section>

@@ -42,7 +42,12 @@ get_header(); ?>
         </div>
         <div class="invoice-form__body" data-form>
             <?php
-            echo do_shortcode('[gravityform id="3" title="false" description="false" ajax="false"]'); ?>
+            if (ICL_LANGUAGE_CODE == 'en') {
+                echo do_shortcode('[gravityform id="10" title="false" description="false" ajax="false"]');
+            }
+            if (ICL_LANGUAGE_CODE == 'fr') {
+                echo do_shortcode('[gravityform id="3" title="false" description="false" ajax="false"]');
+            } ?>
         </div>
     </div>
 </section>

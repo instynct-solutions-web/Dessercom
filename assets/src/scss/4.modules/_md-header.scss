@@ -12,6 +12,10 @@
 	position: fixed;
 	z-index: 2;
 	padding: 0 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	padding-top: 0.5em;
 	&--opened {
 		.header {
 			&__logo {
@@ -21,6 +25,26 @@
 				display: none;
 			}
 		}
+	}
+	&__top {
+		width: 100%;
+		.wpml-ls-link {
+			color: $navy;
+			font-size: rem(12);
+			font-family: $lelo;
+		}
+	}
+	&__main {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	&__lang-container {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
 	}
 	&__logo-container {
 		position: relative;
@@ -33,6 +57,9 @@
 	}
 	&__main-nav {
 		margin-bottom: 45px;
+		.menu-item {
+			font-family: $lelo;
+		}
 		&--desktop {
 			display: none;
 		}
@@ -168,6 +195,30 @@
 @include tablet-only {
 	.header {
 		padding: 0 40px;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		padding-top: 1em;
+		&__top {
+			width: 100%;
+			.wpml-ls-link {
+				color: $navy;
+				font-size: rem(12);
+				font-family: $lelo;
+			}
+		}
+		&__main {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+		&__lang-container {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+		}
 		&__logo {
 			&--mobile {
 				display: none;
@@ -244,11 +295,35 @@
 @include desktop-only {
 	.header {
 		padding: 0 50px;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		padding-top: 1em;
 		height: $desktop-header-height;
+		&__top {
+			width: 100%;
+			.wpml-ls-link {
+				color: $navy;
+				font-size: rem(15);
+				font-family: $lelo;
+			}
+		}
+		&__main {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
 		&__logo {
 			&--desktop {
 				max-width: 235px;
 			}
+		}
+		&__lang-container {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
 		}
 		&__main-nav {
 			&--desktop {

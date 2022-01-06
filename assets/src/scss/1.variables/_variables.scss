@@ -36,8 +36,11 @@ $teal: #00938f;
 @include font-face(ginger, '../fonts/ginger/Ginger-Bold', 700, normal);
 @include font-face(ginger, '../fonts/ginger/Ginger-BoldItalic', 700, italic);
 
+@include font-face(lelo, '../fonts/lelo/Lelo-Medium', 500, normal);
+
 // - - - Font families - - -
 
+$lelo: 'lelo', Helvetica, Arial, sans-serif;
 $font-family-default: 'ginger', Helvetica, Arial, sans-serif;
 $font-family-title: $font-family-default;
 
