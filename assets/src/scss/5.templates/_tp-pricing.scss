@@ -4,11 +4,12 @@
 
 .pricing-hero {
 	position: relative;
+
 	&__background {
 		position: absolute;
 		z-index: 1;
 		width: 200vw;
-		filter: invert(1);
+		filter: invert(0.4);
 		opacity: 0.3;
 	}
 	&__container {
@@ -16,6 +17,9 @@
 		padding-bottom: 55px;
 		position: relative;
 		z-index: 2;
+	}
+	&__toggle-container {
+		user-select: none;
 	}
 	&__top {
 		display: flex;

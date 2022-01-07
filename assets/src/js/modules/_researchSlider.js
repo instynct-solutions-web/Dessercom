@@ -19,7 +19,6 @@ export default class ResearchSlider {
 		if (this.slider) {
 			this.initSlider();
 		}
-		console.log(this.toggle);
 		if (this.toggle) {
 			this.toggle.addEventListener('click', () => {
 				this.toggleSlider();

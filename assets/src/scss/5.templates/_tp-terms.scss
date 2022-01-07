@@ -154,13 +154,18 @@
 			margin-bottom: 85px;
 		}
 		&__item {
-			margin-bottom: 50px;
+			margin-bottom: 0;
 		}
 		&__item-title {
 			font-size: rem(20);
-			margin-bottom: 55px;
+			margin-bottom: 0;
+			padding: 1.2em 0;
+			&::after {
+				bottom: 0;
+			}
 		}
 		&__text {
+			padding: 1.5em 0;
 			p,
 			li {
 				font-size: rem(16);

@@ -24,25 +24,29 @@ get_header(); ?>
                     <?php
                     foreach ($hero['list'] as $category) { ?>
                         <li class="pricing-hero__item" data-pricing>
-                            <div class="pricing-hero__drawer-button" data-pricing-button>
-                                <svg class="pricing-hero__drawer-open" xmlns="http://www.w3.org/2000/svg" width="22.613" height="25.458" viewBox="0 0 22.613 25.458">
-                                    <g id="Groupe_800" data-name="Groupe 800" transform="translate(1.414 -13.432)">
-                                        <path id="Tracé_3" data-name="Tracé 3" d="M0,0,9.892,9.892,19.785,0" transform="translate(0 27.997)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />
-                                        <line id="Ligne_1" data-name="Ligne 1" y1="23.458" transform="translate(9.893 14.432)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" />
-                                    </g>
-                                </svg>
-                                <svg class="pricing-hero__drawer-close" xmlns="http://www.w3.org/2000/svg" width="17.93" height="17.493" viewBox="0 0 17.93 17.493">
-                                    <g id="Groupe_1000" data-name="Groupe 1000" transform="translate(1.414 1.414)">
-                                        <g id="Groupe_999" data-name="Groupe 999" transform="translate(0 0)">
-                                            <g id="Groupe_796" data-name="Groupe 796" transform="translate(14.664 0) rotate(45)">
-                                                <line id="Ligne_1" data-name="Ligne 1" y1="20.739" transform="translate(0 0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" />
-                                            </g>
-                                            <line id="Ligne_133" data-name="Ligne 133" x2="15.102" y2="14.632" transform="translate(0 0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" />
+                            <div data-pricing-button class="pricing-hero__toggle-container">
+
+
+                                <div class="pricing-hero__drawer-button">
+                                    <svg class="pricing-hero__drawer-open" xmlns="http://www.w3.org/2000/svg" width="22.613" height="25.458" viewBox="0 0 22.613 25.458">
+                                        <g id="Groupe_800" data-name="Groupe 800" transform="translate(1.414 -13.432)">
+                                            <path id="Tracé_3" data-name="Tracé 3" d="M0,0,9.892,9.892,19.785,0" transform="translate(0 27.997)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />
+                                            <line id="Ligne_1" data-name="Ligne 1" y1="23.458" transform="translate(9.893 14.432)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" />
                                         </g>
-                                    </g>
-                                </svg>
+                                    </svg>
+                                    <svg class="pricing-hero__drawer-close" xmlns="http://www.w3.org/2000/svg" width="17.93" height="17.493" viewBox="0 0 17.93 17.493">
+                                        <g id="Groupe_1000" data-name="Groupe 1000" transform="translate(1.414 1.414)">
+                                            <g id="Groupe_999" data-name="Groupe 999" transform="translate(0 0)">
+                                                <g id="Groupe_796" data-name="Groupe 796" transform="translate(14.664 0) rotate(45)">
+                                                    <line id="Ligne_1" data-name="Ligne 1" y1="20.739" transform="translate(0 0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" />
+                                                </g>
+                                                <line id="Ligne_133" data-name="Ligne 133" x2="15.102" y2="14.632" transform="translate(0 0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" />
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <h3 class="pricing-hero__drawer-title"><?= $category['title'] ?></h3>
                             </div>
-                            <h3 class="pricing-hero__drawer-title"><?= $category['title'] ?></h3>
                             <?php if ($category['sublist']) { ?>
                                 <ul class="pricing-hero__sublist">
                                     <?php

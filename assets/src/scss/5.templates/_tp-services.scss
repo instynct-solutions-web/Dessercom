@@ -346,6 +346,7 @@
 	}
 	&__item-text {
 		@include container;
+		padding-bottom: 3em;
 	}
 	&__item-body {
 		max-height: 0;

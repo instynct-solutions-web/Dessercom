@@ -131,6 +131,7 @@
 					font-size: rem(55);
 					color: $white;
 					opacity: 1;
+					line-height: 1.2em;
 				}
 			}
 		}
@@ -140,6 +141,7 @@
 		font-weight: 500;
 		color: $gray;
 		opacity: 0.5;
+		line-height: 1.2em;
 	}
 	&__media {
 		margin-bottom: 35px;
@@ -161,7 +163,7 @@
 		transform: translateX(-40px);
 	}
 	&__content {
-		margin-bottom: 50px;
+		margin-bottom: 20px;
 	}
 	&__content-list {
 		.flickity-viewport {

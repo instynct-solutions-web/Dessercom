@@ -28,6 +28,7 @@ export default class HistorySlider {
 				draggable: true,
 				pageDots: false,
 				prevNextButtons: false,
+				adaptiveHeight: true,
 			});
 			this.flktyMedias = new Flickity(this.sliderMedias, {
 				sync: this.sliderDates,

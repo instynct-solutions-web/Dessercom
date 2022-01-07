@@ -148,7 +148,7 @@
 		margin-bottom: 30px;
 	}
 	&__picto {
-		width: 105px;
+		height: 105px;
 		margin-bottom: 20px;
 		filter: invert(99%) sepia(1%) saturate(128%) hue-rotate(128deg) brightness(116%) contrast(81%);
 	}
@@ -287,7 +287,7 @@
 	}
 	&__job-header {
 		width: 100%;
-		margin-bottom: 30px;
+		margin-bottom: 1em;
 	}
 	&__job-name {
 		font-size: rem(20);
@@ -455,7 +455,6 @@
 				.jobs-values {
 					&__picto {
 						height: 30%;
-						width: 30%;
 						margin: 0px 0 20px 0;
 						filter: invert(33%) sepia(50%) saturate(1571%) hue-rotate(144deg) brightness(101%) contrast(101%);
 					}
@@ -491,7 +490,6 @@
 			}
 		}
 		&__picto {
-			height: 70%;
 			width: 70%;
 			margin: 20px 0;
 			filter: invert(99%) sepia(1%) saturate(128%) hue-rotate(128deg) brightness(116%) contrast(81%);
