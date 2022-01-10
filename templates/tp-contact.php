@@ -177,7 +177,7 @@ $support = get_field('support') ?>
 
 <?php
 $contact = get_field('form'); ?>
-<section data-wolfpack-section class="contact-form">
+<section id="form" data-wolfpack-section class="contact-form">
     <img src="<?= $contact['image']['url'] ?>" alt="<?= $contact['image']['alt'] ?>" class="contact-form__background">
     <div class="contact-form__container">
         <h2 class="contact-form__title"><?= $contact['title'] ?></h2>

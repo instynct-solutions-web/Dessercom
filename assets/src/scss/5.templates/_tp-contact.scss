@@ -572,6 +572,7 @@
 		}
 	}
 	.contact-hero {
+		min-height: 70vh;
 		&__map-container {
 			height: calc(100vh - 115px);
 			display: flex;
@@ -580,9 +581,11 @@
 			justify-content: flex-end;
 			svg {
 				position: absolute;
-				width: 70%;
-				height: auto;
-				transform: translateX(20%) translateY(-10%) scale(1);
+				width: auto;
+				height: 100vh;
+				top: 0;
+				left: 0;
+				transform: translateX(110%) translateY(-40%) scale(1);
 			}
 		}
 		&__cta-container {

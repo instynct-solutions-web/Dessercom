@@ -20,6 +20,9 @@
 	}
 	&__toggle-container {
 		user-select: none;
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: space-between;
 	}
 	&__top {
 		display: flex;
@@ -78,11 +81,7 @@
 			}
 		}
 	}
-	&__drawer-button {
-		position: absolute;
-		top: 20px;
-		right: 20px;
-	}
+
 	&__drawer-open {
 		transform: rotate(45deg);
 		display: none;

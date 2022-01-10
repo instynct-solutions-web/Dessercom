@@ -156,11 +156,30 @@ $research = get_field('research') ?>
 $borders = get_field('borders')  ?>
 <section class="philanthropy-borders" data-wolfpack-section>
     <div class="philanthropy-borders__container">
+
         <div class="philanthropy-borders__top-container">
             <div class="philanthropy-borders__top">
                 <img src="<?= $borders['icon']['url'] ?>" alt="<?= $borders['icon']['alt'] ?>" class="philanthropy-borders__icon">
                 <p class="philanthropy-borders__note"><?= $borders['note'] ?></p>
+                <a href="<?= $borders['link']['url'] ?>" class="philanthropy-borders__cta">
+                    <span class="philanthropy-borders__cta-text" data-circle-text>
+                        <?= $borders['link']['title'] ?>
+                        <div> . </div>
+                        <?= $borders['link']['title'] ?>
+                        <div> . </div>
+                        <?= $borders['link']['title'] ?>
+                        <div> . </div>
+                    </span>
+                    <svg class="philanthropy-borders__cta-icon" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.19 14.19">
+                        <g id="Groupe_789" data-name="Groupe 789">
+                            <path id="Tracé_3" data-name="Tracé 3" d="M12.68,10.93V1.5H3.26" transform="translate(0 0)" style="fill: none;stroke: #00938f;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3px" />
+                            <line id="Ligne_1" data-name="Ligne 1" x1="12.69" y1="1.5" x2="1.5" y2="12.69" style="fill: none;stroke: #00938f;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 3px" />
+                        </g>
+                    </svg>
+
+                </a>
             </div>
+
         </div>
         <div class="philanthropy-borders__main">
             <div class="philanthropy-borders__media">

@@ -376,6 +376,7 @@
 			justify-content: flex-end;
 			flex-direction: column;
 			height: calc(100vh - 120px);
+			min-height: 1100px;
 		}
 		&__background-container {
 			align-items: flex-end;
