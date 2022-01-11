@@ -426,7 +426,7 @@
 		}
 	}
 	.contact-hero {
-		height: 70vh;
+		min-height: 70vh;
 		&__map-container {
 			svg {
 				transform: translateX(27.5%) translateY(-35%) scale(1);
