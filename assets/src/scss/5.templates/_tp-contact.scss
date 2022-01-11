@@ -11,6 +11,7 @@
 	pointer-events: none;
 	transition: 0.3s ease-in-out transform;
 	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) !important;
+	overflow: visible;
 	&--show {
 		opacity: 1;
 		pointer-events: all;
@@ -29,6 +30,7 @@
 		color: $white;
 		font-size: rem(43);
 		width: 80%;
+		margin-top: 1em;
 	}
 	&__image {
 		width: 60%;
@@ -79,6 +81,7 @@
 		margin: auto;
 		transform: translateX(50%) rotate(342deg);
 		opacity: 0.4;
+		pointer-events: none;
 	}
 	&__cta-container {
 		display: flex;
@@ -145,7 +148,7 @@
 		}
 	}
 	&__title {
-		height: 100vh;
+		height: 45vh;
 		display: flex;
 		align-items: center;
 		font-size: rem(43);
@@ -163,7 +166,7 @@
 	}
 	&__suffix {
 		font-size: rem(12);
-		margin-left: 1em;
+		margin-left: 0.5em;
 	}
 	&__address {
 		font-size: rem(13);
@@ -235,8 +238,8 @@
 	}
 	&__cta-icon {
 		position: absolute;
-		height: rem(20);
-		width: rem(20);
+		height: rem(15);
+		width: rem(15);
 		transform: rotate(90deg);
 	}
 }
@@ -342,6 +345,7 @@
 		transform: scale(2.05);
 		position: absolute;
 		filter: brightness(0.3);
+		opacity: 0.2;
 	}
 	&__container {
 		@include container;
@@ -370,6 +374,10 @@
 		@include contactForm;
 		background-color: $white;
 		position: relative;
+
+		.field__dropdown-icon {
+			top: rem(25);
+		}
 	}
 }
 
@@ -418,6 +426,7 @@
 		}
 	}
 	.contact-hero {
+		height: 70vh;
 		&__map-container {
 			svg {
 				transform: translateX(27.5%) translateY(-35%) scale(1);

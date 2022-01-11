@@ -132,6 +132,7 @@
 		&__title {
 			font-size: rem(70);
 			padding: 0 35px;
+			margin-left: -5px;
 		}
 		&__filters {
 			width: 100%;
@@ -157,12 +158,18 @@
 @include desktop-only {
 	.faq {
 		overflow: hidden;
+		&__background {
+			right: -20%;
+			width: 50%;
+			height: 65vh;
+		}
 		&__container {
 			padding-top: 100px;
 			padding-bottom: 180px;
 		}
 		&__title {
 			margin-bottom: 60px;
+			padding: 0;
 		}
 		&__main {
 			display: flex;

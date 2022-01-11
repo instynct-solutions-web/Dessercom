@@ -9,7 +9,7 @@
 		position: absolute;
 		z-index: 1;
 		width: 200vw;
-		filter: invert(0.4);
+		filter: invert(0.3);
 		opacity: 0.3;
 	}
 	&__container {
@@ -81,12 +81,19 @@
 			}
 		}
 	}
-
+	&__drawer-button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: rem(25);
+	}
 	&__drawer-open {
 		transform: rotate(45deg);
 		display: none;
+		height: rem(20);
 	}
 	&__drawer-close {
+		height: rem(20);
 		display: block;
 	}
 	&__drawer-title {
@@ -351,6 +358,8 @@
 		&__drawer-button {
 			top: 45px;
 			right: 35px;
+			display: flex;
+			align-items: center;
 		}
 		&__drawer-title {
 			font-size: rem(35);
@@ -361,6 +370,7 @@
 		}
 		&__subitem {
 			margin-bottom: 25px;
+			grid-template-columns: 2fr 0.5fr 5fr;
 			&:last-of-type {
 				margin-bottom: 0px;
 			}

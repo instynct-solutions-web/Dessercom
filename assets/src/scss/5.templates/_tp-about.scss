@@ -119,6 +119,7 @@
 	}
 	&__date-list {
 		margin-left: 10%;
+		position: relative;
 		.flickity-viewport {
 			overflow: visible;
 		}
@@ -132,6 +133,7 @@
 					color: $white;
 					opacity: 1;
 					line-height: 1.2em;
+					margin-top: -5px;
 				}
 			}
 		}
@@ -346,6 +348,16 @@
 		}
 		&__date-list {
 			margin-left: 0;
+			&::after {
+				content: '';
+				height: 100%;
+				width: 100px;
+				background-image: linear-gradient(to right, rgba(255, 0, 0, 0), #041e36);
+				display: block;
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
 		}
 		&__media {
 			width: 62.5%;
@@ -437,7 +449,7 @@
 			padding-bottom: 120px;
 		}
 		&__background {
-			width: 37.5%;
+			width: 30%;
 			top: 100px;
 			right: 75px;
 			position: absolute;
@@ -470,7 +482,7 @@
 		&__container {
 			display: flex;
 			flex-wrap: wrap;
-			align-items: flex-start;
+			align-items: baseline;
 			padding-top: 300px;
 			padding-bottom: 160px;
 			position: relative;
@@ -616,8 +628,8 @@
 	}
 	.about-funding {
 		&__container {
-			padding-top: 170px;
-			padding-bottom: 180px;
+			padding-top: 15em;
+			padding-bottom: 11.5em;
 			position: relative;
 		}
 		&__background {

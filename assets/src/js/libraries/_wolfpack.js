@@ -899,18 +899,16 @@ export default class Wolfpack {
 					this.updateTargetY(-Math.abs(this.locationTop), this.wolfpackMainIndex);
 					this.time = 10;
 				}
-			} else {
-				if (!this.anchorScrolling) {
-					this.anchorScrolling = true;
-					if (!this.scrolling) {
-						this.startLoopSections(this.wolfpackMainIndex);
-						this.scrollTimerSections(this.wolfpackMainIndex);
-					}
-					this.scrolling = true;
-					console.log('coucou');
-					this.updateTargetY(-Math.abs(this.locationTop), this.wolfpackMainIndex);
-					this.time = 10;
+			} else if (!this.anchorScrolling) {
+				this.anchorScrolling = true;
+				if (!this.scrolling) {
+					this.startLoopSections(this.wolfpackMainIndex);
+					this.scrollTimerSections(this.wolfpackMainIndex);
 				}
+				this.scrolling = true;
+				console.log('coucou');
+				this.updateTargetY(-Math.abs(this.locationTop), this.wolfpackMainIndex);
+				this.time = 10;
 			}
 		}
 	}

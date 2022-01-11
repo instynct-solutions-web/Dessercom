@@ -42,8 +42,8 @@
 	}
 	&__cta-icon {
 		position: absolute;
-		height: rem(20);
-		width: rem(20);
+		height: rem(15);
+		width: rem(15);
 	}
 }
 .services-map {
@@ -62,7 +62,8 @@
 		display: flex;
 	}
 	&__svg-container {
-		height: 40vh;
+		min-height: 40vh;
+		width: 100%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -96,7 +97,7 @@
 		font-weight: 400;
 		display: block;
 		width: rem(20);
-		margin-right: 1em;
+		margin-right: 0.5em;
 	}
 	&__list {
 		padding: 1em;
@@ -130,6 +131,7 @@
 		position: absolute;
 		z-index: 0;
 		width: 100%;
+		pointer-events: none;
 		transform: translateX(-30vh) rotate(-120deg) scale(2);
 	}
 	&__container {
@@ -200,7 +202,7 @@
 	}
 	&__image {
 		width: calc(100% + 40px);
-		transform: translateX(-40px);
+		transform: translateX(-20%);
 	}
 	&__text-container {
 		padding: 2em 0;
@@ -259,6 +261,9 @@
 	&__text {
 		line-height: 1.5em;
 	}
+	&__button-container {
+		margin: 2em 0;
+	}
 	&__button {
 		@include button-primary;
 		width: 80%;
@@ -297,6 +302,7 @@
 		font-size: rem(28);
 		line-height: 1.3em;
 		width: 50%;
+		margin: 1em 0;
 	}
 
 	&__item {
@@ -382,7 +388,7 @@
 			align-items: flex-end;
 		}
 		&__background-map {
-			height: 200%;
+			height: 100%;
 		}
 		&__text-container {
 			padding: 0 35px;
@@ -398,7 +404,7 @@
 	}
 	.services-map {
 		&__svg-container {
-			height: auto;
+			height: 100vh;
 			width: 100%;
 			position: absolute;
 			top: -45%;
@@ -638,10 +644,15 @@
 		&__item {
 			margin: 25px 50px 25px 0;
 		}
+		&__background-map {
+			height: 120vw;
+		}
 		&__link {
 			font-size: rem(18);
 			width: 100%;
 			margin: 0;
+			padding: 1em 1.5em;
+			line-height: 1em;
 		}
 		&__cta-container {
 			padding: 0;
@@ -725,6 +736,7 @@
 		&__title {
 			font-size: rem(35);
 			margin-bottom: 25px;
+			max-width: none;
 		}
 		&__text {
 			font-size: rem(19);
@@ -885,6 +897,7 @@
 		}
 		&__button {
 			font-size: rem(15);
+			width: fit-content;
 		}
 		&__list {
 			width: calc(75% - 20px);

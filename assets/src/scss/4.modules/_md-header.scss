@@ -33,6 +33,9 @@
 			font-size: rem(12);
 			font-family: $lelo;
 		}
+		&--hide {
+			opacity: 0;
+		}
 	}
 	&__main {
 		width: 100%;
@@ -49,6 +52,13 @@
 	&__logo-container {
 		position: relative;
 		z-index: 1;
+		&--white {
+			svg {
+				path {
+					fill: $white;
+				}
+			}
+		}
 	}
 	&__logo {
 		&--desktop {
@@ -109,6 +119,9 @@
 	&__nav-container {
 		position: relative;
 		z-index: 1;
+		&--hide {
+			opacity: 0;
+		}
 	}
 	&__navigation {
 		display: none;
@@ -180,7 +193,7 @@
 	top: 0px;
 	width: 100%;
 	height: 100vh;
-	background-color: $navy;
+	background-color: #051c2f;
 	&__container {
 		@include container;
 		padding-top: $mobile-header-height;
@@ -190,6 +203,8 @@
 		width: 100%;
 		right: -50%;
 		bottom: 0px;
+		pointer-events: none;
+		z-index: 0;
 	}
 }
 
@@ -220,7 +235,15 @@
 			align-items: center;
 			justify-content: flex-end;
 		}
+		&__logo-container {
+			&--white {
+				filter: invert(1);
+			}
+		}
 		&__logo {
+			&--white {
+				filter: brightness(0);
+			}
 			&--mobile {
 				display: none;
 			}
@@ -288,8 +311,10 @@
 			padding-top: 240px;
 		}
 		&__image {
-			right: -30%;
-			bottom: -200px;
+			width: 140%;
+			right: -60%;
+			bottom: -50%;
+			opacity: 0.3;
 		}
 	}
 }
@@ -401,8 +426,9 @@
 			padding: 145px;
 		}
 		&__image {
-			right: -50%;
+			right: -20%;
 			bottom: -50%;
+			width: 80%;
 		}
 	}
 }

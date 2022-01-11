@@ -89,6 +89,7 @@
 		position: absolute;
 		bottom: rem(20);
 		pointer-events: none;
+		display: none;
 	}
 	&__indicator-bar {
 		width: rem(2);
@@ -221,8 +222,13 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		opacity: 1;
+		transition: opacity 0.2s linear;
 		svg {
 			height: rem(20);
+		}
+		&--hide {
+			opacity: 0;
 		}
 	}
 	&__video-container {
@@ -273,7 +279,7 @@
 		color: $white;
 	}
 	&__bottom {
-		height: 40vh;
+		height: 60vh;
 		position: relative;
 		width: 100%;
 	}
@@ -323,7 +329,7 @@
 			margin-bottom: 2em;
 		}
 		&__item {
-			width: 100%;
+			width: 95%;
 			height: 65vh;
 			margin: 0 5px;
 		}
@@ -382,6 +388,7 @@
 					&__link {
 						background-color: $teal;
 						color: $navy;
+						border-radius: 6px;
 					}
 					&__arrow {
 						svg {

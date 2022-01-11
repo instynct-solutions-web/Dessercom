@@ -121,6 +121,7 @@
 		font-weight: 500;
 		color: $navy;
 		margin-bottom: 5px;
+		line-height: 1.2em;
 	}
 	&__position {
 		font-size: rem(12);
@@ -170,7 +171,7 @@
 			padding-bottom: 120px;
 		}
 		&__top {
-			width: 25%;
+			width: 50%;
 		}
 		&__grid {
 			display: flex;
@@ -213,8 +214,8 @@
 @include desktop-only {
 	.team-hero {
 		&__container {
-			padding-top: 20px;
-			padding-bottom: 90px;
+			padding-top: 2em;
+			padding-bottom: 8em;
 		}
 		&__top {
 			padding-top: 35px;

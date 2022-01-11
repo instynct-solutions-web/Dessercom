@@ -1,4 +1,4 @@
-<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 242.29 321.69">
+<svg id="map" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 242.29 321.69">
     <g id="Groupe_1563" data-name="Groupe 1563">
         <g id="Groupe_1374" data-name="Groupe 1374">
             <g id="_08" data-name=" 08" style="isolation: isolate">

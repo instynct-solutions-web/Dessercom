@@ -70,7 +70,7 @@
 		&__container {
 			display: grid;
 			grid-template-columns: repeat(8, 1fr);
-			grid-template-rows: repeat(2, 1fr);
+			grid-template-rows: 0.99fr 2fr;
 			grid-gap: 0px;
 			padding-top: 30px;
 			padding-bottom: 45px;
@@ -177,6 +177,7 @@
 		&__container {
 			max-width: none;
 			padding: 50px 50px 75px 50px;
+			grid-template-rows: 1fr 1fr;
 		}
 		&__brand {
 			grid-column: 1/5;
@@ -218,6 +219,7 @@
 		}
 		&__link {
 			font-size: rem(15);
+			padding: 10px;
 		}
 		&__copyright-container {
 			grid-column: 1/5;

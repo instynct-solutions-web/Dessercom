@@ -1,6 +1,9 @@
 export default class ContactShow {
 	constructor() {
 		// All DOM selector / elements goes here
+		this.cursor = document.querySelector('[data-cursor-pointer]');
+		this.headerElemList = document.querySelectorAll('[data-header-hide]');
+		this.logoElemList = document.querySelectorAll('[data-header-logo]');
 		this.contactMedia = document.querySelector('[data-contact-media]');
 		this.showContactButton = document.querySelector(' [data-contact-show]');
 		this.closeContactButton = document.querySelector('[data-contact-close]');
@@ -16,10 +19,24 @@ export default class ContactShow {
 		this.showContactButton.addEventListener('click', () => {
 			this.hero.classList.add(`${this.hero.classList[0]}--hide`);
 			this.contactMedia.classList.add(`${this.contactMedia.classList[0]}--show`);
+			this.cursor.classList.add(`${this.cursor.classList[0]}--white`);
+			for (let i = 0; i < this.headerElemList.length; i++) {
+				this.headerElemList[i].classList.add(`${this.headerElemList[i].classList[0]}--hide`);
+			}
+			for (let i = 0; i < this.logoElemList.length; i++) {
+				this.logoElemList[i].classList.add(`${this.logoElemList[i].classList[0]}--white`);
+			}
 		});
 		this.closeContactButton.addEventListener('click', () => {
 			this.hero.classList.remove(`${this.hero.classList[0]}--hide`);
 			this.contactMedia.classList.remove(`${this.contactMedia.classList[0]}--show`);
+			this.cursor.classList.remove(`${this.cursor.classList[0]}--white`);
+			for (let i = 0; i < this.headerElemList.length; i++) {
+				this.headerElemList[i].classList.remove(`${this.headerElemList[i].classList[0]}--hide`);
+			}
+			for (let i = 0; i < this.logoElemList.length; i++) {
+				this.logoElemList[i].classList.remove(`${this.logoElemList[i].classList[0]}--white`);
+			}
 		});
 	}
 }

@@ -98,7 +98,14 @@ $research = get_field('research') ?>
 <section class="philanthropy-research" data-wolfpack-section>
     <div class="philanthropy-research__container">
         <div class="philanthropy-research__background">
+            <div class="philanthropy-research__top-container">
+                <div class="philanthropy-research__top philanthropy-research__top--background">
+                    <img src="<?= $research['icon']['url'] ?>" alt="<?= $research['icon']['alt'] ?>" class="philanthropy-research__icon">
+                    <p class="philanthropy-research__note"><?= $research['note'] ?></p>
+                </div>
+            </div>
             <div class="philanthropy-research__left-container">
+
                 <p data-research-text class="philanthropy-research__background-text"><?= $research['text'] ?></p>
                 <div class="philanthropy-research__close-container">
                     <div data-research-slider-close class="philanthropy-research__close">

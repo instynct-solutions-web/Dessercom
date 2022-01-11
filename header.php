@@ -19,14 +19,14 @@
 	</div>
 	<?php $header = get_field('header', 'options'); ?>
 	<header class="header" data-header>
-		<div class="header__top">
+		<div data-header-hide class="header__top">
 			<div class="header__lang-container">
 				<?php do_action('wpml_add_language_selector') ?>
 			</div>
 		</div>
 		<div class="header__main">
-			<a href="/" class="header__logo-container">
-				<img src="<?= $header['logo']['url'] ?>" alt="<?= $header['logo']['alt'] ?>" class="header__logo header__logo--desktop">
+			<a data-header-logo href="/" class="header__logo-container">
+				<img data-header-logo src="<?= $header['logo']['url'] ?>" alt="<?= $header['logo']['alt'] ?>" class="header__logo header__logo--desktop">
 				<svg class="header__logo header__logo--mobile" xmlns="http://www.w3.org/2000/svg" width="48" height="41.362" viewBox="0 0 48 41.362">
 					<g id="Groupe_163" data-name="Groupe 163" transform="translate(-150.322 -21.855)">
 						<g id="Groupe_121" data-name="Groupe 121" transform="translate(150.322 21.855)">
@@ -38,7 +38,7 @@
 				</svg>
 			</a>
 
-			<div class="header__nav-container">
+			<div data-header-hide class="header__nav-container">
 				<nav role="navigation" class="header__main-nav header__main-nav--desktop">
 					<?php wp_nav_menu(array(
 						'theme_location'  => 'navigation'
@@ -131,7 +131,7 @@
 								</a>
 							</li>
 							<li class="header__sub-nav-item">
-								<a href="/carriere-et-stage" class="header__sub-nav-link">
+								<a href="/carriere" class="header__sub-nav-link">
 									Carrière et stage
 									<svg class="header__sub-nav-icon" xmlns="http://www.w3.org/2000/svg" width="13.686" height="12.527" viewBox="0 0 13.686 12.527">
 										<g id="Groupe_1547" data-name="Groupe 1547" transform="translate(3.57 1.414)">

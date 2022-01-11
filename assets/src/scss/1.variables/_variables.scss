@@ -70,10 +70,10 @@ $trans-time: 0.2s;
 // Under this threshold, the site enter the "mobile" resolutions
 // In px, no unit
 $mobile-threshold: 600px;
-$tablet-threshold: 1024px;
+$tablet-threshold: 1025px;
 
 $mobile-threshold-stripped: 600;
-$tablet-threshold-stripped: 1024;
+$tablet-threshold-stripped: 1025;
 
 // The selector of the main content, used for styles that apply only to the body text, like lists
 // Replace 'main' by the appropriate selector for your framework, or you can define one yourself

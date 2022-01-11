@@ -31,13 +31,18 @@
 }
 
 @include min-width($tablet-threshold) {
-	.cursors {
-		&__introduction {
-			width: 33.33333%;
-			margin-right: 16.66666%;
-		}
-		&__content {
-			width: 50%;
+	.cursor {
+		&__ball {
+			&--white {
+				circle {
+					shape-rendering: geometricPrecision;
+					fill: $teal;
+					stroke: $white;
+					fill-opacity: 1;
+					stroke-width: 1;
+					transition: 0.5s ease;
+				}
+			}
 		}
 	}
 }

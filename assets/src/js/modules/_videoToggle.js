@@ -9,8 +9,10 @@ export default class VideoToggle {
 	manageEvents() {
 		if (this.overlay) {
 			const overlayClass = this.overlay.classList;
+			const buttonClass = this.button.classList;
 			this.button.addEventListener('click', () => {
 				this.overlay.classList.add(`${overlayClass[0]}--hide`);
+				this.button.classList.add(`${buttonClass[0]}--hide`);
 			});
 		}
 
