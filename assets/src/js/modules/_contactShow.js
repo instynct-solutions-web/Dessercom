@@ -20,10 +20,10 @@ export default class ContactShow {
 			this.hero.classList.add(`${this.hero.classList[0]}--hide`);
 			this.contactMedia.classList.add(`${this.contactMedia.classList[0]}--show`);
 			this.cursor.classList.add(`${this.cursor.classList[0]}--white`);
-			for (let i = 0; i < this.headerElemList.length; i++) {
+			for (let i = 0; i < this.headerElemList.length; i += 1) {
 				this.headerElemList[i].classList.add(`${this.headerElemList[i].classList[0]}--hide`);
 			}
-			for (let i = 0; i < this.logoElemList.length; i++) {
+			for (let i = 0; i < this.logoElemList.length; i += 1) {
 				this.logoElemList[i].classList.add(`${this.logoElemList[i].classList[0]}--white`);
 			}
 		});
@@ -31,10 +31,10 @@ export default class ContactShow {
 			this.hero.classList.remove(`${this.hero.classList[0]}--hide`);
 			this.contactMedia.classList.remove(`${this.contactMedia.classList[0]}--show`);
 			this.cursor.classList.remove(`${this.cursor.classList[0]}--white`);
-			for (let i = 0; i < this.headerElemList.length; i++) {
+			for (let i = 0; i < this.headerElemList.length; i += 1) {
 				this.headerElemList[i].classList.remove(`${this.headerElemList[i].classList[0]}--hide`);
 			}
-			for (let i = 0; i < this.logoElemList.length; i++) {
+			for (let i = 0; i < this.logoElemList.length; i += 1) {
 				this.logoElemList[i].classList.remove(`${this.logoElemList[i].classList[0]}--white`);
 			}
 		});

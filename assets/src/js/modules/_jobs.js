@@ -16,9 +16,9 @@ export default class Jobs {
 			this.zoneTitle.innerHTML += this.arrow;
 			this.zoneTitle.addEventListener('click', () => {
 				if (!this.zoneList.classList.contains('opened')) {
-					this.openDrawer(this.zoneList, this.zoneTitle);
+					Jobs.openDrawer(this.zoneList, this.zoneTitle);
 				} else {
-					this.closeDrawer(this.zoneList, this.zoneTitle);
+					Jobs.closeDrawer(this.zoneList, this.zoneTitle);
 				}
 			});
 		}
@@ -26,9 +26,9 @@ export default class Jobs {
 			this.typeTitle.innerHTML += this.arrow;
 			this.typeTitle.addEventListener('click', () => {
 				if (!this.typeList.classList.contains('opened')) {
-					this.openDrawer(this.typeList, this.typeTitle);
+					Jobs.openDrawer(this.typeList, this.typeTitle);
 				} else {
-					this.closeDrawer(this.typeList, this.typeTitle);
+					Jobs.closeDrawer(this.typeList, this.typeTitle);
 				}
 			});
 		}
@@ -39,10 +39,10 @@ export default class Jobs {
 			for (let i = 0; i < this.sectorList.length; i += 1) {
 				this.sectorButtonList[i].addEventListener('click', () => {
 					if (!this.sectorList[i].classList.contains(`${this.sectorList[i].classList[0]}--selected`)) {
-						this.openSector(this.sectorList[i], this.sectorButtonList[i], this.sectorBackgroundList[i]);
+						Jobs.openSector(this.sectorList[i], this.sectorButtonList[i], this.sectorBackgroundList[i]);
 						for (let j = 0; j < this.sectorButtonList.length; j += 1) {
 							if (this.sectorButtonList[j] !== this.sectorButtonList[i]) {
-								this.closeSector(this.sectorList[j], this.sectorButtonList[j], this.sectorBackgroundList[j]);
+								Jobs.closeSector(this.sectorList[j], this.sectorButtonList[j], this.sectorBackgroundList[j]);
 							}
 						}
 					}
@@ -51,23 +51,23 @@ export default class Jobs {
 		}
 	}
 
-	openDrawer(drawer, title) {
+	static openDrawer(drawer, title) {
 		drawer.classList.add('opened');
 		title.classList.add('opened');
 	}
 
-	closeDrawer(drawer, title) {
+	static closeDrawer(drawer, title) {
 		drawer.classList.remove('opened');
 		title.classList.remove('opened');
 	}
 
-	openSector(sector, button, background) {
+	static openSector(sector, button, background) {
 		sector.classList.add(`${sector.classList[0]}--selected`);
 		button.classList.add(`${button.classList[0]}--selected`);
 		background.classList.add(`${background.classList[0]}--selected`);
 	}
 
-	closeSector(sector, button, background) {
+	static loseSector(sector, button, background) {
 		sector.classList.remove(`${sector.classList[0]}--selected`);
 		button.classList.remove(`${button.classList[0]}--selected`);
 		background.classList.remove(`${background.classList[0]}--selected`);

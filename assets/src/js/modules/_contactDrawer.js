@@ -15,7 +15,7 @@ export default class ContactDrawer {
 			const icon = this.toggleIconList[index];
 			toggle.addEventListener('click', () => {
 				if (container.classList.contains(`${container.classList[0]}--open`)) {
-					this.close(toggle, icon, container);
+					ContactDrawer.close(toggle, icon, container);
 				} else {
 					this.open(toggle, icon, container);
 				}
@@ -37,7 +37,7 @@ export default class ContactDrawer {
 		icon.classList.add(`${icon.classList[0]}--open`);
 	}
 
-	close(clickedElem, elemIcon, elemContainer) {
+	static close(clickedElem, elemIcon, elemContainer) {
 		const toggle = clickedElem;
 		const container = elemContainer;
 		const icon = elemIcon;

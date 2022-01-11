@@ -40,7 +40,6 @@ export default class ResearchSlider {
 			pageDots: false,
 			prevNextButtons: false,
 		});
-		console.log(this.flkty);
 	}
 
 	toggleSlider() {

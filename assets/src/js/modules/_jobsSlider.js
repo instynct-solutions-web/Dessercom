@@ -31,49 +31,47 @@ export default class jobsSlider {
 					this.flktyJobs.next();
 				});
 			}
-		} else {
-			if (this.jobsValueList.length !== 0) {
-				for (let i = 0; i < this.jobsValueList.length; i += 1) {
-					this.jobsValueList[0].classList.add(`${this.jobsValueList[0].classList[0]}--opened`);
-					this.jobsValueTogglerList[0].classList.add(`${this.jobsValueTogglerList[0].classList[0]}--opened`);
-					this.jobsValueNameList[0].classList.add(`${this.jobsValueNameList[0].classList[0]}--opened`);
-					this.jobsValueTogglerList[i].addEventListener('click', () => {
-						if (!this.jobsValueList[i].classList.contains(`${this.jobsValueList[i].classList[0]}--opened`)) {
-							for (let j = 0; j < this.jobsValueList.length; j += 1) {
-								if (this.jobsValueList[j] !== this.jobsValueList[i]) {
-									this.jobsValueList[j].classList.remove(`${this.jobsValueList[j].classList[0]}--opened`);
-									this.jobsValueTogglerList[j].classList.remove(`${this.jobsValueTogglerList[j].classList[0]}--opened`);
-									this.jobsValueNameList[j].classList.remove(`${this.jobsValueNameList[j].classList[0]}--opened`);
-								}
+		} else if (this.jobsValueList.length !== 0) {
+			for (let i = 0; i < this.jobsValueList.length; i += 1) {
+				this.jobsValueList[0].classList.add(`${this.jobsValueList[0].classList[0]}--opened`);
+				this.jobsValueTogglerList[0].classList.add(`${this.jobsValueTogglerList[0].classList[0]}--opened`);
+				this.jobsValueNameList[0].classList.add(`${this.jobsValueNameList[0].classList[0]}--opened`);
+				this.jobsValueTogglerList[i].addEventListener('click', () => {
+					if (!this.jobsValueList[i].classList.contains(`${this.jobsValueList[i].classList[0]}--opened`)) {
+						for (let j = 0; j < this.jobsValueList.length; j += 1) {
+							if (this.jobsValueList[j] !== this.jobsValueList[i]) {
+								this.jobsValueList[j].classList.remove(`${this.jobsValueList[j].classList[0]}--opened`);
+								this.jobsValueTogglerList[j].classList.remove(`${this.jobsValueTogglerList[j].classList[0]}--opened`);
+								this.jobsValueNameList[j].classList.remove(`${this.jobsValueNameList[j].classList[0]}--opened`);
 							}
-							this.jobsValueList[i].classList.add(`${this.jobsValueList[i].classList[0]}--opened`);
-							this.jobsValueTogglerList[i].classList.add(`${this.jobsValueTogglerList[i].classList[0]}--opened`);
-							this.jobsValueNameList[i].classList.add(`${this.jobsValueNameList[i].classList[0]}--opened`);
-						} else {
-							this.jobsValueList[i].classList.remove(`${this.jobsValueList[i].classList[0]}--opened`);
-							this.jobsValueTogglerList[i].classList.remove(`${this.jobsValueTogglerList[i].classList[0]}--opened`);
-							this.jobsValueNameList[i].classList.remove(`${this.jobsValueNameList[i].classList[0]}--opened`);
 						}
-					});
-					this.jobsValueNameList[i].addEventListener('click', () => {
-						if (!this.jobsValueList[i].classList.contains(`${this.jobsValueList[i].classList[0]}--opened`)) {
-							for (let j = 0; j < this.jobsValueList.length; j += 1) {
-								if (this.jobsValueList[j] !== this.jobsValueList[i]) {
-									this.jobsValueList[j].classList.remove(`${this.jobsValueList[j].classList[0]}--opened`);
-									this.jobsValueTogglerList[j].classList.remove(`${this.jobsValueTogglerList[j].classList[0]}--opened`);
-									this.jobsValueNameList[j].classList.remove(`${this.jobsValueNameList[j].classList[0]}--opened`);
-								}
+						this.jobsValueList[i].classList.add(`${this.jobsValueList[i].classList[0]}--opened`);
+						this.jobsValueTogglerList[i].classList.add(`${this.jobsValueTogglerList[i].classList[0]}--opened`);
+						this.jobsValueNameList[i].classList.add(`${this.jobsValueNameList[i].classList[0]}--opened`);
+					} else {
+						this.jobsValueList[i].classList.remove(`${this.jobsValueList[i].classList[0]}--opened`);
+						this.jobsValueTogglerList[i].classList.remove(`${this.jobsValueTogglerList[i].classList[0]}--opened`);
+						this.jobsValueNameList[i].classList.remove(`${this.jobsValueNameList[i].classList[0]}--opened`);
+					}
+				});
+				this.jobsValueNameList[i].addEventListener('click', () => {
+					if (!this.jobsValueList[i].classList.contains(`${this.jobsValueList[i].classList[0]}--opened`)) {
+						for (let j = 0; j < this.jobsValueList.length; j += 1) {
+							if (this.jobsValueList[j] !== this.jobsValueList[i]) {
+								this.jobsValueList[j].classList.remove(`${this.jobsValueList[j].classList[0]}--opened`);
+								this.jobsValueTogglerList[j].classList.remove(`${this.jobsValueTogglerList[j].classList[0]}--opened`);
+								this.jobsValueNameList[j].classList.remove(`${this.jobsValueNameList[j].classList[0]}--opened`);
 							}
-							this.jobsValueList[i].classList.add(`${this.jobsValueList[i].classList[0]}--opened`);
-							this.jobsValueTogglerList[i].classList.add(`${this.jobsValueTogglerList[i].classList[0]}--opened`);
-							this.jobsValueNameList[i].classList.add(`${this.jobsValueNameList[i].classList[0]}--opened`);
-						} else {
-							this.jobsValueList[i].classList.remove(`${this.jobsValueList[i].classList[0]}--opened`);
-							this.jobsValueTogglerList[i].classList.remove(`${this.jobsValueTogglerList[i].classList[0]}--opened`);
-							this.jobsValueNameList[i].classList.remove(`${this.jobsValueNameList[i].classList[0]}--opened`);
 						}
-					});
-				}
+						this.jobsValueList[i].classList.add(`${this.jobsValueList[i].classList[0]}--opened`);
+						this.jobsValueTogglerList[i].classList.add(`${this.jobsValueTogglerList[i].classList[0]}--opened`);
+						this.jobsValueNameList[i].classList.add(`${this.jobsValueNameList[i].classList[0]}--opened`);
+					} else {
+						this.jobsValueList[i].classList.remove(`${this.jobsValueList[i].classList[0]}--opened`);
+						this.jobsValueTogglerList[i].classList.remove(`${this.jobsValueTogglerList[i].classList[0]}--opened`);
+						this.jobsValueNameList[i].classList.remove(`${this.jobsValueNameList[i].classList[0]}--opened`);
+					}
+				});
 			}
 		}
 	}

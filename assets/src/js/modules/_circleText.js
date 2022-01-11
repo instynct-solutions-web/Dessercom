@@ -11,15 +11,15 @@ export default class CircleText {
 		if (this.circleTextList.length !== 0) {
 			for (let i = 0; i < this.circleTextList.length; i += 1) {
 				const circleClass = this.circleTextList[i].classList[0];
-				this.circleText(this.circleTextList[i], circleClass);
+				CircleText.circleText(this.circleTextList[i], circleClass);
 				window.addEventListener('resize', () => {
-					this.circleText(this.circleTextList[i], circleClass);
+					CircleText.circleText(this.circleTextList[i], circleClass);
 				});
 			}
 		}
 	}
 
-	circleText(thisCircleText, circleClass) {
+	static circleText(thisCircleText, circleClass) {
 		setTimeout(() => {
 			if (window.getComputedStyle(thisCircleText).display !== 'none') {
 				if (!thisCircleText.classList.contains(`${circleClass}--circled`)) {

@@ -5,9 +5,9 @@ export default class Wolfpack {
 	constructor() {
 		window.addEventListener(
 			'pageshow',
-			function (evt) {
+			(evt) => {
 				if (evt.persisted) {
-					setTimeout(function () {
+					setTimeout(() => {
 						window.location.reload();
 					}, 10);
 				}
@@ -906,7 +906,6 @@ export default class Wolfpack {
 					this.scrollTimerSections(this.wolfpackMainIndex);
 				}
 				this.scrolling = true;
-				console.log('coucou');
 				this.updateTargetY(-Math.abs(this.locationTop), this.wolfpackMainIndex);
 				this.time = 10;
 			}

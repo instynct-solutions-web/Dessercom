@@ -16,22 +16,22 @@ export default class TermsPolicies {
 						this.openDrawer(this.termsPolicies[i]);
 						for (let j = 0; j < this.termsPolicies.length; j += 1) {
 							if (this.termsPolicies[j] !== this.termsPolicies[i]) {
-								this.closeDrawer(this.termsPolicies[j]);
+								TermsPolicies.closeDrawer(this.termsPolicies[j]);
 							}
 						}
 					} else {
-						this.closeDrawer(this.termsPolicies[i]);
+						TermsPolicies.closeDrawer(this.termsPolicies[i]);
 					}
 				});
 			}
 		}
 	}
 
-	openDrawer(drawer) {
+	static openDrawer(drawer) {
 		drawer.classList.remove(`${drawer.classList[0]}--closed`);
 	}
 
-	closeDrawer(drawer) {
+	static closeDrawer(drawer) {
 		drawer.classList.add(`${drawer.classList[0]}--closed`);
 	}
 }
