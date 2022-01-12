@@ -543,7 +543,6 @@ export default class Wolfpack {
 						this.formChanged[i] = true;
 						this.fieldList[i] = this.formsList[i].querySelectorAll('.gfield');
 						this.formParentPosition.push(this.formsList[i].getBoundingClientRect().y);
-						this.formList = this.formsList[i].querySelectorAll('.gfield');
 						this.formClass.push([]);
 						if (this.fieldList[i].length !== 0) {
 							for (let j = 0; j < this.fieldList[i].length; j += 1) {
@@ -575,6 +574,50 @@ export default class Wolfpack {
 								if (this.fieldList[i][j].querySelector('.ginput_container') && this.fieldList[i][j].querySelector('.ginput_container').classList.contains('ginput_complex')) {
 									if (this.fieldList[i][j].querySelector('input').value !== '') {
 										this.formFocusIn(this.fieldList[i][j], i, j);
+									}
+									if (this.fieldList[i][j].querySelectorAll('.ginput_complex span').length !== 0) {
+										for (let k = 0; k < this.fieldList[i][j].querySelectorAll('.ginput_complex span').length; k += 1) {
+											this.fieldList[i][j].querySelectorAll('.ginput_complex span')[k].addEventListener('focusin', () => {
+												this.formFocusIn(this.fieldList[i][j].querySelectorAll('.ginput_complex span')[k], i, j);
+											});
+											this.fieldList[i][j].querySelectorAll('.ginput_complex span')[k].addEventListener('focusout', () => {
+												if (this.fieldList[i][j].querySelectorAll('.ginput_complex span')[k].querySelector('input')) {
+													if (this.fieldList[i][j].querySelectorAll('.ginput_complex span')[k].querySelector('input').value === '' || this.fieldList[i][j].querySelectorAll('.ginput_complex span')[k].querySelector('input').value === null) {
+														this.formFocusOut(this.fieldList[i][j].querySelectorAll('.ginput_complex span')[k], i, j);
+													}
+												} else if (this.fieldList[i][j].querySelectorAll('.ginput_complex span')[k].querySelector('select')) {
+													if (this.fieldList[i][j].querySelectorAll('.ginput_complex span')[k].querySelector('select').value === '' || this.fieldList[i][j].querySelectorAll('.ginput_complex span')[k].querySelector('select').value === null) {
+														this.formFocusOut(this.fieldList[i][j].querySelectorAll('.ginput_complex span')[k], i, j);
+													}
+												}
+											});
+											if (this.fieldList[i][j].querySelectorAll('.ginput_complex span')[k].querySelector('input')) {
+												if (this.fieldList[i][j].querySelectorAll('.ginput_complex span')[k].querySelector('input').value !== '') {
+													this.formFocusIn(this.fieldList[i][j].querySelectorAll('.ginput_complex span')[k], i, j);
+												}
+											} else if (this.fieldList[i][j].querySelectorAll('.ginput_complex span')[k].querySelector('select')) {
+												if (this.fieldList[i][j].querySelectorAll('.ginput_complex span')[k].querySelector('select').value !== '') {
+													this.formFocusIn(this.fieldList[i][j].querySelectorAll('.ginput_complex span')[k], i, j);
+												}
+											}
+										}
+									}
+									if (this.fieldList[i][j].querySelectorAll('.ginput_complex>.ginput_full').length !== 0) {
+										for (let k = 0; k < this.fieldList[i][j].querySelectorAll('.ginput_complex>.ginput_full').length; k += 1) {
+											if (this.fieldList[i][j].querySelectorAll('.ginput_complex>.ginput_full')[k].querySelector('input')) {
+												this.fieldList[i][j].querySelectorAll('.ginput_complex>.ginput_full')[k].addEventListener('focusin', () => {
+													this.formFocusIn(this.fieldList[i][j].querySelectorAll('.ginput_complex>.ginput_full')[k], i, j);
+												});
+												this.fieldList[i][j].querySelectorAll('.ginput_complex>.ginput_full')[k].addEventListener('focusout', () => {
+													if (this.fieldList[i][j].querySelectorAll('.ginput_complex>.ginput_full')[k].querySelector('input').value === '' || this.fieldList[i][j].querySelectorAll('.ginput_complex>.ginput_full')[k].querySelector('input').value === null) {
+														this.formFocusOut(this.fieldList[i][j].querySelectorAll('.ginput_complex>.ginput_full')[k], i, j);
+													}
+												});
+												if (this.fieldList[i][j].querySelectorAll('.ginput_complex>.ginput_full')[k].querySelector('input').value !== '') {
+													this.formFocusIn(this.fieldList[i][j].querySelectorAll('.ginput_complex>.ginput_full')[k], i, j);
+												}
+											}
+										}
 									}
 								} else if (this.fieldList[i][j].querySelector('.ginput_container') && this.fieldList[i][j].querySelector('.ginput_container').classList.contains('ginput_container_textarea')) {
 									if (this.fieldList[i][j].querySelector('textarea').value !== '') {

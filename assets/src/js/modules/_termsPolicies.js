@@ -13,7 +13,7 @@ export default class TermsPolicies {
 				}
 				this.termsPoliciesTitle[i].addEventListener('click', () => {
 					if (this.termsPolicies[i].classList.contains(`${this.termsPolicies[i].classList[0]}--closed`)) {
-						this.openDrawer(this.termsPolicies[i]);
+						TermsPolicies.openDrawer(this.termsPolicies[i]);
 						for (let j = 0; j < this.termsPolicies.length; j += 1) {
 							if (this.termsPolicies[j] !== this.termsPolicies[i]) {
 								TermsPolicies.closeDrawer(this.termsPolicies[j]);

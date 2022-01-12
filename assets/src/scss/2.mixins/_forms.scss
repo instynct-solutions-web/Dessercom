@@ -74,34 +74,6 @@
 				}
 			}
 		}
-		&__currency {
-			&.gfield--focus {
-				.ginput_container {
-					&::before {
-						opacity: 1;
-					}
-				}
-			}
-			.ginput_container {
-				position: relative;
-				&::before {
-					content: '$';
-					position: absolute;
-					left: 0;
-					bottom: 0;
-					top: 0;
-					margin: auto 0;
-					display: flex;
-					align-items: center;
-					margin-top: 1em;
-					font-size: 1.4375rem !important;
-					line-height: 1 !important;
-					margin-left: 2%;
-					opacity: 0;
-					transition: opacity 0.2s linear;
-				}
-			}
-		}
 		&__number {
 			display: flex;
 			flex-wrap: wrap;
@@ -218,10 +190,12 @@
 					margin-bottom: 0px !important;
 					padding: 0 !important;
 					position: absolute;
+					top: 30px;
 					left: 20px;
 					transform-origin: center left;
+					transition: 0.5s ease;
 				}
-				&--focus {
+				&.gfield--focus {
 					label {
 						left: 10px;
 						top: 10px;
@@ -272,12 +246,12 @@
 					margin-bottom: 0px !important;
 					padding: 0 !important;
 					position: absolute;
+					top: 30px;
 					left: 20px;
 					transform-origin: center left;
+					transition: 0.5s ease;
 				}
-				&.ginput_full--focus,
-				&.ginput_left--focus,
-				&.ginput_right--focus {
+				&.gfield--focus {
 					label {
 						left: 10px;
 						top: 10px;
@@ -378,16 +352,6 @@
 	}
 	@include desktop-only {
 		.field {
-			&__number {
-				input {
-					font-size: rem(23) !important;
-					line-height: 1 !important;
-					text-align: center;
-					letter-spacing: 2px;
-					padding: 20px !important;
-					transition: 0.5s ease;
-				}
-			}
 			&__title {
 				.gsection_title {
 					font-size: rem(16);
