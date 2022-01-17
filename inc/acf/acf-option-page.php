@@ -9,3 +9,14 @@ if (function_exists('acf_add_options_page')) {
         'icon_url'      =>  false,
     ));
 }
+
+if (function_exists('acf_add_options_page')) {
+    acf_add_options_page(array(
+        'page_title'    =>  'Navigation',
+        'menu_title'    =>  'Navigation',
+        'menu_slug'     =>  'navigation',
+        'capability'    =>  'edit_posts',
+        'position'      =>  false,
+        'icon_url'      =>  false,
+    ));
+}

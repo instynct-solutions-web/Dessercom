@@ -53,7 +53,7 @@ $values = get_field('benefits_2') ?>
             </ul>
             <div class="jobs-values__button-container">
                 <div data-jobs-slider-prev class="jobs-values__nav jobs-values__nav--prev">
-                    <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
+                    <svg class="jobs-values__nav-svg jobs-values__nav-svg--prev" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
                         <g id="Groupe_456" data-name="Groupe 456">
                             <g id="Groupe_454" data-name="Groupe 454">
                                 <path id="Tracé_3" data-name="Tracé 3" d="M7.12,1.41l-5.7,5.7,5.7,5.71" transform="translate(-0.01 -0.41)" style="fill: none;stroke: #e7e7e7;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
@@ -63,7 +63,7 @@ $values = get_field('benefits_2') ?>
                     </svg>
                 </div>
                 <div data-jobs-slider-next class="jobs-values__nav jobs-values__nav--next">
-                    <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
+                    <svg class="jobs-values__nav-svg jobs-values__nav-svg--next" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
                         <g id="Groupe_456" data-name="Groupe 456">
                             <g id="Groupe_454" data-name="Groupe 454">
                                 <path id="Tracé_3" data-name="Tracé 3" d="M14,1l5.7,5.7L14,12.41" transform="translate(-0.41 0)" style="fill: none;stroke: #e7e7e7;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />

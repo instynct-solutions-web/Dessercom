@@ -15,18 +15,18 @@ export default class ContactDrawer {
 			const icon = this.toggleIconList[index];
 			toggle.addEventListener('click', () => {
 				if (container.classList.contains(`${container.classList[0]}--open`)) {
-					ContactDrawer.close(toggle, icon, container);
+					this.close(index);
 				} else {
-					this.open(toggle, icon, container);
+					this.open(index);
 				}
 			});
 		}
 	}
 
-	open(clickedElem, elemIcon, elemContainer) {
-		const toggle = clickedElem;
-		const container = elemContainer;
-		const icon = elemIcon;
+	open(i) {
+		const toggle = this.toggleList[i];
+		const container = this.toggleContainerList[i];
+		const icon = this.toggleIconList[i];
 		for (let index = 0; index < this.toggleContainerList.length; index += 1) {
 			this.toggleContainerList[index].classList.remove(`${container.classList[0]}--open`);
 			this.toggleList[index].classList.remove(`${toggle.classList[0]}--open`);
@@ -37,10 +37,10 @@ export default class ContactDrawer {
 		icon.classList.add(`${icon.classList[0]}--open`);
 	}
 
-	static close(clickedElem, elemIcon, elemContainer) {
-		const toggle = clickedElem;
-		const container = elemContainer;
-		const icon = elemIcon;
+	close(i) {
+		const toggle = this.toggleList[i];
+		const container = this.toggleContainerList[i];
+		const icon = this.toggleIconList[i];
 		container.classList.remove(`${container.classList[0]}--open`);
 		toggle.classList.remove(`${toggle.classList[0]}--open`);
 		icon.classList.remove(`${icon.classList[0]}--open`);

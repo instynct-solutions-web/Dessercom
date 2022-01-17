@@ -47,3 +47,4 @@ add_filter('use_block_editor_for_post_type', '__return_false');
 add_action('admin_menu', 'custom_menu_page_removing');
 add_action('init', 'register_my_menus');
 add_action('login_enqueue_scripts', 'custom_login_demarrage');
+define('ICL_DONT_LOAD_NAVIGATION_CSS', true);

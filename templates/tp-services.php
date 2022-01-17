@@ -137,7 +137,7 @@ $paramedic = get_field('services_paramedic'); ?>
                 <p class="services-paramedic__info"><?= $paramedic['info'] ?></p>
                 <p class="services-paramedic__contact">
                     <a href="<?= $paramedic['email']['url'] ?>" class="services-paramedic__link"><?= $paramedic['email']['title'] ?></a>
-                    <span><?= ' ' . __('ou') . ' ' ?></span>
+                    <span><?= $paramedic['separator'] ?></span>
                     <a href="<?= $paramedic['phone']['url'] ?>" class="services-paramedic__link"><?= $paramedic['phone']['title'] ?></a>
                 </p>
                 <a href="<?= $paramedic['button']['url'] ?>" class="services-paramedic__button"><?= $paramedic['button']['title'] ?></a>

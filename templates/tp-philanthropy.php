@@ -109,7 +109,7 @@ $research = get_field('research') ?>
                 <p data-research-text class="philanthropy-research__background-text"><?= $research['text'] ?></p>
                 <div class="philanthropy-research__close-container">
                     <div data-research-slider-close class="philanthropy-research__close">
-                        <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
+                        <svg class="philanthropy-research__close-svg" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
                             <g id="Groupe_456" data-name="Groupe 456">
                                 <g id="Groupe_454" data-name="Groupe 454">
                                     <path id="Tracé_3" data-name="Tracé 3" d="M14,1l5.7,5.7L14,12.41" transform="translate(-0.41 0)" style="fill: none;stroke: #00938f;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
@@ -144,7 +144,7 @@ $research = get_field('research') ?>
             </div>
             <div class="philanthropy-research__toggle-container">
                 <div data-research-slider-toggle class="philanthropy-research__toggle">
-                    <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
+                    <svg class="philanthropy-research__toggle-svg" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
                         <g id="Groupe_456" data-name="Groupe 456">
                             <g id="Groupe_454" data-name="Groupe 454">
                                 <path id="Tracé_3" data-name="Tracé 3" d="M14,1l5.7,5.7L14,12.41" transform="translate(-0.41 0)" style="fill: none;stroke: #e7e7e7;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />

@@ -41,6 +41,34 @@
 		}
 	}
 	.field {
+		&__currency {
+			&.gfield--focus {
+				.ginput_container {
+					&::before {
+						opacity: 1;
+					}
+				}
+			}
+			.ginput_container {
+				position: relative;
+				&::before {
+					content: '$';
+					position: absolute;
+					left: 0;
+					bottom: 0;
+					top: 0;
+					margin: auto 0;
+					display: flex;
+					align-items: center;
+					margin-top: 1em;
+					font-size: 1.4375rem !important;
+					line-height: 1 !important;
+					margin-left: 2%;
+					opacity: 0;
+					transition: opacity 0.2s linear;
+				}
+			}
+		}
 		&__download-icon {
 			position: absolute;
 			right: 20px;

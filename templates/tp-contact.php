@@ -13,18 +13,11 @@ $media = get_field('media') ?>
         <div class="contact-media__cta-container">
             <div data-contact-close class="contact-media__cta">
                 <span class="contact-media__cta-text" data-circle-text>
-                    <?= __('Retour') ?>
-                    <div> . </div>
-                    <?= __('Retour') ?>
-                    <div> . </div>
-                    <?= __('Retour') ?>
-                    <div> . </div>
-                    <?= __('Retour') ?>
-                    <div> . </div>
-                    <?= __('Retour') ?>
-                    <div> . </div>
-                    <?= __('Retour') ?>
-                    <div> . </div>
+                    <?php for ($i = 0; $i <= 5; $i++) { ?>
+                        <?= $media['back'] ?>
+                        <div> . </div>
+                    <?php
+                    } ?>
                 </span>
                 <svg class="contact-media__cta-icon" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.1 16.66">
                     <g id="Groupe_1000" data-name="Groupe 1000">
@@ -70,12 +63,10 @@ $media = get_field('media') ?>
         <div class="contact-hero__cta-container">
             <div data-contact-show class="contact-hero__cta">
                 <span class="contact-hero__cta-text" data-circle-text>
-                    <?= $hero['link']['title'] ?>
-                    <div> . </div>
-                    <?= $hero['link']['title'] ?>
-                    <div> . </div>
-                    <?= $hero['link']['title'] ?>
-                    <div> . </div>
+                    <?php for ($i = 0; $i <= 2; $i++) { ?>
+                        <?= $hero['link']['title'] ?>
+                        <div> . </div>
+                    <?php } ?>
                 </span>
                 <svg class="contact-hero__cta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 15">
                     <path id="Polygone_14" data-name="Polygone 14" d="M6.674,1.212a1,1,0,0,1,1.652,0l5.608,8.225A1,1,0,0,1,13.108,11H1.892a1,1,0,0,1-.826-1.563Z" transform="translate(11) rotate(90)" fill="#00938f" />
@@ -189,6 +180,9 @@ $contact = get_field('form'); ?>
             if (ICL_LANGUAGE_CODE == 'fr') {
                 echo do_shortcode('[gravityform id="2" title="false" description="false" ajax="false"]');
             } ?>
+            <?php
+
+            echo do_shortcode('[gravityform id="' . $contact['form'] . '" title="false" description="false" ajax="false"]'); ?>
         </div>
     </div>
 </section>

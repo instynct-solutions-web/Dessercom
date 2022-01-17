@@ -1,5 +1,4 @@
 import Flickity from 'flickity';
-// import 'flickity-as-nav-for';
 import 'flickity-sync';
 import 'flickity-imagesloaded';
 

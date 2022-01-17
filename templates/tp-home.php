@@ -14,9 +14,7 @@ $hero = get_field('hero'); ?>
         <ul data-hero-slider class="hero-slider__list">
             <?php foreach ($hero['list'] as $item) { ?>
                 <li class="hero-slider__item">
-                    <img class="hero-slider__image hero-slider__image--tablet" src="<?= $item['image']['url'] ?>" alt="<?= $item['image']['alt'] ?>">
                     <img class="hero-slider__image" src="<?= $item['image']['url'] ?>" alt="<?= $item['image']['alt'] ?>">
-                    <img class="hero-slider__image hero-slider__image--tablet" src="<?= $item['image']['url'] ?>" alt="<?= $item['image']['alt'] ?>">
                 </li>
             <?php
             } ?>
@@ -33,7 +31,7 @@ $hero = get_field('hero'); ?>
     </div>
     <div class="hero-slider__button-container">
         <div data-hero-slider-prev class="hero-slider__nav hero-slider__nav--prev">
-            <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
+            <svg class="hero-slider__nav-svg hero-slider__nav-svg--prev" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
                 <g id="Groupe_456" data-name="Groupe 456">
                     <g id="Groupe_454" data-name="Groupe 454">
                         <path id="Tracé_3" data-name="Tracé 3" d="M7.12,1.41l-5.7,5.7,5.7,5.71" transform="translate(-0.01 -0.41)" style="fill: none;stroke: #e7e7e7;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
@@ -43,7 +41,7 @@ $hero = get_field('hero'); ?>
             </svg>
         </div>
         <div data-hero-slider-next class="hero-slider__nav hero-slider__nav--next">
-            <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
+            <svg id="Calque_1" class="hero-slider__nav-svg hero-slider__nav-svg--next" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
                 <g id="Groupe_456" data-name="Groupe 456">
                     <g id="Groupe_454" data-name="Groupe 454">
                         <path id="Tracé_3" data-name="Tracé 3" d="M14,1l5.7,5.7L14,12.41" transform="translate(-0.41 0)" style="fill: none;stroke: #e7e7e7;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
