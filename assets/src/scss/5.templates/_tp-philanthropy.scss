@@ -132,8 +132,13 @@
 	}
 	&__bottom-icon {
 		width: rem(25);
+		height: rem(25);
 		margin: 3em auto 2em auto;
 		filter: brightness(1);
+	}
+	&__bottom-svg {
+		width: 100%;
+		height: 100%;
 	}
 }
 .philanthropy-house {
@@ -381,6 +386,7 @@
 	}
 	&__cta-text {
 		color: $navy;
+		font-weight: 700;
 		font-size: 0.8125rem;
 	}
 	&__cta-icon {
@@ -688,7 +694,8 @@
 		}
 		&__bottom-icon {
 			width: rem(40);
-			margin: 4em auto 2em auto;
+			height: rem(40);
+			margin: 6em auto 1em auto;
 		}
 	}
 	.philanthropy-house {

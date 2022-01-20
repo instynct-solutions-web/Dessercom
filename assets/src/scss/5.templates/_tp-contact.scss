@@ -235,11 +235,12 @@
 	&__cta-text {
 		color: $teal;
 		font-size: rem(13);
+		font-weight: 700;
 	}
 	&__cta-icon {
 		position: absolute;
-		height: rem(15);
-		width: rem(15);
+		height: rem(25);
+		width: rem(25);
 		transform: rotate(90deg);
 	}
 }

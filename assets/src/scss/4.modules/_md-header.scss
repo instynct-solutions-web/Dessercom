@@ -68,9 +68,6 @@
 	&__main-nav {
 		margin-top: 45px;
 		margin-bottom: 45px;
-		.menu-item {
-			font-family: $lelo;
-		}
 		&--desktop {
 			display: none;
 		}
@@ -267,16 +264,16 @@
 					display: flex;
 					flex-wrap: wrap;
 					align-items: center;
-					.menu-item {
+					&__item {
 						margin-right: 15px;
 						&:last-of-type {
 							margin-right: 0px;
 						}
-						a {
-							font-size: rem(14);
-							font-weight: 500;
-							color: $navy;
-						}
+					}
+					&__item-link {
+						font-size: rem(14);
+						font-weight: 500;
+						color: $navy;
 					}
 				}
 			}
@@ -355,16 +352,9 @@
 		&__main-nav {
 			&--desktop {
 				.menu {
-					.menu-item {
+					&__item {
 						margin-right: 30px;
-
-						&:last-of-type {
-							margin-right: 0px;
-						}
-						a {
-							font-size: rem(19);
-						}
-						&.current_page_item {
+						&--current {
 							display: inline-flex;
 							flex-wrap: wrap;
 							align-items: center;
@@ -381,6 +371,15 @@
 								bottom: -5px;
 							}
 						}
+						&:last-of-type {
+							margin-right: 0px;
+						}
+					}
+					&__item-link {
+						font-size: rem(19);
+						text-decoration: none;
+						color: $navy;
+						font-family: $lelo;
 					}
 				}
 			}

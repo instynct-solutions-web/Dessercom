@@ -40,9 +40,27 @@
 
 			<div data-header-hide class="header__nav-container">
 				<nav role="navigation" class="header__main-nav header__main-nav--desktop">
-					<?php wp_nav_menu(array(
-						'theme_location'  => 'navigation'
-					)); ?>
+					<?php
+					$mainNav = get_field('main_nav', 'options') ?>
+					<ul class="menu">
+						<?php
+						$pageTitle = get_the_title();
+						$currentPageClass = '';
+						foreach ($mainNav['list'] as $item) {
+							if ($pageTitle  == $item['link']['title']) {
+								$currentPageClass = 'menu__item--current';
+							} else {
+								$currentPageClass = '';
+							} ?>
+							<li class="menu__item <?= $currentPageClass ?>">
+
+								<a href="<?= $item['link']['url'] ?>" class="menu__item-link <?= $currentPageClass ?>">
+									<?= $item['link']['title'] ?>
+								</a>
+							</li>
+						<?php
+						} ?>
+					</ul>
 				</nav>
 				<div class="header__buttons-container">
 					<div class="header__hamburger" data-navigation-button>

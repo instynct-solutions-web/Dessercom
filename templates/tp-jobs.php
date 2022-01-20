@@ -131,7 +131,7 @@ $values = get_field('benefits_2') ?>
 </section>
 
 <?php $careers = get_field('careers') ?>
-<section data-wolfpack-section class="jobs-careers">
+<section id="careers-list" data-wolfpack-section class="jobs-careers">
     <div class="jobs-careers__container">
         <div class="jobs-careers__top">
             <h2 class="jobs-careers__title"><?= $careers['title'] ?></h2>

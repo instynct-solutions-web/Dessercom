@@ -86,7 +86,7 @@ $terms = get_terms(array(
                                 <?php
                                 } ?>
                                 <div class="team-grid__member-content">
-                                    <p class="team-grid__name"><?= $member['name'] ?><span class="team-grid__credit"><?= $member['credit'] ?></span></p>
+                                    <p class="team-grid__name"><?= $member['name'] ?><?php if ($member['credit'] != '') : ?>,<span class="team-grid__credit"><?= $member['credit'] ?></span><?php endif; ?></p>
                                     <p class="team-grid__position"><?= $member['position'] ?></p>
                                 </div>
 

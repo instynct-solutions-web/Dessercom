@@ -24,11 +24,11 @@
                     <?php
                     } ?>
                     <?php if ($question['link']) { ?>
-                        <a href="<?= $question['link']['url'] ?>" target="<?= $question['link']['targer'] ?>" class="faq__answer-link"><?= $question['link']['title'] ?></a>
+                        <a href="<?= $question['link']['url'] ?>" target="<?= $question['link']['target'] ?>" class="faq__answer-link"><?= $question['link']['title'] ?></a>
                     <?php
                     } ?>
                     <?php if ($question['file']) { ?>
-                        <a href="<?= $question['file']['url'] ?>" target="<?= $question['file']['targer'] ?>" class="faq__file-link"><?= $question['file']['title'] ?></a>
+                        <a href="<?= $question['file']['url'] ?>" target="<?= $question['file']['target'] ?>" class="faq__file-link"><?= $question['file']['title'] ?></a>
                     <?php
                     } ?>
                 </div>

@@ -13,6 +13,7 @@ export default class MapShow {
 	manageEvents() {
 		// All Dom events goes here
 		this.showMapButton.addEventListener('click', () => {
+			console.log('work');
 			this.show();
 		});
 		this.closeMapButton.addEventListener('click', () => {
@@ -21,8 +22,8 @@ export default class MapShow {
 	}
 
 	show() {
-		this.hero.classList.remove(`${this.hero.classList[0]}--hide`);
-		this.map.classList.remove(`${this.map.classList[0]}--show`);
+		this.hero.classList.add(`${this.hero.classList[0]}--hide`);
+		this.map.classList.add(`${this.map.classList[0]}--show`);
 	}
 
 	hide() {

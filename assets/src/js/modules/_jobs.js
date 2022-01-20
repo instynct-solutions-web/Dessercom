@@ -67,7 +67,7 @@ export default class Jobs {
 		background.classList.add(`${background.classList[0]}--selected`);
 	}
 
-	static loseSector(sector, button, background) {
+	static closeSector(sector, button, background) {
 		sector.classList.remove(`${sector.classList[0]}--selected`);
 		button.classList.remove(`${button.classList[0]}--selected`);
 		background.classList.remove(`${background.classList[0]}--selected`);

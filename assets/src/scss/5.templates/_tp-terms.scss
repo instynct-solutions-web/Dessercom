@@ -138,11 +138,10 @@
 	.policies {
 		overflow: hidden;
 		&__background {
-			top: auto;
-			right: -30%;
-			bottom: 0px;
-			width: 60%;
-			height: 60%;
+			top: 20vw;
+			right: -15%;
+			width: 30%;
+			height: auto;
 		}
 		&__container {
 			padding-top: 100px;
