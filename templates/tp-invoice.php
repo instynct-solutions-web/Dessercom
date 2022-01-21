@@ -12,9 +12,13 @@ get_header(); ?>
         <a href="<?= $form['link']['url'] ?>" class="invoice-form__cta">
             <span class="invoice-form__cta-text" data-circle-text>
                 <?= $form['link']['title'] ?>
+                <div> . </div>
                 <?= $form['link']['title'] ?>
+                <div> . </div>
                 <?= $form['link']['title'] ?>
+                <div> . </div>
                 <?= $form['link']['title'] ?>
+                <div> . </div>
             </span>
             <svg class="invoice-form__cta-icon" xmlns="http://www.w3.org/2000/svg" width="24.406" height="30.816" viewBox="0 0 24.406 30.816">
                 <g id="Groupe_787" data-name="Groupe 787" transform="translate(1.5 1.5)">

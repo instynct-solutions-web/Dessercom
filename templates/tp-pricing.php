@@ -10,6 +10,24 @@ get_header(); ?>
 <section data-wolfpack-section class="pricing-hero">
     <img src="<?= $hero['background']['url'] ?>" alt="<?= $hero['background']['alt'] ?>" class="pricing-hero__background">
     <div class="pricing-hero__container">
+        <a href="<?= $hero['link']['url'] ?>" class="pricing-hero__cta">
+            <span class="pricing-hero__cta-text" data-circle-text>
+                <?= $hero['link']['title'] ?>
+                <div> . </div>
+                <?= $hero['link']['title'] ?>
+                <div> . </div>
+                <?= $hero['link']['title'] ?>
+                <div> . </div>
+                <?= $hero['link']['title'] ?>
+                <div> . </div>
+            </span>
+            <svg class="pricing-hero__cta-icon" xmlns="http://www.w3.org/2000/svg" width="24.406" height="30.816" viewBox="0 0 24.406 30.816">
+                <g id="Groupe_787" data-name="Groupe 787" transform="translate(1.5 1.5)">
+                    <path id="Tracé_3" data-name="Tracé 3" d="M10.7,12.2a1.5,1.5,0,0,1-1.061-.439l-10.7-10.7a1.5,1.5,0,0,1,0-2.121,1.5,1.5,0,0,1,2.121,0L10.7,8.582l9.642-9.642a1.5,1.5,0,0,1,2.121,0,1.5,1.5,0,0,1,0,2.121l-10.7,10.7A1.5,1.5,0,0,1,10.7,12.2Z" transform="translate(0 17.113)" fill="#008884" />
+                    <path id="Ligne_1" data-name="Ligne 1" d="M0,29.316a1.5,1.5,0,0,1-1.5-1.5V0A1.5,1.5,0,0,1,0-1.5,1.5,1.5,0,0,1,1.5,0V27.816A1.5,1.5,0,0,1,0,29.316Z" transform="translate(10.703 0)" fill="#008884" />
+                </g>
+            </svg>
+        </a>
         <div class="pricing-hero__top">
             <img src="<?= $hero['icon']['url'] ?>" alt="<?= $hero['icon']['alt'] ?>" class="pricing-hero__icon">
             <p class="pricing-hero__note"><?= $hero['note'] ?></p>
@@ -81,8 +99,10 @@ $transport = get_field('transport') ?>
             </div>
             <a href="<?= $transport['link']['url'] ?>" class="pricing-transport__cta">
                 <span class="pricing-transport__cta-text" data-circle-text>
+                    <?= $transport['link']['title']  ?>
+                    <div> . </div>
                     <?= $transport['link']['title'] ?>
-                    <?= $transport['link']['title'] ?>
+                    <div> . </div>
                 </span>
                 <svg class="pricing-transport__cta-icon" xmlns="http://www.w3.org/2000/svg" width="24.406" height="30.816" viewBox="0 0 24.406 30.816">
                     <g id="Groupe_787" data-name="Groupe 787" transform="translate(1.5 1.5)">

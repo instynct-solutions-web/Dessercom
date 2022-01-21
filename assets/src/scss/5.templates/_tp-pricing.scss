@@ -4,6 +4,32 @@
 
 .pricing-hero {
 	position: relative;
+	&__cta {
+		display: inline-flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		width: 100px;
+		height: 100px;
+		position: absolute;
+		top: 40px;
+		right: 20px;
+		z-index: 1;
+	}
+	&__cta-text {
+		font-size: rem(11);
+		font-weight: 700;
+		color: $black;
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
+	&__cta-icon {
+		position: absolute;
+		transform-origin: center;
+		transform: rotate(225deg) translate(0px, 0px);
+	}
 
 	&__background {
 		position: absolute;
