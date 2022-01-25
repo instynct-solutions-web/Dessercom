@@ -162,7 +162,9 @@ $support = get_field('support') ?>
             <h3 class="services-support__title"><?= $support['title'] ?></h3>
             <p class="services-support__text"><?= $support['text'] ?></p>
             <div class="services-support__button-container">
-                <a href="<?= $support['link']['url'] ?>" class="services-support__button"><?= $support['link']['title'] ?></a>
+                <?php if ($support['link']) { ?>
+                    <a href="<?= $support['link']['url'] ?>" class="services-support__button"><?= $support['link']['title'] ?></a>
+                <?php } ?>
                 <a href="<?= $support['link_2']['url'] ?>" class="services-support__button services-support__button--secondary"><?= $support['link_2']['title'] ?></a>
             </div>
         </div>
