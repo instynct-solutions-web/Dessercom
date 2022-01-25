@@ -11,6 +11,7 @@ export default class ResearchSlider {
 		this.toggle = document.querySelector('[data-research-slider-toggle]');
 		this.close = document.querySelector('[data-research-slider-close]');
 		this.text = document.querySelector('[data-research-text]');
+		this.backgroundText = document.querySelector('[data-research-background-text]');
 		this.imageList = document.querySelector('[data-research-slider-images]');
 		this.manageEvents();
 	}
@@ -47,11 +48,12 @@ export default class ResearchSlider {
 		const closeClass = this.close.classList[0];
 		const textClass = this.text.classList[0];
 		const ulClass = this.imageList.classList[0];
-
+		const backgroundClass = this.backgroundText.classList[0];
 		this.foreground.classList.add(`${foregroundClass}--hide`);
 		this.close.classList.add(`${closeClass}--visible`);
 		this.text.classList.add(`${textClass}--visible`);
 		this.imageList.classList.add(`${ulClass}--visible`);
+		this.backgroundText.classList.add(`${backgroundClass}--visible`);
 	}
 
 	closeSlider() {
@@ -59,10 +61,11 @@ export default class ResearchSlider {
 		const closeClass = this.close.classList[0];
 		const textClass = this.text.classList[0];
 		const ulClass = this.imageList.classList[0];
-
+		const backgroundClass = this.backgroundText.classList[0];
 		this.foreground.classList.remove(`${foregroundClass}--hide`);
 		this.close.classList.remove(`${closeClass}--visible`);
 		this.text.classList.remove(`${textClass}--visible`);
 		this.imageList.classList.remove(`${ulClass}--visible`);
+		this.backgroundText.classList.remove(`${backgroundClass}--visible`);
 	}
 }

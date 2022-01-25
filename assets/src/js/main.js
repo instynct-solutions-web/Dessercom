@@ -18,6 +18,7 @@ import TermsPolicies from './modules/_termsPolicies';
 import Forms from './modules/_forms';
 import HomeServices from './modules/_homeServices';
 import Pricing from './modules/_pricing';
+import LightboxSlider from './modules/_lightboxSlider';
 
 const App = {
 	/**
@@ -57,8 +58,14 @@ const App = {
 		const termsPolicies = new TermsPolicies();
 		// Forms Scripts
 		const forms = new Forms();
-
+		// Research Slider Scripts
 		const researchSlider = new ResearchSlider();
+		// Dessercom House Slider
+		// const houseSlider = new HouseSlider();
+		// Dessercom Border Slider
+		// const bordersSlider = new BordersSlider();
+
+		const lightboxSlider = new LightboxSlider();
 		// Home Services Scripts
 		const homeServices = new HomeServices();
 		// Pricing Scripts
