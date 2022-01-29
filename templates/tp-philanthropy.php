@@ -79,6 +79,11 @@ $house = get_field('house'); ?>
                 <h2 class="philanthropy-house__title"><?= $house['title'] ?></h2>
                 <p class="philanthropy-house__text"><?= $house['text'] ?></p>
                 <p class="philanthropy-house__subtext"><?= $house['text_2'] ?></p>
+                <div class="philanthropy-house__link-container">
+                    <a href="<?= $house['phone']['url'] ?>" class="philanthropy-house__phone"><?= $house['phone']['title'] ?></a>
+                    <a href="<?= $house['website']['url'] ?>" target="<?= $house['website']['target'] ?>" class="philanthropy-house__website"><?= $house['website']['title'] ?></a>
+                </div>
+
             </div>
         </div>
     </div>
@@ -133,7 +138,11 @@ $research = get_field('research') ?>
             </div>
             <div class="philanthropy-research__text-container">
                 <p class="philanthropy-research__text"><?= $research['text'] ?></p>
+                <div class="philanthropy-research__link-container">
+                    <a href="<?= $research['link']['url'] ?>" target="<?= $research['link']['target'] ?>" class="philanthropy-research__link"><?= $research['link']['title'] ?></a>
+                </div>
             </div>
+
             <div class="philanthropy-research__toggle-container">
                 <div data-research-slider-toggle class="philanthropy-research__toggle">
                     <svg class="philanthropy-research__toggle-svg" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">

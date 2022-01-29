@@ -128,56 +128,65 @@
 	$contentList[1] = get_field('borders');
 	if ($contentList[0]) {
 		foreach ($contentList as $content) { ?>
-			<div data-stay data-lightbox-slider-container class="lightbox-slider">
-				<div data-lightbox-slider-close class="lightbox-slider__cta">
-					<span class="lightbox-slider__cta-text" data-circle-text>
-						<?php for ($i = 0; $i <= 5; $i++) { ?>
-							<?= $content['back'] ?>
-							<div> . </div>
+			<div data-lightbox-slider-container class="lightbox-slider">
+				<div class="lightbox-slider__container">
+					<div class="lightbox-slider__cta-wrapper">
+						<div data-lightbox-slider-close class="lightbox-slider__cta">
+							<span class="lightbox-slider__cta-text" data-circle-text>
+								<?php for ($i = 0; $i <= 5; $i++) { ?>
+									<?= $content['back'] ?>
+									<div> . </div>
+								<?php
+								} ?>
+							</span>
+							<svg class="lightbox-slider__cta-icon" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.1 16.66">
+								<g id="Groupe_1000" data-name="Groupe 1000">
+									<g id="Groupe_999" data-name="Groupe 999">
+										<g id="Groupe_796" data-name="Groupe 796">
+											<line id="Ligne_1" data-name="Ligne 1" x1="1" y1="15.66" x2="15.66" y2="1" style="fill: none;stroke: #041e36;stroke-linecap: round;stroke-miterlimit: 9.99999982885729;stroke-width: 1.999999965771458px" />
+										</g>
+										<line id="Ligne_133" data-name="Ligne 133" x1="1" y1="1" x2="16.1" y2="15.63" style="fill: none;stroke: #041e36;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
+									</g>
+								</g>
+							</svg>
+						</div>
+					</div>
+
+					<ul data-lightbox-slider class="lightbox-slider__list ">
+						<?php foreach ($content['list'] as $slide) { ?>
+							<li class="lightbox-slider__item ">
+								<img src="<?= $slide['image']['url'] ?>" alt="<?= $slide['image']['alt'] ?>" class="lightbox-slider__image">
+							</li>
 						<?php
 						} ?>
-					</span>
-					<svg class="lightbox-slider__cta-icon" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.1 16.66">
-						<g id="Groupe_1000" data-name="Groupe 1000">
-							<g id="Groupe_999" data-name="Groupe 999">
-								<g id="Groupe_796" data-name="Groupe 796">
-									<line id="Ligne_1" data-name="Ligne 1" x1="1" y1="15.66" x2="15.66" y2="1" style="fill: none;stroke: #041e36;stroke-linecap: round;stroke-miterlimit: 9.99999982885729;stroke-width: 1.999999965771458px" />
-								</g>
-								<line id="Ligne_133" data-name="Ligne 133" x1="1" y1="1" x2="16.1" y2="15.63" style="fill: none;stroke: #041e36;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
-							</g>
-						</g>
-					</svg>
-				</div>
-				<ul data-lightbox-slider class="lightbox-slider__list ">
-					<?php foreach ($content['list'] as $slide) { ?>
-						<li class="lightbox-slider__item ">
-							<img src="<?= $slide['image']['url'] ?>" alt="<?= $slide['image']['alt'] ?>" class="lightbox-slider__image">
-						</li>
-					<?php
-					} ?>
-				</ul>
-				<div class="lightbox-slider__button-container">
-					<div data-lightbox-slider-prev class="lightbox-slider__nav lightbox-slider__nav--prev">
-						<svg class="lightbox-slider__nav-svg lightbox-slider__nav-svg--prev" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
-							<g id="Groupe_456" data-name="Groupe 456">
-								<g id="Groupe_454" data-name="Groupe 454">
-									<path id="Tracé_3" data-name="Tracé 3" d="M7.12,1.41l-5.7,5.7,5.7,5.71" transform="translate(-0.01 -0.41)" style="fill: none;stroke: #e7e7e7;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
-									<line id="Ligne_1" data-name="Ligne 1" x1="1.41" y1="6.7" x2="19.73" y2="6.7" style="fill: none;stroke: #e7e7e7;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
-								</g>
-							</g>
-						</svg>
+					</ul>
+					<div class="lightbox-slider__button-wrapper">
+						<div class="lightbox-slider__button-container">
+							<div data-lightbox-slider-prev class="lightbox-slider__nav lightbox-slider__nav--prev">
+								<svg class="lightbox-slider__nav-svg lightbox-slider__nav-svg--prev" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
+									<g id="Groupe_456" data-name="Groupe 456">
+										<g id="Groupe_454" data-name="Groupe 454">
+											<path id="Tracé_3" data-name="Tracé 3" d="M7.12,1.41l-5.7,5.7,5.7,5.71" transform="translate(-0.01 -0.41)" style="fill: none;stroke: #e7e7e7;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
+											<line id="Ligne_1" data-name="Ligne 1" x1="1.41" y1="6.7" x2="19.73" y2="6.7" style="fill: none;stroke: #e7e7e7;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
+										</g>
+									</g>
+								</svg>
+							</div>
+							<div data-lightbox-slider-next class="lightbox-slider__nav lightbox-slider__nav--next">
+								<svg id="Calque_1" class="lightbox-slider__nav-svg lightbox-slider__nav-svg--next" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
+									<g id="Groupe_456" data-name="Groupe 456">
+										<g id="Groupe_454" data-name="Groupe 454">
+											<path id="Tracé_3" data-name="Tracé 3" d="M14,1l5.7,5.7L14,12.41" transform="translate(-0.41 0)" style="fill: none;stroke: #e7e7e7;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
+											<line id="Ligne_1" data-name="Ligne 1" x1="19.32" y1="6.7" x2="1" y2="6.7" style="fill: none;stroke: #e7e7e7;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
+										</g>
+									</g>
+								</svg>
+							</div>
+						</div>
 					</div>
-					<div data-lightbox-slider-next class="lightbox-slider__nav lightbox-slider__nav--next">
-						<svg id="Calque_1" class="lightbox-slider__nav-svg lightbox-slider__nav-svg--next" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
-							<g id="Groupe_456" data-name="Groupe 456">
-								<g id="Groupe_454" data-name="Groupe 454">
-									<path id="Tracé_3" data-name="Tracé 3" d="M14,1l5.7,5.7L14,12.41" transform="translate(-0.41 0)" style="fill: none;stroke: #e7e7e7;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
-									<line id="Ligne_1" data-name="Ligne 1" x1="19.32" y1="6.7" x2="1" y2="6.7" style="fill: none;stroke: #e7e7e7;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
-								</g>
-							</g>
-						</svg>
-					</div>
+
 				</div>
+
 			</div>
 
 	<?php

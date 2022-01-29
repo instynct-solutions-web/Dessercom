@@ -196,6 +196,20 @@
 		margin-bottom: 2em;
 		line-height: 1.4em;
 	}
+	&__link-container {
+		display: flex;
+		flex-direction: column;
+		width: 70%;
+		align-items: flex-start;
+	}
+	&__phone {
+		color: $navy;
+		font-size: rem(13);
+	}
+	&__website {
+		color: $navy;
+		font-size: rem(13);
+	}
 }
 
 .philanthropy-research {
@@ -281,7 +295,7 @@
 		color: $white;
 		font-size: rem(20);
 		line-height: 1.6em;
-		margin: 2em 0 6em 0;
+		margin: 2em 0 3em 0;
 	}
 	&__top {
 		border-top: $white 1px solid;
@@ -361,6 +375,12 @@
 	}
 	&__toggle-svg {
 		width: 50%;
+	}
+	&__link-container {
+		margin-bottom: 3em;
+	}
+	&__link {
+		@include button-primary;
 	}
 }
 .philanthropy-borders {
@@ -599,8 +619,9 @@
 		}
 		&__text-container {
 			display: flex;
-			align-items: center;
+			flex-direction: column;
 			justify-content: flex-start;
+			align-items: flex-start;
 		}
 		&__text {
 			width: 70%;
@@ -739,6 +760,14 @@
 		}
 		&__toggle {
 			transform: translateY(-100px);
+		}
+		&__phone {
+			color: $navy;
+			font-size: rem(16);
+		}
+		&__website {
+			color: $navy;
+			font-size: rem(16);
 		}
 	}
 	.philanthropy-research {
