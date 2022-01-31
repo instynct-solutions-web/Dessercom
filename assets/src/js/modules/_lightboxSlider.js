@@ -37,7 +37,6 @@ export default class LightboxSlider {
 					this.mouseEvent = e;
 					this.toggleSlider(i);
 					if (window.innerWidth >= 1280) {
-						console.log(this.mouseEvent);
 						this.clicked = true;
 						this.startLoop(this.mouseEvent, i);
 					}
@@ -109,7 +108,6 @@ export default class LightboxSlider {
 		}
 
 		// x position within the element.
-		console.log(xRatio);
 		const mapSpeed = this.map(xRatio, 0, 100, 6, -6);
 		this.speedX = mapSpeed;
 		flickitySlider.x += Math.floor(this.speedX);
@@ -119,16 +117,20 @@ export default class LightboxSlider {
 	}
 
 	toggleSlider(i) {
+		const toggleClass = this.toggleList[i].classList[0];
 		const closeClass = this.closeList[i].classList[0];
 		const sliderContainerClass = this.sliderContainerList[i].classList[0];
 		this.closeList[i].classList.add(`${closeClass}--visible`);
 		this.sliderContainerList[i].classList.add(`${sliderContainerClass}--visible`);
+		this.toggleList[i].classList.add(`${toggleClass}--animate`);
 	}
 
 	closeSlider(i) {
+		const toggleClass = this.toggleList[i].classList[0];
 		const closeClass = this.closeList[i].classList[0];
 		const sliderContainerClass = this.sliderContainerList[i].classList[0];
 		this.closeList[i].classList.remove(`${closeClass}--visible`);
 		this.sliderContainerList[i].classList.remove(`${sliderContainerClass}--visible`);
+		this.toggleList[i].classList.remove(`${toggleClass}--animate`);
 	}
 }
