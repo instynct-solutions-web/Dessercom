@@ -11,6 +11,7 @@ export default class LightboxSlider {
 		this.closeList = document.querySelectorAll('[data-lightbox-slider-close]');
 		this.prevList = document.querySelectorAll('[data-lightbox-slider-prev]');
 		this.nextList = document.querySelectorAll('[data-lightbox-slider-next]');
+		this.clicked = false;
 		this.flktyList = [];
 		this.speedX = 0;
 		this.velocity = 0.1;
@@ -24,8 +25,9 @@ export default class LightboxSlider {
 		if (this.sliderList) {
 			for (let i = 0; i < this.sliderList.length; i++) {
 				this.initSlider(this.sliderList[i], i);
-				this.sliderContainerList[i].addEventListener('mousemove', (event) => {
+				this.sliderList[i].addEventListener('mousemove', (event) => {
 					this.mouseEvent = event;
+					this.clicked = false;
 				});
 			}
 		}
@@ -34,7 +36,11 @@ export default class LightboxSlider {
 				this.toggleList[i].addEventListener('click', (e) => {
 					this.mouseEvent = e;
 					this.toggleSlider(i);
-					this.startLoop(this.mouseEvent, i);
+					if (window.innerWidth >= 1280) {
+						console.log(this.mouseEvent);
+						this.clicked = true;
+						this.startLoop(this.mouseEvent, i);
+					}
 				});
 			}
 		}
@@ -62,12 +68,11 @@ export default class LightboxSlider {
 			// options
 			wrapAround: true,
 			imagesLoaded: true,
-			draggable: true,
+			draggable: false,
 			freeScroll: true,
 			pageDots: false,
 			prevNextButtons: false,
 		});
-		console.log(this.flktyList[index]);
 	}
 
 	startLoop(event, index) {
@@ -95,19 +100,21 @@ export default class LightboxSlider {
 	moveSlider(index, event, rect, xWidth, flickitySlider) {
 		this.loop = undefined;
 		const e = this.mouseEvent;
-		const x = e.clientX - rect.left; // x position within the element.
-		const xRatio = (x / xWidth) * 100;
-		const mapSpeed = this.map(xRatio, 0, 100, -10, 10);
+		const x = e.clientX - rect.left;
+		let xRatio = (x / xWidth) * 100;
+		if (this.clicked == true) {
+			xRatio = 70;
+		} else {
+			xRatio = (x / xWidth) * 100;
+		}
+
+		// x position within the element.
+		console.log(xRatio);
+		const mapSpeed = this.map(xRatio, 0, 100, 6, -6);
 		this.speedX = mapSpeed;
 		flickitySlider.x += Math.floor(this.speedX);
 		flickitySlider.integratePhysics();
 		flickitySlider.settle(flickitySlider.x);
-
-		/* 		for (let i = 0; i < flickitySlider.slides.length; i++) {
-			flickitySlider.slides[i].updateTarget();
-		}
-		flickitySlider.updateSelectedSlide();
-		console.log(flickitySlider.slides[0]); */
 		this.startLoop(event, index);
 	}
 

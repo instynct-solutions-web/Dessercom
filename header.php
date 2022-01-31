@@ -154,7 +154,7 @@
 
 					<ul data-lightbox-slider class="lightbox-slider__list ">
 						<?php foreach ($content['list'] as $slide) { ?>
-							<li class="lightbox-slider__item ">
+							<li data-lightbox-slider-item class="lightbox-slider__item ">
 								<img src="<?= $slide['image']['url'] ?>" alt="<?= $slide['image']['alt'] ?>" class="lightbox-slider__image">
 							</li>
 						<?php
