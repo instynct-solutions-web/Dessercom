@@ -157,6 +157,9 @@
 	&__media {
 		margin: 2em 0;
 	}
+	&__logo-container {
+		position: relative;
+	}
 	&__plus {
 		height: 85%;
 		width: 62%;
@@ -178,12 +181,13 @@
 		position: absolute;
 		left: 0;
 		right: 0;
+		bottom: 8%;
 		margin: auto;
-		transform: translateY(-60px) scale(1);
+		transform: scale(1);
 		transition: background-color 0.5s linear 0.5s, transform 0.5s ease-in-out 0.3s;
 		&--animate {
 			background-color: $white;
-			transform: translateY(-60px) scale(100);
+			transform: scale(100);
 			> * {
 				transform: scale(0);
 			}
@@ -441,6 +445,9 @@
 	&__media {
 		margin: 2em 0;
 	}
+	&__logo-container {
+		position: relative;
+	}
 	&__plus {
 		height: 85%;
 		width: 62%;
@@ -462,12 +469,13 @@
 		position: absolute;
 		left: 0;
 		right: 0;
+		bottom: 8%;
 		margin: auto;
-		transform: translateY(-60px) scale(1);
-		transition: background-color 0.2s linear 0.5s, transform 0.2s ease-in-out 0.3s;
+		transform: scale(1);
+		transition: background-color 0.5s linear 0.5s, transform 0.5s ease-in-out 0.3s;
 		&--animate {
 			background-color: $white;
-			transform: translateY(-60px) scale(100);
+			transform: scale(100);
 			> * {
 				transform: scale(0);
 			}
@@ -695,7 +703,7 @@
 		}
 		&__toggle {
 			left: unset;
-			right: 10%;
+			right: 5%;
 			margin: none;
 		}
 	}
@@ -779,10 +787,10 @@
 			transform: translateX(-25%);
 		}
 		&__toggle {
-			transform: translateY(-100px) scale(1);
+			transform: scale(1);
 			transition: background-color 0s linear 0s, transform 0s ease-in-out 0s;
 			&--animate {
-				transform: translateY(-100px) scale(100);
+				transform: scale(100);
 				transition: background-color 0.2s linear 0.8s, transform 1s ease-in-out 0.3s;
 			}
 		}
@@ -889,9 +897,9 @@
 			transform: translateX(-15%);
 		}
 		&__toggle {
+			margin: 0;
+			right: 30%;
 			left: unset;
-			right: 10%;
-			margin: none;
 			transform: scale(1);
 			transition: background-color 0s linear 0s, transform 0s ease-in-out 0s;
 			&--animate {
