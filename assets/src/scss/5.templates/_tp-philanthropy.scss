@@ -889,13 +889,13 @@
 			transform: translateX(-15%);
 		}
 		&__toggle {
-			margin: auto;
-			left: 0;
-			right: 0;
-			transform: translate(150px, -45px) scale(1);
+			left: unset;
+			right: 10%;
+			margin: none;
+			transform: scale(1);
 			transition: background-color 0s linear 0s, transform 0s ease-in-out 0s;
 			&--animate {
-				transform: translate(150px, -45px) scale(100);
+				transform: scale(100);
 				transition: background-color 0.2s linear 0.8s, transform 1s ease-in-out 0.3s;
 			}
 		}
