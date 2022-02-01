@@ -20,55 +20,43 @@ import HomeServices from './modules/_homeServices';
 import Pricing from './modules/_pricing';
 import LightboxSlider from './modules/_lightboxSlider';
 import ContactForm from './modules/_contactForm';
+import Swup from 'swup';
+import SwupBodyClassPlugin from '@swup/body-class-plugin';
 
 const App = {
 	/**
 	 * App.init
 	 */
 	init() {
-		// Calculate Height Scripts
-		const calculateHeight = new CalculateHeight();
-		// Wolfpack Scripts
-		const wolfpack = new Wolfpack();
-
-		const heroSlider = new HeroSlider();
-
-		const videoToggle = new VideoToggle();
-
-		const mapShow = new MapShow();
-
-		const canvas = new Canvas();
-
-		const servicesDrawer = new ServicesDrawer();
-
-		const contactDrawer = new ContactDrawer();
-
-		const contactShow = new ContactShow();
-
-		// Circle Text Scripts
-		const circleText = new CircleText();
-		// Menu Scripts
-		const menu = new Menu();
-		// History Slider Scripts
-		const historySlider = new HistorySlider();
-		// Jobs Slider Scripts
-		const jobsSlider = new JobsSlider();
-		// Jobs Scripts
-		const jobs = new Jobs();
-		// TermsPolicies Scripts
-		const termsPolicies = new TermsPolicies();
-		// Forms Scripts
-		const forms = new Forms();
-		// Research Slider Scripts
-		const researchSlider = new ResearchSlider();
-
-		const lightboxSlider = new LightboxSlider();
-		// Home Services Scripts
-		const homeServices = new HomeServices();
-		// Pricing Scripts
-		const pricing = new Pricing();
-
-		const contactForm = new ContactForm();
+		// Swup Scripts
+		const swup = new Swup({
+			plugins: [new SwupBodyClassPlugin()],
+		});
+		function init() {
+			const calculateHeight = new CalculateHeight();
+			const wolfpack = new Wolfpack();
+			const heroSlider = new HeroSlider();
+			const videoToggle = new VideoToggle();
+			const mapShow = new MapShow();
+			const canvas = new Canvas();
+			const servicesDrawer = new ServicesDrawer();
+			const contactDrawer = new ContactDrawer();
+			const contactShow = new ContactShow();
+			const circleText = new CircleText();
+			const menu = new Menu();
+			const historySlider = new HistorySlider();
+			const jobsSlider = new JobsSlider();
+			const jobs = new Jobs();
+			const termsPolicies = new TermsPolicies();
+			const forms = new Forms();
+			const researchSlider = new ResearchSlider();
+			const lightboxSlider = new LightboxSlider();
+			const homeServices = new HomeServices();
+			const pricing = new Pricing();
+			const contactForm = new ContactForm();
+		}
+		init();
+		swup.on('contentReplaced', init);
 	},
 };
 

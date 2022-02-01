@@ -10,8 +10,8 @@ get_header(); ?>
 <?php
 $hero = get_field('hero'); ?>
 <section class="hero-slider" data-wolfpack-section>
-    <div class="hero-slider__container">
-        <ul data-hero-slider class="hero-slider__list">
+    <div class="hero-slider__container" data-tadam data-tadam-threshold=-1>
+        <ul data-hero-slider class="hero-slider__list" data-tadam-animate="x-0--rotation-5">
             <?php foreach ($hero['list'] as $item) { ?>
                 <li class="hero-slider__item">
                     <img class="hero-slider__image" src="<?= $item['image']['url'] ?>" alt="<?= $item['image']['alt'] ?>">
@@ -23,7 +23,7 @@ $hero = get_field('hero'); ?>
             <ul data-hero-slider-nav class="hero-slider__title-list">
                 <?php foreach ($hero['list'] as $item) { ?>
                     <li class="hero-slider__title-item">
-                        <p class="hero-slider__title"><?= $item['title'] ?></p>
+                        <p class="hero-slider__title" data-words data-tadam-animate="words--opacity-1--y-0--delay-1.1"><?= $item['title'] ?></p>
                     </li>
                 <?php } ?>
             </ul>
@@ -67,11 +67,11 @@ $hero = get_field('hero'); ?>
 $highlight = get_field('highlight');
 ?>
 <section class="home-highlight" data-wolfpack-section>
-    <div class="home-highlight__top-container">
+    <div class="home-highlight__top-container" data-tadam data-tadam-threshold="100">
         <div class="home-highlight__text-container">
-            <h1 class="home-highlight__text"><?= $highlight['text']  ?></h1>
+            <h1 class="home-highlight__text" data-letters data-tadam-animate="letters-lines"><?= $highlight['text']  ?></h1>
         </div>
-        <svg class="home-highlight__image" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 181.567 163.488">
+        <svg class="home-highlight__image" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 181.567 163.488" data-tadam-animate="mask-image">
             <defs>
                 <pattern id="image" patternContentUnits="objectBoundingBox" width="1" height="1">
                     <image x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice" xlink:href="<?= $highlight['image']['url']  ?>"></image>
@@ -80,10 +80,11 @@ $highlight = get_field('highlight');
             <path id="Tracé_974" data-name="Tracé 974" d="M178.728,151.529c-6.956,12.172-24.362,15.327-38.914,7.036-1.2-.695-49.044-28.243-49.044-28.243l.049-.08L41.9,158.725c-14.49,8.4-31.927,5.4-38.963-6.686v-.031C-4.1,139.9,1.926,123.262,16.392,114.835c1.15-.64,45.384-26.1,48.834-28.077v.129H65.6l-.16-.264-.215.135V30.3C65.227,13.562,76.593,0,90.6,0s25.383,13.562,25.383,30.3c0,1.31-.24,51.375-.271,56.215l-.209.369h.209v-.369l.031-.055,49.179,28C179.478,122.751,185.653,139.333,178.728,151.529Z" transform="translate(0)" fill="url(#image)" />
         </svg>
     </div>
-    <div class="home-highlight__bottom-container">
+    <div class="home-highlight__bottom-container" data-tadam data-tadam-threshold="100">
         <div class="home-highlight__note-wrapper">
-            <p class="home-highlight__note home-highlight__note--left"><?= $highlight['left_note']  ?></p>
-            <p class="home-highlight__note home-highlight__note--right"><?= $highlight['right_note']  ?></p>
+            <span class="home-highlight__note-separator" data-tadam-animate="scaleX-1"></span>
+            <p class="home-highlight__note home-highlight__note--left" data-letters data-tadam-animate="letters"><?= $highlight['left_note']  ?></p>
+            <p class="home-highlight__note home-highlight__note--right" data-letters data-tadam-animate="letters--delay-0.2"><?= $highlight['right_note']  ?></p>
         </div>
 
     </div>
@@ -112,13 +113,16 @@ $index = 0;
             <?php
             } ?>
         </div>
-        <div class="home-services__foreground">
+        <div class="home-services__foreground" data-tadam data-tadam-threshold="100">
             <div class="home-services__info">
-                <h2 class="home-services__note"><?= $services['top_note'] ?></h2>
-                <ul class="home-services__list">
+                <h2 class="home-services__note" data-letters data-tadam-animate="letters-lines"><?= $services['top_note'] ?></h2>
+                <ul class="home-services__list" data-tadam-animate="home-services">
                     <?php foreach ($services['list'] as $item) { ?>
                         <li class="home-services__item" data-home-service>
-                            <a href="<?= $item['link']['url'] ?>" class="home-services__link"><?= $item['link']['title'] ?>
+                            <a href="<?= $item['link']['url'] ?>" class="home-services__link">
+                                <span class="home-services__link-content" data-letters>
+                                    <?= $item['link']['title'] ?>
+                                </span>
                                 <span class="home-services__arrow">
                                     <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.19 14.19">
                                         <g id="Groupe_789" data-name="Groupe 789">
@@ -127,6 +131,9 @@ $index = 0;
                                         </g>
                                     </svg>
                                 </span>
+                                <div class="home-services__link-background-container">
+                                    <span class="home-services__link-background"></span>
+                                </div>
                             </a>
                         </li>
                     <?php

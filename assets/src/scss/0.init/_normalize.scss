@@ -106,11 +106,6 @@ select {
 
 a {
 	text-decoration: none;
-	opacity: 1;
-	transition: opacity 0.3s ease-in-out;
-	&:hover {
-		opacity: 0.5;
-	}
 }
 
 /* Remove all animations and transitions for people that prefer not to see them */

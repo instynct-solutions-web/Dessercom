@@ -69,6 +69,7 @@
 		"webpack-stream": "6.1.2"
 	},
 	"dependencies": {
+		"@swup/body-class-plugin": "^1.0.2",
 		"circletype": "^2.3.0",
 		"flickity": "^2.2.2",
 		"flickity-as-nav-for": "^2.0.1",
@@ -82,6 +83,7 @@
 		"scrollmagic": "^2.0.8",
 		"scrollmagic-plugin-gsap": "^1.0.4",
 		"smooth-scrollbar": "^8.6.2",
+		"swup": "^2.0.14",
 		"virtual-scroll": "^2.1.1"
 	}
 }

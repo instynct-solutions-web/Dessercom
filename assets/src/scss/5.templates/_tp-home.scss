@@ -39,8 +39,14 @@
 		text-align: center;
 		padding: 0.5em;
 	}
+	&__title-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 15px, 0);
+	}
 	&__list {
-		transform: rotate(-5deg);
+		transform: rotate(-5deg) translateX(-200vw);
 		width: 200vw;
 		margin-bottom: 2em;
 	}
@@ -119,13 +125,21 @@
 		@include container;
 	}
 	&__text {
-		font-size: rem(40);
+		font-size: 4.5vw;
 		letter-spacing: rem(-1.6);
 		color: $navy;
 	}
+	&__text-letter {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 25px, 0);
+	}
 	&__image {
+		opacity: 0;
+		visibility: hidden;
 		width: calc(100% + 40px);
-		transform: translateX(40px);
+		transform: translateX(40px) scale(1.2);
 	}
 	&__bottom-container {
 		margin-top: 1em;
@@ -135,11 +149,28 @@
 		padding: 1em 0;
 		display: flex;
 		justify-content: space-between;
-		border-top: 1px $gray solid;
+		position: relative;
+	}
+	&__note-separator {
+		display: block;
+		width: 100%;
+		height: 1px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: $gray;
+		transform-origin: left;
+		transform: scaleX(0);
 	}
 	&__note {
 		color: $navy;
 		font-size: rem(14);
+	}
+	&__note-letter {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 8px, 0);
 	}
 }
 .home-services {
@@ -152,6 +183,12 @@
 		@include note;
 		color: $white;
 		max-width: rem(150);
+	}
+	&__note-letter {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 8px, 0);
 	}
 	&__list {
 		padding: 2em 0;
@@ -174,6 +211,12 @@
 		font-size: rem(30);
 		display: flex;
 		justify-content: space-between;
+	}
+	&__link-content-letter {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 25px, 0);
 	}
 	&__arrow {
 		display: block;
@@ -324,7 +367,6 @@
 			width: 50%;
 		}
 		&__list {
-			transform: rotate(-5deg);
 			width: 200vw;
 			margin-bottom: 2em;
 		}
@@ -353,7 +395,6 @@
 			padding-top: 20px;
 		}
 		&__text {
-			font-size: rem(50);
 			padding-bottom: 200px;
 		}
 		&__image {
@@ -362,7 +403,7 @@
 			left: -50px;
 			width: calc(76% - 80px);
 			height: calc(76% - 80px);
-			transform: translateX(0px);
+			transform: translateX(0px) scale(1.2);
 		}
 	}
 	.home-services {
@@ -382,13 +423,49 @@
 				width: 200%;
 			}
 		}
+		&__link {
+			overflow: hidden;
+			position: relative;
+			transition: color 0.5s ease;
+		}
+		&__link-background-container {
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			transform-origin: left;
+			transform: scaleX(0);
+		}
+		&__link-background {
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			border-radius: 6px;
+			background-color: $teal;
+			transform-origin: left;
+			transform: scaleX(0);
+			transition: transform 0.5s ease;
+		}
+		&__link-content {
+			position: relative;
+			z-index: 1;
+		}
+		&__arrow {
+			z-index: 1;
+		}
 		&__item {
 			&--selected {
 				.home-services {
 					&__link {
-						background-color: $teal;
 						color: $navy;
-						border-radius: 6px;
+					}
+					&__link-background {
+						transform: scaleX(1);
 					}
 					&__arrow {
 						svg {
@@ -543,7 +620,6 @@
 			padding-top: 0px;
 		}
 		&__text {
-			font-size: rem(90);
 			padding-bottom: 0px;
 			margin-bottom: 0px;
 		}
