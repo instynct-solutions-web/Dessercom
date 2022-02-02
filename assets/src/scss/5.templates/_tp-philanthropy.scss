@@ -142,13 +142,14 @@
 	}
 }
 .philanthropy-house {
+	position: relative;
+	z-index: 20;
 	&__container {
 		@include container;
 	}
-
 	&__note {
-		width: rem(150);
 		@include note;
+		width: rem(150);
 		margin: 3em 0;
 	}
 	&__image {
@@ -791,7 +792,7 @@
 			transition: background-color 0s linear 0s, transform 0s ease-in-out 0s;
 			&--animate {
 				transform: scale(100);
-				transition: background-color 0.2s linear 0.8s, transform 1s ease-in-out 0.3s;
+				transition: background-color 0.3s linear 1s, transform 0.7s ease-in-out 0.2s;
 			}
 		}
 		&__phone {
