@@ -31,7 +31,7 @@
 				</div>
 			</div>
 			<div class="header__main">
-				<a data-header-logo href="/" class="header__logo-container" data-tadam-animate="opacity-1--y-0--delay-0.5">
+				<a data-header-logo href="/" class="header__logo-container" data-tadam-animate="opacity-1--y-0--delay-0.4">
 					<img data-header-logo src="<?= $header['logo']['url'] ?>" alt="<?= $header['logo']['alt'] ?>" class="header__logo header__logo--desktop">
 					<svg class="header__logo header__logo--mobile" xmlns="http://www.w3.org/2000/svg" width="48" height="41.362" viewBox="0 0 48 41.362">
 						<g id="Groupe_163" data-name="Groupe 163" transform="translate(-150.322 -21.855)">
@@ -48,7 +48,7 @@
 					<nav role="navigation" class="header__main-nav header__main-nav--desktop">
 						<?php
 						$mainNav = get_field('main_nav', 'options') ?>
-						<ul class="menu" data-tadam-animate="navigation">
+						<ul class="menu">
 							<?php
 							$pageTitle = get_the_title();
 							$currentPageClass = '';
@@ -58,8 +58,7 @@
 								} else {
 									$currentPageClass = '';
 								} ?>
-								<li class="menu__item <?= $currentPageClass ?>">
-
+								<li class="menu__item <?= $currentPageClass ?>" data-tadam-animate="opacity-1--y-0--delay-0.4">
 									<a href="<?= $item['link']['url'] ?>" class="menu__item-link <?= $currentPageClass ?>">
 										<?= $item['link']['title'] ?>
 									</a>
@@ -69,13 +68,13 @@
 						</ul>
 					</nav>
 					<div class="header__buttons-container">
-						<div class="header__hamburger" data-navigation-button data-tadam-animate="scaleX-1--delay-0.7">
+						<div class="header__hamburger" data-navigation-button data-tadam-animate="scaleX-1--delay-0.5">
 							<span class="header__hamburger-line" data-tadam-animate="scaleX-1--delay-1.3"></span>
 							<span class="header__hamburger-line" data-tadam-animate="scaleX-1--delay-1.4"></span>
 							<span class="header__hamburger-line" data-tadam-animate="scaleX-1--delay-1.5"></span>
 						</div>
-						<div class="header__button" data-tadam-animate="scaleX-1--delay-0.7">
-							<a href="<?= $header['button']['url'] ?>" class="header__button-label" data-tadam-animate="opacity-1--y-0--delay-1.4"><?= $header['button']['title'] ?></a>
+						<div class="header__button" data-tadam-animate="scaleX-1--delay-0.5">
+							<a href="<?= $header['button']['url'] ?>" class="header__button-label" data-tadam-animate="opacity-1--y-0--delay-1"><?= $header['button']['title'] ?></a>
 						</div>
 					</div>
 				</div>

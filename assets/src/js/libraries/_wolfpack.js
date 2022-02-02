@@ -747,6 +747,7 @@ export default class Wolfpack {
 		// Watch scroll events
 		this.updateWolfpackHeight = false;
 		this.updateScrollbarHeight = false;
+		this.updateParallaxTop = false;
 		this.virtualScroll.on((e) => {
 			if (!this.updateWolfpackHeight) {
 				this.updateWolfpackHeight = true;
@@ -775,6 +776,13 @@ export default class Wolfpack {
 					this.scrollbarScrollLimit[i] = (this.scrollbarHeight[i] - this.scrollbarThumbHeight[i]) * -1;
 					this.scrollbarTransform[i] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
 					this.updateScrollbar(i);
+				}
+			}
+			if (!this.updateParallaxTop) {
+				this.updateParallaxTop = true;
+				for (let i = 0; i < this.parallaxList.length; i += 1) {
+					this.parallaxTop[i] = this.parallaxList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
+					this.parallaxStop[i] = parseFloat(this.parallaxList[i].offsetHeight + this.parallaxList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]) + this.windowHeight);
 				}
 			}
 			if (this.wolfpackList.length !== 0) {
