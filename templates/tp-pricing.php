@@ -97,7 +97,7 @@ $transport = get_field('transport') ?>
                 <span class="pricing-transport__separator" data-tadam-animate="scaleX-1"></span>
                 <p class="pricing-transport__note" data-lines data-tadam-animate="lines--delay-0.2"><?= $transport['note'] ?></p>
             </div>
-            <a href="<?= $transport['link']['url'] ?>" class="pricing-transport__cta">
+            <a href="<?= $transport['link']['url'] ?>" class="pricing-transport__cta" data-tadam-animate="opacity-1--rotation-0">
                 <span class="pricing-transport__cta-text" data-circle-text>
                     <?= $transport['link']['title']  ?>
                     <div> . </div>
@@ -125,8 +125,8 @@ $transport = get_field('transport') ?>
             </svg>
             <div class="pricing-transport__text-container">
                 <h2 class="pricing-transport__title" data-lines data-tadam-animate="lines--delay-0.5"><?= $transport['title'] ?></h2>
-                <p class="pricing-transport__text"><?= $transport['text'] ?></p>
-                <p class="pricing-transport__subtext"><?= $transport['subtext'] ?></p>
+                <p class="pricing-transport__text" data-tadam-animate="opacity-1--y-0--delay-0.6"><?= $transport['text'] ?></p>
+                <p class="pricing-transport__subtext" data-tadam-animate="opacity-1--y-0--delay-0.7"><?= $transport['subtext'] ?></p>
             </div>
         </div>
     </div>

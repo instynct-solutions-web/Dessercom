@@ -26,7 +26,15 @@ export default class Tadam {
 				delay: 0.5,
 				force3D: true,
 			});
-		} else if (animation === 'opacity-1--y-0--delay-0.sca') {
+		} else if (animation === 'opacity-1--y-0--delay-0.6') {
+			TweenLite.to(element, 1.5, {
+				ease: Power4.easeInOut,
+				autoAlpha: 1,
+				y: 0,
+				delay: 0.6,
+				force3D: true,
+			});
+		} else if (animation === 'opacity-1--y-0--delay-0.7') {
 			TweenLite.to(element, 1.5, {
 				ease: Power4.easeInOut,
 				autoAlpha: 1,
@@ -103,6 +111,13 @@ export default class Tadam {
 				ease: Power4.easeInOut,
 				height: '100%',
 				scale: 1,
+				force3D: true,
+			});
+		} else if (animation === 'opacity-1--rotation-0') {
+			TweenLite.to(element, 3, {
+				ease: Power4.easeInOut,
+				autoAlpha: 1,
+				rotation: 0,
 				force3D: true,
 			});
 		} else if (animation === 'letters-lines') {
