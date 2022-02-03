@@ -20,6 +20,7 @@ import HomeServices from './modules/_homeServices';
 import Pricing from './modules/_pricing';
 import LightboxSlider from './modules/_lightboxSlider';
 import ContactForm from './modules/_contactForm';
+import FooterCursor from './modules/_footerCursor';
 import Swup from 'swup';
 import SwupBodyClassPlugin from '@swup/body-class-plugin';
 
@@ -54,6 +55,7 @@ const App = {
 			const homeServices = new HomeServices();
 			const pricing = new Pricing();
 			const contactForm = new ContactForm();
+			const footerCursor = new FooterCursor();
 		}
 		init();
 		swup.on('contentReplaced', init);

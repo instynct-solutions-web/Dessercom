@@ -13,7 +13,7 @@
 	<?php get_template_part('modules/md-preloader'); ?>
 
 	<div class="cursor" data-cursor-container>
-		<div class="cursor__ball" data-cursor-pointer>
+		<div class="cursor__ball cursor__ball--big" data-cursor-pointer>
 			<svg height="32" width="32">
 				<circle cx="15" cy="16" r="9" stroke-width="0"></circle>
 			</svg>
@@ -70,7 +70,7 @@
 						</ul>
 					</nav>
 					<div class="header__buttons-container">
-						<div class="header__hamburger" data-navigation-button data-tadam-animate="scaleX-1--delay-0.5">
+						<div class="header__hamburger" data-cursor data-navigation-button data-tadam-animate="scaleX-1--delay-0.5">
 							<span class="header__hamburger-line" data-tadam-animate="scaleX-1--delay-1.3"></span>
 							<span class="header__hamburger-line" data-tadam-animate="scaleX-1--delay-1.4"></span>
 							<span class="header__hamburger-line" data-tadam-animate="scaleX-1--delay-1.5"></span>

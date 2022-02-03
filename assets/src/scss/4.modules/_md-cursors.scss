@@ -44,6 +44,22 @@
 			}
 		}
 	}
+	&--fade {
+		.cursor__ball {
+			svg {
+				transform: scale(2);
+				transition: 0.25s ease;
+			}
+
+			circle {
+				fill: $teal;
+				stroke: $teal;
+				fill-opacity: 0;
+				stroke-width: 0;
+				transition: 0.25s ease;
+			}
+		}
+	}
 }
 
 @include min-width($tablet-threshold) {
