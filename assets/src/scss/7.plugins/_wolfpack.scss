@@ -2,9 +2,19 @@
 // WOLFPACK
 // ==========================================================================
 
+.transition-fade {
+	opacity: 1;
+	transition: opacity 0.5s ease;
+}
+
+html.is-animating .transition-fade {
+	opacity: 0;
+}
+
 // BASIC
-.header {
-	pointer-events: all;
+.wolfpack-container {
+	position: relative;
+	z-index: 2;
 }
 
 [data-wolfpack] {
@@ -14,9 +24,11 @@
 [data-wolfpack-section] {
 	opacity: 0;
 	pointer-events: none;
+	position: relative;
+	z-index: 1;
 }
 
-body:not(#tinymce) {
+body {
 	transition: background-color 0.7s ease;
 	&.dragging {
 		cursor: grabbing;
@@ -111,6 +123,7 @@ body:not(#tinymce) {
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
+	mix-blend-mode: difference;
 
 	svg {
 		transition: 0.5s ease;

@@ -1,5 +1,8 @@
 import VirtualScroll from 'virtual-scroll';
-import TweenMax from 'gsap/all';
+
+import {TweenMax} from 'gsap';
+import Tadam from './_tadam';
+import Preloader from './_preloader';
 export default class Wolfpack {
 	constructor() {
 		window.addEventListener(
@@ -31,34 +34,21 @@ export default class Wolfpack {
 			});
 		}
 
-		// Page transition variables
-		this.pageTransition = document.querySelector('[data-page-transition]');
-		this.pageTransitionDelay = 0;
-		this.pageTransitionClass = '';
-		this.links = [];
-		if (this.pageTransition) {
-			if (this.pageTransition.getAttribute('[data-page-transition-delay]')) {
-				this.pageTransitionDelay = this.pageTransition.getAttribute('[data-page-transition-delay]');
+		// Preloader variables
+		this.preloaderFunction = new Preloader();
+		this.preloader = document.querySelector('[data-preloader]');
+		this.preloaderDelay = 0;
+		this.preloaderSpeed = 0;
+		if (this.preloader) {
+			if (this.preloader.getAttribute('data-preloader-delay')) {
+				this.preloaderDelay = this.preloader.getAttribute('data-preloader-delay');
+				this.preloaderSpeed = this.preloaderDelay / 1000;
 			} else {
-				this.pageTransitionDelay = 300;
-			}
-			this.pageTransitionClass = this.pageTransition.classList[0]; // eslint-disable-line
-			for (let i = 0; i < document.querySelectorAll('a').length; i += 1) {
-				this.links.push(document.querySelectorAll('a')[i]);
+				this.preloaderDelay = 700;
+				this.preloaderSpeed = this.preloaderDelay / 1000;
 			}
 		}
-
-		window.addEventListener('load', () => {
-			if (this.pageTransition) {
-				setTimeout(() => {
-					this.showPageTransition();
-				}, this.pageTransitionDelay);
-			}
-		});
-
-		setTimeout(() => {
-			this.pageTransitionInit();
-		}, 50);
+		this.preloaderFunction.initPreloader(this.preloader, this.preloaderSpeed, this.preloaderDelay);
 
 		// Main variables
 		this.scrolling = false;
@@ -72,6 +62,7 @@ export default class Wolfpack {
 		});
 
 		// Wolfpack variables
+		this.preloader = document.querySelector('[data-preloader]');
 		this.wolfpackList = document.querySelectorAll('[data-wolfpack]');
 		this.wolfpackMainIndex = 0;
 		this.wolfpackLoop = [];
@@ -118,40 +109,31 @@ export default class Wolfpack {
 					}
 				}
 			}
-			window.addEventListener('load', () => {
-				for (let i = 0; i < this.wolfpackList.length; i += 1) {
+			this.wolfpackClicked = false;
+			window.addEventListener('click', () => {
+				if (!this.wolfpackClicked) {
+					this.wolfpackClicked = true;
 					setTimeout(() => {
-						this.wolfpackHeight[i] = this.wolfpackList[i].scrollHeight;
-						this.wolfpackParentHeight[i] = this.wolfpackList[i].parentNode.offsetHeight;
-						this.wolfpackScrollLimit[i] = (this.wolfpackHeight[i] - this.wolfpackParentHeight[i]) * -1;
-						this.wolfpackSectionList[i] = this.wolfpackList[i].querySelectorAll('[data-wolfpack-section]');
-						if (this.wolfpackSectionList[i].length !== 0) {
-							for (let j = 0; j < this.wolfpackSectionList[i].length; j += 1) {
-								this.wolfpackSectionTopList[i][j] = this.wolfpackSectionList[i][j].offsetTop;
-								this.wolfpackSectionBottomList[i][j] = this.wolfpackSectionTopList[i][j] + this.wolfpackSectionList[i][j].getBoundingClientRect().height + this.windowHeight;
+						for (let i = 0; i < this.wolfpackList.length; i += 1) {
+							this.wolfpackHeight[i] = this.wolfpackList[i].scrollHeight;
+							if (this.wolfpackList[i].parentNode) {
+								this.wolfpackParentHeight[i] = this.wolfpackList[i].parentNode.offsetHeight;
+								this.wolfpackScrollLimit[i] = (this.wolfpackHeight[i] - this.wolfpackParentHeight[i]) * -1;
+							}
+							this.wolfpackSectionList[i] = this.wolfpackList[i].querySelectorAll('[data-wolfpack-section]');
+							if (this.wolfpackSectionList[i].length !== 0) {
+								for (let j = 0; j < this.wolfpackSectionList[i].length; j += 1) {
+									this.wolfpackSectionTopList[i][j] = this.wolfpackSectionList[i][j].offsetTop;
+									this.wolfpackSectionBottomList[i][j] = this.wolfpackSectionTopList[i][j] + this.wolfpackSectionList[i][j].getBoundingClientRect().height + this.windowHeight;
+								}
 							}
 						}
-						this.positionInit();
-					}, 1000);
+						this.wolfpackClicked = false;
+					}, 1500);
 				}
 			});
-			window.addEventListener('click', () => {
-				setTimeout(() => {
-					for (let i = 0; i < this.wolfpackList.length; i += 1) {
-						this.wolfpackHeight[i] = this.wolfpackList[i].scrollHeight;
-						this.wolfpackParentHeight[i] = this.wolfpackList[i].parentNode.offsetHeight;
-						this.wolfpackScrollLimit[i] = (this.wolfpackHeight[i] - this.wolfpackParentHeight[i]) * -1;
-						this.wolfpackSectionList[i] = this.wolfpackList[i].querySelectorAll('[data-wolfpack-section]');
-						if (this.wolfpackSectionList[i].length !== 0) {
-							for (let j = 0; j < this.wolfpackSectionList[i].length; j += 1) {
-								this.wolfpackSectionTopList[i][j] = this.wolfpackSectionList[i][j].offsetTop;
-								this.wolfpackSectionBottomList[i][j] = this.wolfpackSectionTopList[i][j] + this.wolfpackSectionList[i][j].getBoundingClientRect().height + this.windowHeight;
-							}
-						}
-					}
-				}, 500);
-			});
 			window.addEventListener('resize', () => {
+				this.wolfpackList = document.querySelectorAll('[data-wolfpack]');
 				for (let i = 0; i < this.wolfpackList.length; i += 1) {
 					this.wolfpackHeight[i] = this.wolfpackList[i].scrollHeight;
 					this.wolfpackParentHeight[i] = this.wolfpackList[i].parentNode.offsetHeight;
@@ -189,17 +171,14 @@ export default class Wolfpack {
 			}
 			window.addEventListener('load', () => {
 				for (let i = 0; i < this.scrollbarList.length; i += 1) {
-					setTimeout(() => {
-						this.scrollbarIndex[i] = this.scrollbarList[i].getAttribute('data-scrollbar-index');
-						this.scrollbarCurrentY[i] = 0;
-						this.scrollbarTargetY[i] = 0;
-						this.scrollbarHeight[i] = this.scrollbarList[i].offsetHeight;
-						this.scrollbarThumbHeight[i] = (this.scrollbarHeight[i] * this.wolfpackParentHeight[this.scrollbarIndex[i]]) / this.wolfpackHeight[this.scrollbarIndex[i]];
-						this.scrollbarScrollLimit[i] = (this.scrollbarHeight[i] - this.scrollbarThumbHeight[i]) * -1;
-						this.scrollbarTransform[i] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
-						// Update scrollbar height
-						this.updateScrollbar(i);
-					}, 1010);
+					this.scrollbarIndex[i] = this.scrollbarList[i].getAttribute('data-scrollbar-index');
+					this.scrollbarCurrentY[i] = 0;
+					this.scrollbarTargetY[i] = 0;
+					this.scrollbarHeight[i] = this.scrollbarList[i].offsetHeight;
+					this.scrollbarThumbHeight[i] = (this.scrollbarHeight[i] * this.wolfpackParentHeight[this.scrollbarIndex[i]]) / this.wolfpackHeight[this.scrollbarIndex[i]];
+					this.scrollbarScrollLimit[i] = (this.scrollbarHeight[i] - this.scrollbarThumbHeight[i]) * -1;
+					this.scrollbarTransform[i] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
+					this.updateScrollbar(i);
 				}
 			});
 		}
@@ -217,7 +196,7 @@ export default class Wolfpack {
 		}
 
 		// Anchors variables
-		this.anchorList = document.querySelectorAll(`a[href*="${window.location.pathname}#"]`);
+		this.anchorList = document.querySelectorAll(`a[href*="#"]`);
 		this.anchorLocation = [];
 		this.anchorLocationTop = [];
 		if (this.anchorList.length !== 0) {
@@ -277,17 +256,21 @@ export default class Wolfpack {
 		}
 
 		// Tadam variables
+		this.tadamFunction = new Tadam();
 		this.tadamList = document.querySelectorAll('[data-tadam]');
 		this.tadamTop = [];
 		this.tadamRepeat = [];
 		this.tadamThreshold = [];
 		this.tadamThresholdMobile = [];
+		this.tadamElementList = [];
+		this.tadamAnimationList = [];
+		this.tadamRepeatAnimationList = [];
+		this.tadamFinished = [];
 		this.tadamVisible = [];
 		if (this.tadamList.length !== 0) {
 			setTimeout(() => {
 				for (let i = 0; i < this.tadamList.length; i += 1) {
 					this.tadamTop.push(this.tadamList[i].getBoundingClientRect().y);
-
 					if (this.tadamList[i].getAttribute('data-tadam-repeat') === 'true') {
 						this.tadamRepeat.push(true);
 					} else {
@@ -303,6 +286,31 @@ export default class Wolfpack {
 					} else {
 						this.tadamThreshold.push('200');
 					}
+					this.tadamElementList.push([]);
+					this.tadamAnimationList.push([]);
+					this.tadamRepeatAnimationList.push([]);
+					if (this.tadamList[i].querySelectorAll('[data-tadam-animate]').length !== 0) {
+						for (let j = 0; j < this.tadamList[i].querySelectorAll('[data-tadam-animate]').length; j += 1) {
+							this.tadamElementList[i].push(this.tadamList[i].querySelectorAll('[data-tadam-animate]')[j]);
+						}
+					} else {
+						this.tadamElementList[i].push(this.tadamList[i]);
+					}
+					for (let j = 0; j < this.tadamElementList[i].length; j += 1) {
+						if (this.tadamElementList[i][j].getAttribute('data-tadam-animate')) {
+							this.tadamAnimationList[i].push(this.tadamElementList[i][j].getAttribute('data-tadam-animate'));
+						} else {
+							this.tadamAnimationList[i].push('animate');
+						}
+					}
+					for (let j = 0; j < this.tadamElementList[i].length; j += 1) {
+						if (this.tadamElementList[i][j].getAttribute('data-tadam-animate-repeat')) {
+							this.tadamRepeatAnimationList[i].push(this.tadamElementList[i][j].getAttribute('data-tadam-animate-repeat'));
+						} else {
+							this.tadamRepeatAnimationList[i].push('repeat');
+						}
+					}
+					this.tadamFinished.push(false);
 					this.tadamVisible.push(parseFloat(this.tadamTop[i]) + parseFloat(this.tadamThreshold[i]));
 				}
 			}, 100);
@@ -403,6 +411,7 @@ export default class Wolfpack {
 		// Animation squence variables
 		this.animationSequenceList = document.querySelectorAll('[data-animation]');
 		this.animationSequenceName = [];
+		this.animationSequenceFullPage = [];
 		this.animationSequenceTop = [];
 		this.animationSequenceHeight = [];
 		this.animationTimeline = [];
@@ -423,6 +432,15 @@ export default class Wolfpack {
 					this.animationSequenceName.push(this.animationSequenceList[i].getAttribute('data-animation-name'));
 				} else {
 					this.animationSequenceName.push(`sequence-${i}`);
+				}
+				if (this.animationSequenceList[i].getAttribute('data-animation-full-page')) {
+					if (this.animationSequenceList[i].getAttribute('data-animation-full-page') === 'true') {
+						this.animationSequenceFullPage.push(true);
+					} else {
+						this.animationSequenceFullPage.push(false);
+					}
+				} else {
+					this.animationSequenceFullPage.push(false);
 				}
 				this.animationSequenceList[i].style.animation = `animation-${this.animationSequenceName[i]} 1s linear`;
 				this.animationSequenceList[i].style.animationDelay = `calc(var(--scroll-${i}) * -1s)`;
@@ -470,23 +488,11 @@ export default class Wolfpack {
 
 		// Separate letters variables
 		this.separateLetterList = document.querySelectorAll('[data-letters]');
-		this.separateLetterDelay = [];
-		this.separateLetterInitialDelay = [];
 		this.separateLetterClass = [];
 		this.separateLetterHTML = [];
 		this.separateLetterLines = [];
 		if (this.separateLetterList.length !== 0) {
 			for (let i = 0; i < this.separateLetterList.length; i += 1) {
-				if (this.separateLetterList[i].getAttribute('data-letters-delay')) {
-					this.separateLetterDelay.push(parseFloat(this.separateLetterList[i].getAttribute('data-letters-delay')));
-				} else {
-					this.separateLetterDelay.push(0.05);
-				}
-				if (this.separateLetterList[i].getAttribute('data-letters-initial')) {
-					this.separateLetterInitialDelay.push(parseFloat(this.separateLetterList[i].getAttribute('data-letters-initial')));
-				} else {
-					this.separateLetterInitialDelay.push(0);
-				}
 				this.separateLetterClass.push(this.separateLetterList[i].classList[0]);
 				this.separateLetterHTML.push(this.separateLetterList[i].innerHTML);
 				this.separateLetterList[i].innerHTML = '';
@@ -496,27 +502,29 @@ export default class Wolfpack {
 
 		// Separate words variables
 		this.separateWordList = document.querySelectorAll('[data-words]');
-		this.separateWordDelay = [];
-		this.separateWordInitialDelay = [];
 		this.separateWordClass = [];
 		this.separateWordHTML = [];
 		this.separateWordLines = [];
 		if (this.separateWordList.length !== 0) {
 			for (let i = 0; i < this.separateWordList.length; i += 1) {
-				if (this.separateWordList[i].getAttribute('data-words-delay')) {
-					this.separateWordDelay.push(parseFloat(this.separateWordList[i].getAttribute('data-words-delay')));
-				} else {
-					this.separateWordDelay.push(0.05);
-				}
-				if (this.separateWordList[i].getAttribute('data-words-initial')) {
-					this.separateWordInitialDelay.push(parseFloat(this.separateWordList[i].getAttribute('data-words-initial')));
-				} else {
-					this.separateWordInitialDelay.push(0);
-				}
 				this.separateWordClass.push(this.separateWordList[i].classList[0]);
 				this.separateWordHTML.push(this.separateWordList[i].innerHTML);
 				this.separateWordList[i].innerHTML = '';
 				this.separateWordLines.push(this.separateWordHTML[i].split('<br>'));
+			}
+		}
+
+		// Separate lines
+		this.separateLinesList = document.querySelectorAll('[data-lines]');
+		this.separateLinesClass = [];
+		this.separateLinesHTML = [];
+		this.separateLinesLines = [];
+		if (this.separateLinesList.length !== 0) {
+			for (let i = 0; i < this.separateLinesList.length; i += 1) {
+				this.separateLinesClass.push(this.separateLinesList[i].classList[0]);
+				this.separateLinesHTML.push(this.separateLinesList[i].innerHTML);
+				this.separateLinesList[i].innerHTML = '';
+				this.separateLinesLines.push(this.separateLinesHTML[i].split('<br>'));
 			}
 		}
 
@@ -657,33 +665,14 @@ export default class Wolfpack {
 		}, 10);
 	}
 
-	pageTransitionInit() {
-		// Page transition
-		if (this.pageTransition) {
-			for (let i = 0; i < this.links.length; i += 1) {
-				if (this.links[i].getAttribute('target') !== '_blank') {
-					if (!this.links[i].getAttribute('href').includes('#')) {
-						document.querySelectorAll('a')[i].addEventListener('click', (event) => {
-							const destination = this.links[i].getAttribute('href');
-							event.preventDefault();
-							this.closePageTransition();
-							setTimeout(() => {
-								window.location = destination;
-							}, this.pageTransitionDelay);
-						});
-					}
-				}
-			}
-		}
-	}
-
 	manageEvents() {
 		// Wolfpack configurations
 		if (this.wolfpackList.length !== 0) {
 			for (let i = 0; i < this.wolfpackList.length; i += 1) {
 				// Watch hovering
-				this.wolfpackHovering[this.wolfpackMainIndex] = true;
-
+				if (this.preloader.style.display === 'none') {
+					this.wolfpackHovering[this.wolfpackMainIndex] = true;
+				}
 				if (window.innerWidth >= 1024) {
 					this.wolfpackList[i].addEventListener('mouseenter', () => {
 						if (!this.anchorScrolling) {
@@ -734,16 +723,16 @@ export default class Wolfpack {
 		}
 
 		// Init first loop
+		this.firstLoop = true;
+		this.firstLoopFinished = false;
 		if (this.wolfpackList.length !== 0 && !this.locationHash) {
 			for (let i = 0; i < this.wolfpackList.length; i += 1) {
 				if (i !== this.wolfpackMainIndex && this.wolfpackSectionList[i].length === 0) {
-					if (this.wolfpackHovering[i]) {
-						if (!this.scrolling) {
-							this.startLoop(i);
-							this.scrollTimer(i);
-						}
-						this.time = 0;
+					if (!this.scrolling) {
+						this.startLoop(i);
+						this.scrollTimer(i);
 					}
+					this.time = 0;
 				} else {
 					if (!this.scrolling) {
 						this.startLoopSections(i);
@@ -756,7 +745,46 @@ export default class Wolfpack {
 		}
 
 		// Watch scroll events
+		this.updateWolfpackHeight = false;
+		this.updateScrollbarHeight = false;
+		this.updateParallaxTop = false;
 		this.virtualScroll.on((e) => {
+			if (!this.updateWolfpackHeight) {
+				this.updateWolfpackHeight = true;
+				this.wolfpackList = document.querySelectorAll('[data-wolfpack]');
+				for (let i = 0; i < this.wolfpackList.length; i += 1) {
+					this.wolfpackHeight[i] = this.wolfpackList[i].scrollHeight;
+					this.wolfpackParentHeight[i] = this.wolfpackList[i].parentNode.offsetHeight;
+					this.wolfpackScrollLimit[i] = (this.wolfpackHeight[i] - this.wolfpackParentHeight[i]) * -1;
+					this.wolfpackSectionList[i] = this.wolfpackList[i].querySelectorAll('[data-wolfpack-section]');
+					if (this.wolfpackSectionList[i].length !== 0) {
+						for (let j = 0; j < this.wolfpackSectionList[i].length; j += 1) {
+							this.wolfpackSectionTopList[i][j] = this.wolfpackSectionList[i][j].offsetTop;
+							this.wolfpackSectionBottomList[i][j] = this.wolfpackSectionTopList[i][j] + this.wolfpackSectionList[i][j].getBoundingClientRect().height + this.windowHeight;
+						}
+					}
+				}
+			}
+			if (!this.updateScrollbarHeight) {
+				this.updateScrollbarHeight = true;
+				for (let i = 0; i < this.scrollbarList.length; i += 1) {
+					this.scrollbarIndex[i] = this.scrollbarList[i].getAttribute('data-scrollbar-index');
+					this.scrollbarCurrentY[i] = 0;
+					this.scrollbarTargetY[i] = 0;
+					this.scrollbarHeight[i] = this.scrollbarList[i].offsetHeight;
+					this.scrollbarThumbHeight[i] = (this.scrollbarHeight[i] * this.wolfpackParentHeight[this.scrollbarIndex[i]]) / this.wolfpackHeight[this.scrollbarIndex[i]];
+					this.scrollbarScrollLimit[i] = (this.scrollbarHeight[i] - this.scrollbarThumbHeight[i]) * -1;
+					this.scrollbarTransform[i] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
+					this.updateScrollbar(i);
+				}
+			}
+			if (!this.updateParallaxTop) {
+				this.updateParallaxTop = true;
+				for (let i = 0; i < this.parallaxList.length; i += 1) {
+					this.parallaxTop[i] = this.parallaxList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
+					this.parallaxStop[i] = parseFloat(this.parallaxList[i].offsetHeight + this.parallaxList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]) + this.windowHeight);
+				}
+			}
 			if (this.wolfpackList.length !== 0) {
 				for (let i = 0; i < this.wolfpackList.length; i += 1) {
 					if (this.wolfpackSectionList[i].length === 0) {
@@ -765,8 +793,8 @@ export default class Wolfpack {
 								this.startLoop(i);
 								this.showScrollbar(i);
 								this.scrollTimer(i);
+								this.scrolling = true;
 							}
-							this.scrolling = true;
 							this.updateTargetY(e.deltaY, i);
 							this.time = 10;
 						}
@@ -775,8 +803,8 @@ export default class Wolfpack {
 							this.startLoopSections(i);
 							this.showScrollbar(i);
 							this.scrollTimerSections(i);
+							this.scrolling = true;
 						}
-						this.scrolling = true;
 						this.updateTargetY(e.deltaY, i);
 						this.time = 10;
 					}
@@ -799,8 +827,8 @@ export default class Wolfpack {
 								if (!this.scrolling) {
 									this.startLoop(this.scrollbarIndex[i]);
 									this.showScrollbar(this.scrollbarIndex[i]);
+									this.scrolling = true;
 								}
-								this.scrolling = true;
 								this.dragTargetY(f.clientY, this.scrollbarIndex[i]);
 							}
 						});
@@ -815,8 +843,8 @@ export default class Wolfpack {
 								if (!this.scrolling) {
 									this.startLoopSections(this.scrollbarIndex[i]);
 									this.showScrollbar(i);
+									this.scrolling = true;
 								}
-								this.scrolling = true;
 								this.dragTargetY(f.clientY, this.scrollbarIndex[i]);
 							}
 						});
@@ -845,8 +873,8 @@ export default class Wolfpack {
 								this.startLoop(this.wolfpackMainIndex);
 								this.showScrollbar(this.wolfpackMainIndex);
 								this.scrollTimer(this.wolfpackMainIndex);
+								this.scrolling = true;
 							}
-							this.scrolling = true;
 							this.updateTargetY(-(this.anchorLocationTop[i] + this.wolfpackCurrentY[this.wolfpackMainIndex]), this.wolfpackMainIndex);
 							this.time = 10;
 						} else {
@@ -857,8 +885,8 @@ export default class Wolfpack {
 								this.startLoopSections(this.wolfpackMainIndex);
 								this.showScrollbar(this.wolfpackMainIndex);
 								this.scrollTimerSections(this.wolfpackMainIndex);
+								this.scrolling = true;
 							}
-							this.scrolling = true;
 							this.updateTargetY(-(this.anchorLocationTop[i] + this.wolfpackCurrentY[this.wolfpackMainIndex]), this.wolfpackMainIndex);
 							this.time = 10;
 						}
@@ -888,8 +916,16 @@ export default class Wolfpack {
 			}
 		}
 
+		// Separate lines
+		if (this.separateLinesList.length !== 0) {
+			for (let i = 0; i < this.separateLinesList.length; i += 1) {
+				this.separateLines(i);
+			}
+		}
+
 		// CURSOR
 		if (this.cursor) {
+			this.cursor.classList.remove(this.cursor.classList[1]);
 			document.addEventListener('mousemove', (e) => {
 				this.moveCursor(e, this.cursor, this.cursorPointerList, this.cursorTop);
 				clearTimeout(this.cursorTimer);
@@ -943,15 +979,18 @@ export default class Wolfpack {
 					this.updateTargetY(-Math.abs(this.locationTop), this.wolfpackMainIndex);
 					this.time = 10;
 				}
-			} else if (!this.anchorScrolling) {
-				this.anchorScrolling = true;
-				if (!this.scrolling) {
-					this.startLoopSections(this.wolfpackMainIndex);
-					this.scrollTimerSections(this.wolfpackMainIndex);
+			} else {
+				// eslint-disable-next-line
+				if (!this.anchorScrolling) {
+					this.anchorScrolling = true;
+					if (!this.scrolling) {
+						this.startLoopSections(this.wolfpackMainIndex);
+						this.scrollTimerSections(this.wolfpackMainIndex);
+					}
+					this.scrolling = true;
+					this.updateTargetY(-Math.abs(this.locationTop), this.wolfpackMainIndex);
+					this.time = 10;
 				}
-				this.scrolling = true;
-				this.updateTargetY(-Math.abs(this.locationTop), this.wolfpackMainIndex);
-				this.time = 10;
 			}
 		}
 	}
@@ -971,8 +1010,11 @@ export default class Wolfpack {
 				this.anchorScrolling = false;
 				this.hideScrollbar(index);
 				this.stopLoop(index);
+				setTimeout(() => {
+					this.firstLoop = false;
+				}, 100);
 			}
-		}, 700);
+		}, 200);
 	}
 
 	scrollTimerSections(index) {
@@ -984,8 +1026,11 @@ export default class Wolfpack {
 				this.anchorScrolling = false;
 				this.hideScrollbar(index);
 				this.stopLoopSections(index);
+				setTimeout(() => {
+					this.firstLoop = false;
+				}, 100);
 			}
-		}, 700);
+		}, 200);
 	}
 
 	updateTargetY(e, index) {
@@ -1130,7 +1175,7 @@ export default class Wolfpack {
 
 	updateLoop(index) {
 		this.wolfpackLoop[index] = undefined;
-		if (this.scrolling) {
+		if (this.scrolling || this.firstLoop) {
 			this.updateCurrentY(index);
 			this.updateTransform(index);
 			this.updateScrollPosition(index);
@@ -1148,7 +1193,7 @@ export default class Wolfpack {
 
 	updateLoopSections(index) {
 		this.wolfpackLoop[index] = undefined;
-		if (this.scrolling) {
+		if (this.scrolling || this.firstLoop) {
 			this.updateCurrentY(index);
 			this.updateScrollPosition(index);
 			this.updateTransformSections(index);
@@ -1255,9 +1300,15 @@ export default class Wolfpack {
 	animationSequence() {
 		if (this.animationSequenceList.length !== 0) {
 			for (let i = 0; i < this.animationSequenceList.length; i += 1) {
-				if (this.wolfpackScrollPosition[this.wolfpackMainIndex] >= this.animationSequenceTop[i] && this.wolfpackScrollPosition[this.wolfpackMainIndex] < this.animationSequenceStop[i]) {
-					this.animationPositionY[i] = this.wolfpackScrollPosition[this.wolfpackMainIndex] - this.animationSequenceTop[i];
-					this.animationScrollVariable[i] = this.animationPositionY[i] / this.animationTimeline[i];
+				if (!this.animationSequenceFullPage[i]) {
+					if (this.wolfpackScrollPosition[this.wolfpackMainIndex] >= this.animationSequenceTop[i] && this.wolfpackScrollPosition[this.wolfpackMainIndex] < this.animationSequenceStop[i]) {
+						this.animationPositionY[i] = this.wolfpackScrollPosition[this.wolfpackMainIndex] - this.animationSequenceTop[i];
+						this.animationScrollVariable[i] = this.animationPositionY[i] / this.animationTimeline[i];
+						this.animationSequenceList[i].style.setProperty(`--scroll-${i}`, this.animationScrollVariable[i]);
+					}
+				} else if (this.wolfpackScrollPosition[this.wolfpackMainIndex] - this.windowHeight >= 0 && this.wolfpackScrollPosition[this.wolfpackMainIndex] < this.wolfpackHeight[this.wolfpackMainIndex]) {
+					this.animationPositionY[i] = this.wolfpackScrollPosition[this.wolfpackMainIndex] - this.windowHeight;
+					this.animationScrollVariable[i] = this.animationPositionY[i] / parseFloat(this.wolfpackHeight[this.wolfpackMainIndex] - this.windowHeight);
 					this.animationSequenceList[i].style.setProperty(`--scroll-${i}`, this.animationScrollVariable[i]);
 				}
 			}
@@ -1267,12 +1318,21 @@ export default class Wolfpack {
 	tadam() {
 		if (this.tadamList.length !== 0) {
 			for (let i = 0; i < this.tadamList.length; i += 1) {
-				if (this.tadamThreshold[i] === '-1') {
-					this.tadamList[i].classList.add(`${this.tadamList[i].classList[0]}--animate`);
-				} else if (this.wolfpackScrollPosition[this.wolfpackMainIndex] >= this.tadamVisible[i]) {
-					this.tadamList[i].classList.add(`${this.tadamList[i].classList[0]}--animate`);
-				} else if (this.tadamRepeat[i]) {
-					this.tadamList[i].classList.remove(`${this.tadamList[i].classList[0]}--animate`);
+				if (this.tadamThreshold[i] === '-1' && !this.tadamFinished[i]) {
+					for (let j = 0; j < this.tadamElementList[i].length; j += 1) {
+						this.tadamFunction.tadamAnimate(this.tadamElementList[i][j], this.tadamAnimationList[i][j]);
+					}
+					this.tadamFinished[i] = true;
+				} else if (this.wolfpackScrollPosition[this.wolfpackMainIndex] >= this.tadamVisible[i] && !this.tadamFinished[i]) {
+					for (let j = 0; j < this.tadamElementList[i].length; j += 1) {
+						this.tadamFunction.tadamAnimate(this.tadamElementList[i][j], this.tadamAnimationList[i][j]);
+					}
+					this.tadamFinished[i] = true;
+				} else if (this.tadamRepeat[i] && this.wolfpackScrollPosition[this.wolfpackMainIndex] < this.tadamVisible[i] && this.tadamFinished[i]) {
+					for (let j = 0; j < this.tadamElementList[i].length; j += 1) {
+						this.tadamFunction.tadamAnimate(this.tadamElementList[i][j], this.tadamRepeatAnimationList[i][j]);
+					}
+					this.tadamFinished[i] = false;
 				}
 			}
 		}
@@ -1307,17 +1367,17 @@ export default class Wolfpack {
 	separateLetters(index) {
 		for (let j = 0; j < this.separateLetterLines[index].length; j += 1) {
 			this.separateCharacterLetters = this.separateLetterLines[index][j].split('');
+
 			this.separateCharacterLineContent = '';
 			for (let k = 0; k < this.separateCharacterLetters.length; k += 1) {
 				this.separateCharacterLetter = this.separateCharacterLetters[k];
 				if (this.separateCharacterLetter === ' ') {
-					this.separateCharacterLineContent += `<span class="${this.separateLetterClass[index]}-space separate-character__space" style="transition-delay:${this.separateLetterInitialDelay[index]}s">${this.separateCharacterLetter}</span>`;
+					this.separateCharacterLineContent += `<span class="${this.separateLetterClass[index]}-space separate-character__space">${this.separateCharacterLetter}</span>`;
 				} else {
-					this.separateCharacterLineContent += `<span class="${this.separateLetterClass[index]}-letter separate-character__letter" style="transition-delay:${this.separateLetterInitialDelay[index]}s">${this.separateCharacterLetter}</span>`;
+					this.separateCharacterLineContent += `<span class="${this.separateLetterClass[index]}-letter separate-character__letter">${this.separateCharacterLetter}</span>`;
 				}
-				this.separateLetterInitialDelay[index] += parseFloat(this.separateLetterDelay[index]);
 			}
-			this.separateLetterLines[index].innerHTML = `${this.separateLetterList[index].innerHTML}<div class="${this.separateLetterClass[index]}-line separate-character__line">${this.separateCharacterLineContent}</div>`;
+			this.separateLetterList[index].innerHTML = `${this.separateLetterList[index].innerHTML}<div class="${this.separateLetterClass[index]}-line separate-character__line">${this.separateCharacterLineContent}</div>`;
 		}
 	}
 
@@ -1327,14 +1387,19 @@ export default class Wolfpack {
 			this.separateWordLineContent = '';
 			for (let k = 0; k < this.separateWordWords.length; k += 1) {
 				this.separateWordWord = this.separateWordWords[k];
-				if (k < this.separateWordWord.length - 1) {
-					this.separateWordLineContent += `<span class="${this.separateWordClass[index]}-word separate-word__word" style="transition-delay: ${this.separateWordInitialDelay[index]}s">${this.separateWordWord}</span><span class="${this.separateWordClass[index]}-space separate-word__space"> </span>`;
+				if (k < this.separateWordWords.length - 1) {
+					this.separateWordLineContent += `<span class="${this.separateWordClass[index]}-word separate-word__word"><span class="${this.separateWordClass[index]}-content separate-word__content">${this.separateWordWord}</span></span><span class="${this.separateWordClass[index]}-space separate-word__space"><span class="${this.separateWordClass[index]}-content separate-word__content">&nbsp;</span></span>`;
 				} else {
-					this.separateWordLineContent += `<span class="${this.separateWordClass[index]}-word separate-word__word" style="transition-delay: ${this.separateWordInitialDelay[index]}s">${this.separateWordWord}</span>`;
+					this.separateWordLineContent += `<span class="${this.separateWordClass[index]}-word separate-word__word"><span class="${this.separateWordClass[index]}-content separate-word__content">${this.separateWordWord}</span></span>`;
 				}
-				this.separateWordInitialDelay[index] += parseFloat(this.separateWordDelay[index]);
 			}
-			this.separateWordLines[index].innerHTML += `<div class="${this.separateWordClass[index]}-line separate-word__line">${this.separateWordLineContent}</div>`;
+			this.separateWordList[index].innerHTML += `<div class="${this.separateWordClass[index]}-line separate-word__line">${this.separateWordLineContent}</div>`;
+		}
+	}
+
+	separateLines(index) {
+		for (let j = 0; j < this.separateLinesLines[index].length; j += 1) {
+			this.separateLinesList[index].innerHTML += `<div class="${this.separateLinesClass[index]}-line separate-line__line"><span class="${this.separateLinesClass[index]}-line-content separate-line__content">${this.separateLinesLines[index][j]}</span></div>`;
 		}
 	}
 

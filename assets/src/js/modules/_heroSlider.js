@@ -25,6 +25,9 @@ export default class HeroSlider {
 				pageDots: false,
 				prevNextButtons: false,
 			});
+			setTimeout(() => {
+				this.flkty.resize();
+			}, 10);
 			this.asNavFor = new Flickity(this.sliderNav, {
 				sync: this.slider,
 				wrapAround: true,
@@ -32,6 +35,9 @@ export default class HeroSlider {
 				pageDots: false,
 				prevNextButtons: false,
 			});
+			setTimeout(() => {
+				this.asNavFor.resize();
+			}, 10);
 			this.prev.addEventListener('click', () => {
 				this.flkty.previous();
 			});
