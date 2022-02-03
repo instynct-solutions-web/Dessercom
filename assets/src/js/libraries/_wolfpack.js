@@ -1,6 +1,5 @@
 import VirtualScroll from 'virtual-scroll';
-import TweenMax from 'gsap';
-
+import TweenMax from 'gsap/all';
 export default class Wolfpack {
 	constructor() {
 		window.addEventListener(
@@ -894,7 +893,9 @@ export default class Wolfpack {
 			document.addEventListener('mousemove', (e) => {
 				this.moveCursor(e, this.cursor, this.cursorPointerList, this.cursorTop);
 				clearTimeout(this.cursorTimer);
-				this.cursorTimer = setTimeout(Wolfpack.mouseStopped(this.cursor, this.cursorPointerList), 100);
+				this.cursorTimer = setTimeout(() => {
+					Wolfpack.mouseStopped(this.cursor, this.cursorPointerList);
+				}, 100);
 			});
 		}
 		if (this.cursorElementList.length !== 0) {
@@ -1355,10 +1356,11 @@ export default class Wolfpack {
 			const thisCursorPointer = cursorPointers[i];
 			const thisCursorPointerHeight = thisCursorPointer.offsetHeight;
 			const thisCursorPointerWidth = thisCursorPointer.offsetWidth;
-			if (thisCursorPointer.classList.contains('cursor__ball--big')) {
-				TweenMax.to(thisCursorPointer, 0.5, {
-					x: e.clientX - parseFloat(thisCursorPointerHeight / 2),
-					y: e.clientY - parseFloat(thisCursorPointerWidth / 2) + offsetCursorTop,
+			if (thisCursorPointer.classList.contains('cursor__ball')) {
+				TweenMax.to(thisCursorPointer, 0.4, {
+					x: e.pageX - parseFloat(thisCursorPointerHeight / 2),
+					y: e.pageY - parseFloat(thisCursorPointerWidth / 2) + offsetCursorTop,
+					force3D: false,
 				});
 			} else if (thisCursorPointer.classList.contains('cursor__image')) {
 				if (e.clientX > this.oldx) {

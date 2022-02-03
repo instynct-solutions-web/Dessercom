@@ -10,7 +10,7 @@
 
 <body <?php body_class(); ?>>
 	<div class="cursor" data-cursor-container>
-		<div class="cursor__ball cursor__ball--small" data-cursor-pointer>
+		<div class="cursor__ball" data-cursor-pointer>
 			<svg height="32" width="32">
 				<circle cx="15" cy="16" r="9" stroke-width="0"></circle>
 			</svg>
@@ -63,7 +63,7 @@
 					</ul>
 				</nav>
 				<div class="header__buttons-container">
-					<div class="header__hamburger" data-navigation-button>
+					<div class="header__hamburger" data-navigation-button data-cursor>
 						<span class="header__hamburger-line"></span>
 						<span class="header__hamburger-line"></span>
 						<span class="header__hamburger-line"></span>

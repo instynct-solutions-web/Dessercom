@@ -4,9 +4,11 @@ export default class ContactForm {
 		this.url = new URL(this.url_string);
 		this.urlParam = this.url.searchParams.get('subject');
 		this.form = document.querySelector('.contact-form__form');
-		this.formDropdown = this.form.querySelector('select');
-		if (this.formDropdown) {
-			this.manageEvents();
+		if (this.form) {
+			this.formDropdown = this.form.querySelector('select');
+			if (this.formDropdown) {
+				this.manageEvents();
+			}
 		}
 	}
 
