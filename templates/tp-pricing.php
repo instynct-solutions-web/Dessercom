@@ -99,19 +99,20 @@ $transport = get_field('transport') ?>
                 <span class="pricing-transport__separator" data-tadam-animate="scaleX-1"></span>
                 <p class="pricing-transport__note" data-lines data-tadam-animate="lines--delay-0.2"><?= $transport['note'] ?></p>
             </div>
-            <a href="<?= $transport['link']['url'] ?>" class="pricing-transport__cta" data-tadam-animate="opacity-1--rotation-0">
-                <span class="pricing-transport__cta-text" data-circle-text>
+            <a href="<?= $transport['link']['url'] ?>" class="pricing-transport__cta cta" data-tadam-animate="opacity-1--rotation-0">
+                <span class="pricing-transport__cta-text cta__text" data-circle-text>
                     <?= $transport['link']['title']  ?>
                     <div> . </div>
                     <?= $transport['link']['title'] ?>
                     <div> . </div>
                 </span>
-                <svg class="pricing-transport__cta-icon" xmlns="http://www.w3.org/2000/svg" width="24.406" height="30.816" viewBox="0 0 24.406 30.816">
-                    <g id="Groupe_787" data-name="Groupe 787" transform="translate(1.5 1.5)">
-                        <path id="Tracé_3" data-name="Tracé 3" d="M10.7,12.2a1.5,1.5,0,0,1-1.061-.439l-10.7-10.7a1.5,1.5,0,0,1,0-2.121,1.5,1.5,0,0,1,2.121,0L10.7,8.582l9.642-9.642a1.5,1.5,0,0,1,2.121,0,1.5,1.5,0,0,1,0,2.121l-10.7,10.7A1.5,1.5,0,0,1,10.7,12.2Z" transform="translate(0 17.113)" fill="#008884" />
-                        <path id="Ligne_1" data-name="Ligne 1" d="M0,29.316a1.5,1.5,0,0,1-1.5-1.5V0A1.5,1.5,0,0,1,0-1.5,1.5,1.5,0,0,1,1.5,0V27.816A1.5,1.5,0,0,1,0,29.316Z" transform="translate(10.703 0)" fill="#008884" />
-                    </g>
-                </svg>
+                <div class="pricing-hero__cta-icon cta__icon">
+                    <div class="arrow">
+                        <span class="arrow__left"></span>
+                        <span class="arrow__right"></span>
+                        <span class="arrow__line"></span>
+                    </div>
+                </div>
             </a>
         </div>
         <div class="pricing-transport__main">
