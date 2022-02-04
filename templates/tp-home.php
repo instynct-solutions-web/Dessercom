@@ -11,7 +11,7 @@ get_header(); ?>
 $hero = get_field('hero'); ?>
 <section class="hero-slider" data-wolfpack-section data-tadam data-tadam-threshold=-1>
     <div class="hero-slider__container">
-        <ul data-hero-slider class="hero-slider__list" data-tadam-animate="x-0--rotation-5">
+        <ul data-hero-slider class="hero-slider__list" data-tadam-animate="x-0--y-0">
             <?php foreach ($hero['list'] as $item) { ?>
                 <li class="hero-slider__item">
                     <img class="hero-slider__image" src="<?= $item['image']['url'] ?>" alt="<?= $item['image']['alt'] ?>">
@@ -23,7 +23,7 @@ $hero = get_field('hero'); ?>
             <ul data-hero-slider-nav class="hero-slider__title-list">
                 <?php foreach ($hero['list'] as $item) { ?>
                     <li class="hero-slider__title-item">
-                        <p class="hero-slider__title" data-lines data-tadam-animate="lines--delay-1.1"><?= $item['title'] ?></p>
+                        <p class="hero-slider__title" data-lines data-tadam-animate="lines--delay-0.7"><?= $item['title'] ?></p>
                     </li>
                 <?php } ?>
             </ul>
@@ -57,7 +57,6 @@ $hero = get_field('hero'); ?>
             <span class="hero-slider__indicator-thumb"></span>
         </span>
     </div>
-
 </section>
 
 <?php
@@ -66,7 +65,7 @@ $highlight = get_field('highlight');
 <section class="home-highlight" data-wolfpack-section>
     <div class="home-highlight__top-container" data-tadam data-tadam-threshold="100">
         <div class="home-highlight__text-container">
-            <h1 class="home-highlight__text" data-lines data-tadam-animate="lines--delay-0.2"><?= $highlight['text']  ?></h1>
+            <h1 class="home-highlight__text" data-lines data-tadam-animate="lines"><?= $highlight['text']  ?></h1>
         </div>
         <svg class="home-highlight__image" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 181.567 163.488" data-tadam-animate="mask-image">
             <defs>
@@ -83,7 +82,6 @@ $highlight = get_field('highlight');
             <p class="home-highlight__note home-highlight__note--left" data-lines data-tadam-animate="lines"><?= $highlight['left_note']  ?></p>
             <p class="home-highlight__note home-highlight__note--right" data-lines data-tadam-animate="lines--delay-0.2"><?= $highlight['right_note']  ?></p>
         </div>
-
     </div>
 </section>
 

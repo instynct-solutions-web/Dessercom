@@ -1,99 +1,102 @@
-import { TweenLite, TimelineMax, Power4 } from 'gsap';
+import { gsap, TweenLite, TimelineMax, Power4 } from 'gsap';
 import lottie from 'lottie-web';
+import { CustomEase } from 'gsap/CustomEase';
+
+gsap.registerPlugin(CustomEase);
 
 export default class Tadam {
 	tadamAnimate(element, animation) {
-		if (animation === 'x-0--rotation-5') {
-			TweenLite.to(element, 2.5, {
-				ease: Power4.easeInOut,
+		if (animation === 'x-0--y-0') {
+			TweenLite.to(element, 1.5, {
+				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 				x: 0,
 				y: 0,
 				force3D: true,
 			});
 		} else if (animation === 'opacity-1--y-0--delay-0.4') {
-			TweenLite.to(element, 1.5, {
-				ease: Power4.easeInOut,
+			TweenLite.to(element, 0.75, {
+				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 				autoAlpha: 1,
 				y: 0,
 				delay: 0.4,
 				force3D: true,
 			});
 		} else if (animation === 'opacity-1--y-0--delay-0.5') {
-			TweenLite.to(element, 1.5, {
-				ease: Power4.easeInOut,
+			TweenLite.to(element, 0.75, {
+				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 				autoAlpha: 1,
 				y: 0,
 				delay: 0.5,
 				force3D: true,
 			});
 		} else if (animation === 'opacity-1--y-0--delay-0.6') {
-			TweenLite.to(element, 1.5, {
-				ease: Power4.easeInOut,
+			TweenLite.to(element, 0.75, {
+				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 				autoAlpha: 1,
 				y: 0,
 				delay: 0.6,
 				force3D: true,
 			});
 		} else if (animation === 'opacity-1--y-0--delay-0.7') {
-			TweenLite.to(element, 1.5, {
-				ease: Power4.easeInOut,
+			TweenLite.to(element, 0.75, {
+				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 				autoAlpha: 1,
 				y: 0,
 				delay: 0.7,
 				force3D: true,
 			});
 		} else if (animation === 'opacity-1--y-0--delay-1') {
-			TweenLite.to(element, 1.5, {
-				ease: Power4.easeInOut,
+			TweenLite.to(element, 0.75, {
+				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 				autoAlpha: 1,
 				y: 0,
 				delay: 1,
 				force3D: true,
 			});
 		} else if (animation === 'scaleX-1') {
-			TweenLite.to(element, 1.5, {
-				ease: Power4.easeInOut,
+			TweenLite.to(element, 0.75, {
+				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 				scaleX: 1,
 				force3D: true,
 			});
 		} else if (animation === 'scaleX-1--delay-0.5') {
-			TweenLite.to(element, 1.5, {
-				ease: Power4.easeInOut,
+			TweenLite.to(element, 0.75, {
+				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 				scaleX: 1,
 				delay: 0.5,
 				force3D: true,
 			});
 		} else if (animation === 'scaleX-1--delay-0.7') {
 			TweenLite.to(element, 1.5, {
-				ease: Power4.easeInOut,
+				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 				scaleX: 1,
 				delay: 0.7,
 				force3D: true,
 			});
 		} else if (animation === 'scaleX-1--delay-1.3') {
 			TweenLite.to(element, 1.5, {
-				ease: Power4.easeInOut,
+				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 				scaleX: 1,
 				delay: 1.3,
 				force3D: true,
 			});
 		} else if (animation === 'scaleX-1--delay-1.4') {
 			TweenLite.to(element, 1.5, {
-				ease: Power4.easeInOut,
+				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 				scaleX: 1,
 				delay: 1.4,
 				force3D: true,
 			});
 		} else if (animation === 'scaleX-1--delay-1.5') {
 			TweenLite.to(element, 1.5, {
-				ease: Power4.easeInOut,
+				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 				scaleX: 1,
 				delay: 1.5,
 				force3D: true,
 			});
 		} else if (animation === 'mask-image') {
-			TweenLite.to(element, 2, {
-				ease: Power4.easeInOut,
+			TweenLite.to(element, 1.5, {
+				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 				scale: 1,
 				autoAlpha: 1,
 				force3D: true,
@@ -108,7 +111,7 @@ export default class Tadam {
 			});
 		} else if (animation === 'opacity-1--scale-1') {
 			TweenLite.to(element, 3, {
-				ease: Power4.easeInOut,
+				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 				height: '100%',
 				scale: 1,
 				force3D: true,
@@ -131,7 +134,7 @@ export default class Tadam {
 					this.elementList,
 					1.2,
 					{
-						ease: Power4.easeInOut,
+						ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 						autoAlpha: 1,
 						y: 0,
 						delay: this.lineDelay,
@@ -150,9 +153,9 @@ export default class Tadam {
 				this.timeline = new TimelineMax();
 				this.timeline.staggerTo(
 					this.elementList,
-					1.2,
+					0.75,
 					{
-						ease: Power4.easeInOut,
+						ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 						autoAlpha: 1,
 						y: 0,
 						delay: this.lineDelay,
@@ -165,8 +168,8 @@ export default class Tadam {
 		} else if (animation === 'home-services') {
 			this.serviceList = element.querySelectorAll('.home-services__item');
 			this.serviceDelay = 0.2;
-			TweenLite.to(element, 1.2, {
-				ease: Power4.easeInOut,
+			TweenLite.to(element, 0.75, {
+				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 				autoAlpha: 1,
 				y: 0,
 				delay: this.serviceDelay,
@@ -260,9 +263,9 @@ export default class Tadam {
 			this.timeline = new TimelineMax();
 			this.timeline.staggerTo(
 				this.elementList,
-				1.5,
+				0.75,
 				{
-					ease: Power4.easeInOut,
+					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 					autoAlpha: 1,
 					y: 0,
 					force3D: true,
@@ -276,7 +279,7 @@ export default class Tadam {
 				this.elementList,
 				1.5,
 				{
-					ease: Power4.easeInOut,
+					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 					autoAlpha: 1,
 					y: 0,
 					delay: 0.2,
@@ -291,7 +294,7 @@ export default class Tadam {
 				this.elementList,
 				1.5,
 				{
-					ease: Power4.easeInOut,
+					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 					autoAlpha: 1,
 					y: 0,
 					delay: 0.3,
@@ -306,7 +309,7 @@ export default class Tadam {
 				this.elementList,
 				1.5,
 				{
-					ease: Power4.easeInOut,
+					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 					autoAlpha: 1,
 					y: 0,
 					delay: 0.5,
@@ -314,17 +317,17 @@ export default class Tadam {
 				},
 				0.1
 			);
-		} else if (animation === 'lines--delay-1.1') {
+		} else if (animation === 'lines--delay-0.7') {
 			this.elementList = element.querySelectorAll('.separate-line__line');
 			this.timeline = new TimelineMax();
 			this.timeline.staggerTo(
 				this.elementList,
-				1.5,
+				0.75,
 				{
-					ease: Power4.easeInOut,
+					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 					autoAlpha: 1,
 					y: 0,
-					delay: 1.1,
+					delay: 0.7,
 					force3D: true,
 				},
 				0.05
