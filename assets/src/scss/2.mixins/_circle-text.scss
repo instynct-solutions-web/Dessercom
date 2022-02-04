@@ -1,0 +1,25 @@
+// ==========================================================================
+// MIXINS - CircleText
+// ==========================================================================
+
+@mixin circleText {
+	font-size: rem(11);
+	color: $black;
+	font-weight: 700;
+	//animation-name: textRotation;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+	@include tablet-only {
+		font-size: rem(12);
+	}
+}
+
+@keyframes textRotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
