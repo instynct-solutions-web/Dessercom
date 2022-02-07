@@ -4,6 +4,7 @@
 
 // Buttons mixins
 @mixin button-primary {
+	position: relative;
 	background-color: $teal;
 	display: inline-flex;
 	margin: 1em 0;
@@ -11,8 +12,12 @@
 	font-size: 15px;
 	font-weight: 500;
 	color: white;
+	border: 1px solid $teal;
 	align-items: baseline;
 	justify-content: space-between;
+	z-index: 1;
+	transform: scale(1);
+	transition: transform 0.35s ease-in-out;
 	&::after {
 		content: '';
 		width: 15px;
@@ -25,6 +30,15 @@
 		margin-left: 1em;
 		position: relative;
 		top: 3px;
+		transform: rotate(0);
+		transition: transform 0.35s ease-in-out;
+	}
+	&:hover {
+		transform: scale(1.02);
+		&::after {
+			transform: rotate(45deg);
+			transition: transform 0.35s ease-in-out;
+		}
 	}
 }
 
@@ -50,10 +64,19 @@
 		background-repeat: no-repeat;
 		background-position: center;
 		margin-left: 1em;
+		transform: rotate(0);
+		transition: transform 0.35s ease-in-out;
+	}
+	&:hover {
+		&::after {
+			transform: rotate(45deg);
+			transition: transform 0.35s ease-in-out;
+		}
 	}
 }
 
 @mixin button-white {
+	position: relative;
 	background-color: transparent;
 	display: inline-flex;
 	margin: 1em 0;
@@ -64,6 +87,21 @@
 	align-items: baseline;
 	justify-content: space-between;
 	border: 1px solid $white;
+	z-index: 1;
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		opacity: 0;
+		z-index: -1;
+		background-color: $white;
+		transform-origin: left;
+		transform: scaleX(0);
+		transition: opacity 0.01s linear 0.35s, transform 0.35s ease-in-out;
+	}
 	&::after {
 		content: '';
 		min-width: 10px;
@@ -76,11 +114,25 @@
 		background-position: center;
 		align-self: flex-end;
 		margin-left: 1em;
+		transform: rotate(0);
+		transition: transform 0.35s ease-in-out;
+	}
+	&:hover {
+		&::before {
+			opacity: 1;
+			transform: scaleX(0.025);
+			transition: opacity 0.01s linear, transform 0.35s ease-in-out;
+		}
+		&::after {
+			transform: rotate(45deg);
+			transition: transform 0.35s ease-in-out;
+		}
 	}
 }
 
 @mixin button-outline {
 	background-color: transparent;
+	position: relative;
 	display: inline-flex;
 	margin: 1em 0;
 	padding: 1.3em 1.5em;
@@ -90,7 +142,22 @@
 	align-items: baseline;
 	justify-content: space-between;
 	border: 1px solid $navy;
+	z-index: 1;
 	color: $navy;
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		opacity: 0;
+		z-index: -1;
+		background-color: $teal;
+		transform-origin: left;
+		transform: scaleX(0);
+		transition: opacity 0.01s linear 0.35s, transform 0.35s ease-in-out;
+	}
 	&::after {
 		content: '';
 		min-width: 10px;
@@ -105,10 +172,24 @@
 		margin-left: 1em;
 		position: relative;
 		top: 3px;
+		transform: rotate(0);
+		transition: transform 0.35s ease-in-out;
+	}
+	&:hover {
+		&::before {
+			opacity: 1;
+			transform: scaleX(0.025);
+			transition: opacity 0.01s linear, transform 0.35s ease-in-out;
+		}
+		&::after {
+			transform: rotate(45deg);
+			transition: transform 0.35s ease-in-out;
+		}
 	}
 }
 
 @mixin button-download {
+	position: relative;
 	background-color: $navy;
 	display: inline-flex;
 	margin: 1em 0;
@@ -118,6 +199,9 @@
 	color: white;
 	align-items: baseline;
 	justify-content: space-between;
+	z-index: 1;
+	transform: scale(1);
+	transition: transform 0.25s ease-in;
 	&::after {
 		content: '';
 		width: 16px;
@@ -128,5 +212,14 @@
 		background-repeat: no-repeat;
 		background-position: center;
 		margin-left: 1em;
+		transform: translateY(0px);
+		transition: transform 0.35s ease-in-out;
+	}
+	&:hover {
+		transform: scale(1.01);
+		&::after {
+			transform: translateY(5px);
+			transition: transform 0.35s ease-in-out;
+		}
 	}
 }

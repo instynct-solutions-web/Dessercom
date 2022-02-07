@@ -2,6 +2,7 @@ export default class ContactShow {
 	constructor() {
 		// All DOM selector / elements goes here
 		this.cursor = document.querySelector('[data-cursor-pointer]');
+		this.header = document.querySelector('[data-header]');
 		this.headerElemList = document.querySelectorAll('[data-header-hide]');
 		this.logoElemList = document.querySelectorAll('[data-header-logo]');
 		this.contactMedia = document.querySelector('[data-contact-media]');
@@ -25,6 +26,7 @@ export default class ContactShow {
 	}
 
 	show() {
+		this.header.classList.add(`${this.header.classList[0]}--hide`);
 		this.hero.classList.add(`${this.hero.classList[0]}--hide`);
 		this.contactMedia.classList.add(`${this.contactMedia.classList[0]}--show`);
 		this.cursor.classList.add(`${this.cursor.classList[0]}--white`);
@@ -37,6 +39,7 @@ export default class ContactShow {
 	}
 
 	hide() {
+		this.header.classList.remove(`${this.header.classList[0]}--hide`);
 		this.hero.classList.remove(`${this.hero.classList[0]}--hide`);
 		this.contactMedia.classList.remove(`${this.contactMedia.classList[0]}--show`);
 		this.cursor.classList.remove(`${this.cursor.classList[0]}--white`);

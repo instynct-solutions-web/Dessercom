@@ -17,6 +17,9 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	padding-top: 0.5em;
+	&--hide {
+		pointer-events: none;
+	}
 	&--opened {
 		.header {
 			&__logo {
@@ -183,6 +186,7 @@
 		background-color: $yellow;
 		transform: scaleX(0);
 		transform-origin: left;
+		width: 120px;
 	}
 	&__button-label {
 		display: flex;
@@ -190,13 +194,16 @@
 		align-items: center;
 		justify-content: center;
 		height: 40px;
-		padding: 0 15px;
-		font-size: rem(11);
-		font-weight: 700;
+		padding: 0;
 		color: $black;
 		opacity: 0;
 		visibility: hidden;
 		transform: translate3d(0, -15px, 0);
+		p {
+			margin: 0 0.25em;
+			font-size: rem(11);
+			font-weight: 700;
+		}
 	}
 }
 
@@ -316,7 +323,9 @@
 			}
 		}
 		&__button-label {
-			font-size: rem(12);
+			p {
+				font-size: rem(12);
+			}
 		}
 	}
 
@@ -411,9 +420,14 @@
 			width: 20px;
 			margin: 3px 0;
 		}
+		&__button {
+			width: 200px;
+		}
 		&__button-label {
-			font-size: rem(19);
 			height: 60px;
+			p {
+				font-size: rem(19);
+			}
 		}
 		&__sub-nav-item {
 			margin-bottom: 40px;

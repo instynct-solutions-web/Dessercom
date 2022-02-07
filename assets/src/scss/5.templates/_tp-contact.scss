@@ -4,7 +4,7 @@
 .contact-media {
 	background-color: $teal;
 	position: absolute;
-	z-index: 1;
+	z-index: 2;
 	top: 0;
 	left: 0;
 	opacity: 0;
@@ -88,24 +88,37 @@
 		justify-content: flex-end;
 		margin: 0;
 		position: absolute;
-		right: 0;
-		top: 100px;
+		top: 10%;
+		right: 5%;
+		z-index: 999;
 	}
 	&__cta {
-		position: relative;
+		display: inline-flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		width: 100px;
+		height: 100px;
+		position: absolute;
+
+		z-index: 1;
+		&:hover {
+			.contact-media__cta-icon {
+				transform: scale(1.2) rotate(90deg);
+			}
+		}
+	}
+	&__cta-text {
+		@include circleText($white);
+	}
+	&__cta-icon {
+		width: 20%;
+		height: 20%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: rem(145);
-	}
-	&__cta-text {
-		color: $white;
-		font-size: rem(13);
-	}
-	&__cta-icon {
-		position: absolute;
-		height: rem(20);
-		width: rem(20);
+		transform: scale(1) rotate(0);
+		transition: transform 0.4s ease-in-out;
 	}
 }
 .contact-hero {
@@ -389,7 +402,7 @@
 @include tablet-only {
 	.contact-media {
 		overflow: hidden;
-		z-index: 1;
+		z-index: 2;
 		&__container {
 			padding-top: 150px;
 			padding-bottom: 100px;
@@ -423,11 +436,6 @@
 		}
 		&__background {
 			transform: translateY(50%) translateX(50%) rotate(342deg) scale(3);
-		}
-		&__cta-container {
-			margin: 0;
-			top: 150px;
-			right: 40px;
 		}
 	}
 	.contact-hero {

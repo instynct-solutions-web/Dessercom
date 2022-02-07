@@ -11,8 +11,8 @@ $media = get_field('media') ?>
 <section data-stay data-calc-mobile data-contact-media class="contact-media">
     <div data-wolfpack class="contact-media__container">
         <div class="contact-media__cta-container">
-            <div data-contact-close class="contact-media__cta">
-                <span class="contact-media__cta-text" data-circle-text>
+            <div data-cursor data-contact-close class="contact-media__cta cta">
+                <span class="contact-media__cta-text cta__text" data-circle-text>
                     <?php for ($i = 0; $i <= 5; $i++) { ?>
                         <?= $media['back'] ?>
                         <div> . </div>

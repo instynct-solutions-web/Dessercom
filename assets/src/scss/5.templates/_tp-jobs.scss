@@ -704,6 +704,17 @@
 		}
 		&__link {
 			font-size: rem(15);
+
+			&:hover {
+				.jobs-internship__link-icon {
+					transform: translate(5px, -5px) rotate(225deg);
+					transition: transform 0.25s ease;
+				}
+			}
+		}
+		&__link-icon {
+			transform: translate(0, 0) rotate(225deg);
+			transition: transform 0.25s ease;
 		}
 	}
 	.jobs-careers {

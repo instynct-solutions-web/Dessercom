@@ -35,11 +35,11 @@ export default class FooterCursor {
 				const footerCursorRect = this.footerCursorList[i].getBoundingClientRect();
 				const hoverFooterRect = this.footerLinkList[i].getBoundingClientRect();
 				const ballX = e.clientX - footerCursorRect.left - 100;
-				const ballY = e.clientY - hoverFooterRect.top;
+				// const ballY = e.clientY - hoverFooterRect.top - 50;
 				TweenMax.to(this.footerCursorList[i], 0.3, {
 					ease: Power1.easeOut,
 					x: ballX,
-					y: ballY,
+					// y: ballY,
 				});
 			});
 		}

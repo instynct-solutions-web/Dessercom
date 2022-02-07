@@ -146,7 +146,7 @@ $research = get_field('research') ?>
             </div>
 
             <div class="philanthropy-research__toggle-container">
-                <div data-research-slider-toggle class="philanthropy-research__toggle">
+                <div data-cursor data-research-slider-toggle class="philanthropy-research__toggle">
                     <svg class="philanthropy-research__toggle-svg" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
                         <g id="Groupe_456" data-name="Groupe 456">
                             <g id="Groupe_454" data-name="Groupe 454">

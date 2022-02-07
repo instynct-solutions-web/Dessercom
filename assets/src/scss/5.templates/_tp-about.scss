@@ -665,8 +665,19 @@
 		&__logo {
 			margin-bottom: 30px;
 		}
+		&__link-icon {
+			margin-left: 10px;
+			transform: translate(-1px, -1px) rotate(-135deg);
+			transition: transform 0.25s ease;
+		}
 		&__link {
 			font-size: rem(15);
+			&:hover {
+				.about-funding__link-icon {
+					transform: translate(5px, -5px) rotate(-135deg);
+					transition: transform 0.25s ease;
+				}
+			}
 		}
 	}
 }

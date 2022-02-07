@@ -854,6 +854,19 @@
 		&__toggle {
 			width: 60px;
 			height: 60px;
+			transform: scale(1);
+			transition: transform 0.2s linear;
+			svg {
+				transform: translateX(0);
+				transition: transform 0.2s linear;
+			}
+			&:hover {
+				transform: scale(1.1);
+				svg {
+					transform: translateX(5px);
+					transition: transform 0.2s linear;
+				}
+			}
 		}
 		&__left-container {
 			justify-content: flex-end;
@@ -865,6 +878,19 @@
 		&__close {
 			width: 60px;
 			height: 60px;
+			transform: scale(1);
+			transition: transform 0.2s linear;
+			svg {
+				transform: scaleX(-1) translateX(0);
+				transition: transform 0.2s linear;
+			}
+			&:hover {
+				transform: scale(1.1);
+				svg {
+					transform: scaleX(-1) translateX(5px);
+					transition: transform 0.2s linear;
+				}
+			}
 		}
 		&__logo {
 			width: 1.5rem;
