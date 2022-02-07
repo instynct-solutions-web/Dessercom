@@ -11,6 +11,26 @@ get_header(); ?>
 <?php $hero = get_field('hero') ?>
 <section data-wolfpack-section class="jobs-hero">
     <div class="jobs-hero__container">
+        <a href="<?= $hero['cta']['url'] ?>" class="jobs-hero__cta cta">
+            <span class="jobs-hero__cta-text cta__text" data-circle-text>
+                <?= $hero['cta']['title'] ?>
+                <div> . </div>
+                <?= $hero['cta']['title'] ?>
+                <div> . </div>
+                <?= $hero['cta']['title'] ?>
+                <div> . </div>
+                <?= $hero['cta']['title'] ?>
+                <div> . </div>
+            </span>
+            <div class="jobs-hero__cta-icon cta__icon">
+                <div class="arrow">
+                    <span class="arrow__left"></span>
+                    <span class="arrow__right"></span>
+                    <span class="arrow__line"></span>
+                </div>
+            </div>
+
+        </a>
         <div class="jobs-hero__main">
             <a target="<?= $hero['link']['target'] ?>" href="<?= $hero['link']['url'] ?>" class="jobs-hero__link">
                 <svg class="jobs-hero__link-icon" xmlns="http://www.w3.org/2000/svg" width="14.515" height="13.384" viewBox="0 0 14.515 13.384">

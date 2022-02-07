@@ -35,16 +35,22 @@
 		justify-content: center;
 		align-items: center;
 		width: rem(145);
+		&:hover {
+			.services-hero__cta-icon {
+				transform: scale(1.5);
+			}
+		}
 	}
+
 	&__cta-text {
-		color: $teal;
-		font-weight: 700;
-		font-size: rem(13);
+		@include circleText($teal);
 	}
 	&__cta-icon {
 		position: absolute;
 		height: rem(15);
 		width: rem(15);
+		transform: scale(1);
+		transition: transform 0.3s ease-in-out;
 	}
 }
 .services-map {

@@ -2,9 +2,9 @@
 // MIXINS - CircleText
 // ==========================================================================
 
-@mixin circleText {
+@mixin circleText($textColor: $navy) {
 	font-size: rem(11);
-	color: $black;
+	color: $textColor;
 	font-weight: 700;
 	transform-origin: center;
 	transform: rotate(0deg);
@@ -12,6 +12,10 @@
 	animation-fill-mode: forwards;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
 	@include tablet-only {
 		font-size: rem(12);
 	}
