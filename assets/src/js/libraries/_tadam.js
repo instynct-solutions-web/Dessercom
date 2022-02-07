@@ -168,19 +168,12 @@ export default class Tadam {
 		} else if (animation === 'home-services') {
 			this.serviceList = element.querySelectorAll('.home-services__item');
 			this.serviceDelay = 0.2;
-			TweenLite.to(element, 0.75, {
-				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
-				autoAlpha: 1,
-				y: 0,
-				delay: this.serviceDelay,
-				force3D: true,
-			});
 
 			for (let i = 0; i < this.serviceList.length; i += 1) {
 				this.service = this.serviceList[i];
 				this.element = this.service.querySelector('.home-services__link-content');
-				TweenLite.to(this.element, 1.2, {
-					ease: Power4.easeInOut,
+				TweenLite.to(this.element, 0.75, {
+					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 					autoAlpha: 1,
 					y: 0,
 					delay: this.serviceDelay,
@@ -191,9 +184,9 @@ export default class Tadam {
 				this.backgroundTimeline = new TimelineMax();
 				this.backgroundTimeline.staggerTo(
 					this.backgroundList,
-					1.5,
+					1.2,
 					{
-						ease: Power4.easeInOut,
+						ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 						scaleX: 1,
 						force3D: true,
 					},
@@ -205,14 +198,15 @@ export default class Tadam {
 			this.timeline = new TimelineMax();
 			this.timeline.staggerTo(
 				this.elementList,
-				1.5,
+				0.75,
 				{
-					ease: Power4.easeInOut,
+					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 					autoAlpha: 1,
 					y: 0,
+					delay: 0.7,
 					force3D: true,
 				},
-				0.15
+				0.01
 			);
 		} else if (animation === 'letters') {
 			this.elementList = element.querySelectorAll('.separate-character__letter');
@@ -258,8 +252,8 @@ export default class Tadam {
 				},
 				0.1
 			);
-		} else if (animation === 'lines') {
-			this.elementList = element.querySelectorAll('.separate-line__line');
+		} else if (animation === 'words') {
+			this.elementList = element.querySelectorAll('.separate-word__word');
 			this.timeline = new TimelineMax();
 			this.timeline.staggerTo(
 				this.elementList,
@@ -270,14 +264,14 @@ export default class Tadam {
 					y: 0,
 					force3D: true,
 				},
-				0.1
+				0.02
 			);
-		} else if (animation === 'lines--delay-0.2') {
-			this.elementList = element.querySelectorAll('.separate-line__line');
+		} else if (animation === 'words--delay-0.2') {
+			this.elementList = element.querySelectorAll('.separate-word__word');
 			this.timeline = new TimelineMax();
 			this.timeline.staggerTo(
 				this.elementList,
-				1.5,
+				0.75,
 				{
 					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 					autoAlpha: 1,
@@ -285,14 +279,14 @@ export default class Tadam {
 					delay: 0.2,
 					force3D: true,
 				},
-				0.1
+				0.01
 			);
-		} else if (animation === 'lines--delay-0.3') {
-			this.elementList = element.querySelectorAll('.separate-line__line');
+		} else if (animation === 'words--delay-0.3') {
+			this.elementList = element.querySelectorAll('.separate-word__word');
 			this.timeline = new TimelineMax();
 			this.timeline.staggerTo(
 				this.elementList,
-				1.5,
+				0.75,
 				{
 					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 					autoAlpha: 1,
@@ -300,14 +294,14 @@ export default class Tadam {
 					delay: 0.3,
 					force3D: true,
 				},
-				0.1
+				0.01
 			);
-		} else if (animation === 'lines--delay-0.5') {
-			this.elementList = element.querySelectorAll('.separate-line__line');
+		} else if (animation === 'words--delay-0.5') {
+			this.elementList = element.querySelectorAll('.separate-word__word');
 			this.timeline = new TimelineMax();
 			this.timeline.staggerTo(
 				this.elementList,
-				1.5,
+				0.75,
 				{
 					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 					autoAlpha: 1,
@@ -315,10 +309,10 @@ export default class Tadam {
 					delay: 0.5,
 					force3D: true,
 				},
-				0.1
+				0.01
 			);
-		} else if (animation === 'lines--delay-0.7') {
-			this.elementList = element.querySelectorAll('.separate-line__line');
+		} else if (animation === 'words--delay-0.7') {
+			this.elementList = element.querySelectorAll('.separate-word__word');
 			this.timeline = new TimelineMax();
 			this.timeline.staggerTo(
 				this.elementList,
@@ -330,91 +324,91 @@ export default class Tadam {
 					delay: 0.7,
 					force3D: true,
 				},
-				0.05
+				0.02
 			);
 		} else if (animation === 'pricing-items') {
 			this.itemList = element.querySelectorAll('.pricing-hero__item');
 			this.itemTimeline = new TimelineMax();
 			this.itemTimeline.staggerTo(
 				this.itemList,
-				1.5,
+				0.75,
 				{
-					ease: Power4.easeInOut,
+					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 					scaleX: 1,
-					delay: 0.6,
+					delay: 0.4,
 					force3D: true,
 				},
-				0.4
+				0.1
 			);
 			this.buttonList = element.querySelectorAll('.pricing-hero__drawer-button');
 			this.buttonTimeline = new TimelineMax();
 			this.buttonTimeline.staggerTo(
 				this.buttonList,
-				1.5,
+				0.75,
 				{
-					ease: Power4.easeInOut,
+					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 					autoAlpha: 1,
 					scale: 1,
 					rotation: 0,
-					delay: 1,
+					delay: 0.75,
 					force3D: true,
 				},
-				0.4
+				0.1
 			);
-			this.titleList = element.querySelectorAll('.pricing-hero__drawer-title-line');
+			this.titleList = element.querySelectorAll('.pricing-hero__drawer-title-word');
 			this.titleTimeline = new TimelineMax();
 			this.titleTimeline.staggerTo(
 				this.titleList,
-				1.5,
+				0.75,
 				{
-					ease: Power4.easeInOut,
+					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 					autoAlpha: 1,
 					y: 0,
-					delay: 1.1,
+					delay: 1,
 					force3D: true,
 				},
-				0.4
+				0.01
 			);
 			this.priceList = element.querySelectorAll('.pricing-hero__subitem-price-line');
 			this.priceTimeline = new TimelineMax();
 			this.priceTimeline.staggerTo(
 				this.priceList,
-				1.5,
+				0.75,
 				{
-					ease: Power4.easeInOut,
+					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 					autoAlpha: 1,
 					y: 0,
-					delay: 1.3,
+					delay: 1.1,
 					force3D: true,
 				},
-				0.2
+				0.01
 			);
 			this.lineList = element.querySelectorAll('.pricing-hero__subitem-line');
 			this.lineTimeline = new TimelineMax();
 			this.lineTimeline.staggerTo(
 				this.lineList,
-				1.5,
+				0.75,
 				{
-					ease: Power4.easeInOut,
+					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 					scaleX: 1,
-					delay: 1.6,
+					delay: 1.2,
 					force3D: true,
 				},
-				0.2
+				0.01
 			);
 			this.textList = element.querySelectorAll('.pricing-hero__subitem-text-line');
 			this.textTimeline = new TimelineMax();
 			this.textTimeline.staggerTo(
 				this.textList,
-				1.5,
+				0.75,
 				{
-					ease: Power4.easeInOut,
+					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 					autoAlpha: 1,
 					y: 0,
 					delay: 1.2,
 					force3D: true,
 				},
-				0.2
+				0.01
 			);
 		} else if (animation === 'lottie-lines') {
 			this.animationElement = element;

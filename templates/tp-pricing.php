@@ -31,12 +31,12 @@ get_header(); ?>
         <div class="pricing-hero__top">
             <span class="pricing-hero__separator" data-tadam-animate="scaleX-1"></span>
             <img data-tadam-animate="opacity-1--rotation-0--delay-0.1" src="<?= $hero['icon']['url'] ?>" alt="<?= $hero['icon']['alt'] ?>" class="pricing-hero__icon">
-            <p class="pricing-hero__note" data-lines data-tadam-animate="lines--delay-0.2"><?= $hero['note'] ?></p>
+            <p class="pricing-hero__note" data-words data-tadam-animate="words--delay-0.2"><?= $hero['note'] ?></p>
         </div>
         <div class="pricing-hero__main">
             <div class="pricing-hero__info">
-                <h1 class="pricing-hero__title" data-lines data-tadam-animate="lines--delay-0.3"><?= $hero['title'] ?></h1>
-                <p class="pricing-hero__text" data-lines data-tadam-animate="lines--delay-0.5"><?= $hero['text'] ?></p>
+                <h1 class="pricing-hero__title" data-words data-tadam-animate="words--delay-0.3"><?= $hero['title'] ?></h1>
+                <p class="pricing-hero__text" data-words data-tadam-animate="words--delay-0.5"><?= $hero['text'] ?></p>
             </div>
             <?php if ($hero['list']) { ?>
                 <ul class="pricing-hero__list" data-tadam-animate="pricing-items">
@@ -62,7 +62,7 @@ get_header(); ?>
                                         </g>
                                     </svg>
                                 </div>
-                                <h3 class="pricing-hero__drawer-title" data-lines><?= $category['title'] ?></h3>
+                                <h3 class="pricing-hero__drawer-title" data-words><?= $category['title'] ?></h3>
                             </div>
                             <?php if ($category['sublist']) { ?>
                                 <ul class="pricing-hero__sublist">
@@ -95,7 +95,7 @@ $transport = get_field('transport') ?>
         <div class="pricing-transport__top-container">
             <div class="pricing-transport__top">
                 <span class="pricing-transport__separator" data-tadam-animate="scaleX-1"></span>
-                <p class="pricing-transport__note" data-lines data-tadam-animate="lines--delay-0.2"><?= $transport['note'] ?></p>
+                <p class="pricing-transport__note" data-words data-tadam-animate="words--delay-0.2"><?= $transport['note'] ?></p>
             </div>
             <a href="<?= $transport['link']['url'] ?>" class="pricing-transport__cta" data-tadam-animate="opacity-1--rotation-0">
                 <span class="pricing-transport__cta-text" data-circle-text>
@@ -124,9 +124,9 @@ $transport = get_field('transport') ?>
                 <path id="Tracé_974" data-name="Tracé 974" d="M178.728,151.529c-6.956,12.172-24.362,15.327-38.914,7.036-1.2-.695-49.044-28.243-49.044-28.243l.049-.08L41.9,158.725c-14.49,8.4-31.927,5.4-38.963-6.686v-.031C-4.1,139.9,1.926,123.262,16.392,114.835c1.15-.64,45.384-26.1,48.834-28.077v.129H65.6l-.16-.264-.215.135V30.3C65.227,13.562,76.593,0,90.6,0s25.383,13.562,25.383,30.3c0,1.31-.24,51.375-.271,56.215l-.209.369h.209v-.369l.031-.055,49.179,28C179.478,122.751,185.653,139.333,178.728,151.529Z" transform="translate(0)" fill="url(#image)" />
             </svg>
             <div class="pricing-transport__text-container">
-                <h2 class="pricing-transport__title" data-lines data-tadam-animate="lines--delay-0.5"><?= $transport['title'] ?></h2>
-                <p class="pricing-transport__text" data-tadam-animate="opacity-1--y-0--delay-0.6"><?= $transport['text'] ?></p>
-                <p class="pricing-transport__subtext" data-tadam-animate="opacity-1--y-0--delay-0.7"><?= $transport['subtext'] ?></p>
+                <h2 class="pricing-transport__title" data-words data-tadam-animate="words--delay-0.2"><?= $transport['title'] ?></h2>
+                <p class="pricing-transport__text" data-tadam-animate="opacity-1--y-0--delay-0.4"><?= $transport['text'] ?></p>
+                <p class="pricing-transport__subtext" data-tadam-animate="opacity-1--y-0--delay-0.5"><?= $transport['subtext'] ?></p>
             </div>
         </div>
     </div>

@@ -11,7 +11,7 @@
 			color: $white;
 		}
 	}
-	.page-body {
+	.page-wrapper {
 		background-color: $navy;
 	}
 }
@@ -39,9 +39,23 @@
 		color: $white;
 		margin-bottom: 50px;
 	}
+	&__title-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
+	}
 	&__filters {
 		margin-bottom: 80px;
 		@include faqFilters;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 100px, 0);
+	}
+	&__questions {
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 100px, 0);
 	}
 	&__answer {
 		margin-bottom: 30px;

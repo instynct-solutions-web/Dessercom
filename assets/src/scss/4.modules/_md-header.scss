@@ -51,14 +51,14 @@
 		justify-content: flex-end;
 		opacity: 0;
 		visibility: hidden;
-		transform: translate3d(0, -15px, 0);
+		transform: translate3d(0, -100%, 0);
 	}
 	&__logo-container {
 		position: relative;
 		z-index: 1;
 		opacity: 0;
 		visibility: hidden;
-		transform: translate3d(0, -25px, 0);
+		transform: translate3d(0, -100%, 0);
 		&--white {
 			svg {
 				path {
@@ -284,7 +284,7 @@
 						margin-right: 15px;
 						opacity: 0;
 						visibility: hidden;
-						transform: translate3d(0, -15px, 0);
+						transform: translate3d(0, -100%, 0);
 						&:last-of-type {
 							margin-right: 0px;
 						}
