@@ -290,29 +290,17 @@
 		font-weight: 500;
 		margin-bottom: 40px;
 	}
-	&__title-word {
-		display: inline-block;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 150%, 0);
-	}
 	&__text {
 		font-size: rem(15);
 		font-weight: 500;
 		line-height: 1.5;
 		margin-bottom: 25px;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 50%, 0);
 	}
 	&__subtext {
 		font-size: rem(13);
 		font-weight: 400;
 		font-style: italic;
 		line-height: 1.5;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 50%, 0);
 	}
 }
 

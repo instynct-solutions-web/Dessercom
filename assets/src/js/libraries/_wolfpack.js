@@ -313,6 +313,12 @@ export default class Wolfpack {
 					this.tadamFinished.push(false);
 					this.tadamVisible.push(parseFloat(this.tadamTop[i]) + parseFloat(this.tadamThreshold[i]));
 				}
+				// Store Animations
+				for (let i = 0; i < this.tadamList.length; i += 1) {
+					for (let j = 0; j < this.tadamElementList[i].length; j += 1) {
+						this.tadamFunction.tadamStoreAnimations(this.tadamElementList[i][j], this.tadamAnimationList[i][j]);
+					}
+				}
 			}, 100);
 			window.addEventListener('resize', () => {
 				for (let i = 0; i < this.tadamList.length; i += 1) {
@@ -1318,12 +1324,12 @@ export default class Wolfpack {
 			for (let i = 0; i < this.tadamList.length; i += 1) {
 				if (this.tadamThreshold[i] === '-1' && !this.tadamFinished[i]) {
 					for (let j = 0; j < this.tadamElementList[i].length; j += 1) {
-						this.tadamFunction.tadamAnimate(this.tadamElementList[i][j], this.tadamAnimationList[i][j]);
+						this.tadamFunction.tadamAnimate(this.tadamElementList[i][j]);
 					}
 					this.tadamFinished[i] = true;
 				} else if (this.wolfpackScrollPosition[this.wolfpackMainIndex] >= this.tadamVisible[i] && !this.tadamFinished[i]) {
 					for (let j = 0; j < this.tadamElementList[i].length; j += 1) {
-						this.tadamFunction.tadamAnimate(this.tadamElementList[i][j], this.tadamAnimationList[i][j]);
+						this.tadamFunction.tadamAnimate(this.tadamElementList[i][j]);
 					}
 					this.tadamFinished[i] = true;
 				} else if (this.tadamRepeat[i] && this.wolfpackScrollPosition[this.wolfpackMainIndex] < this.tadamVisible[i] && this.tadamFinished[i]) {

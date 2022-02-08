@@ -43,14 +43,14 @@ $map = get_field('map') ?>
 </section>
 
 <?php $hero = get_field('hero') ?>
-<section data-wolfpack-section data-map-hero class="services-hero">
+<section data-wolfpack-section data-map-hero class="services-hero" data-tadam data-tadam-threshold="-1">
     <div class="services-hero__background-container">
         <img src="<?= $hero['background']['url'] ?>" alt="<?= $hero['background']['alt'] ?>" class="services-hero__background-map">
     </div>
     <div class="services-hero__container">
         <div class="services-hero__text-container">
-            <h1 class="services-hero__title"><?= $hero['title'] ?></h1>
-            <ul class="services-hero__list">
+            <h1 class="services-hero__title" data-words data-tadam-animate="words--delay-0.3"><?= $hero['title'] ?></h1>
+            <ul class="services-hero__list" data-tadam-animate="services-buttons">
                 <?php
                 foreach ($hero['list'] as $services) { ?>
                     <li class="services-hero__item">
@@ -77,21 +77,20 @@ $map = get_field('map') ?>
     </div>
 </section>
 
-
 <?php
 $extra = get_field('services_ext'); ?>
-<section data-wolfpack-section class="services-extra">
-    <img src="<?= $extra['image']['url'] ?>" alt="<?= $extra['image']['alt'] ?>" class="services-extra__background">
+<section data-wolfpack-section class="services-extra" data-tadam data-tadam-threshold="100">
+    <div class="services-extra__background" data-tadam-animate="lottie-lines-once" data-lottie-lines="/wp-content/themes/dessercom/assets/src/lottie/lines-white.json"></div>
     <div class="services-extra__container">
         <div class="services-extra__logo-container">
             <img src="<?= $extra['icon']['url'] ?>" alt="<?= $extra['icon']['alt'] ?>" class="services-extra__logo">
         </div>
         <div class="services-extra__info">
-            <h2 class="services-extra__title"><?= $extra['title'] ?></h2>
-            <p class="services-extra__text"><?= $extra['text'] ?></p>
+            <h2 class="services-extra__title" data-words data-tadam-animate="words"><?= $extra['title'] ?></h2>
+            <p class="services-extra__text" data-words data-tadam-animate="words--delay-0.2"><?= $extra['text'] ?></p>
         </div>
         <div class="services-extra__list-container">
-            <ul class="services-extra__list">
+            <ul class="services-extra__list" data-tadam-animate="services-extras">
                 <?php
                 $counter = 1;
                 foreach ($extra['list'] as $item) { ?>
@@ -109,17 +108,18 @@ $extra = get_field('services_ext'); ?>
 </section>
 <?php
 $paramedic = get_field('services_paramedic'); ?>
-<section data-wolfpack-section class="services-paramedic" id="soins-urgence-prehospitaliers">
+<section data-wolfpack-section class="services-paramedic" id="soins-urgence-prehospitaliers" data-tadam data-tadam-threshold="100">
     <div class="services-paramedic__container">
         <div class="services-paramedic__top">
-            <svg class="services-paramedic__icon" viewBox="0 0 786.511 708.195">
+            <span class="services-paramedic__separator" data-tadam-animate="scaleX-1"></span>
+            <svg class="services-paramedic__icon" viewBox="0 0 786.511 708.195" data-tadam-animate="opacity-1--rotation-0--delay-0.1">
                 <path id="mat-napo-ejWJ3a92FEs-unsplash" d="M12.3,656.391c30.132,52.726,105.531,66.393,168.567,30.479,5.2-3.011,212.447-122.342,212.447-122.342l-.213-.346L604.991,687.563c62.77,36.367,138.3,23.392,168.78-28.96v-.133c30.48-52.459,4.4-124.527-58.268-161.027-4.981-2.771-196.594-113.071-211.54-121.623v.559h-1.626l.693-1.146.933.586V131.268C503.963,58.747,454.727,0,394.036,0,333.317,0,284.082,58.747,284.082,131.268c0,5.675,1.039,222.545,1.173,243.512l.905,1.6h-.905v-1.6l-.134-.24L72.087,495.817C9.052,531.731-17.7,603.559,12.3,656.391Z" transform="translate(0)" fill="#00938f" />
             </svg>
-            <p class="services-paramedic__note"><?= $paramedic['note']; ?></p>
+            <p class="services-paramedic__note" data-words data-tadam-animate="words--delay-0.2"><?= $paramedic['note']; ?></p>
         </div>
         <div class="services-paramedic__main">
             <div class="services-paramedic__image-container">
-                <svg class="services-paramedic__image" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 181.567 163.488">
+                <svg class="services-paramedic__image" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 181.567 163.488" data-tadam-animate="mask-image">
                     <defs>
                         <pattern id="image" patternContentUnits="objectBoundingBox" width="1" height="1">
                             <image x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice" xlink:href="<?= $paramedic['image']['url']; ?>"></image>
@@ -150,13 +150,11 @@ $paramedic = get_field('services_paramedic'); ?>
 <?php
 $support = get_field('support') ?>
 
-<section data-wolfpack-section class="services-support" id="transport-medical">
-
-
+<section data-wolfpack-section class="services-support" id="transport-medical" data-tadam data-tadam-threshold="100">
     <div class="services-support__container">
         <div class="services-support__background">
             <div data-canvas-grid class="services-support__canvas"></div>
-            <img class="services-support__motif" src="/wp-content/themes/dessercom/assets/src/svg/dessercom-motif.svg" alt="Motif">
+            <img class="services-support__motif" src="/wp-content/themes/dessercom/assets/src/svg/dessercom-motif.svg" alt="Motif" data-tadam-animate="opacity-1--delay-0.4">
         </div>
         <div class="services-support__text-container">
             <h3 class="services-support__title"><?= $support['title'] ?></h3>
@@ -173,16 +171,16 @@ $support = get_field('support') ?>
 
 <?php
 $other = get_field('other') ?>
-<section data-wolfpack-section class="services-other" id="services-aux-entreprises">
-
+<section data-wolfpack-section class="services-other" id="services-aux-entreprises" data-tadam data-tadam-threshold="100">
     <div class="services-other__container">
         <div class="services-other__top">
-            <h2 class="services-other__title"><?= $other['title'] ?></h2>
+            <h2 class="services-other__title" data-words data-tadam-animate="words"><?= $other['title'] ?></h2>
             <a target="<?= $other['link']['target'] ?>" href="<?= $other['link']['url'] ?>" class="services-other__button services-other__button--desktop"><?= $other['link']['title'] ?></a>
+            <span class="services-other__separator" data-tadam-animate="scaleY-1--delay-0.4"></span>
         </div>
         <?php
         if ($other['list']) { ?>
-            <ul class="services-other__list">
+            <ul class="services-other__list" data-tadam-animate="services-others">
                 <?php
                 foreach ($other['list'] as $item) { ?>
                     <li class="services-other__item">

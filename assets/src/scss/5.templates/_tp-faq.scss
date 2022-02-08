@@ -24,7 +24,7 @@
 		transform: rotate(-125deg);
 		transform-origin: center;
 		right: -50%;
-		width: 100%;
+		width: 125%;
 		opacity: 0.1;
 	}
 	&__container {
@@ -50,12 +50,10 @@
 		@include faqFilters;
 		opacity: 0;
 		visibility: hidden;
-		transform: translate3d(0, 100px, 0);
 	}
 	&__questions {
 		opacity: 0;
 		visibility: hidden;
-		transform: translate3d(0, 100px, 0);
 	}
 	&__answer {
 		margin-bottom: 30px;

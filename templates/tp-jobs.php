@@ -10,16 +10,16 @@ get_header(); ?>
 
 <?php
 $benefits = get_field('benefits') ?>
-<section data-wolfpack-section class="jobs-benefits">
-    <img src="<?= $benefits['image']['url'] ?>" alt="<?= $benefits['image']['alt'] ?>" class="jobs-benefits__background">
+<section data-wolfpack-section class="jobs-benefits" data-tadam data-tadam-threshold="100">
+    <div class="jobs-benefits__background" data-tadam-animate="lottie-lines-once" data-lottie-lines="/wp-content/themes/dessercom/assets/src/lottie/lines-white.json"></div>
     <div class="jobs-benefits__container">
         <img src="<?= $benefits['icon']['url'] ?>" alt="<?= $benefits['icon']['alt'] ?>" class="jobs-benefits__logo">
         <div class="jobs-benefits__info">
-            <h2 class="jobs-benefits__title"><?= $benefits['title'] ?></h2>
-            <p class="jobs-benefits__text"><?= $benefits['text'] ?></p>
+            <h2 class="jobs-benefits__title" data-words data-tadam-animate="words"><?= $benefits['title'] ?></h2>
+            <p class="jobs-benefits__text" data-words data-tadam-animate="words--delay-0.2"><?= $benefits['text'] ?></p>
         </div>
         <div class="jobs-benefits__list-container">
-            <ul class="jobs-benefits__list">
+            <ul class="jobs-benefits__list" data-tadam-animate="jobs-benefits">
                 <?php
                 $counter = 1;
                 foreach ($benefits['list'] as $item) { ?>

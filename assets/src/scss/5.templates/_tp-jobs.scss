@@ -6,12 +6,14 @@
 	background-color: $navy;
 	margin-top: 25px;
 	position: relative;
+	overflow: hidden;
 	&__background {
 		position: absolute;
 		left: -50%;
-		top: -40px;
-		width: 125%;
+		top: -140px;
+		width: 140%;
 		opacity: 0.3;
+		transform: rotate(115deg);
 	}
 	&__container {
 		@include container;
@@ -36,17 +38,32 @@
 		width: 83.33333%;
 		margin-bottom: 40px;
 	}
+	&__title-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
+	}
 	&__text {
 		font-size: rem(15);
 		font-weight: 500;
 		color: $white;
 		line-height: 1.6;
 	}
+	&__text-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
+	}
 	&__item {
 		width: 83.33333%;
 		padding-top: 15px;
 		margin-bottom: 50px;
 		position: relative;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
 		&:last-of-type {
 			margin-bottom: 0px;
 		}

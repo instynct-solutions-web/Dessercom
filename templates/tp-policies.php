@@ -15,7 +15,7 @@ $questions = get_field('policies') ?>
             <h1 class="policies__title" data-words data-tadam-animate="words--delay-0.2"><?= $questions['title'] ?></h1>
         </div>
         <div class="policies__content">
-            <ul class="policies__list" data-tadam-animate="opacity-1--y-0--delay-0.4">
+            <ul class="policies__list" data-tadam-animate="opacity-1--delay-0.6">
                 <?php foreach ($questions['list'] as $item) { ?>
                     <li class="policies__item" data-terms-policies>
                         <h3 class="policies__item-title" data-terms-policies-title>

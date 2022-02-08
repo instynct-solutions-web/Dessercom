@@ -20,6 +20,18 @@
 		max-width: none;
 		object-fit: cover;
 	}
+	&__title-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
+	}
+	&__item {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 100%, 0);
+	}
 	&__link {
 		@include button-outline;
 		width: 80%;
@@ -133,7 +145,7 @@
 		z-index: 0;
 		width: 100%;
 		pointer-events: none;
-		transform: translateX(-30vh) rotate(-120deg) scale(2);
+		transform: translateX(-25vh) rotate(-240deg) scale(2);
 	}
 	&__container {
 		position: relative;
@@ -156,9 +168,21 @@
 		line-height: 1.3em;
 		margin-bottom: 1.5em;
 	}
+	&__title-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
+	}
 	&__text {
 		line-height: 1.5em;
 		padding-bottom: 2em;
+	}
+	&__text-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
 	}
 	&__list {
 		padding: 2em 0;
@@ -167,6 +191,10 @@
 		border-top: 1px solid $navy;
 		padding: 1em 0;
 		margin-bottom: 2em;
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
 	}
 	&__item-num {
 		font-weight: 400;
@@ -187,23 +215,46 @@
 		padding-top: 2em;
 	}
 	&__top {
-		border-top: 1px solid $gray;
 		padding: 2em 0;
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
+		position: relative;
+	}
+	&__separator {
+		display: block;
+		height: 1px;
+		width: 100%;
+		background-color: $gray;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		transform-origin: left;
+		transform: scaleX(0);
 	}
 	&__icon {
 		width: rem(15);
 		margin-right: 1em;
+		opacity: 0;
+		visibility: hidden;
+		transform: rotate(180deg);
 	}
 	&__note {
 		margin-top: 0.3em;
 		font-size: rem(14);
 	}
+	&__note-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 100%, 0);
+	}
 	&__image {
 		width: calc(100% + 40px);
 		transform: translateX(-20%);
+		opacity: 0;
+		visibility: hidden;
+		transform: translateX(-40px) scale(1.2);
 	}
 	&__text-container {
 		padding: 2em 0;
@@ -289,6 +340,8 @@
 	}
 	&__motif {
 		width: 100%;
+		opacity: 0;
+		visibility: hidden;
 	}
 }
 
@@ -305,11 +358,23 @@
 		width: 50%;
 		margin: 1em 0;
 	}
-
+	&__title-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
+	}
+	&__separator {
+		display: none;
+	}
 	&__item {
 		background-color: $gray;
 		border-radius: 3px 3px 0 0;
 		margin: 1em 0;
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 100%, 0);
 	}
 	&__item-header {
 		@include container;
@@ -437,7 +502,7 @@
 	}
 	.services-extra {
 		&__background {
-			width: 70%;
+			width: 60%;
 		}
 		&__container {
 			padding-top: 100px;
@@ -709,7 +774,7 @@
 	}
 	.services-extra {
 		&__background {
-			width: 50%;
+			width: 45%;
 		}
 		&__container {
 			display: flex;
@@ -877,17 +942,6 @@
 			padding-bottom: 70px;
 			padding-right: 30px;
 			position: relative;
-			&:after {
-				content: '';
-				display: block;
-				width: 1px;
-				height: 100%;
-				background-color: $gray;
-				opacity: 0.3;
-				position: absolute;
-				top: 0px;
-				right: 0px;
-			}
 		}
 		&__title {
 			font-size: rem(40);
@@ -897,6 +951,18 @@
 		&__button {
 			font-size: rem(15);
 			width: fit-content;
+		}
+		&__separator {
+			display: block;
+			width: 1px;
+			height: 100%;
+			background-color: $gray;
+			opacity: 0.3;
+			position: absolute;
+			top: 0px;
+			right: 0px;
+			transform-origin: top;
+			transform: scaleY(0);
 		}
 		&__list {
 			width: calc(75% - 20px);
