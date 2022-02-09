@@ -19,8 +19,6 @@ get_header(); ?>
                 <div> . </div>
                 <?= $hero['cta']['title'] ?>
                 <div> . </div>
-                <?= $hero['cta']['title'] ?>
-                <div> . </div>
             </span>
             <div class="jobs-hero__cta-icon cta__icon">
                 <div class="arrow">

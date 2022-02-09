@@ -16,7 +16,8 @@ $philosophy = get_field('philosophy'); ?>
         <div class="about-philosophy__aside">
             <h2 class="about-philosophy__note"><?= $philosophy['note'] ?></h2>
         </div>
-        <div class="about-philosophy__main">
+        <div data-cursor data-cursor-class="highlight" data-highlight-container class="about-philosophy__main">
+            <span data-highlight-cursor class="about-philosophy__cursor"></span>
             <p class="about-philosophy__text"><?= $philosophy['text'] ?></p>
         </div>
     </div>

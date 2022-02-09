@@ -11,12 +11,34 @@
 <body <?php body_class(); ?>>
 
 	<?php get_template_part('modules/md-preloader'); ?>
-
+	<?php
+	$cursor = get_field('cursor', 'options'); ?>
 	<div class="cursor" data-cursor-container>
 		<div class="cursor__ball cursor__ball--big" data-cursor-pointer>
 			<svg height="32" width="32">
-				<circle cx="15" cy="16" r="9" stroke-width="0"></circle>
+				<circle cx="16" cy="16" r="9" stroke-width="0"></circle>
 			</svg>
+		</div>
+		<div data-cursor-pointer class="cursor__cta cta">
+
+			<span class="cursor__cta-text cta__text" data-circle-text>
+				<?= $cursor['text'] ?>
+				<div> . </div>
+				<?= $cursor['text'] ?>
+				<div> . </div>
+				<?= $cursor['text'] ?>
+				<div> . </div>
+				<?= $cursor['text'] ?>
+				<div> . </div>
+				<?= $cursor['text'] ?>
+				<div> . </div>
+			</span>
+			<svg class="cursor__cta-icon cta__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 15">
+				<path id="Polygone_14" data-name="Polygone 14" d="M6.674,1.212a1,1,0,0,1,1.652,0l5.608,8.225A1,1,0,0,1,13.108,11H1.892a1,1,0,0,1-.826-1.563Z" transform="translate(11) rotate(90)" fill="#00938f" />
+			</svg>
+			<span class="cursor__cta-background"></span>
+
+
 		</div>
 	</div>
 

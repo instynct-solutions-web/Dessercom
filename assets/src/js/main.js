@@ -21,6 +21,7 @@ import Pricing from './modules/_pricing';
 import LightboxSlider from './modules/_lightboxSlider';
 import ContactForm from './modules/_contactForm';
 import FooterCursor from './modules/_footerCursor';
+import HighlightCursor from './modules/_highlightCursor';
 import Swup from 'swup';
 import SwupBodyClassPlugin from '@swup/body-class-plugin';
 
@@ -56,6 +57,7 @@ const App = {
 			const pricing = new Pricing();
 			const contactForm = new ContactForm();
 			const footerCursor = new FooterCursor();
+			const highlightCursor = new HighlightCursor();
 		}
 		init();
 		swup.on('contentReplaced', init);

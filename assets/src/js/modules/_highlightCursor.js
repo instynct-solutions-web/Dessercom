@@ -1,0 +1,57 @@
+import {TweenMax} from 'gsap';
+import Power1 from 'gsap';
+
+export default class HighlightCursor {
+	constructor() {
+		// All DOM selector / elements goes here
+		this.textCursor = document.querySelector('[data-highlight-cursor]');
+		this.textContainer = document.querySelector('[data-highlight-container]');
+		this.cursorPointer = document.querySelector('[data-cursor-pointer]');
+		this.cursorTop = 0;
+		console.log(this.textCursor.classList[0]);
+		if (this.textCursor) {
+			this.manageEvents();
+		}
+	}
+
+	manageEvents() {
+		this.textContainer.addEventListener('mouseenter', (e) => {
+			const cursorClass = this.textCursor.classList[0];
+			this.textCursor.classList.add(`${cursorClass}--show`);
+			TweenMax.to(this.textCursor, 0.5, {
+				scale: 1,
+				ease: Power1.easeOut,
+			});
+		});
+		this.textContainer.addEventListener('mouseout', (e) => {
+			const cursorClass = this.textCursor.classList[0];
+			this.textCursor.classList.remove(`${cursorClass}--show`);
+			TweenMax.to(this.textCursor, 0.5, {
+				scale: 0,
+				ease: Power1.easeOut,
+			});
+		});
+		this.textContainer.addEventListener('mousemove', (e) => {
+			const highlightCursorRect = this.textCursor.getBoundingClientRect();
+			const hoverHighlightRect = this.textContainer.getBoundingClientRect();
+			//const ballX = e.clientX - highlightCursorRect.right - 150;
+			//const ballY = e.clientY - hoverHighlightRect.top - 150;
+			const ballX = HighlightCursor.mapRange(e.clientX, 0, window.innerWidth, hoverHighlightRect.left, hoverHighlightRect.right);
+			console.log(hoverHighlightRect.left);
+			TweenMax.to(this.textCursor, 0.3, {
+				ease: Power1.easeOut,
+				x: ballX,
+				//y: ballY,
+			});
+		});
+
+		// All Dom events goes here
+	}
+
+	static mapRange(value, a, b, c, d) {
+		// first map value from (a..b) to (0..1)
+		const newValue = (value - a) / (b - a);
+		// then map it from (0..1) to (c..d) and return it
+		return c + newValue * (d - c);
+	}
+}
