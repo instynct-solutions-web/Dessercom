@@ -70,14 +70,13 @@
 	&--highlight {
 		.cursor__ball {
 			svg {
-				transform: scale(22);
+				transform: scale(10);
 				transition: transform 0.25s ease-in-out;
 			}
 			circle {
-				mix-blend-mode: color-burn;
-				fill: #0c3837;
-				stroke: #0c3837;
-				fill-opacity: 0.1;
+				fill: $teal;
+				stroke: $teal;
+				fill-opacity: 0;
 				stroke-width: 0;
 				transition: 0.25s ease;
 			}

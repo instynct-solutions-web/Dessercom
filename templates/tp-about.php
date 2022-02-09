@@ -12,7 +12,7 @@ get_header(); ?>
 $philosophy = get_field('philosophy'); ?>
 
 <section data-wolfpack-section class="about-philosophy">
-    <div class="about-philosophy__container">
+    <div data-higlight-wrapper class="about-philosophy__container">
         <div class="about-philosophy__aside">
             <h2 class="about-philosophy__note"><?= $philosophy['note'] ?></h2>
         </div>

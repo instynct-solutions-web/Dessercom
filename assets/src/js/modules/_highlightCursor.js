@@ -6,6 +6,7 @@ export default class HighlightCursor {
 		// All DOM selector / elements goes here
 		this.textCursor = document.querySelector('[data-highlight-cursor]');
 		this.textContainer = document.querySelector('[data-highlight-container]');
+		this.sectionWrapper = document.querySelector('[data-higlight-wrapper]');
 		this.cursorPointer = document.querySelector('[data-cursor-pointer]');
 		this.cursorTop = 0;
 		console.log(this.textCursor.classList[0]);
@@ -18,7 +19,7 @@ export default class HighlightCursor {
 		this.textContainer.addEventListener('mouseenter', (e) => {
 			const cursorClass = this.textCursor.classList[0];
 			this.textCursor.classList.add(`${cursorClass}--show`);
-			TweenMax.to(this.textCursor, 0.5, {
+			TweenMax.to(this.textCursor, 0.3, {
 				scale: 1,
 				ease: Power1.easeOut,
 			});
@@ -26,22 +27,23 @@ export default class HighlightCursor {
 		this.textContainer.addEventListener('mouseout', (e) => {
 			const cursorClass = this.textCursor.classList[0];
 			this.textCursor.classList.remove(`${cursorClass}--show`);
-			TweenMax.to(this.textCursor, 0.5, {
+			TweenMax.to(this.textCursor, 0.3, {
 				scale: 0,
 				ease: Power1.easeOut,
 			});
 		});
-		this.textContainer.addEventListener('mousemove', (e) => {
-			const highlightCursorRect = this.textCursor.getBoundingClientRect();
-			const hoverHighlightRect = this.textContainer.getBoundingClientRect();
-			//const ballX = e.clientX - highlightCursorRect.right - 150;
-			//const ballY = e.clientY - hoverHighlightRect.top - 150;
-			const ballX = HighlightCursor.mapRange(e.clientX, 0, window.innerWidth, hoverHighlightRect.left, hoverHighlightRect.right);
-			console.log(hoverHighlightRect.left);
+		this.sectionWrapper.addEventListener('mousemove', (e) => {
+			const cursorRect = this.cursorPointer.getBoundingClientRect();
+			const cursorWidth = cursorRect.right - cursorRect.left;
+			const hoverHighlightRect = this.sectionWrapper.getBoundingClientRect();
+			const hoverHighlightWidth = hoverHighlightRect.right - hoverHighlightRect.left;
+			const hoverHighlightHeight = hoverHighlightRect.bottom - hoverHighlightRect.top;
+			const ballX = HighlightCursor.mapRange(e.clientX, hoverHighlightRect.left, hoverHighlightRect.right, -hoverHighlightWidth / 2, hoverHighlightWidth / 2);
+			const ballY = HighlightCursor.mapRange(e.clientY, hoverHighlightRect.top, hoverHighlightRect.bottom, -hoverHighlightHeight / 2, hoverHighlightHeight / 2);
 			TweenMax.to(this.textCursor, 0.3, {
 				ease: Power1.easeOut,
 				x: ballX,
-				//y: ballY,
+				y: ballY,
 			});
 		});
 
