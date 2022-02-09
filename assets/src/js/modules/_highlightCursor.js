@@ -33,8 +33,6 @@ export default class HighlightCursor {
 			});
 		});
 		this.sectionWrapper.addEventListener('mousemove', (e) => {
-			const cursorRect = this.cursorPointer.getBoundingClientRect();
-			const cursorWidth = cursorRect.right - cursorRect.left;
 			const hoverHighlightRect = this.sectionWrapper.getBoundingClientRect();
 			const hoverHighlightWidth = hoverHighlightRect.right - hoverHighlightRect.left;
 			const hoverHighlightHeight = hoverHighlightRect.bottom - hoverHighlightRect.top;
