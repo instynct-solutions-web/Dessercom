@@ -20,6 +20,7 @@
 		padding: 0 20px 15px 20px;
 		position: relative;
 		margin-bottom: 50px;
+		transition: opacity 0.25s ease;
 		&:after {
 			content: '';
 			display: block;
@@ -29,12 +30,34 @@
 			position: absolute;
 			left: 0px;
 			bottom: 0px;
+			transform: scaleX(1);
+			transform-origin: center;
+			transition: transform 0.25s ease;
+		}
+		&:hover {
+			opacity: 0.7;
+			&:after {
+				content: '';
+				display: block;
+				height: 1px;
+				width: 100%;
+				background-color: $black;
+				position: absolute;
+				left: 0px;
+				bottom: 0px;
+				transform: scaleX(0.8);
+			}
+			.jobs-hero__link-icon {
+				transform: translateX(-5px);
+			}
 		}
 	}
 	&__link-icon {
 		position: relative;
 		top: 3px;
 		margin-right: 10px;
+		transform: translateX(0);
+		transition: transform 0.25s ease;
 	}
 	&__title {
 		font-size: rem(42);
