@@ -87,7 +87,7 @@ $values = get_field('benefits_2') ?>
                             </svg>
                         </span>
                         <p class="jobs-values__name jobs-values__name--mobile"><?= $item['title'] ?></p>
-                        <img src="<?= $item['picto']['url'] ?>" alt="<?= $item['picto']['alt'] ?>" class="jobs-values__picto">
+                        <img src="<?= $item['picto']['url'] ?>" alt="<?= $item['picto']['alt'] ?>" data-jobs-values-picto class="jobs-values__picto">
                         <p class="jobs-values__text"><?= $item['text'] ?></p>
                     </li>
                 <?php

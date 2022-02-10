@@ -146,17 +146,23 @@
 		font-weight: 500;
 		color: $gray;
 		margin-bottom: 30px;
+		width: fit-content;
 	}
 	&__picto {
 		height: 105px;
 		margin-bottom: 20px;
+		transform: scale(1);
 		filter: invert(99%) sepia(1%) saturate(128%) hue-rotate(128deg) brightness(116%) contrast(81%);
+		transition: 0.25s ease-in-out;
 	}
 	&__text {
 		font-size: rem(15);
 		font-weight: 500;
 		line-height: 1.5;
 		color: $gray;
+	}
+	&__name-item {
+		width: fit-content;
 	}
 }
 
@@ -408,9 +414,13 @@
 		}
 		&__name-list {
 			display: block;
-			position: absolute;
-			bottom: 100px;
-			left: 40px;
+			position: relative;
+			top: initial;
+			bottom: initial;
+			left: initial;
+			right: initial;
+			float: left;
+			margin-top: 10em;
 		}
 		&__name-item {
 			margin-bottom: 20px;
@@ -447,19 +457,21 @@
 			width: 100%;
 			margin-right: 0px;
 			display: flex;
-			flex-wrap: wrap;
-			align-items: center;
-			justify-content: center;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-start;
+
 			&--opened {
 				justify-content: flex-start;
 				.jobs-values {
 					&__picto {
-						height: 30%;
+						width: 40%;
 						margin: 0px 0 20px 0;
 						filter: invert(33%) sepia(50%) saturate(1571%) hue-rotate(144deg) brightness(101%) contrast(101%);
 					}
 					&__text {
 						display: block;
+						opacity: 1;
 					}
 				}
 			}
@@ -478,7 +490,9 @@
 			height: 20px;
 			border-radius: 50%;
 			background-color: $gray;
+			transform: rotate(0deg);
 			transform-origin: center;
+			transition: 0.25s ease-in-out;
 			&--opened {
 				background-color: $teal;
 				transform: rotate(45deg);
@@ -490,13 +504,16 @@
 			}
 		}
 		&__picto {
-			width: 70%;
+			width: 80%;
+			height: fit-content;
 			margin: 20px 0;
 			filter: invert(99%) sepia(1%) saturate(128%) hue-rotate(128deg) brightness(116%) contrast(81%);
+			transition: 0.25s ease;
 		}
 		&__text {
-			display: none;
+			opacity: 0;
 			color: $navy;
+			transition: opacity 0.25s ease-in-out;
 		}
 	}
 	.jobs-internship {
@@ -632,16 +649,23 @@
 			padding-bottom: 180px;
 		}
 		&__info {
-			margin-bottom: 0px;
+			position: relative;
+			display: block;
 		}
 		&__title {
 			font-size: rem(30);
 			width: 25%;
+			margin-bottom: 3em;
 		}
 		&__name-list {
 			width: 16.66666%;
-			bottom: 180px;
-			left: 100px;
+			position: relative;
+			top: initial;
+			bottom: initial;
+			left: initial;
+			right: initial;
+			float: left;
+			margin-top: 2em;
 		}
 		&__name-item {
 			margin-bottom: 25px;
@@ -651,17 +675,41 @@
 		}
 		&__name {
 			font-size: rem(22);
+			transition: color 0.25s ease;
+			&:hover {
+				color: $teal;
+			}
 		}
 		&__grid-list {
 			grid-gap: 120px;
+			row-gap: 0px;
+		}
+		&__grid-item {
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-start;
+			min-height: rem(300);
+			&--opened {
+				.jobs-values {
+					&__picto {
+						transform: scale(0.7);
+					}
+				}
+			}
 		}
 		&__toggler {
 			font-size: rem(22);
-			width: 25px;
-			height: 25px;
+			width: 24px;
+			height: 24px;
 		}
 		&__text {
 			font-size: rem(19);
+		}
+		&__picto {
+			width: 60%;
+			&--colored {
+				filter: invert(33%) sepia(50%) saturate(1571%) hue-rotate(144deg) brightness(101%) contrast(101%);
+			}
 		}
 	}
 	.jobs-internship {
