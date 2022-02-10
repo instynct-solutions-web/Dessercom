@@ -98,18 +98,12 @@
 	}
 	&__title-word {
 		display: inline-block;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 150%, 0);
 	}
 	&__division-list {
 		margin-bottom: 60px;
 	}
 	&__division-item {
 		margin-bottom: 15px;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 100%, 0);
 		&:last-of-type {
 			margin-bottom: 0px;
 		}
@@ -135,9 +129,6 @@
 	}
 	&__division-member {
 		margin-bottom: 15px;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 75px, 0);
 		&:last-of-type {
 			margin-bottom: 0px;
 		}
@@ -309,9 +300,24 @@
 		&__title {
 			font-size: rem(40);
 		}
+		&__title-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__division-list {
 			width: 25%;
 			padding-top: 60px;
+		}
+		&__division-item {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
+		}
+		&__division-member {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 75px, 0);
 		}
 		&__members {
 			width: 75%;

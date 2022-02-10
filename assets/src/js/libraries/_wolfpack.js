@@ -28,10 +28,9 @@ export default class Wolfpack {
 				touchMultiplier: 2,
 			});
 		} else {
-			this.virtualScroll = new VirtualScroll({
-				mouseMultiplier: 0.7,
-				touchMultiplier: 2,
-			});
+			if (this.virtualScroll) {
+				this.virtualScroll.off();
+			}
 		}
 
 		// Preloader variables
@@ -56,13 +55,11 @@ export default class Wolfpack {
 		this.ease = 0.06;
 		this.time = 10;
 		this.windowHeight = window.innerHeight;
-		this.scrollbarCode = '<div class="scrollbar" data-scrollbar><span class="scrollbar__thumb" data-scrollbar-thumb></span></div>';
 		window.addEventListener('resize', () => {
 			this.windowHeight = window.innerHeight;
 		});
 
 		// Wolfpack variables
-		this.preloader = document.querySelector('[data-preloader]');
 		this.wolfpackList = document.querySelectorAll('[data-wolfpack]');
 		this.wolfpackMainIndex = 0;
 		this.wolfpackLoop = [];
@@ -114,38 +111,13 @@ export default class Wolfpack {
 				if (!this.wolfpackClicked) {
 					this.wolfpackClicked = true;
 					setTimeout(() => {
-						for (let i = 0; i < this.wolfpackList.length; i += 1) {
-							this.wolfpackHeight[i] = this.wolfpackList[i].scrollHeight;
-							if (this.wolfpackList[i].parentNode) {
-								this.wolfpackParentHeight[i] = this.wolfpackList[i].parentNode.offsetHeight;
-								this.wolfpackScrollLimit[i] = (this.wolfpackHeight[i] - this.wolfpackParentHeight[i]) * -1;
-							}
-							this.wolfpackSectionList[i] = this.wolfpackList[i].querySelectorAll('[data-wolfpack-section]');
-							if (this.wolfpackSectionList[i].length !== 0) {
-								for (let j = 0; j < this.wolfpackSectionList[i].length; j += 1) {
-									this.wolfpackSectionTopList[i][j] = this.wolfpackSectionList[i][j].offsetTop;
-									this.wolfpackSectionBottomList[i][j] = this.wolfpackSectionTopList[i][j] + this.wolfpackSectionList[i][j].getBoundingClientRect().height + this.windowHeight;
-								}
-							}
-						}
+						this.updateWolfpackVariables();
 						this.wolfpackClicked = false;
 					}, 1500);
 				}
 			});
 			window.addEventListener('resize', () => {
-				this.wolfpackList = document.querySelectorAll('[data-wolfpack]');
-				for (let i = 0; i < this.wolfpackList.length; i += 1) {
-					this.wolfpackHeight[i] = this.wolfpackList[i].scrollHeight;
-					this.wolfpackParentHeight[i] = this.wolfpackList[i].parentNode.offsetHeight;
-					this.wolfpackScrollLimit[i] = (this.wolfpackHeight[i] - this.wolfpackParentHeight[i]) * -1;
-					this.wolfpackSectionList[i] = this.wolfpackList[i].querySelectorAll('[data-wolfpack-section]');
-					if (this.wolfpackSectionList[i].length !== 0) {
-						for (let j = 0; j < this.wolfpackSectionList[i].length; j += 1) {
-							this.wolfpackSectionTopList[i][j] = this.wolfpackSectionList[i][j].offsetTop;
-							this.wolfpackSectionBottomList[i][j] = this.wolfpackSectionTopList[i][j] + this.wolfpackSectionList[i][j].getBoundingClientRect().height + this.windowHeight;
-						}
-					}
-				}
+				this.updateWolfpackVariables();
 			});
 		}
 
@@ -170,16 +142,7 @@ export default class Wolfpack {
 				this.scrollbarTransform.push(`matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`);
 			}
 			window.addEventListener('load', () => {
-				for (let i = 0; i < this.scrollbarList.length; i += 1) {
-					this.scrollbarIndex[i] = this.scrollbarList[i].getAttribute('data-scrollbar-index');
-					this.scrollbarCurrentY[i] = 0;
-					this.scrollbarTargetY[i] = 0;
-					this.scrollbarHeight[i] = this.scrollbarList[i].offsetHeight;
-					this.scrollbarThumbHeight[i] = (this.scrollbarHeight[i] * this.wolfpackParentHeight[this.scrollbarIndex[i]]) / this.wolfpackHeight[this.scrollbarIndex[i]];
-					this.scrollbarScrollLimit[i] = (this.scrollbarHeight[i] - this.scrollbarThumbHeight[i]) * -1;
-					this.scrollbarTransform[i] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
-					this.updateScrollbar(i);
-				}
+				this.updateScrollbarVariables();
 			});
 		}
 
@@ -214,17 +177,7 @@ export default class Wolfpack {
 			}
 		}
 		window.addEventListener('resize', () => {
-			if (this.anchorList.length !== 0) {
-				for (let i = 0; i < this.anchorList.length; i += 1) {
-					if (this.anchorList[i].pathname === window.location.pathname && this.anchorList[i].getAttribute('href') !== '#') {
-						if (this.anchorLocation[i]) {
-							this.anchorLocationTop[i] = this.anchorLocation[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
-						} else {
-							this.anchorLocationTop[i] = 0;
-						}
-					}
-				}
-			}
+			this.updateAnchorsVariables();
 		});
 
 		// Stay variables
@@ -313,25 +266,9 @@ export default class Wolfpack {
 					this.tadamFinished.push(false);
 					this.tadamVisible.push(parseFloat(this.tadamTop[i]) + parseFloat(this.tadamThreshold[i]));
 				}
-				// Store Animations
-				for (let i = 0; i < this.tadamList.length; i += 1) {
-					for (let j = 0; j < this.tadamElementList[i].length; j += 1) {
-						this.tadamFunction.tadamStoreAnimations(this.tadamElementList[i][j], this.tadamAnimationList[i][j]);
-					}
-				}
 			}, 100);
 			window.addEventListener('resize', () => {
-				for (let i = 0; i < this.tadamList.length; i += 1) {
-					this.tadamTop[i] = this.tadamList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
-					if (window.innerWidth < 768) {
-						this.tadamThreshold[i] = this.tadamThresholdMobile[i];
-					} else if (this.tadamList[i].getAttribute('data-tadam-threshold')) {
-						this.tadamThreshold[i] = this.tadamList[i].getAttribute('data-tadam-threshold');
-					} else {
-						this.tadamThreshold[i] = '200';
-					}
-					this.tadamVisible[i] = parseFloat(this.tadamTop[i]) + parseFloat(this.tadamThreshold[i]);
-				}
+				this.updateTadamVariables();
 			});
 		}
 
@@ -359,10 +296,7 @@ export default class Wolfpack {
 				this.parallaxTransform.push(`matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`);
 			}
 			window.addEventListener('resize', () => {
-				for (let i = 0; i < this.parallaxList.length; i += 1) {
-					this.parallaxTop[i] = this.parallaxList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
-					this.parallaxStop[i] = parseFloat(this.parallaxList[i].offsetHeight + this.parallaxList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]) + this.windowHeight);
-				}
+				this.updateParallaxVariables();
 			});
 		}
 
@@ -404,13 +338,7 @@ export default class Wolfpack {
 				this.followMeTransform.push(`matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`);
 			}
 			window.addEventListener('resize', () => {
-				for (let i = 0; i < this.followMeContainerList.length; i += 1) {
-					this.followMeHeight[i] = this.followMeList[i].offsetHeight;
-					this.followMeContainerHeight[i] = this.followMeContainerList[i].offsetHeight;
-					this.followMeTop[i] = this.followMeContainerList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
-					this.followMeStart[i] = this.followMeTop[i] + this.windowHeight;
-					this.followMeStop[i] = parseFloat(this.followMeTop[i] + this.followMeContainerHeight[i] - this.followMeHeight[i]);
-				}
+				this.updateFollowMeVariables();
 			});
 		}
 
@@ -455,12 +383,7 @@ export default class Wolfpack {
 				this.animationSequenceList[i].style.animationFillMode = 'both';
 			}
 			window.addEventListener('resize', () => {
-				for (let i = 0; i < this.animationSequenceList.length; i += 1) {
-					this.animationSequenceTop[i] = this.animationSequenceList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
-					this.animationSequenceHeight[i] = this.animationSequenceList[i].offsetHeight;
-					this.animationTimeline[i] = parseFloat(this.windowHeight + this.animationSequenceHeight[i]);
-					this.animationSequenceStop[i] = parseFloat(this.animationSequenceList[i].offsetHeight + this.animationSequenceList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]) + this.windowHeight);
-				}
+				this.updateAnimationSequenceVariables();
 			});
 		}
 
@@ -486,9 +409,7 @@ export default class Wolfpack {
 				this.changesActive.push(false);
 			}
 			window.addEventListener('resize', () => {
-				for (let i = 0; i < this.changesList.length; i += 1) {
-					this.changesTop[i] = this.changesList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]) + parseFloat(this.windowHeight / 2);
-				}
+				this.updateChangesVariables();
 			});
 		}
 
@@ -672,8 +593,8 @@ export default class Wolfpack {
 	}
 
 	manageEvents() {
-		// Wolfpack configurations
 		if (this.wolfpackList.length !== 0) {
+			// Wolfpack configurations
 			for (let i = 0; i < this.wolfpackList.length; i += 1) {
 				// Watch hovering
 				if (this.preloader.style.display === 'none') {
@@ -754,69 +675,72 @@ export default class Wolfpack {
 		this.updateWolfpackHeight = false;
 		this.updateScrollbarHeight = false;
 		this.updateParallaxTop = false;
-		this.virtualScroll.on((e) => {
-			if (!this.updateWolfpackHeight) {
-				this.updateWolfpackHeight = true;
-				this.wolfpackList = document.querySelectorAll('[data-wolfpack]');
-				for (let i = 0; i < this.wolfpackList.length; i += 1) {
-					this.wolfpackHeight[i] = this.wolfpackList[i].scrollHeight;
-					this.wolfpackParentHeight[i] = this.wolfpackList[i].parentNode.offsetHeight;
-					this.wolfpackScrollLimit[i] = (this.wolfpackHeight[i] - this.wolfpackParentHeight[i]) * -1;
-					this.wolfpackSectionList[i] = this.wolfpackList[i].querySelectorAll('[data-wolfpack-section]');
-					if (this.wolfpackSectionList[i].length !== 0) {
-						for (let j = 0; j < this.wolfpackSectionList[i].length; j += 1) {
-							this.wolfpackSectionTopList[i][j] = this.wolfpackSectionList[i][j].offsetTop;
-							this.wolfpackSectionBottomList[i][j] = this.wolfpackSectionTopList[i][j] + this.wolfpackSectionList[i][j].getBoundingClientRect().height + this.windowHeight;
-						}
-					}
+		this.updateAnchors = false;
+		this.updateTadam = false;
+		this.updateFollowMe = false;
+		this.updateAnimationSequence = false;
+		this.updateChanges = false;
+		if (this.virtualScroll) {
+			this.virtualScroll.on((e) => {
+				if (!this.updateWolfpackHeight) {
+					this.updateWolfpackHeight = true;
+					this.updateWolfpackVariables();
 				}
-			}
-			if (!this.updateScrollbarHeight) {
-				this.updateScrollbarHeight = true;
-				for (let i = 0; i < this.scrollbarList.length; i += 1) {
-					this.scrollbarIndex[i] = this.scrollbarList[i].getAttribute('data-scrollbar-index');
-					this.scrollbarCurrentY[i] = 0;
-					this.scrollbarTargetY[i] = 0;
-					this.scrollbarHeight[i] = this.scrollbarList[i].offsetHeight;
-					this.scrollbarThumbHeight[i] = (this.scrollbarHeight[i] * this.wolfpackParentHeight[this.scrollbarIndex[i]]) / this.wolfpackHeight[this.scrollbarIndex[i]];
-					this.scrollbarScrollLimit[i] = (this.scrollbarHeight[i] - this.scrollbarThumbHeight[i]) * -1;
-					this.scrollbarTransform[i] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
-					this.updateScrollbar(i);
+				if (!this.updateScrollbarHeight) {
+					this.updateScrollbarHeight = true;
+					this.updateScrollbarVariables();
 				}
-			}
-			if (!this.updateParallaxTop) {
-				this.updateParallaxTop = true;
-				for (let i = 0; i < this.parallaxList.length; i += 1) {
-					this.parallaxTop[i] = this.parallaxList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
-					this.parallaxStop[i] = parseFloat(this.parallaxList[i].offsetHeight + this.parallaxList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]) + this.windowHeight);
+				if (!this.updateParallaxTop) {
+					this.updateParallaxTop = true;
+					this.updateParallaxVariables();
 				}
-			}
-			if (this.wolfpackList.length !== 0) {
-				for (let i = 0; i < this.wolfpackList.length; i += 1) {
-					if (this.wolfpackSectionList[i].length === 0) {
-						if (this.wolfpackHovering[i]) {
+				if (!this.updateAnchors) {
+					this.updateAnchors = true;
+					this.updateAnchorsVariables();
+				}
+				if (!this.updateTadam) {
+					this.updateTadam = true;
+					this.updateTadamVariables();
+				}
+				if (!this.updateFollowMe) {
+					this.updateFollowMe = true;
+					this.updateFollowMeVariables();
+				}
+				if (!this.updateAnimationSequence) {
+					this.updateAnimationSequence = true;
+					this.updateAnimationSequenceVariables();
+				}
+				if (!this.updateChanges) {
+					this.updateChanges = true;
+					this.updateChangesVariables();
+				}
+				if (this.wolfpackList.length !== 0) {
+					for (let i = 0; i < this.wolfpackList.length; i += 1) {
+						if (this.wolfpackSectionList[i].length === 0) {
+							if (this.wolfpackHovering[i]) {
+								if (!this.scrolling) {
+									this.startLoop(i);
+									this.showScrollbar(i);
+									this.scrollTimer(i);
+									this.scrolling = true;
+								}
+								this.updateTargetY(e.deltaY, i);
+								this.time = 10;
+							}
+						} else if (this.wolfpackHovering[i]) {
 							if (!this.scrolling) {
-								this.startLoop(i);
+								this.startLoopSections(i);
 								this.showScrollbar(i);
-								this.scrollTimer(i);
+								this.scrollTimerSections(i);
 								this.scrolling = true;
 							}
 							this.updateTargetY(e.deltaY, i);
 							this.time = 10;
 						}
-					} else if (this.wolfpackHovering[i]) {
-						if (!this.scrolling) {
-							this.startLoopSections(i);
-							this.showScrollbar(i);
-							this.scrollTimerSections(i);
-							this.scrolling = true;
-						}
-						this.updateTargetY(e.deltaY, i);
-						this.time = 10;
 					}
 				}
-			}
-		});
+			});
+		}
 
 		// Scrollbar dragging
 		if (this.scrollbarThumbList.length !== 0) {
@@ -1324,12 +1248,12 @@ export default class Wolfpack {
 			for (let i = 0; i < this.tadamList.length; i += 1) {
 				if (this.tadamThreshold[i] === '-1' && !this.tadamFinished[i]) {
 					for (let j = 0; j < this.tadamElementList[i].length; j += 1) {
-						this.tadamFunction.tadamAnimate(this.tadamElementList[i][j]);
+						this.tadamFunction.tadamAnimate(this.tadamElementList[i][j], this.tadamAnimationList[i][j]);
 					}
 					this.tadamFinished[i] = true;
 				} else if (this.wolfpackScrollPosition[this.wolfpackMainIndex] >= this.tadamVisible[i] && !this.tadamFinished[i]) {
 					for (let j = 0; j < this.tadamElementList[i].length; j += 1) {
-						this.tadamFunction.tadamAnimate(this.tadamElementList[i][j]);
+						this.tadamFunction.tadamAnimate(this.tadamElementList[i][j], this.tadamAnimationList[i][j]);
 					}
 					this.tadamFinished[i] = true;
 				} else if (this.tadamRepeat[i] && this.wolfpackScrollPosition[this.wolfpackMainIndex] < this.tadamVisible[i] && this.tadamFinished[i]) {
@@ -1476,5 +1400,101 @@ export default class Wolfpack {
 
 	formFocusOut(field, mainIndex, index) {
 		field.classList.remove(`${this.formClass[mainIndex][index]}--focus`);
+	}
+
+	updateWolfpackVariables() {
+		this.wolfpackList = document.querySelectorAll('[data-wolfpack]');
+		for (let i = 0; i < this.wolfpackList.length; i += 1) {
+			this.wolfpackHeight[i] = this.wolfpackList[i].scrollHeight;
+			this.wolfpackParentHeight[i] = this.wolfpackList[i].parentNode.offsetHeight;
+			this.wolfpackScrollLimit[i] = (this.wolfpackHeight[i] - this.wolfpackParentHeight[i]) * -1;
+			this.wolfpackSectionList[i] = this.wolfpackList[i].querySelectorAll('[data-wolfpack-section]');
+			if (this.wolfpackSectionList[i].length !== 0) {
+				for (let j = 0; j < this.wolfpackSectionList[i].length; j += 1) {
+					this.wolfpackSectionTopList[i][j] = this.wolfpackSectionList[i][j].offsetTop;
+					this.wolfpackSectionBottomList[i][j] = this.wolfpackSectionTopList[i][j] + this.wolfpackSectionList[i][j].getBoundingClientRect().height + this.windowHeight;
+				}
+			}
+		}
+	}
+
+	updateScrollbarVariables() {
+		this.scrollbarList = document.querySelectorAll('[data-scrollbar]');
+		for (let i = 0; i < this.scrollbarList.length; i += 1) {
+			this.scrollbarIndex[i] = this.scrollbarList[i].getAttribute('data-scrollbar-index');
+			this.scrollbarCurrentY[i] = 0;
+			this.scrollbarTargetY[i] = 0;
+			this.scrollbarHeight[i] = this.scrollbarList[i].offsetHeight;
+			this.scrollbarThumbHeight[i] = (this.scrollbarHeight[i] * this.wolfpackParentHeight[this.scrollbarIndex[i]]) / this.wolfpackHeight[this.scrollbarIndex[i]];
+			this.scrollbarScrollLimit[i] = (this.scrollbarHeight[i] - this.scrollbarThumbHeight[i]) * -1;
+			this.scrollbarTransform[i] = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
+			this.updateScrollbar(i);
+		}
+	}
+
+	updateParallaxVariables() {
+		this.parallaxList = document.querySelectorAll('[data-parallax]');
+		for (let i = 0; i < this.parallaxList.length; i += 1) {
+			this.parallaxTop[i] = this.parallaxList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
+			this.parallaxStop[i] = parseFloat(this.parallaxList[i].offsetHeight + this.parallaxList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]) + this.windowHeight);
+		}
+	}
+
+	updateAnchorsVariables() {
+		this.anchorList = document.querySelectorAll(`a[href*="#"]`);
+		if (this.anchorList.length !== 0) {
+			for (let i = 0; i < this.anchorList.length; i += 1) {
+				if (this.anchorList[i].pathname === window.location.pathname && this.anchorList[i].getAttribute('href') !== '#') {
+					if (this.anchorLocation[i]) {
+						this.anchorLocationTop[i] = this.anchorLocation[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
+					} else {
+						this.anchorLocationTop[i] = 0;
+					}
+				}
+			}
+		}
+	}
+
+	updateTadamVariables() {
+		this.tadamList = document.querySelectorAll('[data-tadam]');
+		for (let i = 0; i < this.tadamList.length; i += 1) {
+			this.tadamTop[i] = this.tadamList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
+			if (window.innerWidth < 768) {
+				this.tadamThreshold[i] = this.tadamThresholdMobile[i];
+			} else if (this.tadamList[i].getAttribute('data-tadam-threshold')) {
+				this.tadamThreshold[i] = this.tadamList[i].getAttribute('data-tadam-threshold');
+			} else {
+				this.tadamThreshold[i] = '200';
+			}
+			this.tadamVisible[i] = parseFloat(this.tadamTop[i]) + parseFloat(this.tadamThreshold[i]);
+		}
+	}
+
+	updateFollowMeVariables() {
+		this.followMeContainerList = document.querySelectorAll('[data-follow-me-container]');
+		for (let i = 0; i < this.followMeContainerList.length; i += 1) {
+			this.followMeHeight[i] = this.followMeList[i].offsetHeight;
+			this.followMeContainerHeight[i] = this.followMeContainerList[i].offsetHeight;
+			this.followMeTop[i] = this.followMeContainerList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
+			this.followMeStart[i] = this.followMeTop[i] + this.windowHeight;
+			this.followMeStop[i] = parseFloat(this.followMeTop[i] + this.followMeContainerHeight[i] - this.followMeHeight[i]);
+		}
+	}
+
+	updateAnimationSequenceVariables() {
+		this.animationSequenceList = document.querySelectorAll('[data-animation]');
+		for (let i = 0; i < this.animationSequenceList.length; i += 1) {
+			this.animationSequenceTop[i] = this.animationSequenceList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
+			this.animationSequenceHeight[i] = this.animationSequenceList[i].offsetHeight;
+			this.animationTimeline[i] = parseFloat(this.windowHeight + this.animationSequenceHeight[i]);
+			this.animationSequenceStop[i] = parseFloat(this.animationSequenceList[i].offsetHeight + this.animationSequenceList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]) + this.windowHeight);
+		}
+	}
+
+	updateChangesVariables() {
+		this.changesList = document.querySelectorAll('[data-changes]');
+		for (let i = 0; i < this.changesList.length; i += 1) {
+			this.changesTop[i] = this.changesList[i].getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]) + parseFloat(this.windowHeight / 2);
+		}
 	}
 }

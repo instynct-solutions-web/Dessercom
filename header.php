@@ -20,7 +20,7 @@
 		</div>
 	</div>
 
-	<div class="wolfpack-container" data-calc-mobile>
+	<div class="wolfpack-container" data-calc-mobile data-calc-mobile-responsive="responsive">
 		<div class="scrollbar" data-scrollbar data-scrollbar-index=2><span class="scrollbar__thumb" data-scrollbar-thumb></span></div>
 
 		<?php $header = get_field('header', 'options'); ?>

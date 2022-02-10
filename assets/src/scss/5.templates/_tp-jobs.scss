@@ -40,9 +40,6 @@
 	}
 	&__title-word {
 		display: inline-block;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 150%, 0);
 	}
 	&__text {
 		font-size: rem(15);
@@ -52,18 +49,12 @@
 	}
 	&__text-word {
 		display: inline-block;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 150%, 0);
 	}
 	&__item {
 		width: 83.33333%;
 		padding-top: 15px;
 		margin-bottom: 50px;
 		position: relative;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 150%, 0);
 		&:last-of-type {
 			margin-bottom: 0px;
 		}
@@ -621,8 +612,18 @@
 			font-size: rem(35);
 			margin-bottom: 25px;
 		}
+		&__title-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__text {
 			font-size: rem(19);
+		}
+		&__text-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
 		}
 		&__list-container {
 			position: relative;
@@ -634,6 +635,9 @@
 		&__item {
 			padding-top: 20px;
 			margin-bottom: 80px;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
 		}
 		&__item-num {
 			font-size: rem(17);

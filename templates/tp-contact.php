@@ -55,7 +55,7 @@ $media = get_field('media') ?>
 </section>
 
 <?php $hero = get_field('hero'); ?>
-<section data-wolfpack-section data-contact-hero class="contact-hero">
+<section data-wolfpack-section data-contact-hero class="contact-hero" data-tadam data-tadam-threshold="-1">
     <div class="contact-hero__map-container">
         <?php get_template_part('modules/md-map-contact'); ?>
     </div>
@@ -74,10 +74,10 @@ $media = get_field('media') ?>
             </div>
         </div>
         <div class="contact-hero__info">
-            <h1 class="contact-hero__title"><?= $hero['title'] ?></h1>
+            <h1 class="contact-hero__title" data-words data-tadam-animate="words--delay-0.2"><?= $hero['title'] ?></h1>
             <?php
             if ($hero['list']) { ?>
-                <ul class="contact-hero__list">
+                <ul class="contact-hero__list" data-tadam-animate="contact-locations">
                     <?php
                     foreach ($hero['list'] as $item) { ?>
                         <li class="contact-hero__item">
@@ -131,7 +131,7 @@ $media = get_field('media') ?>
 
 <?php
 $support = get_field('support') ?>
-<section data-wolfpack-section class="contact-support">
+<section data-wolfpack-section class="contact-support" data-tadam data-tadam-threshold="150">
     <div class="contact-support__background">
         <svg class="contact-support__foreground-image" xmlns="http://www.w3.org/2000/svg" width="181.567" height="163.488" viewBox="0 0 181.567 163.488">
             <defs>
@@ -145,13 +145,13 @@ $support = get_field('support') ?>
     </div>
     <div class="contact-support__container">
         <div class="contact-support__foreground">
-            <p class="contact-support__note"><?= $support['note'] ?></p>
+            <p class="contact-support__note" data-words data-tadam-animate="words"><?= $support['note'] ?></p>
             <div class="contact-support__info">
-                <h2 class="contact-support__title"><?= $support['title'] ?></h2>
-                <p class="contact-support__text"><?= $support['text'] ?></p>
+                <h2 class="contact-support__title" data-words data-tadam-animate="words--delay-0.3"><?= $support['title'] ?></h2>
+                <p class="contact-support__text" data-words data-tadam-animate="words--delay-0.5"><?= $support['text'] ?></p>
                 <?php
                 if ($support['list']) { ?>
-                    <ul class="contact-support__phone-list">
+                    <ul class="contact-support__phone-list" data-tadam-animate="contact-phones">
                         <?php
                         foreach ($support['list'] as $phone) { ?>
                             <li class="contact-support__phone-item">
@@ -168,11 +168,11 @@ $support = get_field('support') ?>
 
 <?php
 $contact = get_field('form'); ?>
-<section id="form" data-wolfpack-section class="contact-form">
+<section id="form" data-wolfpack-section class="contact-form" data-tadam data-tadam-threshold="100">
     <img src="<?= $contact['image']['url'] ?>" alt="<?= $contact['image']['alt'] ?>" class="contact-form__background">
     <div class="contact-form__container">
-        <h2 class="contact-form__title"><?= $contact['title'] ?></h2>
-        <div data-form class="contact-form__form-container">
+        <h2 class="contact-form__title" data-words data-tadam-animate="words--delay-0.3"><?= $contact['title'] ?></h2>
+        <div data-form class="contact-form__form-container" data-tadam-animate="opacity-1--y-0--delay-0.5">
             <?php
             if (ICL_LANGUAGE_CODE == 'en') {
                 echo do_shortcode('[gravityform id="9" title="false" description="false" ajax="false"]');

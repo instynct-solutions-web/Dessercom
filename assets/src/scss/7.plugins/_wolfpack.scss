@@ -22,10 +22,23 @@ html.is-animating .transition-fade {
 }
 
 [data-wolfpack-section] {
-	opacity: 0;
-	pointer-events: none;
 	position: relative;
 	z-index: 1;
+	overflow: hidden;
+}
+
+@media only screen and (max-width: 1024px) {
+	[data-wolfpack-section] {
+		opacity: 1 !important;
+		pointer-events: all !important;
+	}
+}
+
+@include desktop-only {
+	[data-wolfpack-section] {
+		opacity: 0;
+		pointer-events: none;
+	}
 }
 
 body {
@@ -89,17 +102,21 @@ body {
 }
 
 [data-marquee-content] {
+	--offset: 20vw;
+	--move-initial: calc(-25% + var(--offset));
+	--move-final: calc(-50% + var(--offset));
 	display: flex;
 	white-space: nowrap;
-	animation: marquee linear infinite running;
+	animation: marquee linear infinite;
 }
 
 @keyframes marquee {
 	0% {
-		transform: translateX(0);
+		transform: translate3d(var(--move-initial), 0, 0);
 	}
+
 	100% {
-		transform: translate(-100%);
+		transform: translate3d(var(--move-final), 0, 0);
 	}
 }
 
@@ -130,8 +147,10 @@ body {
 	}
 }
 
-[data-cursor] {
-	cursor: none;
+@include desktop-only {
+	[data-cursor] {
+		cursor: none;
+	}
 }
 
 @include max-width($tablet-threshold) {

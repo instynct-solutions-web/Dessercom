@@ -1,30 +1,63 @@
 export default class CalculateHeight {
 	constructor() {
+		this.windowHeight = 0;
 		this.elemCalcMobile = document.querySelectorAll('[data-calc-mobile]');
+		this.elemHeightMobile = [];
+		this.domBody = document.querySelector('body');
 		this.manageEvents();
 	}
 
 	manageEvents() {
-		// Calculate True 100vh for Mobile on selected element
-		const domBody = document.querySelector('body');
-		domBody.style.height = `${window.innerHeight}px`;
+		this.windowHeight = `${window.innerHeight}px`;
+		if (window.innerWidth >= 1024) {
+			this.setHeight(this.domBody);
+		} else {
+			this.autoHeight(this.domBody);
+		}
 		if (this.elemCalcMobile.length > 0) {
 			for (let i = 0; i < this.elemCalcMobile.length; i += 1) {
-				this.setHeight(this.elemCalcMobile[i]);
+				if (this.elemCalcMobile[i].getAttribute('data-calc-mobile-responsive')) {
+					this.elemHeightMobile.push(this.elemCalcMobile[i].getAttribute('data-calc-mobile-responsive'));
+				} else {
+					this.elemHeightMobile.push('full');
+				}
+				if (this.elemHeightMobile[i] !== 'full') {
+					if (window.innerWidth >= 1024) {
+						this.setHeight(this.elemCalcMobile[i]);
+					} else {
+						this.autoHeight(this.elemCalcMobile[i]);
+					}
+				} else {
+					this.setHeight(this.elemCalcMobile[i]);
+				}
 			}
 		}
 		window.addEventListener('resize', () => {
-			domBody.style.height = `${window.innerHeight}px`;
+			this.windowHeight = `${window.innerHeight}px`;
+			if (window.innerWidth >= 1024) {
+				this.setHeight(this.domBody);
+			} else {
+				this.autoHeight(this.domBody);
+			}
 			for (let i = 0; i < this.elemCalcMobile.length; i += 1) {
-				this.setHeight(this.elemCalcMobile[i]);
+				if (this.elemHeightMobile[i] !== 'full') {
+					if (window.innerWidth >= 1024) {
+						this.setHeight(this.elemCalcMobile[i]);
+					} else {
+						this.autoHeight(this.elemCalcMobile[i]);
+					}
+				} else {
+					this.setHeight(this.elemCalcMobile[i]);
+				}
 			}
 		});
 	}
 
-	// Calculate True 100vh for Mobile on selected element
 	setHeight(element) {
-		const windowH = window.innerHeight;
-		this.element = element;
-		this.element.style.height = `${windowH}px`;
+		element.style.height = this.windowHeight;
+	}
+
+	autoHeight(element) {
+		element.style.height = 'auto';
 	}
 }

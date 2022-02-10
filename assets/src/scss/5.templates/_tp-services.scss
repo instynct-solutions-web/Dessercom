@@ -170,9 +170,6 @@
 	}
 	&__title-word {
 		display: inline-block;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 150%, 0);
 	}
 	&__text {
 		line-height: 1.5em;
@@ -180,9 +177,6 @@
 	}
 	&__text-word {
 		display: inline-block;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 150%, 0);
 	}
 	&__list {
 		padding: 2em 0;
@@ -192,9 +186,6 @@
 		padding: 1em 0;
 		margin-bottom: 2em;
 		display: inline-block;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 150%, 0);
 	}
 	&__item-num {
 		font-weight: 400;
@@ -230,14 +221,10 @@
 		top: 0px;
 		left: 0px;
 		transform-origin: left;
-		transform: scaleX(0);
 	}
 	&__icon {
 		width: rem(15);
 		margin-right: 1em;
-		opacity: 0;
-		visibility: hidden;
-		transform: rotate(180deg);
 	}
 	&__note {
 		margin-top: 0.3em;
@@ -245,16 +232,10 @@
 	}
 	&__note-word {
 		display: inline-block;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 100%, 0);
 	}
 	&__image {
 		width: calc(100% + 40px);
 		transform: translateX(-20%);
-		opacity: 0;
-		visibility: hidden;
-		transform: translateX(-40px) scale(1.2);
 	}
 	&__text-container {
 		padding: 2em 0;
@@ -360,9 +341,6 @@
 	}
 	&__title-word {
 		display: inline-block;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 150%, 0);
 	}
 	&__separator {
 		display: none;
@@ -372,9 +350,6 @@
 		border-radius: 3px 3px 0 0;
 		margin: 1em 0;
 		display: inline-block;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 100%, 0);
 	}
 	&__item-header {
 		@include container;
@@ -802,8 +777,18 @@
 			margin-bottom: 25px;
 			max-width: none;
 		}
+		&__title-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__text {
 			font-size: rem(19);
+		}
+		&__text-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
 		}
 		&__list-container {
 			position: relative;
@@ -816,6 +801,9 @@
 			padding-top: 15px;
 			padding-bottom: 0px;
 			margin-bottom: 80px;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
 			&:last-of-type {
 				margin-bottom: 0px;
 			}
@@ -839,12 +827,23 @@
 			padding-top: 30px;
 			padding-bottom: 160px;
 		}
+		&__separator {
+			transform: scaleX(0);
+		}
 		&__icon {
 			margin-right: 25px;
+			opacity: 0;
+			visibility: hidden;
+			transform: rotate(180deg);
 		}
 		&__note {
 			font-size: rem(16);
 			margin: 0;
+		}
+		&__note-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
 		}
 		&__main {
 			position: relative;
@@ -860,6 +859,9 @@
 			right: 16.66666%;
 			left: auto;
 			width: calc(100% + 100px);
+			opacity: 0;
+			visibility: hidden;
+			transform: translateX(0px);
 		}
 		&__text-container {
 			width: 41.66666%;
@@ -948,6 +950,11 @@
 			line-height: 1;
 			margin-bottom: 345px;
 		}
+		&__title-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__button {
 			font-size: rem(15);
 			width: fit-content;
@@ -970,6 +977,11 @@
 			padding-top: 50px;
 			grid-template-columns: repeat(3, 1fr);
 			grid-gap: 25px;
+		}
+		&__item {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
 		}
 		&__item-header {
 			height: 160px;

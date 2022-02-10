@@ -41,10 +41,10 @@ $terms = get_terms(array(
 <section data-wolfpack-section class="team-grid" data-tadam data-tadam-threshold="100">
     <div class="team-grid__container">
         <div class="team-grid__top">
-            <h2 class="team-grid__title" data-words data-tadam-animate="words"><?= $team['title'] ?></h2>
+            <h2 class="team-grid__title" data-words data-tadam-animate="words" data-tadam-type="timeline"><?= $team['title'] ?></h2>
         </div>
         <div class="team-grid__grid">
-            <ul class="team-grid__division-list" data-tadam-animate="team-divisions">
+            <ul class="team-grid__division-list" data-tadam-animate="team-divisions" data-tadam-type="timeline">
                 <?php
                 foreach ($terms as $division) { ?>
                     <li class="team-grid__division-item">
@@ -63,7 +63,7 @@ $terms = get_terms(array(
                 <?php
                 } ?>
             </ul>
-            <div class="team-grid__members" data-tadam-animate="team-members">
+            <div class="team-grid__members" data-tadam-animate="team-members" data-tadam-type="timeline">
                 <?php foreach ($terms as $division) {
                     $args = array(
                         'posts_per_page' => -1,

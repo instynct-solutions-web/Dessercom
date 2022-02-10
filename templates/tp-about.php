@@ -11,32 +11,33 @@ get_header(); ?>
 <?php
 $philosophy = get_field('philosophy'); ?>
 
-<section data-wolfpack-section class="about-philosophy">
+<section data-wolfpack-section class="about-philosophy" data-tadam data-tadam-threshold="100">
     <div class="about-philosophy__container">
+        <span class="about-philosophy__container-separator" data-tadam-animate="scaleX-1"></span>
         <div class="about-philosophy__aside">
-            <h2 class="about-philosophy__note"><?= $philosophy['note'] ?></h2>
+            <span class="about-philosophy__separator"></span>
+            <h2 class="about-philosophy__note" data-words data-tadam-animate="words--delay-0.2"><?= $philosophy['note'] ?></h2>
         </div>
         <div class="about-philosophy__main">
-            <p class="about-philosophy__text"><?= $philosophy['text'] ?></p>
+            <p class="about-philosophy__text" data-words data-tadam-animate="words--delay-0.2"><?= $philosophy['text'] ?></p>
         </div>
     </div>
 </section>
 
 <?php
 $mission = get_field('mission') ?>
-<section data-wolfpack-section class="about-mission">
+<section data-wolfpack-section class="about-mission" data-tadam data-tadam-threshold="100">
     <div class="about-mission__container">
         <div class="about-mission__top">
-            <h2 class="about-mission__note">
-                <svg class="about-mission__icon" xmlns="http://www.w3.org/2000/svg" width="14" height="12.606" viewBox="0 0 14 12.606">
-                    <path id="Tracé_160" data-name="Tracé 160" d="M.219,11.684a2.174,2.174,0,0,0,3,.543L7,10.049l0-.006,3.772,2.2a2.176,2.176,0,0,0,3-.516v0a2.174,2.174,0,0,0-1.037-2.866c-.089-.049-3.5-2.013-3.765-2.165V6.7H8.942l.012-.02.017.01V2.337A2.172,2.172,0,0,0,7.014,0,2.172,2.172,0,0,0,5.057,2.337c0,.1.018,3.961.021,4.335l.016.028H5.078V6.671l0,0L1.283,8.826A2.175,2.175,0,0,0,.219,11.684Z" transform="translate(0)" fill="#00938f" />
-                </svg>
-                <?= $mission['note'] ?>
-            </h2>
+            <span class="about-mission__separator" data-tadam-animate="scaleX-1"></span>
+            <svg class="about-mission__icon" xmlns="http://www.w3.org/2000/svg" width="14" height="12.606" viewBox="0 0 14 12.606" data-tadam-animate="opacity-1--rotation-0--delay-0.1">
+                <path id="Tracé_160" data-name="Tracé 160" d="M.219,11.684a2.174,2.174,0,0,0,3,.543L7,10.049l0-.006,3.772,2.2a2.176,2.176,0,0,0,3-.516v0a2.174,2.174,0,0,0-1.037-2.866c-.089-.049-3.5-2.013-3.765-2.165V6.7H8.942l.012-.02.017.01V2.337A2.172,2.172,0,0,0,7.014,0,2.172,2.172,0,0,0,5.057,2.337c0,.1.018,3.961.021,4.335l.016.028H5.078V6.671l0,0L1.283,8.826A2.175,2.175,0,0,0,.219,11.684Z" transform="translate(0)" fill="#00938f" />
+            </svg>
+            <h2 class="about-mission__note" data-words data-tadam-animate="words--delay-0.2"><?= $mission['note'] ?></h2>
         </div>
         <?php if ($mission['list']) { ?>
             <div class="about-mission__main">
-                <ul class="about-mission__list">
+                <ul class="about-mission__list" data-tadam-animate="about-missions">
                     <?php
                     $counter = 1;
                     foreach ($mission['list'] as $item) { ?>
@@ -140,11 +141,11 @@ $indexBackground = 0;
 </section>
 
 <?php $funding = get_field('funding'); ?>
-<section data-wolfpack-section class="about-funding">
+<section data-wolfpack-section class="about-funding" data-tadam data-tadam-threshold="100">
     <div class="about-funding__container">
         <div class="about-funding__background">
             <canvas data-canvas-grid class="about-funding__canvas"></canvas>
-            <img class="about-funding__motif" src="/wp-content/themes/dessercom/assets/src/svg/dessercom-motif.svg" alt="Motif">
+            <img class="about-funding__motif" src="/wp-content/themes/dessercom/assets/src/svg/dessercom-motif.svg" alt="Motif" data-tadam-animate="opacity-1--delay-0.4">
         </div>
         <div class="about-funding__foreground">
             <div class="about-funding__info">
@@ -153,7 +154,7 @@ $indexBackground = 0;
             </div>
             <?php
             if ($funding['list']) { ?>
-                <ul class="about-funding__list">
+                <ul class="about-funding__list" data-tadam-animate="about-fundings">
                     <?php foreach ($funding['list'] as $item) { ?>
                         <li class="about-funding__item">
                             <img src="<?= $item['image']['url'] ?>" alt="<?= $item['image']['alt'] ?>" class="about-funding__logo">
