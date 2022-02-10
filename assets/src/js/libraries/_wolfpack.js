@@ -597,6 +597,7 @@ export default class Wolfpack {
 
 		setTimeout(() => {
 			this.manageEvents();
+			this.positionInit();
 		}, 10);
 	}
 
