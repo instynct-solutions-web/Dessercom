@@ -98,7 +98,7 @@ $values = get_field('benefits_2') ?>
 </section>
 
 <?php $internship = get_field('internship') ?>
-<section data-wolfpack-section class="jobs-internship">
+<section data-wolfpack-section class="jobs-internship" data-tadam data-tadam-threshold="150">
     <div class="jobs-internship__background">
         <svg class="jobs-internship__foreground-image" xmlns="http://www.w3.org/2000/svg" width="181.567" height="163.488" viewBox="0 0 181.567 163.488">
             <defs>
@@ -112,11 +112,11 @@ $values = get_field('benefits_2') ?>
     </div>
     <div class="jobs-internship__container">
         <div class="jobs-internship__foreground">
-            <p class="jobs-internship__note"><?= $internship['note'] ?></p>
+            <p class="jobs-internship__note" data-words data-tadam-animate="words"><?= $internship['note'] ?></p>
             <div class="jobs-internship__info">
-                <h2 class="jobs-internship__title"><?= $internship['title'] ?></h2>
-                <p class="jobs-internship__text"><?= $internship['text'] ?></p>
-                <a href="<?= $internship['link']['url'] ?>" class="jobs-internship__link">
+                <h2 class="jobs-internship__title" data-words data-tadam-animate="words--delay-0.3"><?= $internship['title'] ?></h2>
+                <p class="jobs-internship__text" data-words data-tadam-animate="words--delay-0.5"><?= $internship['text'] ?></p>
+                <a href="<?= $internship['link']['url'] ?>" class="jobs-internship__link" data-tadam-animate="opacity-1--y-0--delay-0.7">
                     <?= $internship['link']['title'] ?>
                     <svg class="jobs-internship__link-icon" xmlns="http://www.w3.org/2000/svg" width="13.384" height="14.515" viewBox="0 0 13.384 14.515">
                         <g id="Groupe_788" data-name="Groupe 788" transform="translate(1.414 1)">
@@ -131,16 +131,16 @@ $values = get_field('benefits_2') ?>
 </section>
 
 <?php $careers = get_field('careers') ?>
-<section id="careers-list" data-wolfpack-section class="jobs-careers">
+<section id="careers-list" data-wolfpack-section class="jobs-careers" data-tadam data-tadam-threshold="100">
     <div class="jobs-careers__container">
         <div class="jobs-careers__top">
-            <h2 class="jobs-careers__title"><?= $careers['title'] ?></h2>
+            <h2 class="jobs-careers__title" data-words data-tadam-animate="words"><?= $careers['title'] ?></h2>
         </div>
         <div class="jobs-careers__main">
-            <div class="jobs-careers__filter">
+            <div class="jobs-careers__filter" data-tadam-animate="opacity-1--y-0--delay-0.2">
                 <?php echo do_shortcode('[searchandfilter id="689"]'); ?>
             </div>
-            <div class="jobs-careers__grid">
+            <div class="jobs-careers__grid" data-tadam-animate="opacity-1--y-0--delay-0.2">
                 <?php echo do_shortcode('[searchandfilter id="689"  show="results"]'); ?>
             </div>
         </div>

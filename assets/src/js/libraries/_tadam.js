@@ -249,29 +249,29 @@ export default class Tadam {
 			this.timeline = new TimelineMax();
 			this.timeline.staggerTo(
 				this.elementList,
-				1.2,
+				0.75,
 				{
-					ease: Power4.easeInOut,
+					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 					autoAlpha: 1,
 					y: 0,
 					force3D: true,
 				},
-				0.03
+				0.02
 			);
 		} else if (animation === 'letters--delay-0.2') {
 			this.elementList = element.querySelectorAll('.separate-character__letter');
 			this.timeline = new TimelineMax();
 			this.timeline.staggerTo(
 				this.elementList,
-				1.2,
+				0.75,
 				{
-					ease: Power4.easeInOut,
+					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 					autoAlpha: 1,
 					y: 0,
 					delay: 0.2,
 					force3D: true,
 				},
-				0.03
+				0.02
 			);
 		} else if (animation === 'navigation') {
 			this.elementList = element.querySelectorAll('.menu__item');
@@ -622,6 +622,21 @@ export default class Tadam {
 					force3D: true,
 				},
 				0.1
+			);
+		} else if (animation === 'philanthropy-logos') {
+			this.elementList = element.querySelectorAll('.philanthropy-financing__item');
+			this.timeline = new TimelineMax();
+			this.timeline.staggerTo(
+				this.elementList,
+				0.75,
+				{
+					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
+					autoAlpha: 1,
+					y: 0,
+					delay: 0.7,
+					force3D: true,
+				},
+				0.02
 			);
 		} else if (animation === 'lottie-lines') {
 			this.animationElement = element;

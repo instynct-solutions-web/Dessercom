@@ -438,7 +438,7 @@
 			left: -50px;
 			width: calc(76% - 80px);
 			height: calc(76% - 80px);
-			transform: translateX(0px) scale(1.2);
+			transform: translateX(0px);
 		}
 	}
 	.home-services {
@@ -703,8 +703,7 @@
 			width: calc(50% + 100px);
 			height: auto;
 			position: relative;
-			width: calc(100% + 40px);
-			transform: translateX(40px);
+			transform: translateX(0px) scale(1.2);
 		}
 		&__bottom-container {
 			margin-top: 65px;

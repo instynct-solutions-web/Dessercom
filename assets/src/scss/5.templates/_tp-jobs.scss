@@ -208,6 +208,9 @@
 		color: $white;
 		width: 33.33333%;
 	}
+	&__note-word {
+		display: inline-block;
+	}
 	&__info {
 		padding-bottom: 80px;
 		position: relative;
@@ -229,12 +232,18 @@
 		color: $white;
 		margin-bottom: 40px;
 	}
+	&__title-word {
+		display: inline-block;
+	}
 	&__text {
 		font-size: rem(15);
 		font-weight: 500;
 		line-height: 1.6;
 		color: $white;
 		margin-bottom: 60px;
+	}
+	&__text-word {
+		display: inline-block;
 	}
 	&__link {
 		display: inline-flex;
@@ -276,6 +285,9 @@
 		color: $navy;
 		width: 66.66666%;
 		margin-bottom: 50px;
+	}
+	&__title-word {
+		display: inline-block;
 	}
 	&__filter {
 		margin-bottom: 100px;
@@ -705,6 +717,11 @@
 			top: 110px;
 			left: 100px;
 		}
+		&__note-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__info {
 			width: 33.33333%;
 			margin-right: 8.33333%;
@@ -719,12 +736,25 @@
 			font-size: rem(45);
 			margin-bottom: 30px;
 		}
+		&__title-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__text {
 			font-size: rem(19);
 			margin-bottom: 70px;
 		}
+		&__text-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__link {
 			font-size: rem(15);
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
 		}
 	}
 	.jobs-careers {
@@ -736,10 +766,23 @@
 			width: 16.66666%;
 			margin-bottom: 0px;
 		}
+		&__title-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__filter {
 			width: 25%;
 			margin-right: 8.33333%;
 			margin-top: 60px;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100px, 0);
+		}
+		&__grid {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100px, 0);
 		}
 		&__job {
 			padding: 30px;
