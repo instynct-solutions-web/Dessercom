@@ -422,9 +422,26 @@
 		}
 		&__button {
 			width: 200px;
+			position: relative;
+			overflow: hidden;
 		}
 		&__button-label {
 			height: 60px;
+			&--mock {
+				position: absolute;
+				z-index: 20;
+				top: 0;
+				left: 0;
+				background-color: $yellow;
+				width: 100%;
+				opacity: 1;
+				transform: translateX(0);
+				transition: 0.55s ease;
+				&--hide {
+					transform: translateY(-100%) !important;
+				}
+			}
+
 			p {
 				font-size: rem(19);
 			}
