@@ -24,6 +24,7 @@ import FooterCursor from './modules/_footerCursor';
 import HighlightCursor from './modules/_highlightCursor';
 import Swup from 'swup';
 import SwupBodyClassPlugin from '@swup/body-class-plugin';
+import PayButton from './modules/_payButton';
 
 const App = {
 	/**
@@ -58,6 +59,7 @@ const App = {
 			const contactForm = new ContactForm();
 			const footerCursor = new FooterCursor();
 			const highlightCursor = new HighlightCursor();
+			const payButton = new PayButton();
 		}
 		init();
 		swup.on('contentReplaced', init);

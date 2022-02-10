@@ -752,10 +752,17 @@
 		}
 		&__link {
 			font-size: rem(15);
-
+			&:after {
+				transform-origin: center;
+				transform: scaleX(1);
+				transition: transform 0.25s ease;
+			}
 			&:hover {
+				&:after {
+					transform: scaleX(0.8);
+				}
 				.jobs-internship__link-icon {
-					transform: translate(5px, -5px) rotate(225deg);
+					transform: rotate(270deg);
 					transition: transform 0.25s ease;
 				}
 			}
@@ -781,6 +788,13 @@
 		}
 		&__job {
 			padding: 30px;
+			transition: background-color 0.25s ease;
+			&:hover {
+				background-color: $yellow;
+				.jobs-careers__job-link-icon {
+					transform: rotate(270deg);
+				}
+			}
 		}
 		&__header {
 			margin-bottom: 40px;
@@ -793,6 +807,9 @@
 		}
 		&__job-link {
 			font-size: rem(15);
+		}
+		&__job-link-icon {
+			transition: transform 0.25s ease;
 		}
 		&__pagination {
 			margin-top: 50px;

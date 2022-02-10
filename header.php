@@ -98,7 +98,7 @@
 							<span class="header__hamburger-line" data-tadam-animate="scaleX-1--delay-1.5"></span>
 						</div>
 						<div class="header__button" data-tadam-animate="scaleX-1--delay-0.5">
-							<a href="<?= $header['button']['url'] ?>" class="header__button-label" data-marquee-speed=50 data-marquee data-tadam-animate="opacity-1--y-0--delay-1"><?= $header['button']['title'] ?></a>
+							<a href="<?= $header['button']['url'] ?>" class="header__button-label" data-invoice-button data-marquee-speed=50 data-marquee data-tadam-animate="opacity-1--y-0--delay-1"><?= $header['button']['title'] ?></a>
 						</div>
 					</div>
 				</div>
