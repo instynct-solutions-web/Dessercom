@@ -125,8 +125,8 @@
 					<img src="<?= $header['background']['url'] ?>" alt="<?= $header['background']['alt'] ?>" class="navigation__image">
 				</div>
 			</div>
-
 		</header>
+
 		<?php
 		$contentList = [];
 		$contentList[0] = get_field('house');
@@ -189,15 +189,12 @@
 								</div>
 							</div>
 						</div>
-
 					</div>
-
 				</div>
-
 		<?php
 			}
 		} ?>
 
-		<div id="swup" class="dom-wrapper transition-fade" data-wolfpack="main">
-			<div class="page-wrapper">
+		<div class="dom-wrapper transition-fade" data-wolfpack="main">
+			<div id="swup" class="page-wrapper">
 				<main role="main">
