@@ -15,7 +15,7 @@ export default class HighlightCursor {
 	}
 
 	manageEvents() {
-		this.textContainer.addEventListener('mouseenter', (e) => {
+		this.textContainer.addEventListener('mouseover', (e) => {
 			const cursorClass = this.textCursor.classList[0];
 			this.textCursor.classList.add(`${cursorClass}--show`);
 			TweenMax.to(this.textCursor, 0.3, {
@@ -23,7 +23,7 @@ export default class HighlightCursor {
 				ease: Power1.easeOut,
 			});
 		});
-		this.textContainer.addEventListener('mouseout', (e) => {
+		this.textContainer.addEventListener('mouseleave', (e) => {
 			const cursorClass = this.textCursor.classList[0];
 			this.textCursor.classList.remove(`${cursorClass}--show`);
 			TweenMax.to(this.textCursor, 0.3, {

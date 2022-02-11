@@ -64,10 +64,8 @@
 		display: inline-block;
 	}
 	&__text {
-		> p {
-			font-size: rem(20);
-			line-height: 1.4em;
-		}
+		font-size: rem(20);
+		line-height: 1.4em;
 	}
 	&__text-word {
 		display: inline-block;
@@ -617,10 +615,8 @@
 			margin-right: 1.5em;
 		}
 		&__text {
-			> p {
-				line-height: 1.5em;
-				width: 90%;
-			}
+			line-height: 1.5em;
+			width: 90%;
 		}
 	}
 	.philanthropy-financing {
@@ -783,10 +779,8 @@
 			transform: translate3d(0, 150%, 0);
 		}
 		&__text {
-			> p {
-				font-size: rem(40);
-				width: 75%;
-			}
+			font-size: rem(40);
+			width: 75%;
 		}
 		&__text-word {
 			opacity: 1;
