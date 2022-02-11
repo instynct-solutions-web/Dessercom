@@ -31,7 +31,6 @@ html.is-animating .transition-fade {
 		opacity: 1 !important;
 		pointer-events: all !important;
 		overflow: hidden;
-		transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) !important;
 	}
 }
 
