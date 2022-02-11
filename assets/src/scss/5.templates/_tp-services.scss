@@ -20,6 +20,18 @@
 		max-width: none;
 		object-fit: cover;
 	}
+	&__title-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
+	}
+	&__item {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 100%, 0);
+	}
 	&__link {
 		@include button-outline;
 		width: 80%;
@@ -144,7 +156,7 @@
 		z-index: 0;
 		width: 100%;
 		pointer-events: none;
-		transform: translateX(-30vh) rotate(-120deg) scale(2);
+		transform: translateX(-25vh) rotate(-240deg) scale(2);
 	}
 	&__container {
 		position: relative;
@@ -167,9 +179,15 @@
 		line-height: 1.3em;
 		margin-bottom: 1.5em;
 	}
+	&__title-word {
+		display: inline-block;
+	}
 	&__text {
 		line-height: 1.5em;
 		padding-bottom: 2em;
+	}
+	&__text-word {
+		display: inline-block;
 	}
 	&__list {
 		padding: 2em 0;
@@ -178,6 +196,7 @@
 		border-top: 1px solid $navy;
 		padding: 1em 0;
 		margin-bottom: 2em;
+		display: inline-block;
 	}
 	&__item-num {
 		font-weight: 400;
@@ -198,11 +217,21 @@
 		padding-top: 2em;
 	}
 	&__top {
-		border-top: 1px solid $gray;
 		padding: 2em 0;
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
+		position: relative;
+	}
+	&__separator {
+		display: block;
+		height: 1px;
+		width: 100%;
+		background-color: $gray;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		transform-origin: left;
 	}
 	&__icon {
 		width: rem(15);
@@ -211,6 +240,9 @@
 	&__note {
 		margin-top: 0.3em;
 		font-size: rem(14);
+	}
+	&__note-word {
+		display: inline-block;
 	}
 	&__image {
 		width: calc(100% + 40px);
@@ -300,6 +332,8 @@
 	}
 	&__motif {
 		width: 100%;
+		opacity: 0;
+		visibility: hidden;
 	}
 }
 
@@ -316,11 +350,17 @@
 		width: 50%;
 		margin: 1em 0;
 	}
-
+	&__title-word {
+		display: inline-block;
+	}
+	&__separator {
+		display: none;
+	}
 	&__item {
 		background-color: $gray;
 		border-radius: 3px 3px 0 0;
 		margin: 1em 0;
+		display: inline-block;
 	}
 	&__item-header {
 		@include container;
@@ -448,7 +488,7 @@
 	}
 	.services-extra {
 		&__background {
-			width: 70%;
+			width: 60%;
 		}
 		&__container {
 			padding-top: 100px;
@@ -720,7 +760,7 @@
 	}
 	.services-extra {
 		&__background {
-			width: 50%;
+			width: 45%;
 		}
 		&__container {
 			display: flex;
@@ -748,8 +788,18 @@
 			margin-bottom: 25px;
 			max-width: none;
 		}
+		&__title-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__text {
 			font-size: rem(19);
+		}
+		&__text-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
 		}
 		&__list-container {
 			position: relative;
@@ -762,6 +812,9 @@
 			padding-top: 15px;
 			padding-bottom: 0px;
 			margin-bottom: 80px;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
 			&:last-of-type {
 				margin-bottom: 0px;
 			}
@@ -785,12 +838,23 @@
 			padding-top: 30px;
 			padding-bottom: 160px;
 		}
+		&__separator {
+			transform: scaleX(0);
+		}
 		&__icon {
 			margin-right: 25px;
+			opacity: 0;
+			visibility: hidden;
+			transform: rotate(180deg);
 		}
 		&__note {
 			font-size: rem(16);
 			margin: 0;
+		}
+		&__note-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
 		}
 		&__main {
 			position: relative;
@@ -806,6 +870,9 @@
 			right: 16.66666%;
 			left: auto;
 			width: calc(100% + 100px);
+			opacity: 0;
+			visibility: hidden;
+			transform: translateX(0px);
 		}
 		&__text-container {
 			width: 41.66666%;
@@ -888,26 +955,32 @@
 			padding-bottom: 70px;
 			padding-right: 30px;
 			position: relative;
-			&:after {
-				content: '';
-				display: block;
-				width: 1px;
-				height: 100%;
-				background-color: $gray;
-				opacity: 0.3;
-				position: absolute;
-				top: 0px;
-				right: 0px;
-			}
 		}
 		&__title {
 			font-size: rem(40);
 			line-height: 1;
 			margin-bottom: 345px;
 		}
+		&__title-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__button {
 			font-size: rem(15);
 			width: fit-content;
+		}
+		&__separator {
+			display: block;
+			width: 1px;
+			height: 100%;
+			background-color: $gray;
+			opacity: 0.3;
+			position: absolute;
+			top: 0px;
+			right: 0px;
+			transform-origin: top;
+			transform: scaleY(0);
 		}
 		&__list {
 			width: calc(75% - 20px);
@@ -915,6 +988,11 @@
 			padding-top: 50px;
 			grid-template-columns: repeat(3, 1fr);
 			grid-gap: 25px;
+		}
+		&__item {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
 		}
 		&__item-header {
 			height: 160px;

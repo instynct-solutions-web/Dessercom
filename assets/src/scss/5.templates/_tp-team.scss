@@ -14,26 +14,36 @@
 		padding-top: 50px;
 		margin-bottom: 35px;
 		position: relative;
-		&:before {
-			content: '';
-			display: block;
-			height: 1px;
-			width: 100%;
-			background-color: $gray;
-			position: absolute;
-			top: 0px;
-			left: 0px;
-		}
+	}
+	&__separator {
+		display: block;
+		height: 1px;
+		width: 100%;
+		background-color: $gray;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		transform-origin: left;
+		transform: scaleX(0);
 	}
 	&__icon {
 		width: 15px;
 		margin-right: 10px;
 		transform: translateY(-2px);
+		opacity: 0;
+		visibility: hidden;
+		transform: rotate(180deg);
 	}
 	&__note {
 		font-size: rem(14);
 		font-weight: 500;
 		color: $navy;
+	}
+	&__note-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 100%, 0);
 	}
 	&__info {
 		margin-bottom: 50px;
@@ -44,15 +54,29 @@
 		color: $navy;
 		margin-bottom: 20px;
 	}
+	&__title-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
+	}
 	&__text {
 		font-size: rem(15);
 		font-weight: 500;
 		line-height: 1.5;
 		color: $navy;
 	}
+	&__text-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
+	}
 	&__image {
 		width: calc(100% + 40px);
-		transform: translateX(-40px);
+		opacity: 0;
+		visibility: hidden;
+		transform: translateX(-40px) scale(1.2);
 	}
 }
 
@@ -71,6 +95,9 @@
 		font-weight: 500;
 		color: $navy;
 		margin-bottom: 0px;
+	}
+	&__title-word {
+		display: inline-block;
 	}
 	&__division-list {
 		margin-bottom: 60px;
@@ -167,7 +194,7 @@
 			top: 50px;
 			right: -190px;
 			width: calc(100% - 80px);
-			transform: translateX(0px);
+			transform: translateX(0px) scale(1.2);
 		}
 	}
 	.team-grid {
@@ -273,9 +300,24 @@
 		&__title {
 			font-size: rem(40);
 		}
+		&__title-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__division-list {
 			width: 25%;
 			padding-top: 60px;
+		}
+		&__division-item {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
+		}
+		&__division-member {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 75px, 0);
 		}
 		&__members {
 			width: 75%;

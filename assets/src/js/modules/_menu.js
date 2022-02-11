@@ -3,17 +3,29 @@ export default class Menu {
 		this.header = document.querySelector('[data-header]');
 		this.navigation = document.querySelector('[data-navigation]');
 		this.navigationButton = document.querySelector('[data-navigation-button]');
+		this.headerLinkList = this.header.querySelectorAll('a');
+		this.opened = false;
 		this.manageEvents();
 	}
 
 	manageEvents() {
 		this.navigationButton.addEventListener('click', () => {
-			if (!this.navigation.classList.contains(`${this.navigation.classList[0]}--opened`)) {
+			if (!this.opened) {
+				this.opened = true;
 				this.openMenu();
 			} else {
+				this.opened = false;
 				this.closeMenu();
 			}
 		});
+		for (let i = 0; i < this.headerLinkList.length; i += 1) {
+			this.headerLinkList[i].addEventListener('click', () => {
+				if (this.opened) {
+					this.opened = false;
+					this.closeMenu();
+				}
+			});
+		}
 	}
 
 	openMenu() {

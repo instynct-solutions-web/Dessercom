@@ -22,10 +22,23 @@ html.is-animating .transition-fade {
 }
 
 [data-wolfpack-section] {
-	opacity: 0;
-	pointer-events: none;
 	position: relative;
 	z-index: 1;
+}
+
+@media only screen and (max-width: 1024px) {
+	[data-wolfpack-section] {
+		opacity: 1 !important;
+		pointer-events: all !important;
+		overflow: hidden;
+	}
+}
+
+@include desktop-only {
+	[data-wolfpack-section] {
+		opacity: 0;
+		pointer-events: none;
+	}
 }
 
 body {
@@ -129,8 +142,10 @@ body {
 	}
 }
 
-[data-cursor] {
-	cursor: none;
+@include desktop-only {
+	[data-cursor] {
+		cursor: none;
+	}
 }
 
 @include max-width($tablet-threshold) {
@@ -157,11 +172,12 @@ body {
 }
 
 // SEPARATE WORDS
-[data-separate-words] {
+.separate-word {
 	align-items: flex-start;
 	flex-direction: column;
-	.separate-words__word {
+	&__word {
 		display: inline-block;
+		margin-right: 0.2em;
 	}
 }
 

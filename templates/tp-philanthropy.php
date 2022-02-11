@@ -10,32 +10,32 @@ get_header(); ?>
 
 <?php
 $highlight = get_field('highlight') ?>
-<section class="philanthropy-highlight" data-wolfpack-section>
+<section class="philanthropy-highlight" data-wolfpack-section data-tadam data-tadam-threshold="100">
     <div class="philanthropy-highlight__container">
         <div class="philanthropy-highlight__note-container">
-            <h2 class="philanthropy-highlight__note"><?= $highlight['note'] ?></h2>
+            <h2 class="philanthropy-highlight__note" data-words data-tadam-animate="words"><?= $highlight['note'] ?></h2>
         </div>
         <div class="philanthropy-highlight__text-container">
-            <div class="philanthropy-highlight__text"><?= $highlight['text'] ?></div>
+            <p class="philanthropy-highlight__text" data-words data-tadam-animate="words--delay-0.2"><?= $highlight['text'] ?></p>
         </div>
     </div>
 </section>
 
 <?php $financing = get_field('financing') ?>
-<section class="philanthropy-financing" data-wolfpack-section>
+<section class="philanthropy-financing" data-wolfpack-section data-tadam data-tadam-threshold="100">
     <div class="philanthropy-financing__container">
         <div class="philanthropy-financing__top">
-            <img src="<?= $financing['icon']['url'] ?>" alt="<?= $financing['icon']['alt'] ?>" class="philanthropy-financing__icon">
-            <h2 class="philanthropy-financing__note"><?= $financing['title'] ?></>
+            <span class="philanthropy-financing__separator" data-tadam-animate="scaleX-1"></span>
+            <img src="<?= $financing['icon']['url'] ?>" alt="<?= $financing['icon']['alt'] ?>" class="philanthropy-financing__icon" data-tadam-animate="opacity-1--rotation-0--delay-0.1">
+            <h2 class="philanthropy-financing__note" data-words data-tadam-animate="words--delay-0.2"><?= $financing['title'] ?></>
         </div>
         <div class="philanthropy-financing__main">
-
             <?php if ($financing['list']) { ?>
                 <div class="philanthropy-financing__logo-container">
                     <div class="philanthropy-financing__amount-container">
-                        <p class="philanthropy-financing__amount"><?= $financing['amount'] ?></p>
+                        <p class="philanthropy-financing__amount" data-letters data-tadam-animate="letters--delay-0.2"><?= $financing['amount'] ?></p>
                     </div>
-                    <ul class="philanthropy-financing__list">
+                    <ul class="philanthropy-financing__list" data-tadam-animate="philanthropy-logos">
                         <?php foreach ($financing['list'] as $logo) { ?>
                             <li class="philanthropy-financing__item">
                                 <img src="<?= $logo['logo']['url'] ?>" alt="<?= $logo['logo']['alt'] ?>" class="philanthropy-financing__logo">
@@ -94,7 +94,7 @@ $house = get_field('house'); ?>
 
 <?php
 $research = get_field('research') ?>
-<section class="philanthropy-research" data-wolfpack-section>
+<section class="philanthropy-research" data-wolfpack-section data-tadam data-tadam-threshold="100">
     <div class="philanthropy-research__container">
         <div class="philanthropy-research__background">
             <div class="philanthropy-research__top-container">
@@ -135,16 +135,16 @@ $research = get_field('research') ?>
         </div>
         <div data-research-foreground class="philanthropy-research__foreground">
             <div class="philanthropy-research__top">
-                <img src="<?= $research['icon']['url'] ?>" alt="<?= $research['icon']['alt'] ?>" class="philanthropy-research__icon">
-                <p class="philanthropy-research__note"><?= $research['note'] ?></p>
+                <span class="philanthropy-research__separator" data-tadam-animate="scaleX-1"></span>
+                <img src="<?= $research['icon']['url'] ?>" alt="<?= $research['icon']['alt'] ?>" class="philanthropy-research__icon" data-tadam-animate="opacity-1--rotation-0--delay-0.1">
+                <p class="philanthropy-research__note" data-words data-tadam-animate="words--delay-0.2"><?= $research['note'] ?></p>
             </div>
             <div class="philanthropy-research__text-container">
-                <p class="philanthropy-research__text"><?= $research['text'] ?></p>
-                <div class="philanthropy-research__link-container">
+                <p class="philanthropy-research__text" data-words data-tadam-animate="words--delay-0.5"><?= $research['text'] ?></p>
+                <div class="philanthropy-research__link-container" data-tadam-animate="opacity-1--y-0--delay-0.6">
                     <a href="<?= $research['link']['url'] ?>" target="<?= $research['link']['target'] ?>" class="philanthropy-research__link"><?= $research['link']['title'] ?></a>
                 </div>
             </div>
-
             <div class="philanthropy-research__toggle-container">
                 <div data-cursor data-research-slider-toggle class="philanthropy-research__toggle">
                     <svg class="philanthropy-research__toggle-svg" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
@@ -231,15 +231,16 @@ $borders = get_field('borders')  ?>
 
 <?php
 $grant = get_field('grant') ?>
-<section class="philanthropy-grant" data-wolfpack-section>
-    <img src="<?= $grant['background']['url'] ?>" alt="<?= $grant['background']['alt'] ?>" class="philanthropy-grant__background">
+<section class="philanthropy-grant" data-wolfpack-section data-tadam data-tadam-threshold="100">
+    <!-- <img src="<?= $grant['background']['url'] ?>" alt="<?= $grant['background']['alt'] ?>" class="philanthropy-grant__background"> -->
+    <div class="philanthropy-grant__background" data-tadam-animate="lottie-lines-once" data-lottie-lines="/wp-content/themes/dessercom/assets/src/lottie/lines-white.json"></div>
     <div class="philanthropy-grant__container">
         <div class="philanthropy-grant__info">
-            <p class="philanthropy-grant__text"><?= $grant['text'] ?></p>
+            <p class="philanthropy-grant__text" data-words data-tadam-animate="words--delay-0.2"><?= $grant['text'] ?></p>
         </div>
         <div class="philanthropy-grant__link-container">
-            <a href="<?= $grant['button']['url'] ?>" class="philanthropy-grant__link"><?= $grant['button']['title'] ?></a>
-            <a href="<?= $grant['button_2']['url'] ?>" class="philanthropy-grant__link philanthropy-grant__link--alt"><?= $grant['button_2']['title'] ?></a>
+            <a href="<?= $grant['button']['url'] ?>" class="philanthropy-grant__link" data-tadam-animate="opacity-1--y-0--delay-0.4"><?= $grant['button']['title'] ?></a>
+            <a href="<?= $grant['button_2']['url'] ?>" class="philanthropy-grant__link philanthropy-grant__link--alt" data-tadam-animate="opacity-1--y-0--delay-0.5"><?= $grant['button_2']['title'] ?></a>
         </div>
     </div>
 </section>

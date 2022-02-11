@@ -3,7 +3,7 @@
 // ==========================================================================
 
 .page-template-tp-terms {
-	.page-body {
+	.page-wrapper {
 		background-color: $gray;
 	}
 }
@@ -17,7 +17,6 @@
 		transform-origin: center;
 		right: -50%;
 		width: 100%;
-		opacity: 0.3;
 	}
 	&__container {
 		@include container;
@@ -30,6 +29,16 @@
 		font-weight: 500;
 		color: $navy;
 		margin-bottom: 90px;
+	}
+	&__title-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
+	}
+	&__list {
+		opacity: 0;
+		visibility: hidden;
 	}
 	&__item {
 		margin-bottom: 30px;
@@ -138,10 +147,11 @@
 	.policies {
 		overflow: hidden;
 		&__background {
-			top: 20vw;
-			right: -15%;
-			width: 30%;
+			top: -10vw;
+			right: -30%;
+			width: 80%;
 			height: auto;
+			transform: rotate(-50deg);
 		}
 		&__container {
 			padding-top: 100px;

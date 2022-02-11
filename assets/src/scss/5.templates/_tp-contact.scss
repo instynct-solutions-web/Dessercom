@@ -166,6 +166,17 @@
 		align-items: center;
 		font-size: rem(43);
 	}
+	&__title-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
+	}
+	&__item {
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
+	}
 	&__header {
 		padding: 0.5em 0;
 		font-size: rem(21);
@@ -302,6 +313,9 @@
 		color: $white;
 		width: 33.33333%;
 	}
+	&__note-word {
+		display: inline-block;
+	}
 	&__info {
 		padding-bottom: 80px;
 		position: relative;
@@ -323,13 +337,19 @@
 		color: $white;
 		margin-bottom: 1em;
 	}
+	&__title-word {
+		display: inline-block;
+	}
 	&__text {
 		font-size: rem(21);
 		font-weight: 500;
 		line-height: 1.6;
 		color: $white;
 		margin-bottom: 0.5em;
-		span {
+	}
+	&__text-word {
+		display: inline-block;
+		> span > span {
 			background-color: $teal;
 		}
 	}
@@ -367,6 +387,7 @@
 	}
 	&__container {
 		@include container;
+		width: 100%;
 		padding-top: 90px;
 		padding-bottom: 120px;
 	}
@@ -388,11 +409,13 @@
 			background-color: $navy;
 		}
 	}
+	&__title-word {
+		display: inline-block;
+	}
 	&__form-container {
 		@include contactForm;
 		background-color: $white;
 		position: relative;
-
 		.field__dropdown-icon {
 			top: rem(25);
 		}
@@ -663,6 +686,11 @@
 			top: 110px;
 			left: 100px;
 		}
+		&__note-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__info {
 			width: 33.33333%;
 			margin-right: 8.33333%;
@@ -677,9 +705,24 @@
 			font-size: rem(45);
 			margin-bottom: 40px;
 		}
+		&__title-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__text {
 			font-size: rem(30);
 			margin-bottom: 30px;
+		}
+		&__text-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
+		&__phone-item {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
 		}
 		&__phone-list {
 			margin: 0;
@@ -706,9 +749,17 @@
 			padding-top: 20px;
 			font-size: rem(35);
 		}
+		&__title-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__form-container {
 			width: 75%;
 			margin: 0 12.5%;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100px, 0);
 		}
 	}
 }

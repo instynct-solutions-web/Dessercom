@@ -33,17 +33,27 @@ dd {
 
 html.website {
 	pointer-events: none;
-	overflow: hidden;
 	-webkit-font-smoothing: antialiased;
+}
+
+@media only screen and (min-width: 1025px) {
+	html.website {
+		overflow: hidden;
+	}
 }
 
 /* Set core body defaults */
 body:not(#tinymce) {
-	height: 100vh;
-	overflow: hidden;
-	cursor: none;
 	pointer-events: all;
 	text-rendering: optimizeSpeed;
+}
+
+@media only screen and (min-width: 1025px) {
+	body:not(#tinymce) {
+		height: 100vh;
+		overflow: hidden;
+		cursor: none;
+	}
 }
 
 .page-template {

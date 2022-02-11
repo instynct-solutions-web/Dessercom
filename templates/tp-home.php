@@ -11,7 +11,7 @@ get_header(); ?>
 $hero = get_field('hero'); ?>
 <section class="hero-slider" data-wolfpack-section data-tadam data-tadam-threshold=-1>
     <div class="hero-slider__container">
-        <ul data-hero-slider class="hero-slider__list" data-tadam-animate="x-0--rotation-5">
+        <ul data-hero-slider class="hero-slider__list" data-tadam-animate="x-0--y-0">
             <?php foreach ($hero['list'] as $item) { ?>
                 <li class="hero-slider__item">
                     <img class="hero-slider__image" src="<?= $item['image']['url'] ?>" alt="<?= $item['image']['alt'] ?>">
@@ -23,7 +23,7 @@ $hero = get_field('hero'); ?>
             <ul data-hero-slider-nav class="hero-slider__title-list">
                 <?php foreach ($hero['list'] as $item) { ?>
                     <li class="hero-slider__title-item">
-                        <p class="hero-slider__title" data-lines data-tadam-animate="lines--delay-1.1"><?= $item['title'] ?></p>
+                        <p class="hero-slider__title" data-words data-tadam-animate="words--delay-0.7"><?= $item['title'] ?></p>
                     </li>
                 <?php } ?>
             </ul>
@@ -57,7 +57,6 @@ $hero = get_field('hero'); ?>
             <span class="hero-slider__indicator-thumb"></span>
         </span>
     </div>
-
 </section>
 
 <?php
@@ -66,7 +65,7 @@ $highlight = get_field('highlight');
 <section class="home-highlight" data-wolfpack-section>
     <div class="home-highlight__top-container" data-tadam data-tadam-threshold="100">
         <div class="home-highlight__text-container">
-            <h1 class="home-highlight__text" data-lines data-tadam-animate="lines--delay-0.2"><?= $highlight['text']  ?></h1>
+            <h1 class="home-highlight__text" data-words data-tadam-animate="words"><?= $highlight['text']  ?></h1>
         </div>
         <svg class="home-highlight__image" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 181.567 163.488" data-tadam-animate="mask-image">
             <defs>
@@ -80,10 +79,9 @@ $highlight = get_field('highlight');
     <div class="home-highlight__bottom-container" data-tadam data-tadam-threshold="100">
         <div class="home-highlight__note-wrapper">
             <span class="home-highlight__note-separator" data-tadam-animate="scaleX-1"></span>
-            <p class="home-highlight__note home-highlight__note--left" data-lines data-tadam-animate="lines"><?= $highlight['left_note']  ?></p>
-            <p class="home-highlight__note home-highlight__note--right" data-lines data-tadam-animate="lines--delay-0.2"><?= $highlight['right_note']  ?></p>
+            <p class="home-highlight__note home-highlight__note--left" data-words data-tadam-animate="words"><?= $highlight['left_note']  ?></p>
+            <p class="home-highlight__note home-highlight__note--right" data-words data-tadam-animate="words--delay-0.2"><?= $highlight['right_note']  ?></p>
         </div>
-
     </div>
 </section>
 
@@ -113,7 +111,7 @@ $index = 0;
         </div>
         <div class="home-services__foreground" data-tadam data-tadam-threshold="100">
             <div class="home-services__info">
-                <h2 class="home-services__note" data-lines data-tadam-animate="lines"><?= $services['top_note'] ?></h2>
+                <h2 class="home-services__note" data-words data-tadam-animate="words"><?= $services['top_note'] ?></h2>
                 <ul class="home-services__list" data-tadam-animate="home-services">
                     <?php foreach ($services['list'] as $item) { ?>
                         <li class="home-services__item" data-home-service>
@@ -178,11 +176,11 @@ $commitments = get_field('commitment');
             <svg class="home-commitment__icon" data-tadam-animate="opacity-1--rotation-0--delay-0.1" viewBox="0 0 786.511 708.195">
                 <path id="mat-napo-ejWJ3a92FEs-unsplash" d="M12.3,656.391c30.132,52.726,105.531,66.393,168.567,30.479,5.2-3.011,212.447-122.342,212.447-122.342l-.213-.346L604.991,687.563c62.77,36.367,138.3,23.392,168.78-28.96v-.133c30.48-52.459,4.4-124.527-58.268-161.027-4.981-2.771-196.594-113.071-211.54-121.623v.559h-1.626l.693-1.146.933.586V131.268C503.963,58.747,454.727,0,394.036,0,333.317,0,284.082,58.747,284.082,131.268c0,5.675,1.039,222.545,1.173,243.512l.905,1.6h-.905v-1.6l-.134-.24L72.087,495.817C9.052,531.731-17.7,603.559,12.3,656.391Z" transform="translate(0)" fill="#00938f" />
             </svg>
-            <h2 class="home-commitment__note" data-lines data-tadam-animate="lines--delay-0.2"><?= $commitments['top_note'] ?></h2>
+            <h2 class="home-commitment__note" data-words data-tadam-animate="words--delay-0.2"><?= $commitments['top_note'] ?></h2>
         </div>
         <div class="home-commitment__main">
             <div class="home-commitment__text-container">
-                <p class="home-commitment__text" data-tadam-animate="opacity-1--y-0--delay-0.5"><?= $commitments['text'] ?></p>
+                <p class="home-commitment__text" data-words data-tadam-animate="words--delay-0.5"><?= $commitments['text'] ?></p>
             </div>
             <ul class="home-commitment__list" data-tadam-animate="home-commitments">
                 <?php
@@ -197,9 +195,9 @@ $commitments = get_field('commitment');
         </div>
 
     </div>
-    <div class="home-commitment__bottom" data-tadam data-tadam-threshold="0">
+    <div class="home-commitment__bottom">
         <div class="home-commitment__image-container" data-parallax data-parallax-speed=20>
-            <img src="<?= $commitments['image']['url'] ?>" alt="<?= $commitments['image']['alt'] ?>" class="home-commitment__image" data-tadam-animate="opacity-1--scale-1">
+            <img src="<?= $commitments['image']['url'] ?>" alt="<?= $commitments['image']['alt'] ?>" class="home-commitment__image">
         </div>
     </div>
 </section>
@@ -213,7 +211,7 @@ $commitments = get_field('commitment');
             <svg class="home-social__icon" viewBox="0 0 786.511 708.195" data-tadam-animate="opacity-1--rotation-0--delay-0.1">
                 <path id="mat-napo-ejWJ3a92FEs-unsplash" d="M12.3,656.391c30.132,52.726,105.531,66.393,168.567,30.479,5.2-3.011,212.447-122.342,212.447-122.342l-.213-.346L604.991,687.563c62.77,36.367,138.3,23.392,168.78-28.96v-.133c30.48-52.459,4.4-124.527-58.268-161.027-4.981-2.771-196.594-113.071-211.54-121.623v.559h-1.626l.693-1.146.933.586V131.268C503.963,58.747,454.727,0,394.036,0,333.317,0,284.082,58.747,284.082,131.268c0,5.675,1.039,222.545,1.173,243.512l.905,1.6h-.905v-1.6l-.134-.24L72.087,495.817C9.052,531.731-17.7,603.559,12.3,656.391Z" transform="translate(0)" fill="#00938f" />
             </svg>
-            <h3 class="home-social__title" data-tadam-animate="opacity-1--y-0--delay-0.5"><?= $social['title'] ?></h3>
+            <h3 class="home-social__title" data-words data-tadam-animate="words--delay-0.5"><?= $social['title'] ?></h3>
         </div>
         <div class="home-social__feed" data-tadam-animate="opacity-1--y-0--delay-0.7">
             <?php echo do_shortcode('[custom-facebook-feed feed=2]') ?>

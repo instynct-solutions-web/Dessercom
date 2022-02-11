@@ -39,11 +39,11 @@
 		text-align: center;
 		padding: 0.5em;
 	}
-	&__title-line {
+	&__title-word {
 		display: inline-block;
 		opacity: 0;
 		visibility: hidden;
-		transform: translate3d(0, 30px, 0);
+		transform: translate3d(0, 120%, 0);
 	}
 	&__list {
 		transform: rotate(-5deg) translateX(-200vw);
@@ -126,21 +126,13 @@
 		@include container;
 	}
 	&__text {
-		font-size: 4.5vw;
+		font-size: rem(40);
 		letter-spacing: rem(-1.6);
 		color: $navy;
 	}
-	&__text-line {
-		display: inline-block;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 30px, 0);
-	}
 	&__image {
-		opacity: 0;
-		visibility: hidden;
 		width: calc(100% + 40px);
-		transform: translateX(40px) scale(1.2);
+		transform: translateX(40px);
 	}
 	&__bottom-container {
 		margin-top: 1em;
@@ -161,17 +153,10 @@
 		left: 0;
 		background-color: $gray;
 		transform-origin: left;
-		transform: scaleX(0);
 	}
 	&__note {
 		color: $navy;
 		font-size: rem(14);
-	}
-	&__note-line {
-		display: inline-block;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 20px, 0);
 	}
 }
 .home-services {
@@ -184,12 +169,6 @@
 		@include note;
 		color: $white;
 		max-width: rem(150);
-	}
-	&__note-line {
-		display: inline-block;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 20px, 0);
 	}
 	&__list {
 		padding: 2em 0;
@@ -205,9 +184,6 @@
 	}
 	&__link-content {
 		display: inline-block;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 25px, 0);
 	}
 	&__arrow {
 		display: block;
@@ -310,13 +286,9 @@
 		top: 0;
 		left: 0;
 		transform-origin: left;
-		transform: scaleX(0);
 	}
 	&__icon {
 		height: rem(15);
-		opacity: 0;
-		visibility: hidden;
-		transform: rotate(180deg);
 	}
 	&__note {
 		@include note;
@@ -325,19 +297,13 @@
 		margin-top: 0.5em;
 		margin-left: 0.5em;
 	}
-	&__note-line {
-		display: inline-block;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 20px, 0);
-	}
 	&__text {
 		color: $white;
 		font-size: rem(20);
 		line-height: 1.5em;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 35px, 0);
+	}
+	&__text-word {
+		display: inline-block;
 	}
 	&__list {
 		padding: 2em 0 4em 0;
@@ -346,9 +312,6 @@
 		padding: 1.5em 0;
 		position: relative;
 		width: 90%;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 30px, 0);
 	}
 	&__item-text {
 		font: 500 rem(17) $font-family-default;
@@ -381,11 +344,11 @@
 		bottom: 0;
 		left: 0;
 		width: 100%;
+		height: 100%;
 		object-fit: cover;
 		object-position: center;
-		height: 0;
 		transform: scale(1.2);
-		transform-origin: center;
+		transform-origin: top;
 	}
 }
 
@@ -409,7 +372,6 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		transform: scaleX(0);
 		transform-origin: left;
 		&--desktop {
 			display: none;
@@ -419,22 +381,16 @@
 		font-size: rem(18);
 		line-height: 1.5em;
 		margin-left: 1em;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 25px, 0);
+	}
+	&__title-word {
+		display: inline-block;
 	}
 	&__icon {
 		width: rem(15);
 		flex-shrink: 0;
-		opacity: 0;
-		visibility: hidden;
-		transform: rotate(180deg);
 	}
 	&__feed {
 		@include container;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 25px, 0);
 	}
 }
 
@@ -474,6 +430,7 @@
 			padding-top: 20px;
 		}
 		&__text {
+			font-size: rem(50);
 			padding-bottom: 200px;
 		}
 		&__image {
@@ -482,7 +439,7 @@
 			left: -50px;
 			width: calc(76% - 80px);
 			height: calc(76% - 80px);
-			transform: translateX(0px) scale(1.2);
+			transform: translateX(0px);
 		}
 	}
 	.home-services {
@@ -729,8 +686,15 @@
 			padding-top: 0px;
 		}
 		&__text {
+			font-size: rem(90);
 			padding-bottom: 0px;
 			margin-bottom: 0px;
+		}
+		&__text-word {
+			display: inline-block;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
 		}
 		&__image {
 			top: 0px;
@@ -740,6 +704,7 @@
 			width: calc(50% + 100px);
 			height: auto;
 			position: relative;
+			transform: translateX(0px) scale(1.2);
 		}
 		&__bottom-container {
 			margin-top: 65px;
@@ -748,8 +713,18 @@
 			padding-top: 35px;
 			padding-bottom: 0px;
 		}
+		&__note-separator {
+			transform: scaleX(0);
+		}
 		&__note {
 			font-size: rem(16);
+		}
+
+		&__note-word {
+			display: inline-block;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 120%, 0);
 		}
 	}
 	.home-services {
@@ -759,6 +734,12 @@
 			font-size: rem(16);
 			margin-bottom: 150px;
 			padding: 20px;
+		}
+		&__note-word {
+			display: inline-block;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
 		}
 		&__list {
 			padding: 0 0 200px 0;
@@ -775,6 +756,11 @@
 		&__link {
 			font-size: rem(50);
 			padding: 15px 20px;
+		}
+		&__link-content {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 25px, 0);
 		}
 		&__arrow {
 			margin-left: 15px;
@@ -811,9 +797,23 @@
 			padding-top: 45px;
 			padding-bottom: 110px;
 		}
+		&__separator {
+			transform: scaleX(0);
+		}
+		&__icon {
+			opacity: 0;
+			visibility: hidden;
+			transform: rotate(180deg);
+		}
 		&__note {
 			font-size: rem(16);
 			margin-left: 25px;
+		}
+		&__note-word {
+			display: inline-block;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
 		}
 		&__text-container {
 			width: 66.66666%;
@@ -823,11 +823,20 @@
 		&__text {
 			font-size: rem(40);
 		}
+		&__text-word {
+			display: inline-block;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
+		}
 		&__list {
 			width: 25%;
 		}
 		&__item {
 			margin-bottom: 30px;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
 		}
 		&__item-text {
 			font-size: rem(19);
@@ -852,10 +861,16 @@
 			position: relative;
 			border-top: 0px;
 		}
+		&__title-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
+		}
 		&__separator {
 			width: calc(100% - 7em);
 			background-color: $navy;
 			left: 3.5em;
+			transform: scaleX(0);
 			&--desktop {
 				display: block;
 			}
@@ -867,6 +882,9 @@
 			position: absolute;
 			left: -35px;
 			top: 10px;
+			opacity: 0;
+			visibility: hidden;
+			transform: rotate(180deg);
 		}
 		&__title {
 			font-size: rem(30);
@@ -877,6 +895,9 @@
 			width: calc(75% - 16px);
 			margin-left: 16px;
 			padding: 0;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 25px, 0);
 		}
 	}
 }

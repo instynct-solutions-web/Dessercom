@@ -6,12 +6,14 @@
 	background-color: $navy;
 	margin-top: 25px;
 	position: relative;
+	overflow: hidden;
 	&__background {
 		position: absolute;
 		left: -50%;
-		top: -40px;
-		width: 125%;
+		top: -140px;
+		width: 140%;
 		opacity: 0.3;
+		transform: rotate(115deg);
 	}
 	&__container {
 		@include container;
@@ -36,11 +38,17 @@
 		width: 83.33333%;
 		margin-bottom: 40px;
 	}
+	&__title-word {
+		display: inline-block;
+	}
 	&__text {
 		font-size: rem(15);
 		font-weight: 500;
 		color: $white;
 		line-height: 1.6;
+	}
+	&__text-word {
+		display: inline-block;
 	}
 	&__item {
 		width: 83.33333%;
@@ -206,6 +214,9 @@
 		color: $white;
 		width: 33.33333%;
 	}
+	&__note-word {
+		display: inline-block;
+	}
 	&__info {
 		padding-bottom: 80px;
 		position: relative;
@@ -227,12 +238,18 @@
 		color: $white;
 		margin-bottom: 40px;
 	}
+	&__title-word {
+		display: inline-block;
+	}
 	&__text {
 		font-size: rem(15);
 		font-weight: 500;
 		line-height: 1.6;
 		color: $white;
 		margin-bottom: 60px;
+	}
+	&__text-word {
+		display: inline-block;
 	}
 	&__link {
 		display: inline-flex;
@@ -274,6 +291,9 @@
 		color: $navy;
 		width: 66.66666%;
 		margin-bottom: 50px;
+	}
+	&__title-word {
+		display: inline-block;
 	}
 	&__filter {
 		margin-bottom: 100px;
@@ -621,8 +641,18 @@
 			font-size: rem(35);
 			margin-bottom: 25px;
 		}
+		&__title-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__text {
 			font-size: rem(19);
+		}
+		&__text-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
 		}
 		&__list-container {
 			position: relative;
@@ -634,6 +664,9 @@
 		&__item {
 			padding-top: 20px;
 			margin-bottom: 80px;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
 		}
 		&__item-num {
 			font-size: rem(17);
@@ -732,6 +765,11 @@
 			top: 110px;
 			left: 100px;
 		}
+		&__note-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__info {
 			width: 33.33333%;
 			margin-right: 8.33333%;
@@ -746,12 +784,25 @@
 			font-size: rem(45);
 			margin-bottom: 30px;
 		}
+		&__title-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__text {
 			font-size: rem(19);
 			margin-bottom: 70px;
 		}
+		&__text-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__link {
 			font-size: rem(15);
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
 			&:after {
 				transform-origin: center;
 				transform: scaleX(1);
@@ -781,10 +832,23 @@
 			width: 16.66666%;
 			margin-bottom: 0px;
 		}
+		&__title-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__filter {
 			width: 25%;
 			margin-right: 8.33333%;
 			margin-top: 60px;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100px, 0);
+		}
+		&__grid {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100px, 0);
 		}
 		&__job {
 			padding: 30px;

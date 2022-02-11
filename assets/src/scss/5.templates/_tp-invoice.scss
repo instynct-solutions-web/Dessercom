@@ -42,18 +42,14 @@
 		padding-right: 25%;
 		padding-bottom: 85px;
 		padding-top: 75px;
-		margin-bottom: 25px;
+		margin-bottom: 0;
 		position: relative;
-		&:after {
-			content: '';
-			display: block;
-			height: 1px;
-			width: 100%;
-			background-color: $black;
-			position: absolute;
-			bottom: 0px;
-			left: 0px;
-		}
+	}
+	&__title-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
 	}
 	&__header {
 		display: flex;
@@ -61,6 +57,20 @@
 		align-items: center;
 		justify-content: flex-start;
 		margin-bottom: 40px;
+		padding-top: 25px;
+		position: relative;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 100px, 0);
+	}
+	&__separator {
+		display: block;
+		height: 1px;
+		width: 100%;
+		background-color: $black;
+		position: absolute;
+		top: 0px;
+		left: 0px;
 	}
 	&__header-title {
 		font-size: rem(14);
@@ -71,6 +81,9 @@
 	}
 	&__body {
 		@include invoiceForm;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 100px, 0);
 	}
 }
 
@@ -81,10 +94,6 @@
 			padding-right: 50%;
 			padding-bottom: 100px;
 			padding-top: 150px;
-			&:after {
-				width: calc(100% - 160px);
-				margin: 0 80px;
-			}
 		}
 		&__header {
 			width: calc(100% - 160px);
@@ -105,9 +114,6 @@
 			padding-bottom: 0;
 			padding-top: 100px;
 			margin-bottom: 130px;
-			&:after {
-				display: none;
-			}
 		}
 		&__header {
 			width: 66.66666%;
@@ -116,16 +122,6 @@
 			margin-bottom: 50px;
 			padding-top: 20px;
 			position: relative;
-			&:after {
-				content: '';
-				display: block;
-				height: 1px;
-				width: 100%;
-				background-color: $navy;
-				position: absolute;
-				top: 0px;
-				left: 0px;
-			}
 		}
 		&__header-title {
 			font-size: rem(16);

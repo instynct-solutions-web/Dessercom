@@ -11,6 +11,12 @@
 	&__info {
 		margin-bottom: 30px;
 	}
+	&__link-container {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 100%, 0);
+	}
 	&__link {
 		display: inline-block;
 		font-size: rem(13);
@@ -70,22 +76,37 @@
 		hyphens: auto;
 		margin-bottom: 10px;
 	}
+	&__title-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
+	}
 	&__subtitle {
 		font-size: rem(13);
 		font-weight: 500;
 		color: $navy;
 		line-height: 1.5;
 	}
+	&__subtitle-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
+	}
 	&__image {
 		width: 100%;
-		transform: translateX(-40px);
+		opacity: 0;
+		visibility: hidden;
+		transform: translateX(-40px) scale(1.2);
 	}
 	&__background-image {
 		position: absolute;
 		transform-origin: center;
 		transform: rotate(240deg);
-		bottom: 50px;
-		right: -20%;
+		bottom: -30px;
+		width: 110%;
+		right: -35%;
 	}
 	&__cta {
 		display: inline-flex;
@@ -420,12 +441,13 @@
 			top: -40px;
 			right: -190px;
 			width: calc(100% - 80px);
-			transform: translateX(0px);
+			transform: translateX(0px) scale(1.2);
 		}
 		&__background-image {
-			bottom: -40px;
-			width: 50%;
-			height: 50%;
+			bottom: -150px;
+			width: 80%;
+			height: 80%;
+			right: -30%;
 		}
 	}
 	.job-benefits {
@@ -612,10 +634,10 @@
 			right: auto;
 		}
 		&__background-image {
-			bottom: -25%;
-			right: -40%;
-			width: 92%;
-			height: 92%;
+			bottom: -30%;
+			right: -55%;
+			width: 120%;
+			height: 120%;
 		}
 	}
 	.job-benefits {

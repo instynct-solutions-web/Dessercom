@@ -20,6 +20,12 @@
 		position: relative;
 		z-index: 1;
 	}
+	&__title-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
+	}
 	&__list {
 		position: absolute;
 		top: 0px;
@@ -35,6 +41,7 @@
 	&__item {
 		height: 100%;
 		width: 33.33333%;
+		transform: translateX(-200vw);
 	}
 	&__image {
 		width: 100%;
