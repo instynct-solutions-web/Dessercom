@@ -22,16 +22,13 @@ export default class Wolfpack {
 		window.event.preventDefault();
 
 		// Virtual scroll variables
-		if (window.innerWidth >= 1024) {
-			this.virtualScroll = new VirtualScroll({
-				mouseMultiplier: 0.4,
-				touchMultiplier: 2,
-			});
-		} else {
-			if (this.virtualScroll) {
-				this.virtualScroll.off();
-			}
-		}
+		this.virtualScroll;
+		this.activateWatchScroll = false;
+		this.updateVirtualScroll();
+		window.addEventListener('resize', () => {
+			this.updateVirtualScroll();
+			this.watchScroll();
+		});
 
 		// Preloader variables
 		this.preloaderFunction = new Preloader();
@@ -643,44 +640,7 @@ export default class Wolfpack {
 		}
 
 		// Watch scroll events
-		this.modulesUpdated = false;
-		if (this.virtualScroll) {
-			setTimeout(() => {
-				this.virtualScroll.on((e) => {
-					if (!this.scrollBlocked) {
-						if (!this.modulesUpdated) {
-							this.modulesUpdated = true;
-							this.updateModules();
-						}
-						if (this.wolfpackList.length !== 0) {
-							for (let i = 0; i < this.wolfpackList.length; i += 1) {
-								if (this.wolfpackSectionList[i].length === 0) {
-									if (this.wolfpackHovering[i]) {
-										if (!this.scrolling) {
-											this.startLoop(i);
-											this.showScrollbar(i);
-											this.scrollTimer(i);
-											this.scrolling = true;
-										}
-										this.updateTargetY(e.deltaY, i);
-										this.time = 10;
-									}
-								} else if (this.wolfpackHovering[i]) {
-									if (!this.scrolling) {
-										this.startLoopSections(i);
-										this.showScrollbar(i);
-										this.scrollTimerSections(i);
-										this.scrolling = true;
-									}
-									this.updateTargetY(e.deltaY, i);
-									this.time = 10;
-								}
-							}
-						}
-					}
-				});
-			}, 500);
-		}
+		this.watchScroll();
 
 		// Scrollbar dragging
 		if (this.scrollbarThumbList.length !== 0) {
@@ -832,10 +792,73 @@ export default class Wolfpack {
 		}
 	}
 
+	updateVirtualScroll() {
+		if (window.innerWidth >= 1024) {
+			if (this.virtualScroll === undefined) {
+				this.virtualScroll = new VirtualScroll({
+					mouseMultiplier: 0.4,
+					touchMultiplier: 2,
+				});
+				this.activateWatchScroll = true;
+			}
+		} else {
+			if (this.virtualScroll) {
+				this.activateWatchScroll = false;
+				this.virtualScroll.destroy();
+				this.virtualScroll = undefined;
+			}
+		}
+	}
+
+	watchScroll() {
+		this.modulesUpdated = false;
+		if (this.activateWatchScroll) {
+			this.activateWatchScroll = false;
+			if (this.virtualScroll) {
+				setTimeout(() => {
+					this.virtualScroll.on((e) => {
+						if (!this.scrollBlocked) {
+							if (!this.modulesUpdated) {
+								this.modulesUpdated = true;
+								this.updateModules();
+							}
+							if (this.wolfpackList.length !== 0) {
+								for (let i = 0; i < this.wolfpackList.length; i += 1) {
+									if (this.wolfpackSectionList[i].length === 0) {
+										if (this.wolfpackHovering[i]) {
+											if (!this.scrolling) {
+												this.startLoop(i);
+												this.showScrollbar(i);
+												this.scrollTimer(i);
+												this.scrolling = true;
+											}
+											this.updateTargetY(e.deltaY, i);
+											this.time = 10;
+										}
+									} else if (this.wolfpackHovering[i]) {
+										if (!this.scrolling) {
+											this.startLoopSections(i);
+											this.showScrollbar(i);
+											this.scrollTimerSections(i);
+											this.scrolling = true;
+										}
+										this.updateTargetY(e.deltaY, i);
+										this.time = 10;
+									}
+								}
+							}
+						}
+					});
+				}, 500);
+			}
+		}
+	}
+
 	positionInit() {
 		// Position init
 		if (this.locationHash) {
-			this.locationTop = this.locationElement.offsetTop + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
+			this.locationElement = document.querySelector(this.locationHash);
+			this.locationTop = this.locationElement.getBoundingClientRect().y + Math.abs(this.wolfpackCurrentY[this.wolfpackMainIndex]);
 			if (this.wolfpackSectionList[this.wolfpackMainIndex].length === 0) {
 				if (!this.anchorScrolling) {
 					this.anchorScrolling = true;

@@ -76,7 +76,7 @@
 		"flickity-fade": "^1.0.0",
 		"flickity-imagesloaded": "^2.0.0",
 		"flickity-sync": "^2.0.0",
-		"gsap": "^3.7.0",
+		"gsap": "^3.9.1",
 		"jquery": "3.6.0",
 		"jquery-bridget": "^3.0.0",
 		"lottie-web": "^5.8.1",
