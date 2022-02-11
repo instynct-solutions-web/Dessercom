@@ -33,7 +33,7 @@ $map = get_field('map') ?>
             </div>
         </div>
         <div class="services-map__back-button">
-            <span data-map-close class="services-map__button-icon">
+            <span data-cursor data-map-close class="services-map__button-icon">
                 <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 13.98">
                     <path id="Polygone_14" data-name="Polygone 14" d="M.47,6.63A1,1,0,0,0,.19,8.1a.9.9,0,0,0,.28.27l8.85,5.94A1.08,1.08,0,0,0,10.81,14a1.07,1.07,0,0,0,.19-.6V1.57A1.06,1.06,0,0,0,9.92.51a1.08,1.08,0,0,0-.6.18Z" transform="translate(0 -0.51)" style="fill: #00938f" />
                 </svg>
@@ -62,14 +62,14 @@ $map = get_field('map') ?>
             </ul>
         </div>
         <div class="services-hero__cta-container">
-            <div data-map-show class="services-hero__cta">
-                <span class="services-hero__cta-text" data-circle-text>
+            <div data-cursor data-map-show class="services-hero__cta cta">
+                <span class="services-hero__cta-text cta__text" data-circle-text>
                     <?= $hero['cta'] ?>
                     <div> . </div>
                     <?= $hero['cta'] ?>
                     <div> . </div>
                 </span>
-                <svg class="services-hero__cta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 15">
+                <svg class="services-hero__cta-icon cta__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 15">
                     <path id="Polygone_14" data-name="Polygone 14" d="M6.674,1.212a1,1,0,0,1,1.652,0l5.608,8.225A1,1,0,0,1,13.108,11H1.892a1,1,0,0,1-.826-1.563Z" transform="translate(11) rotate(90)" fill="#00938f" />
                 </svg>
             </div>

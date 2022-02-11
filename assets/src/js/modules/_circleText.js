@@ -26,6 +26,7 @@ export default class CircleText {
 					const circleText = thisCircleText;
 					const circleType = new CircleType(circleText);
 					circleText.style.transform = 'rotate(90deg)';
+					circleText.style.animationName = 'textRotation';
 					circleText.classList.add(`${circleClass}--circled`);
 				}
 			}

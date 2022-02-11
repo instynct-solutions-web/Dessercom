@@ -10,9 +10,15 @@ export default class VideoToggle {
 		if (this.overlay) {
 			const overlayClass = this.overlay.classList;
 			const buttonClass = this.button.classList;
-			this.button.addEventListener('click', () => {
-				this.hideOverlay(overlayClass, buttonClass);
-			});
+			if (window.innerWidth >= 1280) {
+				this.overlay.addEventListener('click', () => {
+					this.hideOverlay(overlayClass, buttonClass);
+				});
+			} else {
+				this.button.addEventListener('click', () => {
+					this.hideOverlay(overlayClass, buttonClass);
+				});
+			}
 		}
 
 		// All Dom events goes here

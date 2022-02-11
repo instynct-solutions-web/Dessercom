@@ -10,6 +10,7 @@ export default class jobsSlider {
 		this.jobsValueList = document.querySelectorAll('[data-jobs-values]');
 		this.jobsValueTogglerList = document.querySelectorAll('[data-jobs-values-toggler]');
 		this.jobsValueNameList = document.querySelectorAll('[data-jobs-values-name]');
+		this.picto = document.querySelectorAll('[data-jobs-values-picto]');
 		this.manageEvents();
 	}
 
@@ -71,6 +72,15 @@ export default class jobsSlider {
 						this.jobsValueTogglerList[i].classList.remove(`${this.jobsValueTogglerList[i].classList[0]}--opened`);
 						this.jobsValueNameList[i].classList.remove(`${this.jobsValueNameList[i].classList[0]}--opened`);
 					}
+				});
+
+				this.jobsValueNameList[i].addEventListener('mouseenter', () => {
+					if (!this.jobsValueList[i].classList.contains(`${this.jobsValueList[i].classList[0]}--opened`)) {
+						this.picto[i].classList.add(`${this.picto[i].classList[0]}--colored`);
+					}
+				});
+				this.jobsValueNameList[i].addEventListener('mouseout', () => {
+					this.picto[i].classList.remove(`${this.picto[i].classList[0]}--colored`);
 				});
 			}
 		}

@@ -12,23 +12,20 @@
 		width: 100px;
 		height: 100px;
 		position: absolute;
-		top: 40px;
-		right: 20px;
+		top: 5%;
+		right: 5%;
 		z-index: 1;
+		@include arrow($teal, 0deg);
 	}
 	&__cta-text {
-		font-size: rem(11);
-		font-weight: 700;
-		color: $black;
-		position: absolute;
-		left: 0;
-		right: 0;
-		margin: auto;
+		@include circleText;
 	}
 	&__cta-icon {
-		position: absolute;
-		transform-origin: center;
-		transform: rotate(225deg) translate(0px, 0px);
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 	&__background {
 		position: absolute;
@@ -259,16 +256,19 @@
 		top: 30px;
 		right: 0px;
 		z-index: 1;
+		opacity: 0;
+		@include arrow($teal, 180deg);
 	}
 	&__cta-text {
-		font-size: rem(11);
-		color: $black;
-		font-weight: 700;
+		@include circleText;
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin: auto;
 	}
 	&__cta-icon {
 		position: absolute;
 		transform-origin: center;
-		transform: rotate(45deg) translate(2px, 2px);
 	}
 	&__image {
 		width: calc(100% + 40px);
@@ -359,9 +359,6 @@
 		}
 		&__cta {
 			top: 40px;
-		}
-		&__cta-text {
-			font-size: rem(12);
 		}
 		&__cta-icon {
 			transform: rotate(45deg) translate(6px, 6px);

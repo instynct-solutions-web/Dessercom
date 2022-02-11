@@ -142,9 +142,9 @@ $index = 0;
 </section>
 
 <?php $promo = get_field('promo') ?>
-<section data-cursor-class="video" data-wolfpack-section data-cursor data-cursor-text="<?= $promo['text'] ?>" class="home-promo">
+<section data-wolfpack-section class="home-promo">
     <div class="home-promo__container">
-        <ul data-video-overlay class="home-promo__list">
+        <ul data-cursor-class="video" data-cursor data-cursor-text="<?= $promo['text'] ?>" data-video-overlay class="home-promo__list">
             <?php foreach ($promo['list'] as $list) { ?>
                 <li class="home-promo__item">
                     <ul data-marquee data-marquee-speed="60" class="home-promo__word-list">

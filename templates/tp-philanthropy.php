@@ -146,7 +146,7 @@ $research = get_field('research') ?>
                 </div>
             </div>
             <div class="philanthropy-research__toggle-container">
-                <div data-research-slider-toggle class="philanthropy-research__toggle">
+                <div data-cursor data-research-slider-toggle class="philanthropy-research__toggle">
                     <svg class="philanthropy-research__toggle-svg" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
                         <g id="Groupe_456" data-name="Groupe 456">
                             <g id="Groupe_454" data-name="Groupe 454">
@@ -171,8 +171,8 @@ $borders = get_field('borders')  ?>
             <div class="philanthropy-borders__top">
                 <img src="<?= $borders['icon']['url'] ?>" alt="<?= $borders['icon']['alt'] ?>" class="philanthropy-borders__icon">
                 <p class="philanthropy-borders__note"><?= $borders['note'] ?></p>
-                <a href="<?= $borders['link']['url'] ?>" class="philanthropy-borders__cta">
-                    <span class="philanthropy-borders__cta-text" data-circle-text>
+                <a href="<?= $borders['link']['url'] ?>" class="philanthropy-borders__cta cta">
+                    <span class="philanthropy-borders__cta-text cta__text" data-circle-text>
                         <?= $borders['link']['title'] ?>
                         <div> . </div>
                         <?= $borders['link']['title'] ?>
@@ -180,12 +180,13 @@ $borders = get_field('borders')  ?>
                         <?= $borders['link']['title'] ?>
                         <div> . </div>
                     </span>
-                    <svg class="philanthropy-borders__cta-icon" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.19 14.19">
-                        <g id="Groupe_789" data-name="Groupe 789">
-                            <path id="Tracé_3" data-name="Tracé 3" d="M12.68,10.93V1.5H3.26" transform="translate(0 0)" style="fill: none;stroke: #00938f;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3px" />
-                            <line id="Ligne_1" data-name="Ligne 1" x1="12.69" y1="1.5" x2="1.5" y2="12.69" style="fill: none;stroke: #00938f;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 3px" />
-                        </g>
-                    </svg>
+                    <div class="philanthropy-borders__cta-icon cta__icon">
+                        <div class="arrow">
+                            <span class="arrow__left"></span>
+                            <span class="arrow__right"></span>
+                            <span class="arrow__line"></span>
+                        </div>
+                    </div>
 
                 </a>
             </div>

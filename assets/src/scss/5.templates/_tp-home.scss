@@ -235,6 +235,7 @@
 	&__word {
 		font-size: rem(83);
 		color: $white;
+		margin: 0 0.25em;
 	}
 	&__video-button {
 		position: absolute;
@@ -242,7 +243,7 @@
 		right: 10%;
 		height: rem(50);
 		width: rem(50);
-		background-color: yellow;
+		background-color: $yellow;
 		border-radius: 50%;
 		display: flex;
 		align-items: center;
@@ -781,7 +782,7 @@
 			margin: 0 50px;
 		}
 		&__video-button {
-			// display: none;
+			display: none;
 		}
 		&__video-container {
 			height: 850px;

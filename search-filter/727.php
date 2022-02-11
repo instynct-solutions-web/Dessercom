@@ -8,7 +8,7 @@
     ?>
             <li class="faq__answer" data-terms-policies>
                 <div class="faq__answer-top">
-                    <h4 class="faq__answer-title" data-terms-policies-title>
+                    <h4 data-cursor class="faq__answer-title" data-terms-policies-title>
                         <?= the_title() ?>
                         <svg class="faq__answer-icon" xmlns="http://www.w3.org/2000/svg" width="12.828" height="7.414" viewBox="0 0 12.828 7.414">
                             <g id="Groupe_1175" data-name="Groupe 1175" transform="translate(1.414 -22.704)">

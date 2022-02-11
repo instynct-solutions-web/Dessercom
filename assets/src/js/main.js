@@ -20,8 +20,11 @@ import HomeServices from './modules/_homeServices';
 import Pricing from './modules/_pricing';
 import LightboxSlider from './modules/_lightboxSlider';
 import ContactForm from './modules/_contactForm';
+import FooterCursor from './modules/_footerCursor';
+import HighlightCursor from './modules/_highlightCursor';
 import Swup from 'swup';
 import SwupBodyClassPlugin from '@swup/body-class-plugin';
+import PayButton from './modules/_payButton';
 
 const App = {
 	/**
@@ -54,6 +57,9 @@ const App = {
 			const homeServices = new HomeServices();
 			const pricing = new Pricing();
 			const contactForm = new ContactForm();
+			const footerCursor = new FooterCursor();
+			const highlightCursor = new HighlightCursor();
+			const payButton = new PayButton();
 		}
 		init();
 		swup.on('contentReplaced', init);

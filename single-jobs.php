@@ -11,6 +11,24 @@ get_header(); ?>
 <?php $hero = get_field('hero') ?>
 <section data-wolfpack-section class="jobs-hero" data-tadam data-tadam-threshold="-1">
     <div class="jobs-hero__container">
+        <a href="<?= $hero['cta']['url'] ?>" class="jobs-hero__cta cta">
+            <span class="jobs-hero__cta-text cta__text" data-circle-text>
+                <?= $hero['cta']['title'] ?>
+                <div> . </div>
+                <?= $hero['cta']['title'] ?>
+                <div> . </div>
+                <?= $hero['cta']['title'] ?>
+                <div> . </div>
+            </span>
+            <div class="jobs-hero__cta-icon cta__icon">
+                <div class="arrow">
+                    <span class="arrow__left"></span>
+                    <span class="arrow__right"></span>
+                    <span class="arrow__line"></span>
+                </div>
+            </div>
+
+        </a>
         <div class="jobs-hero__main">
             <div class="jobs-hero__link-container" data-tadam-animate="opacity-1--y-0--delay-0.2">
                 <a target="<?= $hero['link']['target'] ?>" href="<?= $hero['link']['url'] ?>" class="jobs-hero__link">

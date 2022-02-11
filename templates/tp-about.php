@@ -12,13 +12,14 @@ get_header(); ?>
 $philosophy = get_field('philosophy'); ?>
 
 <section data-wolfpack-section class="about-philosophy" data-tadam data-tadam-threshold="100">
-    <div class="about-philosophy__container">
+    <div data-higlight-wrapper class="about-philosophy__container">
         <span class="about-philosophy__container-separator" data-tadam-animate="scaleX-1"></span>
         <div class="about-philosophy__aside">
             <span class="about-philosophy__separator"></span>
             <h2 class="about-philosophy__note" data-words data-tadam-animate="words--delay-0.2"><?= $philosophy['note'] ?></h2>
         </div>
-        <div class="about-philosophy__main">
+        <div data-cursor data-cursor-class="highlight" data-highlight-container class="about-philosophy__main">
+            <span data-highlight-cursor class="about-philosophy__cursor"></span>
             <p class="about-philosophy__text" data-words data-tadam-animate="words--delay-0.2"><?= $philosophy['text'] ?></p>
         </div>
     </div>

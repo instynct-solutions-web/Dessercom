@@ -45,7 +45,7 @@ $values = get_field('benefits_2') ?>
             <h2 class="jobs-values__title"><?= $values['title'] ?></h2>
             <ul class="jobs-values__name-list">
                 <?php foreach ($values['list'] as $item) { ?>
-                    <li class="jobs-values__name-item" data-jobs-values-name>
+                    <li class="jobs-values__name-item" data-cursor data-jobs-values-name="<?= $item['title'] ?>">
                         <p class="jobs-values__name"><?= $item['title'] ?></p>
                     </li>
                 <?php
@@ -77,8 +77,8 @@ $values = get_field('benefits_2') ?>
         <div class="jobs-values__grid">
             <ul class="jobs-values__grid-list" data-jobs-slider>
                 <?php foreach ($values['list'] as $item) { ?>
-                    <li class="jobs-values__grid-item" data-jobs-values>
-                        <span class="jobs-values__toggler" data-jobs-values-toggler>
+                    <li class="jobs-values__grid-item" data-jobs-values="<?= $item['title'] ?>">
+                        <span class="jobs-values__toggler" data-jobs-values-toggler data-cursor>
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
                                 <g id="Groupe_1585" data-name="Groupe 1585" transform="translate(-976.5 -2024.5)">
                                     <line id="Ligne_168" data-name="Ligne 168" x2="12" transform="translate(976.5 2030.5)" fill="none" stroke="#fff" stroke-width="2" />
@@ -87,7 +87,7 @@ $values = get_field('benefits_2') ?>
                             </svg>
                         </span>
                         <p class="jobs-values__name jobs-values__name--mobile"><?= $item['title'] ?></p>
-                        <img src="<?= $item['picto']['url'] ?>" alt="<?= $item['picto']['alt'] ?>" class="jobs-values__picto">
+                        <img src="<?= $item['picto']['url'] ?>" alt="<?= $item['picto']['alt'] ?>" data-jobs-values-picto class="jobs-values__picto">
                         <p class="jobs-values__text"><?= $item['text'] ?></p>
                     </li>
                 <?php

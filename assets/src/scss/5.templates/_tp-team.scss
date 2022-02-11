@@ -327,6 +327,25 @@
 			grid-row-gap: 30px;
 			grid-column-gap: 16px;
 		}
+		&__division-anchor {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			font-size: rem(18);
+			font-weight: 500;
+			color: $navy;
+			&:hover {
+				.team-grid__division-icon {
+					transform: rotate(270deg);
+				}
+			}
+		}
+		&__division-icon {
+			margin-left: 15px;
+			transform-origin: center;
+			transform: rotate(225deg);
+			transition: transform 0.25s ease;
+		}
 		&__image {
 			height: 250px;
 		}

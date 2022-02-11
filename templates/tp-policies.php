@@ -18,7 +18,7 @@ $questions = get_field('policies') ?>
             <ul class="policies__list" data-tadam-animate="opacity-1--delay-0.6">
                 <?php foreach ($questions['list'] as $item) { ?>
                     <li class="policies__item" data-terms-policies>
-                        <h3 class="policies__item-title" data-terms-policies-title>
+                        <h3 data-cursor class="policies__item-title" data-terms-policies-title>
                             <?= $item['title'] ?>
                             <svg class="policies__item-icon" xmlns="http://www.w3.org/2000/svg" width="12.828" height="7.414" viewBox="0 0 12.828 7.414">
                                 <g id="Groupe_1175" data-name="Groupe 1175" transform="translate(1.414 -22.704)">

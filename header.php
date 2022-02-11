@@ -11,23 +11,47 @@
 <body <?php body_class(); ?>>
 
 	<?php get_template_part('modules/md-preloader'); ?>
-
+	<?php
+	$cursor = get_field('cursor', 'options'); ?>
 	<div class="cursor" data-cursor-container>
-		<div class="cursor__ball cursor__ball--small" data-cursor-pointer>
+		<div class="cursor__ball cursor__ball--big" data-cursor-pointer>
 			<svg height="32" width="32">
-				<circle cx="15" cy="16" r="9" stroke-width="0"></circle>
+				<circle cx="16" cy="16" r="9" stroke-width="0"></circle>
 			</svg>
+		</div>
+		<div data-cursor-pointer class="cursor__cta cta">
+
+			<span class="cursor__cta-text cta__text" data-circle-text>
+				<?= $cursor['text'] ?>
+				<div> . </div>
+				<?= $cursor['text'] ?>
+				<div> . </div>
+				<?= $cursor['text'] ?>
+				<div> . </div>
+				<?= $cursor['text'] ?>
+				<div> . </div>
+				<?= $cursor['text'] ?>
+				<div> . </div>
+			</span>
+			<svg class="cursor__cta-icon cta__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 15">
+				<path id="Polygone_14" data-name="Polygone 14" d="M6.674,1.212a1,1,0,0,1,1.652,0l5.608,8.225A1,1,0,0,1,13.108,11H1.892a1,1,0,0,1-.826-1.563Z" transform="translate(11) rotate(90)" fill="#00938f" />
+			</svg>
+			<span class="cursor__cta-background"></span>
+
+
 		</div>
 	</div>
 
 	<div id="swup" class="wolfpack-container" data-calc-mobile data-calc-mobile-responsive="responsive">
 		<div class="scrollbar" data-scrollbar data-scrollbar-index=2><span class="scrollbar__thumb" data-scrollbar-thumb></span></div>
 
+
 		<?php $header = get_field('header', 'options'); ?>
 		<header class="header transition-fade" data-header data-tadam data-tadam-threshold=-1>
 			<div data-header-hide class="header__top">
 				<div class="header__lang-container" data-tadam-animate="opacity-1--y-0--delay-0.4">
 					<?php do_action('wpml_add_language_selector') ?>
+
 				</div>
 			</div>
 			<div class="header__main">
@@ -68,13 +92,16 @@
 						</ul>
 					</nav>
 					<div class="header__buttons-container">
-						<div class="header__hamburger" data-navigation-button data-tadam-animate="scaleX-1--delay-0.5">
+						<div class="header__hamburger" data-cursor data-navigation-button data-tadam-animate="scaleX-1--delay-0.5">
 							<span class="header__hamburger-line" data-tadam-animate="scaleX-1--delay-1.3"></span>
 							<span class="header__hamburger-line" data-tadam-animate="scaleX-1--delay-1.4"></span>
 							<span class="header__hamburger-line" data-tadam-animate="scaleX-1--delay-1.5"></span>
 						</div>
-						<div class="header__button" data-tadam-animate="scaleX-1--delay-0.5">
-							<a href="<?= $header['button']['url'] ?>" class="header__button-label" data-tadam-animate="opacity-1--y-0--delay-1"><?= $header['button']['title'] ?></a>
+						<div class="header__button" data-invoice-button-container data-tadam-animate="scaleX-1--delay-0.5">
+							<a href="<?= $header['button']['url'] ?>" class="header__button-label" data-tadam-animate="opacity-1--y-0--delay-1" data-invoice-button data-marquee-speed=20 data-marquee><?= $header['button']['title'] ?></a>
+							<a href="<?= $header['button']['url'] ?>" class="header__button-label header__button-label--mock" data-invoice-mock data-tadam-animate="opacity-1--y-0--delay-1">
+								<p><?= $header['button']['title'] ?></p>
+							</a>
 						</div>
 					</div>
 				</div>

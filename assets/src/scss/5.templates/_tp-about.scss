@@ -9,6 +9,25 @@
 		padding-top: 50px;
 		padding-bottom: 100px;
 	}
+
+	&__cursor {
+		background-color: $teal;
+		width: 420px;
+		height: 420px;
+		border-radius: 50%;
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		z-index: -1;
+		transform: scale(0);
+		pointer-events: none;
+		transform-origin: center;
+	}
+
 	&__container-separator {
 		display: none;
 	}
@@ -712,8 +731,19 @@
 		&__logo {
 			margin-bottom: 30px;
 		}
+		&__link-icon {
+			margin-left: 10px;
+			transform: translate(-1px, -1px) rotate(-135deg);
+			transition: transform 0.25s ease;
+		}
 		&__link {
 			font-size: rem(15);
+			&:hover {
+				.about-funding__link-icon {
+					transform: translate(5px, -5px) rotate(-135deg);
+					transition: transform 0.25s ease;
+				}
+			}
 		}
 	}
 }

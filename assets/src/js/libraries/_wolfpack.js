@@ -1,5 +1,5 @@
 import VirtualScroll from 'virtual-scroll';
-import { TweenMax } from 'gsap';
+import {TweenMax} from 'gsap';
 import Tadam from './_tadam';
 import Preloader from './_preloader';
 
@@ -1309,7 +1309,7 @@ export default class Wolfpack {
 			const thisCursorPointerHeight = thisCursorPointer.offsetHeight;
 			const thisCursorPointerWidth = thisCursorPointer.offsetWidth;
 			if (thisCursorPointer.classList.contains('cursor__ball--big')) {
-				TweenMax.to(thisCursorPointer, 0.5, {
+				TweenMax.to(thisCursorPointer, 0.4, {
 					x: e.clientX - parseFloat(thisCursorPointerHeight / 2),
 					y: e.clientY - parseFloat(thisCursorPointerWidth / 2) + offsetCursorTop,
 				});
