@@ -1,5 +1,6 @@
 export default class Menu {
 	constructor() {
+		this.body = document.querySelector('body');
 		this.header = document.querySelector('[data-header]');
 		this.navigation = document.querySelector('[data-navigation]');
 		this.navigationButton = document.querySelector('[data-navigation-button]');
@@ -12,9 +13,11 @@ export default class Menu {
 		this.navigationButton.addEventListener('click', () => {
 			if (!this.opened) {
 				this.opened = true;
+				this.body.classList.add('noscroll');
 				this.openMenu();
 			} else {
 				this.opened = false;
+				this.body.classList.remove('noscroll');
 				this.closeMenu();
 			}
 		});
@@ -22,6 +25,7 @@ export default class Menu {
 			this.headerLinkList[i].addEventListener('click', () => {
 				if (this.opened) {
 					this.opened = false;
+					this.body.classList.remove('noscroll');
 					this.closeMenu();
 				}
 			});

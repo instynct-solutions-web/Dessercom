@@ -93,9 +93,15 @@
 					</nav>
 					<div class="header__buttons-container">
 						<div class="header__hamburger" data-cursor data-navigation-button data-tadam-animate="scaleX-1--delay-0.5">
-							<span class="header__hamburger-line" data-tadam-animate="scaleX-1--delay-1.3"></span>
-							<span class="header__hamburger-line" data-tadam-animate="scaleX-1--delay-1.4"></span>
-							<span class="header__hamburger-line" data-tadam-animate="scaleX-1--delay-1.5"></span>
+							<div class="header__hamburger-line-container" data-tadam-animate="scaleX-1--delay-1.3">
+								<span class="header__hamburger-line"></span>
+							</div>
+							<div class="header__hamburger-line-container" data-tadam-animate="scaleX-1--delay-1.4">
+								<span class="header__hamburger-line"></span>
+							</div>
+							<div class="header__hamburger-line-container" data-tadam-animate="scaleX-1--delay-1.5">
+								<span class="header__hamburger-line"></span>
+							</div>
 						</div>
 						<div class="header__button" data-invoice-button-container data-tadam-animate="scaleX-1--delay-0.5">
 							<a href="<?= $header['button']['url'] ?>" class="header__button-label" data-tadam-animate="opacity-1--y-0--delay-1" data-invoice-button data-marquee-speed=20 data-marquee><?= $header['button']['title'] ?></a>
