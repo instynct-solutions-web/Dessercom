@@ -13,7 +13,6 @@ export default class MapShow {
 	manageEvents() {
 		// All Dom events goes here
 		this.showMapButton.addEventListener('click', () => {
-			console.log('work');
 			this.show();
 		});
 		this.closeMapButton.addEventListener('click', () => {

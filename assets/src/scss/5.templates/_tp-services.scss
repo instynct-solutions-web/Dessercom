@@ -73,6 +73,7 @@
 	align-items: center;
 	justify-content: center;
 	position: absolute;
+	padding-top: $mobile-header-height;
 	top: 0;
 	left: 0;
 	z-index: 2;
@@ -104,6 +105,7 @@
 		align-items: center;
 		justify-content: flex-start;
 		padding: 1em 1em;
+		width: fit-content;
 	}
 	&__region-name {
 		font-size: rem(19);
@@ -123,6 +125,7 @@
 	}
 	&__container {
 		@include container;
+		padding-top: $mobile-header-height;
 		width: 100%;
 	}
 	&__back-button {
@@ -453,6 +456,7 @@
 		}
 	}
 	.services-map {
+		padding-top: $tablet-header-height;
 		&__svg-container {
 			height: 100vh;
 			width: 100%;
@@ -464,6 +468,7 @@
 			position: absolute;
 			left: 0px;
 			bottom: 40px;
+			padding-top: $mobile-header-height;
 		}
 		&__scroll-wrapper {
 			height: auto;
@@ -711,6 +716,7 @@
 	}
 	.services-map {
 		overflow: hidden;
+		padding-top: $desktop-header-height;
 		&__svg-container {
 			display: flex;
 			flex-wrap: wrap;
@@ -738,6 +744,7 @@
 			height: 100%;
 			left: auto;
 			bottom: 0px;
+			padding-top: $mobile-header-height;
 		}
 		&__scroll-wrapper {
 			width: 25%;
@@ -747,12 +754,28 @@
 			grid-template-columns: repeat(1, 1fr);
 			width: 100%;
 			padding: 0;
+			grid-gap: 10px;
 		}
 		&__counter {
 			font-size: rem(13);
 		}
+		&__region {
+			&:hover {
+				.services-map__region-name {
+					transform: translateX(5%);
+					color: $teal;
+				}
+			}
+		}
 		&__region-name {
+			transform: translateX(0);
 			font-size: rem(19);
+			transition: 0.25s ease;
+			color: $black;
+			&--active {
+				transform: translateX(5%);
+				color: $teal;
+			}
 		}
 		&__back-button {
 			margin-bottom: 40px;

@@ -11,6 +11,7 @@ import ServicesDrawer from './modules/_servicesDrawer';
 import ContactDrawer from './modules/_contactDrawer';
 import ContactShow from './modules/_contactShow';
 import Menu from './modules/_menu';
+import Map from './modules/_interactiveMap';
 import HistorySlider from './modules/_historySlider';
 import JobsSlider from './modules/_jobsSlider';
 import Jobs from './modules/_jobs';
@@ -25,6 +26,7 @@ import HighlightCursor from './modules/_highlightCursor';
 import Swup from 'swup';
 import SwupBodyClassPlugin from '@swup/body-class-plugin';
 import PayButton from './modules/_payButton';
+import InteractiveMap from './modules/_interactiveMap';
 
 const App = {
 	/**
@@ -60,6 +62,7 @@ const App = {
 			const footerCursor = new FooterCursor();
 			const highlightCursor = new HighlightCursor();
 			const payButton = new PayButton();
+			const interactiveMap = new InteractiveMap();
 		}
 		init();
 		swup.on('contentReplaced', init);
