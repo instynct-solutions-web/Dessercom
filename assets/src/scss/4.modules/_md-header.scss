@@ -9,7 +9,7 @@
 	justify-content: space-between;
 	width: 100%;
 	height: $mobile-header-height;
-	position: absolute;
+	position: fixed;
 	top: 0px;
 	z-index: 2;
 	padding: 0 20px;
@@ -71,6 +71,7 @@
 		}
 	}
 	&__logo {
+		transition: 0.5s ease;
 		&--desktop {
 			display: none;
 		}
@@ -84,6 +85,9 @@
 	}
 	&__main-nav-item {
 		margin-bottom: 35px;
+		opacity: 0;
+		transform: translate3d(0, 100%, 0);
+		transition: opacity 0.35s cubic-bezier(0.04, 0, 0.21, 1) 0s, transform 1s linear 0.5s;
 		&:last-of-type {
 			margin-bottom: 0px;
 		}
@@ -104,6 +108,9 @@
 	}
 	&__sub-nav-item {
 		margin-bottom: 30px;
+		opacity: 0;
+		transform: translate3d(0, 100%, 0);
+		transition: opacity 0.35s cubic-bezier(0.04, 0, 0.21, 1) 0s, transform 1s linear 0.5s;
 		&:last-of-type {
 			margin-bottom: 0px;
 		}
@@ -131,9 +138,30 @@
 		}
 	}
 	&__navigation {
-		display: none;
+		transform: scaleY(0);
+		transition-delay: 0.2s !important;
 		&--opened {
-			display: block;
+			transform: scaleY(1);
+			transition-delay: 0s !important;
+			.header {
+				&__main-nav-item {
+					opacity: 1;
+					transform: translate3d(0, 0, 0);
+					transition: 0.75s cubic-bezier(0.04, 0, 0.21, 1);
+					@include menu-item-delay;
+				}
+				&__sub-nav-item {
+					opacity: 1;
+					transform: translate3d(0, 0, 0);
+					transition: 0.75s cubic-bezier(0.04, 0, 0.21, 1);
+					@include menu-item-delay;
+				}
+			}
+			.navigation {
+				&__image {
+					opacity: 0.3;
+				}
+			}
 		}
 	}
 	&__buttons-container {
@@ -157,17 +185,50 @@
 		transform-origin: right;
 		&--opened {
 			.header {
-				&__hamburger-line {
-					position: absolute;
-					&:nth-of-type(1) {
-						transform: rotate(45deg);
-					}
+				&__hamburger-line-container {
 					&:nth-of-type(2) {
-						transform: rotate(-45deg);
+						.header {
+							&__hamburger-line {
+								opacity: 0;
+							}
+						}
 					}
-					&:last-of-type {
-						display: none;
+					&:nth-of-type(1) {
+						.header {
+							&__hamburger-line {
+								transform: translateY(0px) rotate(45deg);
+							}
+						}
 					}
+					&:nth-of-type(3) {
+						.header {
+							&__hamburger-line {
+								transform: translateY(0px) rotate(-45deg);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	&__hamburger-line-container {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		transform: scaleX(0);
+		transform-origin: center;
+		position: absolute;
+		&:nth-of-type(1) {
+			.header {
+				&__hamburger-line {
+					transform: translateY(6px) rotate(0deg);
+				}
+			}
+		}
+		&:nth-of-type(3) {
+			.header {
+				&__hamburger-line {
+					transform: translateY(-6px) rotate(0deg);
 				}
 			}
 		}
@@ -179,8 +240,7 @@
 		border-radius: 50px;
 		background-color: $gray;
 		margin: 2px 0;
-		transform: scaleX(0);
-		transform-origin: center;
+		transition: 0.5s ease;
 	}
 	&__button {
 		background-color: $yellow;
@@ -199,6 +259,9 @@
 		opacity: 0;
 		visibility: hidden;
 		transform: translate3d(0, -15px, 0);
+		&--mock {
+			display: none;
+		}
 		p {
 			margin: 0 0.75em;
 			font-size: rem(11);
@@ -214,9 +277,19 @@
 	width: 100%;
 	height: 100vh;
 	background-color: #051c2f;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	transform-origin: top;
+	transition: 0.7s ease;
 	&__container {
 		@include container;
 		padding-top: $mobile-header-height;
+		height: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		flex-direction: column;
+		overflow: hidden;
 	}
 	&__image {
 		position: absolute;
@@ -225,6 +298,9 @@
 		bottom: 0px;
 		pointer-events: none;
 		z-index: 0;
+		transform: rotate(315deg);
+		opacity: 0;
+		transition: 0.4s ease;
 	}
 }
 
@@ -316,12 +392,6 @@
 			width: 20px;
 			height: 20px;
 		}
-		&__navigation {
-			display: none;
-			&--opened {
-				display: block;
-			}
-		}
 		&__button-label {
 			p {
 				font-size: rem(12);
@@ -334,12 +404,12 @@
 			padding-left: 120px;
 			padding-right: 120px;
 			padding-top: 240px;
+			flex-direction: row;
 		}
 		&__image {
 			width: 140%;
 			right: -60%;
 			bottom: -50%;
-			opacity: 0.3;
 		}
 	}
 }
@@ -428,6 +498,7 @@
 		&__button-label {
 			height: 60px;
 			&--mock {
+				display: flex;
 				position: absolute;
 				z-index: 20;
 				top: 0;
@@ -470,9 +541,11 @@
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: flex-start;
+		overflow: hidden;
 		&__container {
 			width: 100%;
 			padding: 145px;
+			align-items: center;
 		}
 		&__image {
 			right: -20%;

@@ -1,0 +1,13 @@
+// ==========================================================================
+// MIXINS - Delays
+// ==========================================================================
+
+@mixin menu-item-delay {
+	$menu-item-delay: 0.3;
+	@for $i from 1 through 25 {
+		&:nth-of-type(#{$i}n) {
+			transition-delay: $menu-item-delay + s;
+			$menu-item-delay: $menu-item-delay + 0.05;
+		}
+	}
+}
