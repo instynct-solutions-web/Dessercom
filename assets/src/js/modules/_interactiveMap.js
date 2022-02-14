@@ -13,7 +13,7 @@ export default class InteractiveMap {
 					const clickedRegion = this.linkRegionList[i].dataset.mapRegion;
 					let regionId = this.mapRegionList[j].dataset.regionId;
 					if (clickedRegion == regionId) {
-						console.log(this.mapRegionList[j]);
+						console.log(this.mapRegionList[j]a);
 					}
 				}
 			});
