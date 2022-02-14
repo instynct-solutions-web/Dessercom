@@ -154,8 +154,8 @@
 								<?php } ?>
 							</ul>
 						</nav>
+						<div class="navigation__image" data-lottie-menu="/wp-content/themes/dessercom/assets/src/lottie/lines-white.json"></div>
 					</div>
-					<img src="<?= $header['background']['url'] ?>" alt="<?= $header['background']['alt'] ?>" class="navigation__image">
 				</div>
 			</div>
 		</header>
