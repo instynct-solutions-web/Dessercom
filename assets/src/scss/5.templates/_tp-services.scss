@@ -6,6 +6,10 @@
 	&__container {
 		@include container;
 		position: relative;
+		height: calc(100vh - #{$mobile-header-height});
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
 	}
 	&__background-container {
 		position: absolute;
@@ -64,25 +68,34 @@
 		transform: scale(1);
 		transition: transform 0.3s ease-in-out;
 	}
+	&__item {
+		width: 100%;
+	}
 }
 .services-map {
 	background-color: $white;
 	height: 100vh;
-	display: none;
+	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 2;
+	z-index: -1;
 	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) !important;
+	opacity: 0;
+	pointer-events: none;
+	transition: z-index 0s ease 0.3s, opacity 0.25s ease 0.1s;
 	&--show {
-		display: flex;
+		opacity: 1;
+		z-index: 2;
+		pointer-events: all;
+		transition: z-index 0s ease, opacity 0.25s ease 0.1s;
 	}
 	&__svg-container {
 		min-height: 40vh;
-		width: 100%;
+		width: 70%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -104,11 +117,18 @@
 		align-items: center;
 		justify-content: flex-start;
 		padding: 1em 1em;
+		width: fit-content;
 	}
 	&__region-name {
 		font-size: rem(19);
 		font-weight: 500;
 		color: $navy;
+		transform: translateX(0);
+		transition: 0.25s ease;
+		&--active {
+			transform: translateX(5%);
+			color: $teal;
+		}
 	}
 	&__counter {
 		color: $navy;
@@ -123,6 +143,7 @@
 	}
 	&__container {
 		@include container;
+
 		width: 100%;
 	}
 	&__back-button {
@@ -429,10 +450,9 @@
 			display: flex;
 			flex-wrap: wrap;
 			align-items: flex-start;
-			justify-content: flex-end;
+			justify-content: space-around;
 			flex-direction: column;
-			height: calc(100vh - 120px);
-			min-height: 1100px;
+			height: calc(100vh - #{$tablet-header-height});
 		}
 		&__background-container {
 			align-items: flex-end;
@@ -451,8 +471,12 @@
 			margin: 50px 0 100px 0;
 			padding: 0 35px;
 		}
+		&__title {
+			margin-bottom: 1em;
+		}
 	}
 	.services-map {
+		padding-top: $tablet-header-height;
 		&__svg-container {
 			height: 100vh;
 			width: 100%;
@@ -464,6 +488,7 @@
 			position: absolute;
 			left: 0px;
 			bottom: 40px;
+			padding-top: $mobile-header-height;
 		}
 		&__scroll-wrapper {
 			height: auto;
@@ -676,6 +701,7 @@
 			height: auto;
 			padding-top: 100px;
 			padding-bottom: 150px;
+			justify-content: center;
 		}
 		&__text-container {
 			padding: 0;
@@ -693,6 +719,7 @@
 		}
 		&__item {
 			margin: 25px 50px 25px 0;
+			width: fit-content;
 		}
 		&__background-map {
 			height: 120vw;
@@ -711,6 +738,8 @@
 	}
 	.services-map {
 		overflow: hidden;
+		padding-top: $desktop-header-height;
+		align-items: flex-start;
 		&__svg-container {
 			display: flex;
 			flex-wrap: wrap;
@@ -719,40 +748,58 @@
 			width: 65%;
 			margin-left: 35%;
 			height: 100%;
-			top: 0px;
+			top: -2.5%;
 			left: 0px;
 			svg {
 				position: absolute;
-				width: 130%;
+				width: 125%;
 				max-width: 1600px;
 				height: auto;
 			}
 		}
 		&__container {
 			display: flex;
-			flex-wrap: wrap;
 			align-items: flex-start;
 			justify-content: flex-end;
-			flex-direction: column;
-			width: 100%;
 			height: 100%;
 			left: auto;
 			bottom: 0px;
+			width: 35%;
+			flex-direction: column;
+			flex-wrap: nowrap;
+			padding-top: $mobile-header-height;
+			box-shadow: 14px 0px 20px 20px #ffffff52;
 		}
 		&__scroll-wrapper {
-			width: 25%;
+			width: 100%;
 			margin-bottom: 50px;
 		}
 		&__list {
 			grid-template-columns: repeat(1, 1fr);
 			width: 100%;
 			padding: 0;
+			grid-gap: 10px;
 		}
 		&__counter {
 			font-size: rem(13);
 		}
+		&__region {
+			&:hover {
+				.services-map__region-name {
+					transform: translateX(5%);
+					color: $teal;
+				}
+			}
+		}
 		&__region-name {
+			transform: translateX(0);
+			transition: 0.25s ease;
 			font-size: rem(19);
+			color: $black;
+			&--active {
+				transform: translateX(5%);
+				color: $teal;
+			}
 		}
 		&__back-button {
 			margin-bottom: 40px;

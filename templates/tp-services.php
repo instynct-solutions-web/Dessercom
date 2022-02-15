@@ -20,9 +20,9 @@ $map = get_field('map') ?>
                         <?php
                         foreach ($map['region'] as $region) { ?>
                             <li class="services-map__item">
-                                <p class="services-map__region">
+                                <p data-map-region="<?= $region['num'] ?>" data-cursor class="services-map__region">
                                     <span class="services-map__counter"><?= $region['num'] ?></span>
-                                    <span class="services-map__region-name">
+                                    <span data-region-name class="services-map__region-name">
                                         <?= $region['name'] ?>
                                     </span>
                                 </p>
