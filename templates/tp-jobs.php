@@ -39,11 +39,11 @@ $benefits = get_field('benefits') ?>
 
 <?php
 $values = get_field('benefits_2') ?>
-<section data-wolfpack-section class="jobs-values">
+<section data-wolfpack-section class="jobs-values" data-tadam data-tadam-threshold="100">
     <div class="jobs-values__container">
         <div class="jobs-values__info">
-            <h2 class="jobs-values__title"><?= $values['title'] ?></h2>
-            <ul class="jobs-values__name-list">
+            <h2 class="jobs-values__title" data-words data-tadam-animate="words"><?= $values['title'] ?></h2>
+            <ul class="jobs-values__name-list" data-tadam-animate="values-name">
                 <?php foreach ($values['list'] as $item) { ?>
                     <li class="jobs-values__name-item" data-cursor data-jobs-values-name="<?= $item['title'] ?>">
                         <p class="jobs-values__name"><?= $item['title'] ?></p>
@@ -75,7 +75,7 @@ $values = get_field('benefits_2') ?>
             </div>
         </div>
         <div class="jobs-values__grid">
-            <ul class="jobs-values__grid-list" data-jobs-slider>
+            <ul class="jobs-values__grid-list" data-jobs-slider data-tadam-animate="values-item">
                 <?php foreach ($values['list'] as $item) { ?>
                     <li class="jobs-values__grid-item" data-jobs-values="<?= $item['title'] ?>">
                         <span class="jobs-values__toggler" data-jobs-values-toggler data-cursor>

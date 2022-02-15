@@ -34,11 +34,13 @@ dd {
 html.website {
 	pointer-events: none;
 	-webkit-font-smoothing: antialiased;
+	scroll-behavior: smooth;
 }
 
 @media only screen and (min-width: 1025px) {
 	html.website {
 		overflow: hidden;
+		scroll-behavior: auto;
 	}
 }
 
@@ -56,9 +58,6 @@ body:not(#tinymce) {
 		height: 100vh;
 		overflow: hidden;
 		cursor: none;
-		&.noscroll {
-			overflow: auto;
-		}
 	}
 }
 

@@ -62,11 +62,11 @@ $history = get_field('history');
 $index = 0;
 $indexBackground = 0;
 ?>
-<section data-wolfpack-section class="about-history">
+<section data-wolfpack-section class="about-history" data-tadam data-tadam-threshold="100">
     <div class="about-history__container">
-        <h2 class="about-history__title"><?= $history['title'] ?></h2>
+        <h2 class="about-history__title" data-words data-tadam-animate="words"><?= $history['title'] ?></h2>
         <div class="about-history__dates">
-            <ul class="about-history__date-list" data-history-slider-dates>
+            <ul class="about-history__date-list" data-history-slider-dates data-tadam-animate="history-dates">
                 <?php foreach ($history['list'] as $item) { ?>
                     <li class="about-history__date-item">
                         <p class="about-history__year"><?= $item['date'] ?></p>
@@ -108,8 +108,8 @@ $indexBackground = 0;
             <ul class="about-history__content-list" data-history-slider-content>
                 <?php foreach ($history['list'] as $item) { ?>
                     <li class="about-history__content-item">
-                        <h3 class="about-history__content-title"><?= $item['title'] ?></h3>
-                        <p class="about-history__content-text"><?= $item['text'] ?></p>
+                        <h3 class="about-history__content-title" data-words data-tadam-animate="words--delay-0.2"><?= $item['title'] ?></h3>
+                        <p class="about-history__content-text" data-tadam-animate="opacity-1--y-0--delay-0.2"><?= $item['text'] ?></p>
                     </li>
                 <?php
                 } ?>
@@ -145,13 +145,12 @@ $indexBackground = 0;
 <section data-wolfpack-section class="about-funding" data-tadam data-tadam-threshold="100">
     <div class="about-funding__container">
         <div class="about-funding__background">
-            <canvas data-canvas-grid class="about-funding__canvas"></canvas>
-            <img class="about-funding__motif" src="/wp-content/themes/dessercom/assets/src/svg/dessercom-motif.svg" alt="Motif" data-tadam-animate="opacity-1--delay-0.4">
+            <div class="about-funding__motif" data-tadam-animate="about-pattern" data-lottie-pattern="/wp-content/themes/dessercom/assets/src/lottie/pattern-1.json"></div>
         </div>
         <div class="about-funding__foreground">
             <div class="about-funding__info">
-                <h3 class="about-funding__title"><?= $funding['title'] ?></h3>
-                <p class="about-funding__text"><?= $funding['text'] ?></p>
+                <h3 class="about-funding__title" data-words data-tadam-animate="words"><?= $funding['title'] ?></h3>
+                <p class="about-funding__text" data-words data-tadam-animate="words--delay-0.2"><?= $funding['text'] ?></p>
             </div>
             <?php
             if ($funding['list']) { ?>

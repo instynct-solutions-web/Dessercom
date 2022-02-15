@@ -162,6 +162,9 @@
 		.flickity-viewport {
 			overflow: visible;
 		}
+		.flickity-slider {
+			transition: 0.5s ease;
+		}
 	}
 	&__date-item {
 		margin-right: 20px;
@@ -214,6 +217,7 @@
 	&__content-item {
 		width: 100%;
 		margin-right: 16.66666%;
+		transition: opacity 0.5s ease;
 	}
 	&__content-title {
 		font-size: rem(30);
@@ -589,24 +593,20 @@
 		&__list {
 			grid-gap: 8.33333%;
 		}
+		&__item {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100px, 0);
+		}
 		&__counter {
 			font-size: rem(180);
 			line-height: 1;
-			opacity: 0;
-			visibility: hidden;
-			transform: translate3d(0, 100%, 0);
 		}
 		&__title {
 			margin-bottom: 40px;
-			opacity: 0;
-			visibility: hidden;
-			transform: translate3d(0, 150%, 0);
 		}
 		&__text {
 			font-size: rem(16);
-			opacity: 0;
-			visibility: hidden;
-			transform: translate3d(0, 150%, 0);
 		}
 	}
 	.about-history {
@@ -630,10 +630,18 @@
 			}
 		}
 		&__title {
+			display: flex;
+			flex-wrap: wrap;
 			font-size: rem(50);
-			width: 25%;
-			margin-right: 75%;
+			width: 30%;
+			margin-right: 70%;
 			margin-bottom: 80px;
+		}
+		&__title-word {
+			display: inline-block;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
 		}
 		&__dates {
 			width: 33.33333%;
@@ -646,6 +654,9 @@
 		}
 		&__date-item {
 			margin-right: 80px;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
 		}
 		&__media {
 			top: 0px;
@@ -677,9 +688,18 @@
 			width: 100%;
 			margin-bottom: 15px;
 		}
+		&__content-title-word {
+			display: inline-block;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
+		}
 		&__content-text {
 			font-size: rem(16);
 			width: 100%;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100px, 0);
 		}
 		&__button-container {
 			display: none;
@@ -692,7 +712,7 @@
 			position: relative;
 		}
 		&__background {
-			width: 25%;
+			width: 33.33333%;
 			right: 120px;
 		}
 		&__foreground {
@@ -712,8 +732,20 @@
 			font-size: rem(35);
 			margin-bottom: 45px;
 		}
+		&__title-word {
+			display: inline-block;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
+		}
 		&__text {
 			font-size: rem(16);
+		}
+		&__text-word {
+			display: inline-block;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
 		}
 		&__list {
 			width: 83.33333%;

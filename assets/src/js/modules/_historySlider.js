@@ -1,6 +1,7 @@
 import Flickity from 'flickity';
 import 'flickity-sync';
 import 'flickity-imagesloaded';
+import 'flickity-fade';
 
 export default class HistorySlider {
 	constructor() {
@@ -29,6 +30,7 @@ export default class HistorySlider {
 				pageDots: false,
 				prevNextButtons: false,
 				adaptiveHeight: true,
+				fade: true,
 			});
 			this.flktyMedias = new Flickity(this.sliderMedias, {
 				sync: this.sliderDates,
@@ -37,6 +39,7 @@ export default class HistorySlider {
 				draggable: true,
 				pageDots: false,
 				prevNextButtons: false,
+				fade: true,
 			});
 			this.prev.addEventListener('click', () => {
 				this.flktyDates.previous();
@@ -46,9 +49,11 @@ export default class HistorySlider {
 			});
 			setTimeout(() => {
 				this.flktyDates.resize();
+				this.flktyContent.resize();
 			}, 100);
 			this.flktyDates.on('change', () => {
 				this.flktyDates.resize();
+				this.flktyContent.resize();
 			});
 		}
 	}

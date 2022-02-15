@@ -8,7 +8,7 @@ get_header(); ?>
 
 <?php
 $media = get_field('media') ?>
-<section data-stay data-calc-mobile data-contact-media class="contact-media">
+<section data-calc-mobile data-contact-media class="contact-media">
     <div data-wolfpack class="contact-media__container">
         <div class="contact-media__cta-container">
             <div data-cursor data-contact-close class="contact-media__cta cta">
@@ -31,7 +31,7 @@ $media = get_field('media') ?>
                 </svg>
             </div>
         </div>
-        <h2 class="contact-media__title"><?= $media['title'] ?></h2>
+        <h2 class="contact-media__title" data-words><?= $media['title'] ?></h2>
         <?php if ($media['list']) { ?>
             <ul class="contact-media__list">
                 <?php foreach ($media['list'] as $member) { ?>

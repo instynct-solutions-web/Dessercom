@@ -58,14 +58,14 @@ $highlight = get_field('highlight') ?>
 
 <?php
 $house = get_field('house'); ?>
-<section class="philanthropy-house" data-wolfpack-section>
+<section class="philanthropy-house" data-wolfpack-section data-tadam data-tadam-threshold="100">
     <div class="philanthropy-house__container">
         <div class="philanthropy-house__top">
             <p class="philanthropy-house__note"><?= $house['note'] ?></p>
         </div>
         <div class="philanthropy-house__main">
             <div class="philanthropy-house__media">
-                <div class="philanthropy-house__logo-container">
+                <div class="philanthropy-house__logo-container" data-tadam-animate="mask-image">
                     <svg class="philanthropy-house__image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 181.567 163.488">
                         <defs>
                             <pattern id="image" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -164,9 +164,8 @@ $research = get_field('research') ?>
 
 <?php
 $borders = get_field('borders')  ?>
-<section class="philanthropy-borders" data-wolfpack-section>
+<section class="philanthropy-borders" data-wolfpack-section data-tadam data-tadam-threshold="100">
     <div class="philanthropy-borders__container">
-
         <div class="philanthropy-borders__top-container">
             <div class="philanthropy-borders__top">
                 <img src="<?= $borders['icon']['url'] ?>" alt="<?= $borders['icon']['alt'] ?>" class="philanthropy-borders__icon">
@@ -194,7 +193,7 @@ $borders = get_field('borders')  ?>
         </div>
         <div class="philanthropy-borders__main">
             <div class="philanthropy-borders__media">
-                <div class="philanthropy-borders__logo-container">
+                <div class="philanthropy-borders__logo-container" data-tadam-animate="mask-image">
                     <svg class="philanthropy-borders__image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 181.567 163.488">
                         <defs>
                             <pattern id="image2" patternContentUnits="objectBoundingBox" width="1" height="1">
