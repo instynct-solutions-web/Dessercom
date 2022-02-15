@@ -73,6 +73,7 @@
 	}
 }
 .services-map {
+	overflow: hidden;
 	background-color: $white;
 	height: 100vh;
 	display: flex;
@@ -481,8 +482,7 @@
 			height: 100vh;
 			width: 100%;
 			position: absolute;
-			top: -45%;
-			left: 40px;
+			transform: translate(40px, -45%);
 		}
 		&__container {
 			position: absolute;
@@ -748,8 +748,7 @@
 			width: 65%;
 			margin-left: 35%;
 			height: 100%;
-			top: -2.5%;
-			left: 0px;
+			transform: translate(0, -2.5%);
 			svg {
 				position: absolute;
 				width: 125%;
