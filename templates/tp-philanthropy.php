@@ -232,15 +232,18 @@ $borders = get_field('borders')  ?>
 <?php
 $grant = get_field('grant') ?>
 <section class="philanthropy-grant" data-wolfpack-section data-tadam data-tadam-threshold="100">
-    <!-- <img src="<?= $grant['background']['url'] ?>" alt="<?= $grant['background']['alt'] ?>" class="philanthropy-grant__background"> -->
     <div class="philanthropy-grant__background" data-tadam-animate="lottie-lines-once" data-lottie-lines="/wp-content/themes/dessercom/assets/src/lottie/lines-white.json"></div>
     <div class="philanthropy-grant__container">
         <div class="philanthropy-grant__info">
             <p class="philanthropy-grant__text" data-words data-tadam-animate="words--delay-0.2"><?= $grant['text'] ?></p>
         </div>
         <div class="philanthropy-grant__link-container">
-            <a href="<?= $grant['button']['url'] ?>" class="philanthropy-grant__link" data-tadam-animate="opacity-1--y-0--delay-0.4"><?= $grant['button']['title'] ?></a>
-            <a href="<?= $grant['button_2']['url'] ?>" class="philanthropy-grant__link philanthropy-grant__link--alt" data-tadam-animate="opacity-1--y-0--delay-0.5"><?= $grant['button_2']['title'] ?></a>
+            <div class="philanthropy-grant__link-wrapper" data-tadam-animate="opacity-1--y-0--delay-0.4">
+                <a href="<?= $grant['button']['url'] ?>" class="philanthropy-grant__link"><?= $grant['button']['title'] ?></a>
+            </div>
+            <div class="philanthropy-grant__link-wrapper" data-tadam-animate="opacity-1--y-0--delay-0.5">
+                <a href="<?= $grant['button_2']['url'] ?>" class="philanthropy-grant__link philanthropy-grant__link--alt"><?= $grant['button_2']['title'] ?></a>
+            </div>
         </div>
     </div>
 </section>
