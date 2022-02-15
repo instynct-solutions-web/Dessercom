@@ -153,8 +153,7 @@ $support = get_field('support') ?>
 <section data-wolfpack-section class="services-support" id="transport-medical" data-tadam data-tadam-threshold="100">
     <div class="services-support__container">
         <div class="services-support__background">
-            <div data-canvas-grid class="services-support__canvas"></div>
-            <img class="services-support__motif" src="/wp-content/themes/dessercom/assets/src/svg/dessercom-motif.svg" alt="Motif" data-tadam-animate="opacity-1--delay-0.4">
+            <div class="services-support__motif" data-tadam-animate="about-pattern" data-lottie-pattern="/wp-content/themes/dessercom/assets/src/lottie/pattern-1.json"></div>
         </div>
         <div class="services-support__text-container">
             <h3 class="services-support__title"><?= $support['title'] ?></h3>

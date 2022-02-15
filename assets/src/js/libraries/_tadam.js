@@ -1,4 +1,4 @@
-import {gsap, TweenLite, TimelineMax, Power4} from 'gsap';
+import { gsap, TweenLite, TimelineMax, Power4 } from 'gsap';
 import lottie from 'lottie-web';
 import CustomEase from 'gsap/CustomEase';
 
@@ -11,6 +11,13 @@ export default class Tadam {
 				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 				x: 0,
 				y: 0,
+				force3D: true,
+			});
+		} else if (animation === 'opacity-1--delay-0.2') {
+			this.animation = TweenLite.to(element, 0.75, {
+				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
+				autoAlpha: 1,
+				delay: 0.2,
 				force3D: true,
 			});
 		} else if (animation === 'opacity-1--delay-0.4') {
@@ -537,43 +544,15 @@ export default class Tadam {
 				0.05
 			);
 		} else if (animation === 'about-missions') {
-			this.counterList = element.querySelectorAll('.about-mission__counter');
-			this.counterTimeline = new TimelineMax();
-			this.counterTimeline.staggerTo(
-				this.counterList,
+			this.elementList = element.querySelectorAll('.about-mission__item');
+			this.timeline = new TimelineMax();
+			this.timeline.staggerTo(
+				this.elementList,
 				0.75,
 				{
 					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 					autoAlpha: 1,
 					y: 0,
-					force3D: true,
-				},
-				0.2
-			);
-			this.titleList = element.querySelectorAll('.about-mission__title');
-			this.titleTimeline = new TimelineMax();
-			this.titleTimeline.staggerTo(
-				this.titleList,
-				0.75,
-				{
-					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
-					autoAlpha: 1,
-					y: 0,
-					delay: 0.1,
-					force3D: true,
-				},
-				0.2
-			);
-			this.textList = element.querySelectorAll('.about-mission__text');
-			this.textTimeline = new TimelineMax();
-			this.textTimeline.staggerTo(
-				this.textList,
-				0.75,
-				{
-					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
-					autoAlpha: 1,
-					y: 0,
-					delay: 0.2,
 					force3D: true,
 				},
 				0.2
@@ -638,6 +617,68 @@ export default class Tadam {
 				},
 				0.02
 			);
+		} else if (animation === 'values-name') {
+			this.elementList = element.querySelectorAll('.jobs-values__name-item');
+			this.timeline = new TimelineMax();
+			this.timeline.staggerTo(
+				this.elementList,
+				0.75,
+				{
+					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
+					autoAlpha: 1,
+					y: 0,
+					delay: 0.5,
+					force3D: true,
+				},
+				0.1
+			);
+		} else if (animation === 'values-item') {
+			this.elementList = element.querySelectorAll('.jobs-values__grid-item');
+			this.timeline = new TimelineMax();
+			this.timeline.staggerTo(
+				this.elementList,
+				0.75,
+				{
+					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
+					autoAlpha: 1,
+					y: 0,
+					delay: 0.7,
+					force3D: true,
+				},
+				0.1
+			);
+		} else if (animation === 'history-dates') {
+			this.elementList = element.querySelectorAll('.about-history__date-item');
+			this.timeline = new TimelineMax();
+			this.timeline.staggerTo(
+				this.elementList,
+				0.75,
+				{
+					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
+					autoAlpha: 1,
+					y: 0,
+					delay: 0.2,
+					force3D: true,
+				},
+				0
+			);
+		} else if (animation === 'about-pattern') {
+			TweenLite.to(element, 1, {
+				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
+				autoAlpha: 1,
+				delay: 0.2,
+				force3D: true,
+			});
+			this.animationElement = element;
+			this.animationOptions = {
+				container: this.animationElement,
+				renderer: 'svg',
+				loop: true,
+				autoplay: false,
+				path: this.animationElement.getAttribute('data-lottie-pattern'),
+			};
+			this.animation = lottie.loadAnimation(this.animationOptions);
+			this.animation.play();
 		} else if (animation === 'lottie-lines') {
 			this.animationElement = element;
 			this.animationOptions = {

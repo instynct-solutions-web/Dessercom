@@ -690,6 +690,12 @@
 			width: 25%;
 			margin-bottom: 3em;
 		}
+		&__title-word {
+			display: inline-block;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__name-list {
 			width: 16.66666%;
 			position: relative;
@@ -702,6 +708,9 @@
 		}
 		&__name-item {
 			margin-bottom: 25px;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 50px, 0);
 			&:last-of-type {
 				margin-bottom: 0px;
 			}
@@ -722,6 +731,9 @@
 			align-items: flex-start;
 			justify-content: flex-start;
 			min-height: rem(300);
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 50px, 0);
 			&--opened {
 				.jobs-values {
 					&__picto {

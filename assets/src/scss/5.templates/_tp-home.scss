@@ -704,6 +704,8 @@
 			width: calc(50% + 100px);
 			height: auto;
 			position: relative;
+			opacity: 0;
+			visibility: hidden;
 			transform: translateX(0px) scale(1.2);
 		}
 		&__bottom-container {

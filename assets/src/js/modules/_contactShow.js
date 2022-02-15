@@ -9,7 +9,8 @@ export default class ContactShow {
 		this.showContactButton = document.querySelector(' [data-contact-show]');
 		this.closeContactButton = document.querySelector('[data-contact-close]');
 		this.hero = document.querySelector('[data-contact-hero]');
-
+		this.opened = false;
+		this.body = document.querySelector('body');
 		if (this.showContactButton) {
 			this.manageEvents();
 		}
@@ -18,9 +19,13 @@ export default class ContactShow {
 	manageEvents() {
 		// All Dom events goes here
 		this.showContactButton.addEventListener('click', () => {
+			this.opened = true;
+			this.body.classList.add('noscroll');
 			this.show();
 		});
 		this.closeContactButton.addEventListener('click', () => {
+			this.opened = false;
+			this.body.classList.remove('noscroll');
 			this.hide();
 		});
 	}
