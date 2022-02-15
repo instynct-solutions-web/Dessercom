@@ -151,6 +151,9 @@
 		@include container;
 		height: rem(50);
 		width: 100%;
+		z-index: 2;
+		position: relative;
+		box-shadow: -2px -8px 20px 6px $white;
 	}
 	&__button-icon {
 		height: rem(50);
