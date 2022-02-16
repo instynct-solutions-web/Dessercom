@@ -627,7 +627,7 @@
 			display: flex;
 			flex-wrap: wrap;
 			align-items: flex-start;
-			padding-top: 120px;
+			padding-top: 0;
 			padding-bottom: 0px;
 			// overflow: hidden;
 			margin-bottom: 0;
@@ -639,11 +639,12 @@
 			right: 65px;
 		}
 		&__info {
-			height: 50%;
+			height: auto;
 			width: 41.66666%;
 			margin: 0;
 			position: relative;
 			z-index: 3;
+			padding: 120px 0 0 0;
 		}
 		&__title {
 			font-size: rem(35);
@@ -667,6 +668,7 @@
 			width: 33.33333%;
 			top: auto;
 			right: auto;
+			padding: 120px 0;
 		}
 		&__item {
 			padding-top: 20px;
