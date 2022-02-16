@@ -814,7 +814,6 @@
 			padding-bottom: 0px;
 			margin-bottom: 0;
 			height: 150vh;
-			max-height: 1280px;
 			position: relative;
 		}
 		&__logo-container {
@@ -853,6 +852,7 @@
 			right: auto;
 			align-self: center;
 			max-height: none;
+			padding: 120px 0;
 		}
 		&__item {
 			padding-top: 15px;
