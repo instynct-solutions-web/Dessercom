@@ -38,7 +38,9 @@ get_header(); ?>
                             <line id="Ligne_1" data-name="Ligne 1" y1="12.515" transform="translate(5.278 0)" fill="none" stroke="#051c2f" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" />
                         </g>
                     </svg>
-                    <?= $hero['link']['title'] ?>
+                    <span class="jobs-hero__link-content">
+                        <?= $hero['link']['title'] ?>
+                    </span>
                 </a>
             </div>
             <div class="jobs-hero__info">
@@ -60,7 +62,8 @@ get_header(); ?>
 
 <?php
 $benefits = get_field('benefits');
-$theTerm = get_the_terms(the_ID(), 'type');
+$postID = get_the_ID();
+$theTerm = get_the_terms($postID, 'type');
 if ($theTerm[0]->term_id === 22 || $theTerm[0]->term_id === 54) { ?>
     <section data-wolfpack-section class="job-benefits">
         <div class="job-benefits__container">

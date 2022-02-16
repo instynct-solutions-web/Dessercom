@@ -46,7 +46,7 @@
 	&__title {
 		color: $white;
 		font-size: rem(43);
-		width: 80%;
+		width: 70%;
 		margin-top: 1em;
 	}
 	&__title-word {
@@ -243,33 +243,37 @@
 		font-size: rem(14);
 	}
 	&__item-icon {
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
 		width: rem(13);
 		&--open {
 			.contact-hero {
 				&__item-close {
-					display: block;
+					opacity: 1;
 				}
 				&__item-open {
-					display: none;
+					opacity: 0;
 				}
 			}
 		}
 	}
 	&__item-close {
-		display: none;
+		position: absolute;
+		opacity: 0;
+		transition: 0.4s ease;
 	}
 	&__item-open {
-		display: block;
+		position: absolute;
+		opacity: 1;
 		transform: rotate(45deg);
+		transition: 0.4s ease;
 	}
 	&__body {
-		max-height: 0;
+		height: 0px;
 		overflow: hidden;
-		transition: max-height 0.3s ease-out;
-		&--open {
-			max-height: rem(1000);
-			transition: max-height 0.3s ease-in;
-		}
 	}
 	&__cta-container {
 		display: flex;
@@ -277,7 +281,7 @@
 		margin: 2em 0;
 		position: absolute;
 		right: 0;
-		top: 0;
+		top: 25px;
 	}
 	&__cta {
 		position: relative;
@@ -428,18 +432,19 @@
 		padding-top: 40px;
 		padding-right: 16.66666%;
 		position: relative;
-		&:after {
-			content: '';
-			display: block;
-			height: 1px;
-			width: 100%;
-			position: absolute;
-			top: 0px;
-			left: 0px;
-			background-color: $navy;
-		}
 	}
-	&__title-word {
+	&__separator {
+		display: block;
+		height: 1px;
+		width: 100%;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		background-color: $navy;
+		transform-origin: left;
+		transform: scaleX(0);
+	}
+	&__title-content-word {
 		display: inline-block;
 	}
 	&__form-container {
@@ -499,7 +504,7 @@
 		&__cta-container {
 			margin: 0;
 			right: 40px;
-			top: 40px;
+			top: 65px;
 		}
 		&__container {
 			padding-top: 200px;
@@ -537,13 +542,8 @@
 			font-size: rem(14);
 		}
 		&__body {
-			max-height: 0;
+			height: 0px;
 			overflow: hidden;
-			transition: max-height 0.3s ease-out;
-			&--open {
-				max-height: rem(1000);
-				transition: max-height 0.3s ease-in;
-			}
 		}
 	}
 	.contact-support {
@@ -779,7 +779,7 @@
 			padding-top: 20px;
 			font-size: rem(35);
 		}
-		&__title-word {
+		&__title-content-word {
 			opacity: 0;
 			visibility: hidden;
 			transform: translate3d(0, 150%, 0);

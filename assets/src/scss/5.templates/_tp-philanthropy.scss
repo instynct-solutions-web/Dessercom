@@ -3,12 +3,21 @@
 // ==========================================================================
 .page-template-tp-philanthropy {
 	.tilted-slider {
-		&__illustration {
+		overflow: initial !important;
+		&__container {
+			overflow: hidden;
+		}
+		&__illustration-container {
 			width: 100%;
 			position: absolute;
+			bottom: -30%;
+			overflow: hidden;
+		}
+		&__illustration {
+			width: 100%;
+			position: relative;
 			bottom: 0;
-			-webkit-transform: translate(110%, 30%);
-			transform: translate(50%, 30%);
+			transform: translate(50%, 0);
 		}
 	}
 
@@ -17,19 +26,25 @@
 			&__list {
 				transform: translateX(-33.33333%) rotate(1deg) scale(0.9);
 			}
-			&__illustration {
+			&__illustration-container {
 				width: 70%;
-				position: absolute;
-				bottom: 0;
-				transform: translate(80%, 40%);
+				bottom: -30%;
+				right: 0;
+			}
+			&__illustration {
+				transform: translate(40%, 0);
 			}
 		}
 	}
 	@include desktop-only {
+		overflow: hidden !important;
 		.tilted-slider {
 			margin-top: 0px;
 			margin-bottom: 0px;
 			margin: 3em 0;
+			&__container {
+				overflow: initial;
+			}
 			&__title {
 				width: 33.33333%;
 				margin: 0 33.33333%;
@@ -40,10 +55,12 @@
 			&__item {
 				width: calc(20% - 10px);
 			}
-			&__illustration {
-				bottom: 0;
+			&__illustration-container {
 				width: 50%;
-				transform: translate(150%, 20%);
+				bottom: -20%;
+			}
+			&__illustration {
+				transform: translate(50%, 0);
 			}
 		}
 	}

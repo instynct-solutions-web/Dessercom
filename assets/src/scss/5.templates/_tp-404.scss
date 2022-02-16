@@ -17,6 +17,7 @@
 }
 
 .error {
+	overflow: hidden;
 	padding-top: 120px;
 	min-height: 100vh;
 	background-color: #051c2f;
@@ -25,12 +26,25 @@
 		@include container;
 		padding-top: 40px;
 		padding-bottom: 40px;
+		position: relative;
+		z-index: 1;
 	}
 	&__title {
 		font-size: rem(40);
 		font-weight: 500;
 		color: $white;
 		margin-bottom: 80px;
+	}
+	&__title-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
+	}
+	&__button-container {
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
 	}
 	&__button {
 		font-size: rem(13);
@@ -55,10 +69,11 @@
 		transform: rotate(225deg);
 	}
 	&__background {
+		width: 150%;
 		opacity: 0.3;
 		position: absolute;
 		transform-origin: center;
-		transform: rotate(230deg) translateX(0%) translateY(60%);
+		transform: rotate(230deg) translateX(20%) translateY(25%);
 	}
 }
 
@@ -74,7 +89,8 @@
 			margin-bottom: 150px;
 		}
 		&__background {
-			transform: scale(2) rotate(230deg) translateX(-10%) translateY(80%);
+			width: 120%;
+			transform: rotate(230deg) translateX(55%) translateY(65%);
 		}
 	}
 }
@@ -92,7 +108,7 @@
 			font-size: rem(15);
 		}
 		&__background {
-			transform: scale(4) rotate(210deg) translateX(-60%) translateY(50%);
+			transform: rotate(210deg) translateX(10%) translateY(20%);
 		}
 	}
 }

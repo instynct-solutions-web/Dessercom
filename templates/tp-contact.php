@@ -171,7 +171,10 @@ $contact = get_field('form'); ?>
 <section id="form" data-wolfpack-section class="contact-form" data-tadam data-tadam-threshold="100">
     <img src="<?= $contact['image']['url'] ?>" alt="<?= $contact['image']['alt'] ?>" class="contact-form__background">
     <div class="contact-form__container">
-        <h2 class="contact-form__title" data-words data-tadam-animate="words--delay-0.3"><?= $contact['title'] ?></h2>
+        <h2 class="contact-form__title">
+            <span class="contact-form__separator" data-tadam-animate="scaleX-1"></span>
+            <div class="contact-form__title-content" data-words data-tadam-animate="words--delay-0.3"><?= $contact['title'] ?></div>
+        </h2>
         <div data-form class="contact-form__form-container" data-tadam-animate="opacity-1--y-0--delay-0.5">
             <?php
             if (ICL_LANGUAGE_CODE == 'en') {

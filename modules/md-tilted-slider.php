@@ -26,7 +26,9 @@ $hero = get_field('hero'); ?>
     </div>
     <?php
     if ($hero['illustration']) { ?>
-        <img src="<?= $hero['illustration']['url'] ?>" alt="<?= $hero['illustration']['alt'] ?>" class="tilted-slider__illustration">
+        <div class="tilted-slider__illustration-container">
+            <img src="<?= $hero['illustration']['url'] ?>" alt="<?= $hero['illustration']['alt'] ?>" class="tilted-slider__illustration">
+        </div>
     <?php
     } ?>
 </section>

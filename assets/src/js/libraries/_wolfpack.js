@@ -631,9 +631,8 @@ export default class Wolfpack {
 				if (this.preloader.style.display === 'none') {
 					this.wolfpackHovering[this.wolfpackMainIndex] = true;
 				}
-				if (window.innerWidth >= 1024) {
+				if (window.innerWidth > 1024) {
 					this.wolfpackList[i].addEventListener('mouseenter', () => {
-						console.log(i);
 						for (let j = 0; j < this.wolfpackList.length; j += 1) {
 							if (j !== i) {
 								this.wolfpackHovering[j] = false;
@@ -722,7 +721,7 @@ export default class Wolfpack {
 			for (let i = 0; i < this.anchorList.length; i += 1) {
 				if (!this.anchorList[i].classList.contains('no-anchor')) {
 					this.anchorList[i].addEventListener('click', (e) => {
-						if (window.innerWidth >= 1024) {
+						if (window.innerWidth > 1024) {
 							e.preventDefault();
 							if (this.wolfpackSectionList[this.wolfpackMainIndex].length === 0) {
 								if (!this.anchorScrolling) {
@@ -825,7 +824,7 @@ export default class Wolfpack {
 	}
 
 	updateVirtualScroll() {
-		if (window.innerWidth >= 1024) {
+		if (window.innerWidth > 1024) {
 			if (this.virtualScroll === undefined) {
 				this.virtualScroll = new VirtualScroll({
 					mouseMultiplier: 0.4,
@@ -843,7 +842,7 @@ export default class Wolfpack {
 	}
 
 	watchScroll() {
-		if (window.innerWidth >= 1024) {
+		if (window.innerWidth > 1024) {
 			this.modulesUpdated = false;
 			if (this.activateWatchScroll) {
 				this.activateWatchScroll = false;
@@ -1035,7 +1034,7 @@ export default class Wolfpack {
 	}
 
 	updateCurrentY(index) {
-		if (window.innerWidth >= 1024) {
+		if (window.innerWidth > 1024) {
 			this.wolfpackCurrentY[index] += Math.round(((this.wolfpackTargetY[index] - this.wolfpackCurrentY[index]) * this.ease + Number.EPSILON) * 1000) / 1000;
 			for (let i = 0; i < this.scrollbarList.length; i += 1) {
 				if (parseFloat(index) === parseFloat(this.scrollbarIndex[i])) {

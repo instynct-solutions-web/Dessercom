@@ -16,10 +16,10 @@ $faq = get_field('faq') ?>
         </div>
         <div class="faq__main">
             <div class="faq__filters" data-tadam-animate="opacity-1--delay-0.6">
-                <?php echo do_shortcode('[searchandfilter id="727"]'); ?>
+                <?php echo do_shortcode('[searchandfilter id="1182"]'); ?>
             </div>
             <div class="faq__questions" data-tadam-animate="opacity-1--delay-0.6">
-                <?php echo do_shortcode('[searchandfilter id="727"  show="results"]'); ?>
+                <?php echo do_shortcode('[searchandfilter id="1182"  show="results"]'); ?>
             </div>
         </div>
     </div>
