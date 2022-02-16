@@ -12,9 +12,9 @@ get_header(); ?>
 $benefits = get_field('benefits') ?>
 <section data-wolfpack-section class="jobs-benefits" data-tadam data-tadam-threshold="100">
     <div class="jobs-benefits__background" data-tadam-animate="lottie-lines-once" data-lottie-lines="/wp-content/themes/dessercom/assets/src/lottie/lines-white.json"></div>
-    <div class="jobs-benefits__container">
+    <div data-follow-me-container class="jobs-benefits__container">
         <img src="<?= $benefits['icon']['url'] ?>" alt="<?= $benefits['icon']['alt'] ?>" class="jobs-benefits__logo">
-        <div class="jobs-benefits__info">
+        <div data-follow-me class="jobs-benefits__info">
             <h2 class="jobs-benefits__title" data-words data-tadam-animate="words"><?= $benefits['title'] ?></h2>
             <p class="jobs-benefits__text" data-words data-tadam-animate="words--delay-0.2"><?= $benefits['text'] ?></p>
         </div>

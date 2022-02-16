@@ -379,11 +379,15 @@
 		&__background {
 			top: -150px;
 			width: 100%;
+			opacity: 0.1;
 		}
 		&__container {
 			padding-top: 100px;
 			padding-bottom: 200px;
 			position: relative;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
 		}
 		&__logo {
 			top: 40px;
@@ -400,9 +404,7 @@
 		}
 		&__list-container {
 			width: calc(50% - 80px);
-			position: absolute;
-			top: 33.33333%;
-			right: 40px;
+			position: relative;
 		}
 		&__item {
 			width: 100%;
@@ -417,6 +419,7 @@
 			z-index: 2;
 			bottom: 0px;
 			left: 0px;
+			opacity: 0;
 			background: linear-gradient(180deg, rgba(5, 28, 47, 0.14889705882352944) 0%, rgba(5, 28, 47, 1) 100%);
 		}
 	}
@@ -614,6 +617,7 @@
 @include desktop-only {
 	.jobs-benefits {
 		margin-top: 50px;
+		padding: 120px 0;
 		&__background {
 			top: -40%;
 			left: -25%;
@@ -623,19 +627,23 @@
 			display: flex;
 			flex-wrap: wrap;
 			align-items: flex-start;
-			padding-top: 240px;
+			padding-top: 120px;
 			padding-bottom: 0px;
-			overflow: hidden;
+			// overflow: hidden;
+			margin-bottom: 0;
+			height: 150vh;
+			position: relative;
 		}
 		&__logo {
 			top: 55px;
 			right: 65px;
 		}
 		&__info {
+			height: 50%;
 			width: 41.66666%;
-			margin-left: 8.33333%;
-			margin-right: 8.33333%;
-			margin-bottom: 240px;
+			margin: 0;
+			position: relative;
+			z-index: 3;
 		}
 		&__title {
 			font-size: rem(35);
@@ -659,7 +667,6 @@
 			width: 33.33333%;
 			top: auto;
 			right: auto;
-			max-height: 500px;
 		}
 		&__item {
 			padding-top: 20px;

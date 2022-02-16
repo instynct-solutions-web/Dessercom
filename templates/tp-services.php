@@ -81,13 +81,13 @@ $map = get_field('map') ?>
 $extra = get_field('services_ext'); ?>
 <section data-wolfpack-section class="services-extra" data-tadam data-tadam-threshold="100">
     <div class="services-extra__background" data-tadam-animate="lottie-lines-once" data-lottie-lines="/wp-content/themes/dessercom/assets/src/lottie/lines-white.json"></div>
-    <div class="services-extra__container">
+    <div data-follow-me-container class="services-extra__container">
         <div class="services-extra__logo-container">
             <img src="<?= $extra['icon']['url'] ?>" alt="<?= $extra['icon']['alt'] ?>" class="services-extra__logo">
         </div>
-        <div class="services-extra__info">
+        <div data-follow-me class="services-extra__info">
             <h2 class="services-extra__title" data-words data-tadam-animate="words"><?= $extra['title'] ?></h2>
-            <p class="services-extra__text" data-words data-tadam-animate="words--delay-0.2"><?= $extra['text'] ?></p>
+            <p class="services-extra__text" data-words data-tadam-animate="words--delay-0.2"><?= $extra['text'] ?></pd>
         </div>
         <div class="services-extra__list-container">
             <ul class="services-extra__list" data-tadam-animate="services-extras">
@@ -183,7 +183,7 @@ $other = get_field('other') ?>
                 <?php
                 foreach ($other['list'] as $item) { ?>
                     <li class="services-other__item">
-                        <div data-services-drawer-toggle class="services-other__item-header">
+                        <div data-services-drawer-toggle data-cursor class="services-other__item-header">
                             <h4 class="services-other__item-title"><?= $item['name'] ?></h4>
                             <div data-services-drawer-icon class="services-other__item-icon">
                                 <svg class="services-other__item-open" xmlns="http://www.w3.org/2000/svg" width="22.614" height="25.458" viewBox="0 0 22.614 25.458">

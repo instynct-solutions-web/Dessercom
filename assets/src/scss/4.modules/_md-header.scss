@@ -461,12 +461,24 @@
 				.menu {
 					&__item {
 						margin-right: 30px;
-						&--current {
-							display: inline-flex;
-							flex-wrap: wrap;
-							align-items: center;
-							justify-content: center;
-							position: relative;
+						display: inline-flex;
+						flex-wrap: wrap;
+						align-items: center;
+						justify-content: center;
+						position: relative;
+						&:after {
+							content: '';
+							display: block;
+							width: 6px;
+							height: 6px;
+							border-radius: 50%;
+							background-color: $teal;
+							position: absolute;
+							bottom: -0px;
+							opacity: 0;
+							transition: 0.25s ease;
+						}
+						&:hover {
 							&:after {
 								content: '';
 								display: block;
@@ -475,7 +487,19 @@
 								border-radius: 50%;
 								background-color: $teal;
 								position: absolute;
-								bottom: -5px;
+								bottom: -10px;
+								opacity: 1;
+							}
+						}
+						&--current {
+							display: inline-flex;
+							flex-wrap: wrap;
+							align-items: center;
+							justify-content: center;
+							position: relative;
+							&:after {
+								bottom: -10px;
+								opacity: 1;
 							}
 						}
 						&:last-of-type {
@@ -534,11 +558,22 @@
 		}
 		&__sub-nav-link {
 			font-size: rem(45);
+			color: $white;
+			transition: 0.2s ease;
+
+			&:hover {
+				color: $yellow;
+				.header__sub-nav-icon {
+					transform: rotate(90deg);
+				}
+			}
 		}
 		&__sub-nav-icon {
 			width: 22px;
 			height: 22px;
 			margin-left: 20px;
+			transform: rotate(45deg);
+			transition: 0.2s ease;
 		}
 		&__navigation {
 			&--opened {
