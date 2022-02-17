@@ -1,3 +1,6 @@
+import { gsap, TweenLite } from 'gsap';
+import CustomEase from 'gsap/CustomEase';
+gsap.registerPlugin(CustomEase);
 export default class ContactDrawer {
 	constructor() {
 		// All DOM selector / elements goes here
@@ -35,6 +38,11 @@ export default class ContactDrawer {
 		container.classList.add(`${container.classList[0]}--open`);
 		toggle.classList.add(`${toggle.classList[0]}--open`);
 		icon.classList.add(`${icon.classList[0]}--open`);
+		TweenLite.to(this.toggleContainerList[i], 0.5, {
+			ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
+			height: 'auto',
+			force3D: true,
+		});
 	}
 
 	close(i) {
@@ -44,5 +52,10 @@ export default class ContactDrawer {
 		container.classList.remove(`${container.classList[0]}--open`);
 		toggle.classList.remove(`${toggle.classList[0]}--open`);
 		icon.classList.remove(`${icon.classList[0]}--open`);
+		TweenLite.to(this.toggleContainerList[i], 0.5, {
+			ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
+			height: 0,
+			force3D: true,
+		});
 	}
 }

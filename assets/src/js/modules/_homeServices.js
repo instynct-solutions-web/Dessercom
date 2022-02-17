@@ -8,7 +8,7 @@ export default class HomeServices {
 
 	manageEvents() {
 		if (this.serviceList.length !== 0) {
-			if (window.innerWidth > 768 && window.innerWidth < 1024) {
+			if (window.innerWidth > 768 && window.innerWidth <= 1024) {
 				this.loopService();
 			} else if (window.innerWidth > 1024) {
 				this.openService(0);

@@ -173,7 +173,6 @@
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: center;
-		border-radius: 3px;
 		overflow: hidden;
 	}
 	&__hamburger {
@@ -187,6 +186,8 @@
 		background-color: $navy;
 		transform: scaleX(0);
 		transform-origin: right;
+		border-top-left-radius: 3px;
+		border-bottom-left-radius: 3px;
 		&--opened {
 			.header {
 				&__hamburger-line-container {
@@ -251,6 +252,8 @@
 		transform: scaleX(0);
 		transform-origin: left;
 		width: 120px;
+		border-top-right-radius: 3px;
+		border-bottom-right-radius: 3px;
 	}
 	&__button-label {
 		display: flex;
@@ -261,7 +264,6 @@
 		padding: 0;
 		color: $black;
 		opacity: 0;
-		visibility: hidden;
 		transform: translate3d(0, -15px, 0);
 		&--mock {
 			display: none;
@@ -536,19 +538,33 @@
 				z-index: 20;
 				top: 0;
 				left: 0;
-				background-color: $yellow;
 				width: 100%;
+				background-color: $yellow;
 				opacity: 1;
-				transform: translateX(0);
+				transform: translate3d(0, 0, 0);
 				transition: 0.55s ease;
 				&--hide {
 					transform: translateY(-100%) !important;
 				}
 			}
-
 			p {
 				font-size: rem(19);
 			}
+		}
+		&__button-content {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			margin: 0 !important;
+			padding: 0 0.75em;
+			height: 100%;
+			opacity: 0;
+			transform: translate3d(0, -15px, 0);
 		}
 		&__sub-nav-item {
 			margin-bottom: 40px;
@@ -588,6 +604,7 @@
 		overflow: hidden;
 		&__container {
 			width: 100%;
+			max-width: none;
 			padding: 145px;
 			align-items: center;
 		}

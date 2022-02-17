@@ -19,7 +19,6 @@ export default class HistorySlider {
 			this.flktyDates = new Flickity(this.sliderDates, {
 				cellAlign: 'left',
 				wrapAround: true,
-				draggable: true,
 				pageDots: false,
 				prevNextButtons: false,
 			});
@@ -48,11 +47,9 @@ export default class HistorySlider {
 				this.flktyDates.next();
 			});
 			setTimeout(() => {
-				this.flktyDates.resize();
 				this.flktyContent.resize();
 			}, 100);
 			this.flktyDates.on('change', () => {
-				this.flktyDates.resize();
 				this.flktyContent.resize();
 			});
 		}

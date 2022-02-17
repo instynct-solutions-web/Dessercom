@@ -1,3 +1,4 @@
+import lottie from 'lottie-web';
 export default class ContactShow {
 	constructor() {
 		// All DOM selector / elements goes here
@@ -9,6 +10,7 @@ export default class ContactShow {
 		this.showContactButton = document.querySelector(' [data-contact-show]');
 		this.closeContactButton = document.querySelector('[data-contact-close]');
 		this.hero = document.querySelector('[data-contact-hero]');
+		this.lottie = document.querySelector('[data-lottie-contact]');
 		this.opened = false;
 		this.body = document.querySelector('body');
 		if (this.showContactButton) {
@@ -28,6 +30,14 @@ export default class ContactShow {
 			this.body.classList.remove('noscroll');
 			this.hide();
 		});
+		this.animationOptions = {
+			container: this.lottie,
+			renderer: 'svg',
+			loop: true,
+			autoplay: false,
+			path: this.lottie.getAttribute('data-lottie-contact'),
+		};
+		this.animation = lottie.loadAnimation(this.animationOptions);
 	}
 
 	show() {
@@ -41,6 +51,8 @@ export default class ContactShow {
 		for (let i = 0; i < this.logoElemList.length; i += 1) {
 			this.logoElemList[i].classList.add(`${this.logoElemList[i].classList[0]}--white`);
 		}
+		this.lottie.style.display = 'block';
+		this.animation.play();
 	}
 
 	hide() {
@@ -54,5 +66,9 @@ export default class ContactShow {
 		for (let i = 0; i < this.logoElemList.length; i += 1) {
 			this.logoElemList[i].classList.remove(`${this.logoElemList[i].classList[0]}--white`);
 		}
+		setTimeout(() => {
+			this.lottie.style.display = 'none';
+			this.animation.stop();
+		}, 500);
 	}
 }

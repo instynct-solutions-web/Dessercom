@@ -3,6 +3,7 @@
 // ==========================================================================
 
 .footer {
+	margin-top: -1px;
 	background-color: $navy;
 	&__container {
 		@include container;

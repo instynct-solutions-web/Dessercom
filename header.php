@@ -37,25 +37,20 @@
 				<path id="Polygone_14" data-name="Polygone 14" d="M6.674,1.212a1,1,0,0,1,1.652,0l5.608,8.225A1,1,0,0,1,13.108,11H1.892a1,1,0,0,1-.826-1.563Z" transform="translate(11) rotate(90)" fill="#00938f" />
 			</svg>
 			<span class="cursor__cta-background"></span>
-
-
 		</div>
 	</div>
 
 	<div id="swup" class="wolfpack-container" data-calc-mobile data-calc-mobile-responsive="responsive">
 		<div class="scrollbar" data-scrollbar data-scrollbar-index=2><span class="scrollbar__thumb" data-scrollbar-thumb></span></div>
-
-
 		<?php $header = get_field('header', 'options'); ?>
 		<header class="header transition-fade" data-header data-tadam data-tadam-threshold=-1>
 			<div data-header-hide class="header__top">
 				<div class="header__lang-container" data-tadam-animate="opacity-1--y-0--delay-0.4">
 					<?php do_action('wpml_add_language_selector') ?>
-
 				</div>
 			</div>
 			<div class="header__main">
-				<a data-header-logo href="/" class="header__logo-container" data-tadam-animate="opacity-1--y-0--delay-0.4">
+				<a data-header-logo href="<?= get_home_url() ?>" class="header__logo-container" data-tadam-animate="opacity-1--y-0--delay-0.4">
 					<img data-header-logo src="<?= $header['logo']['url'] ?>" alt="<?= $header['logo']['alt'] ?>" class="header__logo header__logo--desktop">
 					<svg class="header__logo header__logo--mobile" xmlns="http://www.w3.org/2000/svg" width="48" height="41.362" viewBox="0 0 48 41.362">
 						<g id="Groupe_163" data-name="Groupe 163" transform="translate(-150.322 -21.855)">
@@ -67,7 +62,6 @@
 						</g>
 					</svg>
 				</a>
-
 				<div data-header-hide class="header__nav-container">
 					<nav role="navigation" class="header__main-nav header__main-nav--desktop">
 						<?php
@@ -105,8 +99,8 @@
 						</div>
 						<div class="header__button" data-invoice-button-container data-tadam-animate="scaleX-1--delay-0.5">
 							<a href="<?= $header['button']['url'] ?>" class="header__button-label" data-tadam-animate="opacity-1--y-0--delay-1" data-invoice-button data-marquee-speed=20 data-marquee><?= $header['button']['title'] ?></a>
-							<a href="<?= $header['button']['url'] ?>" class="header__button-label header__button-label--mock" data-invoice-mock data-tadam-animate="opacity-1--y-0--delay-1">
-								<p><?= $header['button']['title'] ?></p>
+							<a href="<?= $header['button']['url'] ?>" class="header__button-label header__button-label--mock" data-invoice-mock>
+								<p class="header__button-content" data-tadam-animate="opacity-1--y-0--delay-1"><?= $header['button']['title'] ?></p>
 							</a>
 						</div>
 					</div>
