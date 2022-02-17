@@ -1,3 +1,6 @@
+import { gsap, TweenLite } from 'gsap';
+import CustomEase from 'gsap/CustomEase';
+gsap.registerPlugin(CustomEase);
 export default class Jobs {
 	constructor() {
 		this.zoneTitle = document.querySelector('.sf-field-taxonomy-zone h4');
@@ -63,12 +66,26 @@ export default class Jobs {
 
 	static openSector(sector, button, background) {
 		sector.classList.add(`${sector.classList[0]}--selected`);
+		if (window.innerWidth <= 1024) {
+			TweenLite.to(sector, 0.5, {
+				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
+				height: 'auto',
+				force3D: true,
+			});
+		}
 		button.classList.add(`${button.classList[0]}--selected`);
 		background.classList.add(`${background.classList[0]}--selected`);
 	}
 
 	static closeSector(sector, button, background) {
 		sector.classList.remove(`${sector.classList[0]}--selected`);
+		if (window.innerWidth <= 1024) {
+			TweenLite.to(sector, 0.5, {
+				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
+				height: 0,
+				force3D: true,
+			});
+		}
 		button.classList.remove(`${button.classList[0]}--selected`);
 		background.classList.remove(`${background.classList[0]}--selected`);
 	}

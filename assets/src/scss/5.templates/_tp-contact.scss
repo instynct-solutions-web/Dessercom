@@ -102,13 +102,16 @@
 	&__background {
 		display: none;
 		position: absolute;
-		top: 0;
+		top: 40%;
 		right: 0;
-		bottom: 0;
-		margin: auto;
-		transform: translateX(50%) rotate(342deg);
+		width: 50%;
 		opacity: 0.4;
 		pointer-events: none;
+		overflow: hidden;
+		svg {
+			width: 170% !important;
+			transform: rotate(-55deg) translateX(-10%) translateY(20%) !important;
+		}
 	}
 	&__cta-container {
 		display: flex;
@@ -491,7 +494,13 @@
 			margin: 0 0 10px 0;
 		}
 		&__background {
-			transform: translateY(50%) translateX(50%) rotate(342deg) scale(3);
+			width: 100%;
+			top: 0;
+			height: 100%;
+			svg {
+				width: 250% !important;
+				transform: rotate(-60deg) translateX(-10%) translateY(-10%) !important;
+			}
 		}
 	}
 	.contact-hero {
@@ -644,6 +653,12 @@
 		}
 		&__email {
 			font-size: rem(17);
+		}
+		&__background {
+			svg {
+				width: 170% !important;
+				transform: scale(1.3) rotate(-60deg) translateX(-10%) translateY(0%) !important;
+			}
 		}
 	}
 	.contact-hero {

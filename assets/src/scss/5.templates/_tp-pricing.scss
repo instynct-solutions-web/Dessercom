@@ -45,6 +45,19 @@
 		flex-wrap: wrap;
 		flex-direction: column;
 		justify-content: center;
+		&:hover {
+			.pricing-hero {
+				&__drawer-close {
+					transform: scale(1.2) rotate(90deg);
+				}
+				&__drawer-open {
+					transform: scale(1.2) rotate(0deg);
+				}
+				&__drawer-title {
+					opacity: 0.4;
+				}
+			}
+		}
 	}
 	&__top {
 		display: flex;
@@ -127,7 +140,8 @@
 		&--closed {
 			.pricing-hero {
 				&__drawer-close {
-					opacity: 0;
+					//opacity: 0;
+					transform: scale(0) rotate(0deg) !important;
 				}
 				&__drawer-open {
 					opacity: 1;
@@ -151,19 +165,20 @@
 		transform: rotate(45deg);
 		height: rem(20);
 		opacity: 0;
-		transition: 0.4s ease;
+		transition: 0.4s ease-in-out;
 	}
 	&__drawer-close {
 		position: absolute;
 		height: rem(20);
 		display: block;
-		transition: 0.4s ease;
+		transition: 0.4s ease-in-out;
 	}
 	&__drawer-title {
 		color: $white;
 		font-size: rem(21);
 		margin-bottom: 0px;
 		width: calc(100% - 40px);
+		transition: 0.4s ease-in-out;
 	}
 	&__drawer-title-word {
 		display: inline-block;

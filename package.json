@@ -70,6 +70,7 @@
 	},
 	"dependencies": {
 		"@swup/body-class-plugin": "^1.0.2",
+		"@swup/scripts-plugin": "^1.1.0",
 		"circletype": "^2.3.0",
 		"flickity": "^2.2.2",
 		"flickity-as-nav-for": "^2.0.1",

@@ -24,6 +24,7 @@ import FooterCursor from './modules/_footerCursor';
 import HighlightCursor from './modules/_highlightCursor';
 import Swup from 'swup';
 import SwupBodyClassPlugin from '@swup/body-class-plugin';
+import SwupScriptsPlugin from '@swup/scripts-plugin';
 import PayButton from './modules/_payButton';
 
 const App = {
@@ -33,7 +34,13 @@ const App = {
 	init() {
 		// Swup Scripts
 		const swup = new Swup({
-			plugins: [new SwupBodyClassPlugin()],
+			plugins: [
+				new SwupBodyClassPlugin(),
+				new SwupScriptsPlugin({
+					head: true,
+					body: false,
+				}),
+			],
 		});
 		function init() {
 			const calculateHeight = new CalculateHeight();

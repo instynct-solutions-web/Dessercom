@@ -65,39 +65,34 @@ $benefits = get_field('benefits');
 $postID = get_the_ID();
 $theTerm = get_the_terms($postID, 'type');
 if ($theTerm[0]->term_id === 22 || $theTerm[0]->term_id === 54) { ?>
-    <section data-wolfpack-section class="job-benefits">
+    <section data-wolfpack-section class="job-benefits" data-tadam data-tadam-threshold="100">
         <div class="job-benefits__container">
             <div class="job-benefits__background">
                 <?php foreach ($benefits['list'] as $item) { ?>
-                    <p class="job-benefits__sector-background" data-job-sector-background><?= $item['name'] ?></p>
+                    <p class="job-benefits__sector-background" data-words data-tadam-animate="words--delay-0.2" data-job-sector-background><?= $item['name'] ?></p>
                 <?php
                 } ?>
             </div>
             <div class="job-benefits__foreground">
                 <div class="job-benefits__navigation">
-                    <h2 class="job-benefits__title"><?= $benefits['title'] ?></h2>
-                    <ul class="job-benefits__sector-list">
+                    <h2 class="job-benefits__title" data-words data-tadam-animate="words--delay-0.2"><?= $benefits['title'] ?></h2>
+                    <ul class="job-benefits__sector-list" data-tadam-animate="job-sectors">
                         <?php foreach ($benefits['list'] as $item) { ?>
                             <li class="job-benefits__sector-item" data-job-sector-button>
                                 <div class="job-benefits__sector-button">
                                     <p class="job-benefits__sector-text"><?= $item['name'] ?></p>
-                                    <svg class="job-benefits__sector-icon" xmlns="http://www.w3.org/2000/svg" width="13.384" height="14.515" viewBox="0 0 13.384 14.515">
-                                        <g id="Groupe_1326" data-name="Groupe 1326" transform="translate(1.414 1)">
-                                            <path id="Tracé_3" data-name="Tracé 3" d="M0,0,5.278,5.278,10.555,0" transform="translate(0 7.237)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />
-                                            <line id="Ligne_1" data-name="Ligne 1" y1="12.515" transform="translate(5.278 0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" />
-                                        </g>
-                                    </svg>
                                 </div>
                             </li>
                         <?php
                         } ?>
                     </ul>
+                    <span class="job-benefits__separator" data-tadam-animate="scaleY-1--delay-0.4"></span>
                 </div>
                 <div class="job-benefits__content">
                     <?php foreach ($benefits['list'] as $item) {
                         $counter = 1;
                     ?>
-                        <ul class="job-benefits__single-list" data-job-sector>
+                        <ul class="job-benefits__single-list" data-job-sector data-tadam-animate="job-benefits">
                             <?php foreach ($item['benefits_list'] as $benefit) { ?>
                                 <li class="job-benefits__item">
                                     <span class="job-benefits__counter"><?= sprintf('%02d', $counter) ?></span>

@@ -662,6 +662,36 @@ export default class Tadam {
 				},
 				0
 			);
+		} else if (animation === 'job-sectors') {
+			this.elementList = element.querySelectorAll('.job-benefits__sector-item');
+			this.timeline = new TimelineMax();
+			this.timeline.staggerTo(
+				this.elementList,
+				0.75,
+				{
+					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
+					autoAlpha: 1,
+					y: 0,
+					delay: 0.4,
+					force3D: true,
+				},
+				0.1
+			);
+		} else if (animation === 'job-benefits') {
+			this.elementList = element.querySelectorAll('.job-benefits__item');
+			this.timeline = new TimelineMax();
+			this.timeline.staggerTo(
+				this.elementList,
+				0.75,
+				{
+					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
+					autoAlpha: 1,
+					y: 0,
+					delay: 0.4,
+					force3D: true,
+				},
+				0.1
+			);
 		} else if (animation === 'about-pattern') {
 			TweenLite.to(element, 1, {
 				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
