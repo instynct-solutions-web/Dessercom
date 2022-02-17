@@ -11,7 +11,7 @@ get_header(); ?>
 <?php $hero = get_field('hero') ?>
 <section data-wolfpack-section class="jobs-hero" data-tadam data-tadam-threshold="-1">
     <div class="jobs-hero__container">
-        <a href="<?= $hero['cta']['url'] ?>" class="jobs-hero__cta cta">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=<?= get_permalink() ?>" class="jobs-hero__cta cta">
             <span class="jobs-hero__cta-text cta__text" data-circle-text>
                 <?= $hero['cta']['title'] ?>
                 <div> . </div>
@@ -130,7 +130,7 @@ if ($theTerm[0]->term_id === 22 || $theTerm[0]->term_id === 54) { ?>
         </div>
         <div class="jobs-description__main">
             <div class="jobs-description__information">
-                <h2 class="jobs-description__information-title"><?= __('Descriptif du poste', 'theme') ?></h2>
+                <h2 class="jobs-description__information-title"><?= $description['text_title'] ?></h2>
                 <div class="jobs-description__information-content">
                     <p class="jobs-description__text"><?= $description['text'] ?></p>
                     <img src="<?= $description['image']['url'] ?>" alt="<?= $description['image']['url'] ?>" class="jobs-description__image">
@@ -138,17 +138,17 @@ if ($theTerm[0]->term_id === 22 || $theTerm[0]->term_id === 54) { ?>
 
             </div>
             <div class="jobs-description__requirements">
-                <h3 class="jobs-description__requirement-title"><?= __('Exigence du poste', 'theme') ?></h3>
+                <h3 class="jobs-description__requirement-title"><?= $description['experience_title'] ?></h3>
                 <div class="jobs-description__experience">
-                    <h4 class="jobs-description__experience-title"><?= __('Expérience professionnelle', 'theme') ?></h4>
+                    <h4 class="jobs-description__experience-title"><?= $description['experience_subtitle'] ?></h4>
                     <p class="jobs-description__experience-text"><?= $description['experience_text'] ?></p>
                 </div>
                 <div class="jobs-description__formation">
-                    <h4 class="jobs-description__formation-title"><?= __('Formation professionnelle', 'theme') ?></h4>
+                    <h4 class="jobs-description__formation-title"><?= $description['training_subtitle'] ?></h4>
                     <p class="jobs-description__formation-text"><?= $description['training_text'] ?></p>
                 </div>
                 <div class="jobs-description__skills">
-                    <h4 class="jobs-description__skills-title"><?= __('Compétences requises', 'theme') ?></h4>
+                    <h4 class="jobs-description__skills-title"><?= $description['list_title'] ?></h4>
                     <?php if ($description['list']) { ?>
                         <ul class="jobs-description__skills-list">
                             <?php foreach ($description['list'] as $item) { ?>
@@ -164,7 +164,7 @@ if ($theTerm[0]->term_id === 22 || $theTerm[0]->term_id === 54) { ?>
                 </div>
                 <img src="<?= $description['image_large']['url'] ?>" alt="<?= $description['image_large']['alt'] ?>" class="jobs-description__image-large">
                 <div class="jobs-description__schedule">
-                    <h4 class="jobs-description__schedule-title"><?= __('Horaire de travail', 'theme') ?></h4>
+                    <h4 class="jobs-description__schedule-title"><?= $description['schedule_title'] ?></h4>
                     <p class="jobs-description__schedule-text"><?= $description['schedule_text'] ?></p>
                     <p class="jobs-description__schedule-subtext"><?= $description['schedule_text_2'] ?></p>
                     </p>
