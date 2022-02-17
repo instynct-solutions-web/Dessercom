@@ -58,9 +58,15 @@ input[type='submit'],
 input[type='checkbox'],
 input[type='radio'],
 select {
+	-webkit-appearance: none;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	color: inherit;
+}
+input:matches([type='button'], [type='submit'], [type='reset']) {
+	-webkit-appearance: none;
+	white-space: pre;
 }
 
 /* Text Inputs
@@ -88,6 +94,7 @@ input[type='week'] {
 	outline: none;
 	outline-color: transparent;
 	background-color: transparent;
+	color: inherit;
 	-webkit-font-smoothing: inherit !important;
 }
 
@@ -193,6 +200,7 @@ select {
 	outline: none;
 	outline-color: transparent;
 	background-color: transparent;
+	color: inherit !important;
 	-webkit-font-smoothing: inherit !important;
 }
 

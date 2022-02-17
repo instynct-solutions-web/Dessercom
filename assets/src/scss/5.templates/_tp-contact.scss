@@ -641,9 +641,15 @@
 		&__phone {
 			font-size: rem(17);
 			margin-bottom: 10px;
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 		&__email {
 			font-size: rem(17);
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 	.contact-hero {
@@ -669,6 +675,13 @@
 		&__container {
 			padding-top: 120px;
 		}
+		&__header {
+			&:hover {
+				.contact-hero__name {
+					transform: translateX(10px);
+				}
+			}
+		}
 		&__title {
 			font-size: rem(70);
 			width: 33.33333%;
@@ -680,6 +693,8 @@
 		}
 		&__name {
 			font-size: rem(30);
+			transform: translateX(0px);
+			transition: 0.25s ease;
 		}
 		&__suffix {
 			font-size: rem(14);
@@ -694,6 +709,9 @@
 		&__phone-type,
 		&__phone-number {
 			font-size: rem(17);
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 	.contact-support {
@@ -760,6 +778,9 @@
 		&__phone-type,
 		&__phone-number {
 			font-size: rem(17);
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 	.contact-form {

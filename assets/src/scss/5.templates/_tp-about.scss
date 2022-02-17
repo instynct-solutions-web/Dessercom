@@ -239,6 +239,8 @@
 		justify-content: flex-start;
 		align-items: center;
 		margin-bottom: 80px;
+		position: relative;
+		z-index: 2;
 	}
 	&__nav {
 		background-color: $teal;
@@ -395,11 +397,11 @@
 				content: '';
 				height: 100%;
 				width: 100px;
-				background-image: linear-gradient(to right, rgba(255, 0, 0, 0), #041e36);
+				background-image: linear-gradient(to right, rgb(4 30 54 / 0%), #041e36);
 				display: block;
 				position: absolute;
 				top: 0;
-				right: 0;
+				right: -8%;
 			}
 		}
 		&__media {
