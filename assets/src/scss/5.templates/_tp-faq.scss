@@ -63,7 +63,8 @@
 					transform: rotate(0deg);
 				}
 				&__answer-content {
-					display: none;
+					max-height: 0px;
+					padding: 0;
 				}
 			}
 		}
@@ -94,9 +95,13 @@
 		position: absolute;
 		right: 0px;
 		transform: rotate(180deg);
+		transition: 0.25s ease;
 	}
 	&__answer-content {
 		padding-bottom: 30px;
+		max-height: 1000px;
+		transition: max-height 0.5s ease, padding 0.5s ease;
+		overflow: hidden;
 		p {
 			font-size: rem(13);
 			font-weight: 500;
@@ -203,9 +208,17 @@
 		&__answer-title {
 			font-size: rem(20);
 			margin-bottom: 0;
-			padding: 1.2em 0;
+			padding: 1.2em 0 1.2em 0;
+			transition: 0.25s ease;
+			&:hover {
+				padding: 1.2em 0 1.2em 0.6em;
+				&::after {
+					height: 2px;
+				}
+			}
 			&::after {
 				bottom: 0;
+				transition: 0.25s ease;
 			}
 		}
 
@@ -215,6 +228,11 @@
 			li,
 			a {
 				font-size: rem(16);
+			}
+			a {
+				&:hover {
+					text-decoration: underline;
+				}
 			}
 		}
 	}

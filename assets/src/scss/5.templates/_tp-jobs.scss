@@ -302,6 +302,8 @@
 	&__filters-arrow {
 		transform-origin: center;
 		margin-left: 10px;
+		transform: rotate(0);
+		transition: 0.25s ease;
 	}
 	&__job {
 		display: flex;

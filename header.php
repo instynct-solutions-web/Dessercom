@@ -169,15 +169,15 @@
 				<div data-lightbox-slider-container class="lightbox-slider">
 					<div class="lightbox-slider__container">
 						<div class="lightbox-slider__cta-wrapper">
-							<div data-lightbox-slider-close class="lightbox-slider__cta">
-								<span class="lightbox-slider__cta-text" data-circle-text>
+							<div data-cursor data-lightbox-slider-close class="lightbox-slider__cta cta">
+								<span class="lightbox-slider__cta-text cta__text" data-circle-text>
 									<?php for ($i = 0; $i <= 5; $i++) { ?>
 										<?= $content['back'] ?>
 										<div> . </div>
 									<?php
 									} ?>
 								</span>
-								<svg class="lightbox-slider__cta-icon" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.1 16.66">
+								<svg class="lightbox-slider__cta-icon cta__icon" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.1 16.66">
 									<g id="Groupe_1000" data-name="Groupe 1000">
 										<g id="Groupe_999" data-name="Groupe 999">
 											<g id="Groupe_796" data-name="Groupe 796">

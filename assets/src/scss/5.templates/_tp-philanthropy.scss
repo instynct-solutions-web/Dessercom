@@ -869,19 +869,29 @@
 		}
 		&__toggle {
 			transform: scale(1);
-			transition: background-color 0s linear 0s, transform 0s ease-in-out 0s;
+			transition: background-color 0s linear 0s, transform 0.3s ease 0s;
+			&:hover {
+				transform: scale(1.4);
+				transition: background-color 0.3s linear 1s, transform 0.25s ease 0s;
+			}
 			&--animate {
-				transform: scale(100);
-				transition: background-color 0.3s linear 1s, transform 0.7s ease-in-out 0.2s;
+				transform: scale(100) !important;
+				transition: background-color 0.3s linear 1s, transform 0.7s ease 0.2s !important;
 			}
 		}
 		&__phone {
 			color: $navy;
 			font-size: rem(16);
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 		&__website {
 			color: $navy;
 			font-size: rem(16);
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 	.philanthropy-research {
@@ -1037,10 +1047,14 @@
 			right: 30%;
 			left: unset;
 			transform: scale(1);
-			transition: background-color 0s linear 0s, transform 0s ease-in-out 0s;
+			transition: background-color 0s linear 0s, transform 0.3s ease 0s;
+			&:hover {
+				transform: scale(1.4);
+				transition: background-color 0.3s linear 1s, transform 0.25s ease 0s;
+			}
 			&--animate {
-				transform: scale(100);
-				transition: background-color 0.3s linear 1s, transform 0.7s ease-in-out 0.2s;
+				transform: scale(100) !important;
+				transition: background-color 0.3s linear 1s, transform 0.7s ease 0.2s !important;
 			}
 		}
 		&__data-list {

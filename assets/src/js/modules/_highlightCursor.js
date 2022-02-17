@@ -9,8 +9,10 @@ export default class HighlightCursor {
 		this.sectionWrapper = document.querySelector('[data-higlight-wrapper]');
 		this.cursorPointer = document.querySelector('[data-cursor-pointer]');
 		this.cursorTop = 0;
-		if (this.textCursor) {
-			this.manageEvents();
+		if (window.innerWidth > 1280) {
+			if (this.textCursor) {
+				this.manageEvents();
+			}
 		}
 	}
 

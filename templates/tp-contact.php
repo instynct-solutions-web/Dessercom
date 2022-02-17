@@ -82,7 +82,7 @@ $media = get_field('media') ?>
                     foreach ($hero['list'] as $item) { ?>
                         <li class="contact-hero__item">
                             <div class="contact-hero__location">
-                                <div data-contact-drawer-toggle class="contact-hero__header">
+                                <div data-cursor data-contact-drawer-toggle class="contact-hero__header">
                                     <p class="contact-hero__name"><?= $item['name'] ?><span class="contact-hero__suffix"><?= $item['suffix'] ?></span></p>
                                     <div data-contact-drawer-icon data-services-drawer-icon class="contact-hero__item-icon">
                                         <svg class="contact-hero__item-close" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.1 16.66">

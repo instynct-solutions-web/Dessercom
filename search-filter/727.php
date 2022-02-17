@@ -18,9 +18,9 @@
                     </h4>
                 </div>
                 <div class="faq__answer-content">
-                    <p class="faq__answer-text"><?= $question['text'] ?></p>
+                    <div class="faq__answer-text"><?= $question['text'] ?></div>
                     <?php if ($question['subtext']) { ?>
-                        <p class="faq__answer-subtext"><?= $question['subtext'] ?></p>
+                        <div class="faq__answer-subtext"><?= $question['subtext'] ?></div>
                     <?php
                     } ?>
                     <?php if ($question['link']) { ?>
