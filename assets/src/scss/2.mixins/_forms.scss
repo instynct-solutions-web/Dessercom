@@ -417,10 +417,9 @@
 		.gform_footer {
 			.gform_button {
 				font-size: rem(15);
-				opacity: 1;
 				transition: 0.25s ease;
 				&:hover {
-					opacity: 0.6;
+					background-color: $navy;
 				}
 			}
 		}
@@ -799,10 +798,9 @@
 		.gform_footer {
 			.gform_button {
 				font-size: rem(15);
-				transform: scale(1);
-				transition: transform 0.25s ease;
+				transition: 0.25s ease;
 				&:hover {
-					transform: scale(1.05);
+					background-color: $navy;
 				}
 			}
 		}
@@ -987,10 +985,9 @@
 		.gform_footer {
 			.gform_button {
 				font-size: rem(15);
-				opacity: 1;
 				transition: 0.25s ease;
 				&:hover {
-					opacity: 0.6;
+					background-color: $teal;
 				}
 			}
 		}

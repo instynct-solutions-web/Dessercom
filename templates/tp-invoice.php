@@ -33,11 +33,11 @@ get_header(); ?>
         </h1>
         <div class="invoice-form__header" data-tadam-animate="opacity-1--y-0--delay-0.4">
             <span class="invoice-form__separator"></span>
-            <img src="<?= $form['image']['url'] ?>" alt="<?= $form['image']['alt'] ?>" class="invoice-form__image">
+            <img data-hint-image src="<?= $form['image']['url'] ?>" alt="<?= $form['image']['alt'] ?>" class="invoice-form__image">
             <p class="invoice-form__header-title"><?= $form['section_title'] ?></p>
-            <svg class="invoice-form__header-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <svg data-cursor data-hint-icon class="invoice-form__header-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                 <g id="Groupe_178" data-name="Groupe 178" transform="translate(-424 -480)" opacity="0.5">
-                    <text id="_" data-name="!" transform="translate(430 493)" fill="#041e36" font-size="13" font-family="F37Ginger, F37 Ginger">
+                    <text id="_" data-name="!" transform="translate(429 493)" fill="#041e36" font-size="13" font-family="F37Ginger, F37 Ginger">
                         <tspan x="0" y="0">!</tspan>
                     </text>
                     <g id="Ellipse_43" data-name="Ellipse 43" transform="translate(424 480)" fill="none" stroke="#0a1e34" stroke-width="1">

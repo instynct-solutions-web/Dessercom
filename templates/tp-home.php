@@ -144,6 +144,10 @@ $index = 0;
 <?php $promo = get_field('promo') ?>
 <section data-wolfpack-section class="home-promo">
     <div class="home-promo__container">
+        <div class="home-promo__video-container">
+            <video controls class="home-promo__video" src="<?= $promo['video']['url'] ?>"></video>
+
+        </div>
         <ul data-cursor-class="video" data-cursor data-cursor-text="<?= $promo['text'] ?>" data-video-overlay class="home-promo__list">
             <?php foreach ($promo['list'] as $list) { ?>
                 <li class="home-promo__item">
@@ -155,9 +159,7 @@ $index = 0;
                 </li>
             <?php } ?>
         </ul>
-        <div class="home-promo__video-container">
-            <?= $promo['video'] ?>
-        </div>
+
         <div data-video-button class="home-promo__video-button">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 15">
                 <path id="Polygone_14" data-name="Polygone 14" d="M6.674,1.212a1,1,0,0,1,1.652,0l5.608,8.225A1,1,0,0,1,13.108,11H1.892a1,1,0,0,1-.826-1.563Z" transform="translate(11) rotate(90)" fill="#00938f" />

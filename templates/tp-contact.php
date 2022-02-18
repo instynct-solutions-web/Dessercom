@@ -183,9 +183,7 @@ $contact = get_field('form'); ?>
             if (ICL_LANGUAGE_CODE == 'fr') {
                 echo do_shortcode('[gravityform id="2" title="false" description="false" ajax="false"]');
             } ?>
-            <?php
 
-            echo do_shortcode('[gravityform id="' . $contact['form'] . '" title="false" description="false" ajax="false"]'); ?>
         </div>
     </div>
 </section>

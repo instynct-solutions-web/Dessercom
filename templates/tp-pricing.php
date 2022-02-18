@@ -45,7 +45,7 @@ get_header(); ?>
                     <?php
                     foreach ($hero['list'] as $category) { ?>
                         <li class="pricing-hero__item" data-pricing>
-                            <div data-pricing-button class="pricing-hero__toggle-container">
+                            <div data-cursor data-pricing-button class="pricing-hero__toggle-container">
                                 <div class="pricing-hero__drawer-button">
                                     <svg class="pricing-hero__drawer-open" xmlns="http://www.w3.org/2000/svg" width="22.613" height="25.458" viewBox="0 0 22.613 25.458">
                                         <g id="Groupe_800" data-name="Groupe 800" transform="translate(1.414 -13.432)">

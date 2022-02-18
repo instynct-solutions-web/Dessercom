@@ -43,8 +43,8 @@ $terms = get_terms(array(
         <div class="team-grid__top">
             <h2 class="team-grid__title" data-words data-tadam-animate="words"><?= $team['title'] ?></h2>
         </div>
-        <div class="team-grid__grid">
-            <ul class="team-grid__division-list" data-tadam-animate="team-divisions">
+        <div data-follow-me-container class="team-grid__grid">
+            <ul data-follow-me class="team-grid__division-list" data-tadam-animate="team-divisions">
                 <?php
                 foreach ($terms as $division) { ?>
                     <li class="team-grid__division-item">

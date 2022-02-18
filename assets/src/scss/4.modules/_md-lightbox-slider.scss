@@ -15,14 +15,14 @@
 	opacity: 0;
 	pointer-events: none;
 	margin: auto;
-	transform: translateX(200vh);
+	transform: translateX(99.9vw);
 	overflow: hidden;
 	transition: transform 0.5s ease-in-out 0s, opacity 0.1s linear 0.5s;
 	&--visible {
 		transform: translateX(0vh);
 		opacity: 1;
 		pointer-events: all;
-		transition: transform 1s ease-in-out 0.1s;
+		transition: transform 1s ease-in-out 0.1s, opacity 0.1s linear 0.1s;
 	}
 	.flickity-viewport {
 		overflow: visible;
@@ -155,7 +155,7 @@
 			transform: translateX(0vh);
 			opacity: 1;
 			pointer-events: all;
-			transition: transform 1.2s ease-in-out 1s;
+			transition: transform 1.2s ease-in-out 1s, opacity 0.1s linear 1s;
 		}
 		&__list {
 			height: 70%;

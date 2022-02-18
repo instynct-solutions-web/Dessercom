@@ -6,7 +6,7 @@
             $jobsHero = get_field('hero')
             // Get project ACF Field
     ?>
-            <a href="<?php the_permalink(); ?>" class="jobs-careers__job">
+            <a data-cursor href="<?php the_permalink(); ?>" class="jobs-careers__job">
                 <div class="jobs-careers__job-header">
                     <h4 class="jobs-careers__job-name"><?= the_title() ?></h4>
                     <p class="jobs-careers__location"><?= $jobsHero['location'] ?></p>

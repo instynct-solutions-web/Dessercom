@@ -132,6 +132,11 @@
 			left: -25%;
 			width: calc(25% - 16px);
 			display: block;
+			opacity: 0;
+			transition: 0.25s ease;
+			&--visible {
+				opacity: 1;
+			}
 		}
 		&__background {
 			position: absolute;

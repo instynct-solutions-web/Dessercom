@@ -307,12 +307,16 @@
 		}
 		&__division-list {
 			width: 25%;
-			padding-top: 60px;
+			padding-top: 120px;
+			height: 50%;
 		}
 		&__division-item {
 			opacity: 0;
 			visibility: hidden;
 			transform: translate3d(0, 100%, 0);
+			&:first-child {
+				margin-top: 5em;
+			}
 		}
 		&__division-member {
 			opacity: 0;

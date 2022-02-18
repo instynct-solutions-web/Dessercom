@@ -359,8 +359,6 @@ export default class Wolfpack {
 		if (this.followMeContainerList.length !== 0) {
 			for (let i = 0; i < this.followMeContainerList.length; i += 1) {
 				this.followMeHeight.push(this.followMeList[i].offsetHeight);
-				console.log(this.followMeContainerList[i].offsetHeight);
-				console.log(this.followMeContainerList[i].getBoundingClientRect());
 				this.followMeContainerHeight.push(this.followMeContainerList[i].offsetHeight);
 				this.followMeTop.push(this.followMeContainerList[i].getBoundingClientRect().y);
 				this.followMeStart.push(this.followMeTop[i] + this.windowHeight);
@@ -758,7 +756,6 @@ export default class Wolfpack {
 						this.wolfpackHovering[i] = true;
 					});
 					this.wolfpackList[i].addEventListener('pointerenter', () => {
-						console.log('coucou');
 						for (let j = 0; j < this.wolfpackList.length; j += 1) {
 							if (j !== i) {
 								this.wolfpackHovering[j] = false;
