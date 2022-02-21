@@ -4,7 +4,7 @@ export default class InvoiceHint {
 		this.hintImageCloseList = document.querySelectorAll('[data-hint-image-close]');
 		this.hintImageContainerList = document.querySelectorAll('[data-hint-image-container]');
 		this.hintImageList = document.querySelectorAll('[data-hint-image]');
-		if (this.hintImageList) {
+		if (this.hintImageList[0]) {
 			this.manageEvents();
 		}
 	}

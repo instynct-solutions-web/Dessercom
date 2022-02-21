@@ -116,10 +116,11 @@
 			input {
 				font-size: rem(23) !important;
 				line-height: 1 !important;
-				text-align: center;
+				text-align: left;
 				letter-spacing: 10px;
 				padding: 20px !important;
 				transition: 0.5s ease;
+				margin-left: 1em;
 			}
 			&.gfield--focus {
 				.gfield_label {
@@ -204,6 +205,13 @@
 				.StripeElement {
 					width: 100%;
 					border: 0px !important;
+					height: 72px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					> div {
+						width: 100%;
+					}
 				}
 				input {
 					font-size: rem(16) !important;
@@ -299,7 +307,8 @@
 			position: absolute;
 			right: 20px;
 			transform-origin: center;
-			transform: rotate(225deg);
+			width: 15px;
+			transform: rotate(0deg);
 		}
 	}
 	.gfield {
@@ -400,6 +409,15 @@
 				.ginput_full {
 					label {
 						font-size: rem(15) !important;
+					}
+					.StripeElement {
+						height: 72px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						> div {
+							width: 100%;
+						}
 					}
 				}
 			}
