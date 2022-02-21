@@ -1,4 +1,4 @@
-import { gsap, TweenLite } from 'gsap';
+import {gsap, TweenLite} from 'gsap';
 import CustomEase from 'gsap/CustomEase';
 gsap.registerPlugin(CustomEase);
 export default class Jobs {
@@ -16,6 +16,7 @@ export default class Jobs {
 
 	manageEvents() {
 		if (this.zoneTitle) {
+			Jobs.openDrawer(this.zoneList, this.zoneTitle);
 			this.zoneTitle.innerHTML += this.arrow;
 			this.zoneTitle.addEventListener('click', () => {
 				if (!this.zoneList.classList.contains('opened')) {
