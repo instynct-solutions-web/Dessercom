@@ -43,7 +43,7 @@
 	<div id="swup" class="wolfpack-container" data-calc-mobile data-calc-mobile-responsive="responsive">
 		<div class="scrollbar" data-scrollbar data-scrollbar-index=2><span class="scrollbar__thumb" data-scrollbar-thumb></span></div>
 		<?php $header = get_field('header', 'options'); ?>
-		<header class="header transition-fade" data-header data-tadam data-tadam-threshold=-1>
+		<header class="header" data-header data-header-disappear data-header-small=100 data-tadam data-tadam-threshold=-1>
 			<div data-header-hide class="header__top">
 				<div class="header__lang-container" data-tadam-animate="opacity-1--y-0--delay-0.4">
 					<?php do_action('wpml_add_language_selector') ?>
