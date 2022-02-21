@@ -10,9 +10,7 @@
 	&__background {
 		display: none;
 	}
-	&__image {
-		display: none;
-	}
+
 	&__cta {
 		display: inline-flex;
 		flex-wrap: wrap;
@@ -85,6 +83,63 @@
 		visibility: hidden;
 		transform: translate3d(0, 100px, 0);
 	}
+	&__image {
+		&--mobile {
+			display: block;
+			position: relative;
+			width: 50%;
+		}
+	}
+	&__image-close-container {
+		&--mobile {
+			display: block;
+			width: 25px;
+			height: 25px;
+			background: $teal;
+			border-radius: 50%;
+			position: absolute;
+			top: 15%;
+			right: 10%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+	&__image-close {
+		position: absolute;
+		width: 10px;
+		height: 1px;
+		background-color: $white;
+		border-radius: 10px;
+		transform-origin: center;
+
+		&:first-of-type {
+			transform: rotate(45deg);
+		}
+		&:last-of-type {
+			transform: rotate(-45deg);
+		}
+	}
+	&__image-container {
+		opacity: 0;
+		pointer-events: none;
+		&--mobile {
+			position: fixed;
+			height: 100vh;
+			width: 100vw;
+			background-color: white;
+			z-index: 2;
+			top: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: 0.25s ease;
+		}
+		&--visible {
+			opacity: 1;
+			pointer-events: all;
+		}
+	}
 }
 
 @include tablet-only {
@@ -126,17 +181,53 @@
 		&__header-title {
 			font-size: rem(16);
 		}
+		&__image-close-container {
+			position: absolute;
+			left: -25%;
+			z-index: 2;
+			top: -100%;
+			color: $white;
+			background: $teal;
+			border-radius: 50%;
+			height: 20px;
+			width: 20px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 9px;
+			line-height: 15px;
+		}
+		&__image-close {
+			position: absolute;
+			width: 10px;
+			height: 1px;
+			background-color: $white;
+			border-radius: 10px;
+			transform-origin: center;
+			&:first-of-type {
+				transform: rotate(45deg);
+			}
+			&:last-of-type {
+				transform: rotate(-45deg);
+			}
+		}
+		&__image-container {
+			opacity: 0;
+			transition: 0.25s ease;
+			&--mobile {
+				display: none;
+			}
+			&--visible {
+				opacity: 1;
+			}
+		}
 		&__image {
 			position: absolute;
 			top: 0px;
 			left: -25%;
 			width: calc(25% - 16px);
 			display: block;
-			opacity: 0;
-			transition: 0.25s ease;
-			&--visible {
-				opacity: 1;
-			}
+			opacity: 1;
 		}
 		&__background {
 			position: absolute;
