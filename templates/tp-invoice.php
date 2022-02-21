@@ -5,8 +5,15 @@ Template Name: Invoice
 
 // Load header.php
 get_header(); ?>
-
 <?php $form = get_field('form') ?>
+<div data-hint-image-container class="invoice-form__image-container invoice-form__image-container--mobile">
+    <div data-cursor data-hint-image-close class="invoice-form__image-close-container invoice-form__image-close-container--mobile">
+        <span class="invoice-form__image-close"></span>
+        <span class="invoice-form__image-close"></span>
+    </div>
+    <img data-hint-image src="<?= $form['image']['url'] ?>" alt="<?= $form['image']['alt'] ?>" class="invoice-form__image invoice-form__image--mobile">
+</div>
+
 <section data-wolfpack-section class="invoice-form">
     <div class="invoice-form__container" data-tadam data-tadam-threshold="-1">
         <a href="<?= $form['link']['url'] ?>" class="invoice-form__cta cta">
@@ -33,7 +40,13 @@ get_header(); ?>
         </h1>
         <div class="invoice-form__header" data-tadam-animate="opacity-1--y-0--delay-0.4">
             <span class="invoice-form__separator"></span>
-            <img data-hint-image src="<?= $form['image']['url'] ?>" alt="<?= $form['image']['alt'] ?>" class="invoice-form__image">
+            <div data-hint-image-container class="invoice-form__image-container">
+                <div data-cursor data-hint-image-close class="invoice-form__image-close-container">
+                    <span class="invoice-form__image-close"></span>
+                    <span class="invoice-form__image-close"></span>
+                </div>
+                <img data-hint-image src="<?= $form['image']['url'] ?>" alt="<?= $form['image']['alt'] ?>" class="invoice-form__image">
+            </div>
             <p class="invoice-form__header-title"><?= $form['section_title'] ?></p>
             <svg data-cursor data-hint-icon class="invoice-form__header-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                 <g id="Groupe_178" data-name="Groupe 178" transform="translate(-424 -480)" opacity="0.5">

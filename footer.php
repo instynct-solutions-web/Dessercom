@@ -6,7 +6,9 @@ $footer = get_field('footer', 'options');
     <div class="footer__container">
         <div class="footer__brand">
             <div class="footer__logo-container">
-                <img src="<?= $footer['logo']['url'] ?>" alt="<?= $footer['logo']['url'] ?>" class="footer__logo">
+                <a href="<?php echo apply_filters('wpml_home_url', get_option('home')); ?>" class="footer__logo-link">
+                    <img src="<?= $footer['logo']['url'] ?>" alt="<?= $footer['logo']['url'] ?>" class="footer__logo">
+                </a>
             </div>
             <div class="footer__copyright-container footer__copyright-container--desktop">
                 <p class="footer__copyright"><?= $footer['copyright'] ?></p>
