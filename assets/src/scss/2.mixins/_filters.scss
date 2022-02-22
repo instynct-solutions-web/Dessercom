@@ -49,8 +49,11 @@
 
 	@include desktop-only {
 		.sf-label-radio {
-			display: inline-flex;
-			flex-wrap: nowrap;
+			display: inline-block;
+		}
+		.sf-level-0 {
+			padding-right: 0px;
+			position: relative;
 		}
 	}
 }
