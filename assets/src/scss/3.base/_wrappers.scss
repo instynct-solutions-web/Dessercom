@@ -4,6 +4,7 @@
 
 main {
 	padding-top: $mobile-header-height;
+	overflow: hidden;
 }
 .container {
 	@include container;

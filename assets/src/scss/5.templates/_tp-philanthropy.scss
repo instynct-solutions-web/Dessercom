@@ -182,6 +182,7 @@
 .philanthropy-house {
 	position: relative;
 	z-index: 2 !important;
+	overflow: visible !important;
 	&__container {
 		@include container;
 	}
@@ -192,6 +193,7 @@
 	}
 	&__image {
 		transform: translateX(-15%);
+		width: 100vw;
 	}
 	&__media {
 		margin: 2em 0;
@@ -217,13 +219,13 @@
 		justify-content: center;
 		align-items: center;
 		letter-spacing: 0;
+		margin: 0;
+		right: 30%;
 		position: absolute;
-		left: 0;
-		right: 0;
-		bottom: 8%;
-		margin: auto;
+		left: unset;
+		bottom: 2%;
 		transform: scale(1);
-		transition: background-color 0.5s linear 0.5s, transform 0.5s ease-in-out 0.3s;
+		transition: background-color 0.25s linear 0.5s, transform 0.5s ease-in-out 0.2s;
 		&--animate {
 			background-color: $white;
 			transform: scale(100);
@@ -454,7 +456,9 @@
 }
 .philanthropy-borders {
 	padding: 1em 0;
-	&__top-container {
+	z-index: 2 !important;
+	overflow: visible !important;
+	&__container {
 		@include container;
 	}
 	&__top {
@@ -482,7 +486,7 @@
 		width: 100px;
 		height: 100px;
 		position: absolute;
-		top: 5%;
+		top: 100%;
 		right: 5%;
 		z-index: 1;
 		@include arrow($teal, 0deg);
@@ -499,6 +503,7 @@
 	}
 	&__image {
 		transform: translateX(-15%);
+		width: 100vw;
 	}
 	&__media {
 		margin: 2em 0;
@@ -524,13 +529,13 @@
 		justify-content: center;
 		align-items: center;
 		letter-spacing: 0;
+		margin: 0;
+		right: 30%;
 		position: absolute;
-		left: 0;
-		right: 0;
-		bottom: 8%;
-		margin: auto;
+		left: unset;
+		bottom: 2%;
 		transform: scale(1);
-		transition: background-color 0.5s linear 0.5s, transform 0.5s ease-in-out 0.3s;
+		transition: background-color 0.25s linear 0.5s, transform 0.5s ease-in-out 0.2s;
 		&--animate {
 			background-color: $white;
 			transform: scale(100);
@@ -688,6 +693,9 @@
 			line-height: 1.6em;
 			margin-top: 2em;
 		}
+		&__toggle {
+			right: 35%;
+		}
 	}
 	.philanthropy-research {
 		&__background {
@@ -764,8 +772,10 @@
 		}
 		&__toggle {
 			left: unset;
-			right: 5%;
-			margin: none;
+			right: unset;
+			margin: 0;
+			right: 0%;
+			bottom: 7%;
 		}
 	}
 	.philanthropy-grant {

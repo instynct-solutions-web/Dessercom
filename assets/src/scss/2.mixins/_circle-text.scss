@@ -3,7 +3,7 @@
 // ==========================================================================
 
 @mixin circleText($textColor: $navy) {
-	font-size: rem(11);
+	font-size: rem(10);
 	color: $textColor;
 	font-weight: 700;
 	transform-origin: center;
