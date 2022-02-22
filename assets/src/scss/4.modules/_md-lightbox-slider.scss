@@ -4,7 +4,7 @@
 
 .lightbox-slider {
 	position: fixed;
-	height: 100vh;
+	height: calc(100vh - #{$mobile-header-height});
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -16,13 +16,14 @@
 	pointer-events: none;
 	margin: auto;
 	transform: translateX(99.9vw);
+	margin-top: $mobile-header-height;
 	overflow: hidden;
 	transition: transform 0.5s ease-in-out 0s, opacity 0.1s linear 0.5s;
 	&--visible {
 		transform: translateX(0vh);
 		opacity: 1;
 		pointer-events: all;
-		transition: transform 1s ease-in-out 0.1s, opacity 0.1s linear 0.1s;
+		transition: transform 1s ease-in-out 0.6s, opacity 0.1s linear 0.5s;
 	}
 	.flickity-viewport {
 		overflow: visible;
@@ -32,7 +33,7 @@
 		height: 100%;
 		display: flex;
 		align-items: center;
-		justify-content: space-evenly;
+		justify-content: space-around;
 		flex-direction: column;
 		max-width: none !important;
 	}
@@ -49,13 +50,14 @@
 		align-items: center;
 		justify-content: center;
 		align-self: flex-end;
-		width: 100px;
+		width: 80px;
 		height: auto;
 		position: relative;
-		top: 30px;
-		right: 20px;
+		top: 0;
+		right: 0;
 		z-index: 1;
 		opacity: 0;
+		transition: opacity 0.25s ease;
 		&:hover {
 			.cta__icon {
 				transform: scale(1.2) rotate(90deg);
@@ -179,6 +181,8 @@
 		&__cta-wrapper {
 			position: absolute;
 			top: 0;
+			margin-top: 2em;
+			margin-bottom: 4em;
 		}
 		&__button-wrapper {
 			display: none;
