@@ -6,13 +6,13 @@
             $jobsHero = get_field('hero')
             // Get project ACF Field
     ?>
-            <a href="<?php the_permalink(); ?>" class="jobs-careers__job">
+            <a data-cursor href="<?php the_permalink(); ?>" class="jobs-careers__job">
                 <div class="jobs-careers__job-header">
                     <h4 class="jobs-careers__job-name"><?= the_title() ?></h4>
                     <p class="jobs-careers__location"><?= $jobsHero['location'] ?></p>
                 </div>
                 <span class="jobs-careers__job-link">
-                    <?= __('Voir le poste', 'theme') ?>
+                    <?= $jobsHero['see_job'] ?>
                     <svg class="jobs-careers__job-link-icon" xmlns="http://www.w3.org/2000/svg" width="13.384" height="14.515" viewBox="0 0 13.384 14.515">
                         <g id="Groupe_788" data-name="Groupe 788" transform="translate(1.414 1)">
                             <path id="Tracé_3" data-name="Tracé 3" d="M0,0,5.278,5.278,10.555,0" transform="translate(0 7.237)" fill="none" stroke="#00938f" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />

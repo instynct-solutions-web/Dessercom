@@ -29,3 +29,5 @@ require_once('inc/tiny-mce.php');
 
 // Support theme Title
 add_theme_support('title-tag');
+
+add_filter('gform_confirmation_anchor', '__return_true');

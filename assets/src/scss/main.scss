@@ -14,6 +14,9 @@
 @import '2.mixins/typography';
 @import '2.mixins/forms';
 @import '2.mixins/filters';
+@import '2.mixins/arrows';
+@import '2.mixins/circle-text';
+@import '2.mixins/delays';
 
 @import '3.base/form';
 @import '3.base/titles';
@@ -24,8 +27,10 @@
 @import '4.modules/md-header';
 @import '4.modules/md-footer';
 @import '4.modules/md-cursors';
+@import '4.modules/md-preloader';
 @import '4.modules/md-tilted-slider';
 @import '4.modules/md-lightbox-slider';
+@import '4.modules/md-map';
 
 @import '5.templates/tp-home';
 @import '5.templates/tp-pricing';

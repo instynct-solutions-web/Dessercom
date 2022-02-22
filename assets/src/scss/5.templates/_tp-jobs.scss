@@ -6,12 +6,14 @@
 	background-color: $navy;
 	margin-top: 25px;
 	position: relative;
+	overflow: hidden;
 	&__background {
 		position: absolute;
 		left: -50%;
-		top: -40px;
-		width: 125%;
+		top: -140px;
+		width: 140%;
 		opacity: 0.3;
+		transform: rotate(115deg);
 	}
 	&__container {
 		@include container;
@@ -36,11 +38,17 @@
 		width: 83.33333%;
 		margin-bottom: 40px;
 	}
+	&__title-word {
+		display: inline-block;
+	}
 	&__text {
 		font-size: rem(15);
 		font-weight: 500;
 		color: $white;
 		line-height: 1.6;
+	}
+	&__text-word {
+		display: inline-block;
 	}
 	&__item {
 		width: 83.33333%;
@@ -146,17 +154,23 @@
 		font-weight: 500;
 		color: $gray;
 		margin-bottom: 30px;
+		width: fit-content;
 	}
 	&__picto {
 		height: 105px;
 		margin-bottom: 20px;
+		transform: scale(1);
 		filter: invert(99%) sepia(1%) saturate(128%) hue-rotate(128deg) brightness(116%) contrast(81%);
+		transition: 0.25s ease-in-out;
 	}
 	&__text {
 		font-size: rem(15);
 		font-weight: 500;
 		line-height: 1.5;
 		color: $gray;
+	}
+	&__name-item {
+		width: fit-content;
 	}
 }
 
@@ -200,6 +214,9 @@
 		color: $white;
 		width: 33.33333%;
 	}
+	&__note-word {
+		display: inline-block;
+	}
 	&__info {
 		padding-bottom: 80px;
 		position: relative;
@@ -221,12 +238,18 @@
 		color: $white;
 		margin-bottom: 40px;
 	}
+	&__title-word {
+		display: inline-block;
+	}
 	&__text {
 		font-size: rem(15);
 		font-weight: 500;
 		line-height: 1.6;
 		color: $white;
 		margin-bottom: 60px;
+	}
+	&__text-word {
+		display: inline-block;
 	}
 	&__link {
 		display: inline-flex;
@@ -269,6 +292,9 @@
 		width: 66.66666%;
 		margin-bottom: 50px;
 	}
+	&__title-word {
+		display: inline-block;
+	}
 	&__filter {
 		margin-bottom: 100px;
 		@include jobsFilters;
@@ -276,6 +302,8 @@
 	&__filters-arrow {
 		transform-origin: center;
 		margin-left: 10px;
+		transform: rotate(0);
+		transition: 0.25s ease;
 	}
 	&__job {
 		display: flex;
@@ -284,6 +312,7 @@
 		margin-bottom: 15px;
 		padding: 20px;
 		background-color: #d5d5d5;
+		cursor: none;
 	}
 	&__job-header {
 		width: 100%;
@@ -350,14 +379,20 @@
 	}
 	.jobs-benefits {
 		position: relative;
+		overflow: initial !important;
 		&__background {
 			top: -150px;
 			width: 100%;
+			opacity: 0.1;
 		}
 		&__container {
 			padding-top: 100px;
 			padding-bottom: 200px;
 			position: relative;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: flex-start;
 		}
 		&__logo {
 			top: 40px;
@@ -368,15 +403,15 @@
 			width: calc(50% - 8px);
 			margin-right: 8px;
 			margin-bottom: 0px;
+			position: sticky;
+			top: 150px;
 		}
 		&__title {
 			width: 75%;
 		}
 		&__list-container {
 			width: calc(50% - 80px);
-			position: absolute;
-			top: 33.33333%;
-			right: 40px;
+			position: relative;
 		}
 		&__item {
 			width: 100%;
@@ -391,6 +426,7 @@
 			z-index: 2;
 			bottom: 0px;
 			left: 0px;
+			opacity: 0;
 			background: linear-gradient(180deg, rgba(5, 28, 47, 0.14889705882352944) 0%, rgba(5, 28, 47, 1) 100%);
 		}
 	}
@@ -408,9 +444,13 @@
 		}
 		&__name-list {
 			display: block;
-			position: absolute;
-			bottom: 100px;
-			left: 40px;
+			position: relative;
+			top: initial;
+			bottom: initial;
+			left: initial;
+			right: initial;
+			float: left;
+			margin-top: 10em;
 		}
 		&__name-item {
 			margin-bottom: 20px;
@@ -447,19 +487,21 @@
 			width: 100%;
 			margin-right: 0px;
 			display: flex;
-			flex-wrap: wrap;
-			align-items: center;
-			justify-content: center;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-start;
+
 			&--opened {
 				justify-content: flex-start;
 				.jobs-values {
 					&__picto {
-						height: 30%;
+						width: 40%;
 						margin: 0px 0 20px 0;
 						filter: invert(33%) sepia(50%) saturate(1571%) hue-rotate(144deg) brightness(101%) contrast(101%);
 					}
 					&__text {
 						display: block;
+						opacity: 1;
 					}
 				}
 			}
@@ -478,7 +520,9 @@
 			height: 20px;
 			border-radius: 50%;
 			background-color: $gray;
+			transform: rotate(0deg);
 			transform-origin: center;
+			transition: 0.25s ease-in-out;
 			&--opened {
 				background-color: $teal;
 				transform: rotate(45deg);
@@ -490,13 +534,16 @@
 			}
 		}
 		&__picto {
-			width: 70%;
+			width: 80%;
+			height: fit-content;
 			margin: 20px 0;
 			filter: invert(99%) sepia(1%) saturate(128%) hue-rotate(128deg) brightness(116%) contrast(81%);
+			transition: 0.25s ease;
 		}
 		&__text {
-			display: none;
+			opacity: 0;
 			color: $navy;
+			transition: opacity 0.25s ease-in-out;
 		}
 	}
 	.jobs-internship {
@@ -576,9 +623,11 @@
 
 @include desktop-only {
 	.jobs-benefits {
+		overflow: hidden !important;
 		margin-top: 50px;
+		padding: 120px 0;
 		&__background {
-			top: -40%;
+			top: -15%;
 			left: -25%;
 			width: 50%;
 		}
@@ -586,37 +635,56 @@
 			display: flex;
 			flex-wrap: wrap;
 			align-items: flex-start;
-			padding-top: 240px;
+			padding-top: 0;
 			padding-bottom: 0px;
-			overflow: hidden;
+			// overflow: hidden;
+			margin-bottom: 0;
+			height: 150vh;
+			position: relative;
 		}
 		&__logo {
 			top: 55px;
 			right: 65px;
 		}
 		&__info {
+			height: auto;
 			width: 41.66666%;
-			margin-left: 8.33333%;
-			margin-right: 8.33333%;
-			margin-bottom: 240px;
+			margin: 0;
+			position: relative;
+			z-index: 3;
+			padding: 120px 0 0 0;
+			top: 0;
 		}
 		&__title {
 			font-size: rem(35);
 			margin-bottom: 25px;
 		}
+		&__title-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__text {
 			font-size: rem(19);
+		}
+		&__text-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
 		}
 		&__list-container {
 			position: relative;
 			width: 33.33333%;
 			top: auto;
 			right: auto;
-			max-height: 500px;
+			padding: 120px 0;
 		}
 		&__item {
 			padding-top: 20px;
 			margin-bottom: 80px;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
 		}
 		&__item-num {
 			font-size: rem(17);
@@ -632,36 +700,79 @@
 			padding-bottom: 180px;
 		}
 		&__info {
-			margin-bottom: 0px;
+			position: relative;
+			display: block;
 		}
 		&__title {
 			font-size: rem(30);
 			width: 25%;
+			margin-bottom: 3em;
+		}
+		&__title-word {
+			display: inline-block;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
 		}
 		&__name-list {
 			width: 16.66666%;
-			bottom: 180px;
-			left: 100px;
+			position: relative;
+			top: initial;
+			bottom: initial;
+			left: initial;
+			right: initial;
+			float: left;
+			margin-top: 2em;
 		}
 		&__name-item {
 			margin-bottom: 25px;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 50px, 0);
 			&:last-of-type {
 				margin-bottom: 0px;
 			}
 		}
 		&__name {
 			font-size: rem(22);
+			transition: color 0.25s ease;
+			&:hover {
+				color: $teal;
+			}
 		}
 		&__grid-list {
 			grid-gap: 120px;
+			row-gap: 0px;
+		}
+		&__grid-item {
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-start;
+			min-height: rem(300);
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 50px, 0);
+			&--opened {
+				.jobs-values {
+					&__picto {
+						transform: scale(0.7);
+					}
+				}
+			}
 		}
 		&__toggler {
 			font-size: rem(22);
-			width: 25px;
-			height: 25px;
+			width: 24px;
+			height: 24px;
 		}
 		&__text {
 			font-size: rem(19);
+		}
+		&__picto {
+			width: 60%;
+			&--colored {
+				filter: invert(33%) sepia(50%) saturate(1571%) hue-rotate(144deg) brightness(101%) contrast(101%);
+			}
 		}
 	}
 	.jobs-internship {
@@ -684,6 +795,11 @@
 			top: 110px;
 			left: 100px;
 		}
+		&__note-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__info {
 			width: 33.33333%;
 			margin-right: 8.33333%;
@@ -698,12 +814,43 @@
 			font-size: rem(45);
 			margin-bottom: 30px;
 		}
+		&__title-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__text {
 			font-size: rem(19);
 			margin-bottom: 70px;
 		}
+		&__text-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__link {
 			font-size: rem(15);
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+			&:after {
+				transform-origin: center;
+				transform: scaleX(1);
+				transition: transform 0.25s ease;
+			}
+			&:hover {
+				&:after {
+					transform: scaleX(0.8);
+				}
+				.jobs-internship__link-icon {
+					transform: rotate(270deg);
+					transition: transform 0.25s ease;
+				}
+			}
+		}
+		&__link-icon {
+			transform: translate(0, 0) rotate(225deg);
+			transition: transform 0.25s ease;
 		}
 	}
 	.jobs-careers {
@@ -715,13 +862,33 @@
 			width: 16.66666%;
 			margin-bottom: 0px;
 		}
+		&__title-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__filter {
 			width: 25%;
 			margin-right: 8.33333%;
 			margin-top: 60px;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100px, 0);
+		}
+		&__grid {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100px, 0);
 		}
 		&__job {
 			padding: 30px;
+			transition: background-color 0.25s ease;
+			&:hover {
+				background-color: $yellow;
+				.jobs-careers__job-link-icon {
+					transform: rotate(270deg);
+				}
+			}
 		}
 		&__header {
 			margin-bottom: 40px;
@@ -734,6 +901,9 @@
 		}
 		&__job-link {
 			font-size: rem(15);
+		}
+		&__job-link-icon {
+			transition: transform 0.25s ease;
 		}
 		&__pagination {
 			margin-top: 50px;

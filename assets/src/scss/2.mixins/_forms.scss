@@ -350,6 +350,9 @@
 			&__number {
 				border-bottom: 1px solid $navy !important;
 			}
+			&__half {
+				width: 50%;
+			}
 			&__left {
 				border-right: 0px !important;
 			}
@@ -414,6 +417,10 @@
 		.gform_footer {
 			.gform_button {
 				font-size: rem(15);
+				transition: 0.25s ease;
+				&:hover {
+					background-color: $navy;
+				}
 			}
 		}
 	}
@@ -791,6 +798,10 @@
 		.gform_footer {
 			.gform_button {
 				font-size: rem(15);
+				transition: 0.25s ease;
+				&:hover {
+					background-color: $navy;
+				}
 			}
 		}
 		.field {
@@ -974,6 +985,10 @@
 		.gform_footer {
 			.gform_button {
 				font-size: rem(15);
+				transition: 0.25s ease;
+				&:hover {
+					background-color: $teal;
+				}
 			}
 		}
 	}

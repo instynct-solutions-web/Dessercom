@@ -2,9 +2,19 @@
 // WOLFPACK
 // ==========================================================================
 
+.transition-fade {
+	opacity: 1;
+	transition: opacity 0.5s ease;
+}
+
+html.is-animating .transition-fade {
+	opacity: 0;
+}
+
 // BASIC
-.header {
-	pointer-events: all;
+.wolfpack-container {
+	position: relative;
+	z-index: 2;
 }
 
 [data-wolfpack] {
@@ -12,11 +22,27 @@
 }
 
 [data-wolfpack-section] {
-	opacity: 0;
-	pointer-events: none;
+	position: relative;
+	z-index: 1;
+	will-change: transform;
 }
 
-body:not(#tinymce) {
+@media only screen and (max-width: 1024px) {
+	[data-wolfpack-section] {
+		opacity: 1 !important;
+		pointer-events: all !important;
+		overflow: hidden;
+	}
+}
+
+@include desktop-only {
+	[data-wolfpack-section] {
+		opacity: 0;
+		pointer-events: none;
+	}
+}
+
+body {
 	transition: background-color 0.7s ease;
 	&.dragging {
 		cursor: grabbing;
@@ -117,8 +143,10 @@ body:not(#tinymce) {
 	}
 }
 
-[data-cursor] {
-	cursor: none;
+@include desktop-only {
+	[data-cursor] {
+		cursor: none;
+	}
 }
 
 @include max-width($tablet-threshold) {
@@ -145,11 +173,12 @@ body:not(#tinymce) {
 }
 
 // SEPARATE WORDS
-[data-separate-words] {
+.separate-word {
 	align-items: flex-start;
 	flex-direction: column;
-	.separate-words__word {
+	&__word {
 		display: inline-block;
+		margin-right: 0.2em;
 	}
 }
 

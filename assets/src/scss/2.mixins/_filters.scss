@@ -77,9 +77,12 @@
 			}
 		}
 		ul {
-			display: none;
+			display: block;
+			max-height: 0px;
+			transition: 0.25s ease;
+			overflow: hidden;
 			&.opened {
-				display: block;
+				max-height: 600px;
 			}
 		}
 	}
@@ -109,6 +112,7 @@
 		font-weight: 500;
 		color: $navy;
 		opacity: 0.3;
+		transition: 0.25s ease;
 	}
 	.sf-count {
 		font-size: rem(13);
@@ -122,10 +126,17 @@
 		.sf-field-taxonomy-type {
 			h4 {
 				margin-bottom: 35px;
+				&:hover {
+					text-decoration: underline;
+				}
 			}
 		}
 		.sf-label-radio {
 			font-size: rem(22);
+			cursor: none;
+			&:hover {
+				opacity: 1;
+			}
 		}
 		.sf-count {
 			font-size: rem(17);

@@ -8,18 +8,19 @@ get_header(); ?>
 
 <?php
 $hero = get_field('hero'); ?>
-<section data-wolfpack-section class="team-hero">
+<section data-wolfpack-section class="team-hero" data-tadam data-tadam-threshold="-1">
     <div class="team-hero__container">
         <div class="team-hero__top">
-            <img src="<?= $hero['icon']['url'] ?>" alt="<?= $hero['icon']['alt'] ?>" class="team-hero__icon">
-            <p class="team-hero__note"><?= $hero['note'] ?></p>
+            <span class="team-hero__separator" data-tadam-animate="scaleX-1"></span>
+            <img src="<?= $hero['icon']['url'] ?>" alt="<?= $hero['icon']['alt'] ?>" class="team-hero__icon" data-tadam-animate="opacity-1--rotation-0--delay-0.1">
+            <p class="team-hero__note" data-words data-tadam-animate="words--delay-0.2"><?= $hero['note'] ?></p>
         </div>
         <div class="team-hero__main">
             <div class="team-hero__info">
-                <h1 class="team-hero__title"><?= $hero['title'] ?></h1>
-                <p class="team-hero__text"><?= $hero['text'] ?></p>
+                <h1 class="team-hero__title" data-words data-tadam-animate="words--delay-0.3"><?= $hero['title'] ?></h1>
+                <p class="team-hero__text" data-words data-tadam-animate="words--delay-0.5"><?= $hero['text'] ?></p>
             </div>
-            <svg class="team-hero__image" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 181.567 163.488">
+            <svg class="team-hero__image" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 181.567 163.488" data-tadam-animate="mask-image--delay-0.5">
                 <defs>
                     <pattern id="image" patternContentUnits="objectBoundingBox" width="1" height="1">
                         <image x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice" xlink:href="<?= $hero['image']['url'] ?>"></image>
@@ -37,13 +38,13 @@ $terms = get_terms(array(
     'taxonomy' => 'division',
     'hide_empty' => true,
 )); ?>
-<section data-wolfpack-section class="team-grid">
+<section data-wolfpack-section class="team-grid" data-tadam data-tadam-threshold="100">
     <div class="team-grid__container">
         <div class="team-grid__top">
-            <h2 class="team-grid__title"><?= $team['title'] ?></h2>
+            <h2 class="team-grid__title" data-words data-tadam-animate="words"><?= $team['title'] ?></h2>
         </div>
-        <div class="team-grid__grid">
-            <ul class="team-grid__division-list">
+        <div data-follow-me-container class="team-grid__grid">
+            <ul data-follow-me class="team-grid__division-list" data-tadam-animate="team-divisions">
                 <?php
                 foreach ($terms as $division) { ?>
                     <li class="team-grid__division-item">
@@ -62,7 +63,7 @@ $terms = get_terms(array(
                 <?php
                 } ?>
             </ul>
-            <div class="team-grid__members">
+            <div class="team-grid__members" data-tadam-animate="team-members">
                 <?php foreach ($terms as $division) {
                     $args = array(
                         'posts_per_page' => -1,
@@ -76,7 +77,7 @@ $terms = get_terms(array(
                     );
                     $members = get_posts($args); ?>
 
-                    <ul class="team-grid__division-grid" id="<?= $division->slug ?>">
+                    <ul class="team-grid__division-grid" id="<?= $division->slug ?>" data-changes data-changes-elements=".team-grid__division-list" data-changes-classes="<?= $division->slug ?>">
                         <?php foreach ($members as $post) {
                             $member = get_field('member');
                         ?>

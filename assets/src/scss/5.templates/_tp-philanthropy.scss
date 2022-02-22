@@ -3,12 +3,21 @@
 // ==========================================================================
 .page-template-tp-philanthropy {
 	.tilted-slider {
-		&__illustration {
+		overflow: initial !important;
+		&__container {
+			overflow: hidden;
+		}
+		&__illustration-container {
 			width: 100%;
 			position: absolute;
+			bottom: -30%;
+			overflow: hidden;
+		}
+		&__illustration {
+			width: 100%;
+			position: relative;
 			bottom: 0;
-			-webkit-transform: translate(110%, 30%);
-			transform: translate(50%, 30%);
+			transform: translate(50%, 0);
 		}
 	}
 
@@ -17,19 +26,25 @@
 			&__list {
 				transform: translateX(-33.33333%) rotate(1deg) scale(0.9);
 			}
-			&__illustration {
+			&__illustration-container {
 				width: 70%;
-				position: absolute;
-				bottom: 0;
-				transform: translate(80%, 40%);
+				bottom: -30%;
+				right: 0;
+			}
+			&__illustration {
+				transform: translate(40%, 0);
 			}
 		}
 	}
 	@include desktop-only {
+		overflow: hidden !important;
 		.tilted-slider {
 			margin-top: 0px;
 			margin-bottom: 0px;
 			margin: 3em 0;
+			&__container {
+				overflow: initial;
+			}
 			&__title {
 				width: 33.33333%;
 				margin: 0 33.33333%;
@@ -40,10 +55,12 @@
 			&__item {
 				width: calc(20% - 10px);
 			}
-			&__illustration {
-				bottom: 0;
+			&__illustration-container {
 				width: 50%;
-				transform: translate(150%, 20%);
+				bottom: -20%;
+			}
+			&__illustration {
+				transform: translate(50%, 0);
 			}
 		}
 	}
@@ -60,9 +77,15 @@
 		@include note;
 		width: rem(85);
 	}
+	&__note-word {
+		display: inline-block;
+	}
 	&__text {
 		font-size: rem(20);
 		line-height: 1.4em;
+	}
+	&__text-word {
+		display: inline-block;
 	}
 }
 
@@ -85,7 +108,16 @@
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
-		border-top: 1px solid $black;
+		position: relative;
+	}
+	&__separator {
+		display: block;
+		height: 1px;
+		width: 100%;
+		background-color: $black;
+		position: absolute;
+		top: 0px;
+		left: 0px;
 	}
 	&__icon {
 		width: rem(15);
@@ -95,12 +127,18 @@
 		@include note;
 		margin-bottom: -0.2em;
 	}
+	&__note-word {
+		display: inline-block;
+	}
 	&__amount-container {
 		position: absolute;
 	}
 	&__amount {
 		font-size: rem(45);
 		opacity: 0.1;
+	}
+	&__amount-letter {
+		display: inline-block;
 	}
 	&__logo-container {
 		position: relative;
@@ -142,13 +180,14 @@
 	}
 }
 .philanthropy-house {
+	position: relative;
+	z-index: 2 !important;
 	&__container {
 		@include container;
 	}
-
 	&__note {
-		width: rem(150);
 		@include note;
+		width: rem(150);
 		margin: 3em 0;
 	}
 	&__image {
@@ -311,17 +350,20 @@
 		line-height: 1.6em;
 		margin: 2em 0 3em 0;
 	}
+	&__text-word {
+		display: inline-block;
+	}
 	&__top {
-		border-top: $white 1px solid;
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
 		width: 100%;
 		padding: 2em 0;
 		margin-top: 2em;
+		position: relative;
 	}
 	&__background-top {
-		border-top: $white 1px solid;
+		border-top: 1px solid $white;
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
@@ -331,9 +373,19 @@
 		z-index: 9;
 		opacity: 0;
 		transition: opacity 0.2s linear;
+		position: relative;
 		&--visible {
 			opacity: 1;
 		}
+	}
+	&__separator {
+		display: block;
+		height: 1px;
+		width: 100%;
+		background-color: $white;
+		position: absolute;
+		top: 0px;
+		left: 0px;
 	}
 	&__icon {
 		width: rem(15);
@@ -343,6 +395,9 @@
 		color: $white;
 		height: rem(20);
 		max-width: rem(175);
+	}
+	&__note-word {
+		display: inline-block;
 	}
 	&__logo {
 		width: rem(30);
@@ -418,26 +473,30 @@
 		@include note;
 		height: rem(12);
 		margin-bottom: 0;
+		width: 40%;
 	}
 	&__cta {
+		display: inline-flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		width: 100px;
+		height: 100px;
+		position: absolute;
+		top: 35px;
+		right: 5%;
+		z-index: 1;
+		@include arrow($teal, 0deg);
+	}
+	&__cta-text {
+		@include circleText;
+	}
+	&__cta-icon {
+		width: 100%;
+		height: 100%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 9.0625rem;
-		position: absolute;
-		top: 100%;
-		right: 0;
-	}
-	&__cta-text {
-		color: $navy;
-		font-weight: 700;
-		font-size: 0.8125rem;
-	}
-	&__cta-icon {
-		position: absolute;
-		height: 1.25rem;
-		width: 1.25rem;
-		transform: rotate(0deg);
 	}
 	&__image {
 		transform: translateX(-15%);
@@ -534,7 +593,7 @@
 	&__background {
 		position: absolute;
 		width: rem(660);
-		transform: rotate(-25deg);
+		transform: rotate(-65deg);
 		z-index: 1;
 	}
 	&__info {
@@ -543,6 +602,9 @@
 	}
 	&__text {
 		font-size: rem(20);
+	}
+	&__text-word {
+		display: inline-block;
 	}
 	&__link-container {
 		display: flex;
@@ -689,6 +751,7 @@
 			line-height: 1.3;
 		}
 		&__note {
+			width: 100%;
 			width: rem(160);
 		}
 		&__text {
@@ -718,7 +781,7 @@
 			max-width: 70%;
 		}
 		&__background {
-			transform: translate(50%, 6%) rotate(-25deg);
+			transform: translate(50%, 6%) rotate(-55deg);
 		}
 	}
 }
@@ -729,15 +792,37 @@
 			margin-right: 8em;
 			margin-top: 1em;
 		}
+		&__note-word {
+			opacity: 1;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__text {
 			font-size: rem(40);
 			width: 75%;
 		}
+		&__text-word {
+			opacity: 1;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 	}
 	.philanthropy-financing {
 		padding-bottom: 4em;
+		&__separator {
+			transform-origin: left;
+			transform: scaleX(0);
+		}
 		&__icon {
 			margin-right: 1.5em;
+			opacity: 0;
+			visibility: hidden;
+			transform: rotate(180deg);
+		}
+		&__note-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
 		}
 		&__amount-container {
 			width: 100%;
@@ -745,9 +830,19 @@
 		&__amount {
 			font-size: rem(180);
 		}
+		&__amount-letter {
+			opacity: 1;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__list {
 			column-gap: 8em;
 			row-gap: 5em;
+		}
+		&__item {
+			opacity: 1;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
 		}
 		&__bottom-icon {
 			width: rem(40);
@@ -778,6 +873,11 @@
 			font-size: rem(16);
 			width: 70%;
 		}
+		&__logo-container {
+			opacity: 0;
+			visibility: hidden;
+			transform: scale(1.2);
+		}
 		&__media {
 			padding: 0;
 			margin: 0;
@@ -788,24 +888,44 @@
 		}
 		&__toggle {
 			transform: scale(1);
-			transition: background-color 0s linear 0s, transform 0s ease-in-out 0s;
+			transition: background-color 0s linear 0s, transform 0.3s ease 0s;
+			&:hover {
+				transform: scale(1.4);
+				transition: background-color 0.3s linear 1s, transform 0.25s ease 0s;
+			}
 			&--animate {
-				transform: scale(100);
-				transition: background-color 0.2s linear 0.8s, transform 1s ease-in-out 0.3s;
+				transform: scale(120) !important;
+				transition: background-color 0.3s linear 1s, transform 0.7s ease 0.2s !important;
 			}
 		}
 		&__phone {
 			color: $navy;
 			font-size: rem(16);
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 		&__website {
 			color: $navy;
 			font-size: rem(16);
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 	.philanthropy-research {
 		&__top {
 			margin-top: 2em;
+		}
+		&__icon {
+			opacity: 0;
+			visibility: hidden;
+			transform: rotate(180deg);
+		}
+		&__note-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
 		}
 		&__text-container {
 			width: 65%;
@@ -814,6 +934,16 @@
 			font-size: rem(40);
 			line-height: 1.35em;
 			width: 90%;
+		}
+		&__text-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
+		&__link-container {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100px, 0);
 		}
 		&__foreground {
 			justify-content: space-between;
@@ -835,6 +965,10 @@
 				flex-basis: 130%;
 			}
 		}
+		&__separator {
+			transform-origin: left;
+			transform: scaleX(0);
+		}
 		&__toggle-container {
 			position: absolute;
 			width: 15%;
@@ -844,6 +978,19 @@
 		&__toggle {
 			width: 60px;
 			height: 60px;
+			transform: scale(1);
+			transition: transform 0.2s linear;
+			svg {
+				transform: translateX(0);
+				transition: transform 0.2s linear;
+			}
+			&:hover {
+				transform: scale(1.1);
+				svg {
+					transform: translateX(5px);
+					transition: transform 0.2s linear;
+				}
+			}
 		}
 		&__left-container {
 			justify-content: flex-end;
@@ -855,6 +1002,19 @@
 		&__close {
 			width: 60px;
 			height: 60px;
+			transform: scale(1);
+			transition: transform 0.2s linear;
+			svg {
+				transform: scaleX(-1) translateX(0);
+				transition: transform 0.2s linear;
+			}
+			&:hover {
+				transform: scale(1.1);
+				svg {
+					transform: scaleX(-1) translateX(5px);
+					transition: transform 0.2s linear;
+				}
+			}
 		}
 		&__logo {
 			width: 1.5rem;
@@ -883,6 +1043,11 @@
 			font-size: rem(16);
 			width: 70%;
 		}
+		&__logo-container {
+			opacity: 0;
+			visibility: hidden;
+			transform: scale(1.2);
+		}
 		&__media {
 			padding: 0;
 		}
@@ -901,10 +1066,14 @@
 			right: 30%;
 			left: unset;
 			transform: scale(1);
-			transition: background-color 0s linear 0s, transform 0s ease-in-out 0s;
+			transition: background-color 0s linear 0s, transform 0.3s ease 0s;
+			&:hover {
+				transform: scale(1.4);
+				transition: background-color 0.3s linear 1s, transform 0.25s ease 0s;
+			}
 			&--animate {
-				transform: scale(100);
-				transition: background-color 0.2s linear 0.8s, transform 1s ease-in-out 0.3s;
+				transform: scale(120) !important;
+				transition: background-color 0.3s linear 1s, transform 0.7s ease 0.2s !important;
 			}
 		}
 		&__data-list {
@@ -921,6 +1090,11 @@
 			max-width: 50%;
 			font-size: rem(30);
 		}
+		&__text-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__link-container {
 			flex-direction: row;
 			padding-left: 6.25em;
@@ -930,11 +1104,15 @@
 		}
 		&__background {
 			width: rem(900);
-			transform: translate(25%, 35%) rotate(-25deg);
+			transform: translate(25%, 35%) rotate(-55deg);
 			right: 0;
 			bottom: 0;
 		}
-
+		&__link-wrapper {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
+		}
 		&__link {
 			margin: 0;
 			height: rem(82);

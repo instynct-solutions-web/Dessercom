@@ -1,0 +1,178 @@
+@mixin arrow($bgColor, $rotation) {
+	.arrow {
+		position: absolute;
+		transform-origin: center;
+		width: 30%;
+		height: 30%;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		transform: rotate($rotation);
+		&__left {
+			position: absolute;
+			display: block;
+			height: 3px;
+			width: 60%;
+			background-color: $bgColor;
+			top: 0;
+			right: 0;
+			border-radius: 10px;
+			transform: translateX(0%);
+			transition: all 0.3s ease-in-out;
+			animation-name: leftOut;
+			animation-duration: 0.5s;
+			animation-fill-mode: forwards;
+			animation-delay: 0.3s;
+		}
+		&__right {
+			position: absolute;
+			display: block;
+			height: 60%;
+			width: 3px;
+			background-color: $bgColor;
+			top: 0;
+			right: 0;
+			border-radius: 10px;
+			transform: translateY(0%);
+			transition: all 0.3s ease-in-out;
+			animation-name: rightOut;
+			animation-duration: 0.5s;
+			animation-fill-mode: forwards;
+			animation-delay: 0.1s;
+		}
+		&__line {
+			position: absolute;
+			display: block;
+			height: 130%;
+			width: 3px;
+			background-color: $bgColor;
+			top: 0;
+			right: 0;
+			border-radius: 10px;
+			transform: rotate(45deg) translateY(0%);
+			right: 0;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			margin: auto;
+			transition: all 0.3s ease-in-out;
+			animation-name: lineOut;
+			animation-duration: 1s;
+			animation-fill-mode: forwards;
+			animation-delay: 0s;
+		}
+	}
+	&:hover {
+		.arrow {
+			&__left {
+				animation-name: leftHover;
+				animation-duration: 0.5s;
+				animation-fill-mode: forwards;
+				animation-delay: 0s;
+			}
+			&__right {
+				animation-name: rightHover;
+				animation-duration: 0.5s;
+				animation-fill-mode: forwards;
+				animation-delay: 0.2s;
+			}
+			&__line {
+				animation-name: lineHover;
+				animation-duration: 1s;
+				animation-fill-mode: forwards;
+			}
+		}
+	}
+}
+
+@keyframes leftHover {
+	0% {
+		transform: translateX(0%);
+	}
+	50% {
+		transform: translateX(200%);
+	}
+	51% {
+		transform: translateX(-200%);
+	}
+	100% {
+		transform: translateX(-0%);
+	}
+}
+
+@keyframes leftOut {
+	0% {
+		transform: translateX(0%);
+	}
+	50% {
+		transform: translateX(-200%);
+	}
+	51% {
+		transform: translateX(200%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+@keyframes rightHover {
+	0% {
+		transform: translateY(0%);
+	}
+	50% {
+		transform: translateY(200%);
+	}
+	51% {
+		transform: translateY(-200%);
+	}
+	100% {
+		transform: translateY(0%);
+	}
+}
+
+@keyframes rightOut {
+	0% {
+		transform: translateY(0%);
+	}
+	50% {
+		transform: translateY(-200%);
+	}
+	51% {
+		transform: translateY(200%);
+	}
+	100% {
+		transform: translateY(0%);
+	}
+}
+
+@keyframes lineHover {
+	0% {
+		transform: rotate(45deg) translateY(0%);
+	}
+	50% {
+		transform: rotate(45deg) translateY(105%);
+	}
+	51% {
+		transform: rotate(45deg) translateY(-105%);
+	}
+	100% {
+		transform: rotate(45deg) translateY(0%);
+	}
+}
+
+@keyframes lineOut {
+	0% {
+		transform: rotate(45deg) translateY(0%);
+	}
+	50% {
+		transform: rotate(45deg) translateY(-105%);
+	}
+	51% {
+		transform: rotate(45deg) translateY(105%);
+	}
+	100% {
+		transform: rotate(45deg) translateY(0%);
+	}
+}

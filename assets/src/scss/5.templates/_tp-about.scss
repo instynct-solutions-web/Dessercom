@@ -9,32 +9,65 @@
 		padding-top: 50px;
 		padding-bottom: 100px;
 	}
+
+	&__cursor {
+		background-color: $teal;
+		width: 420px;
+		height: 420px;
+		border-radius: 50%;
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		z-index: -1;
+		transform: scale(0);
+		pointer-events: none;
+		transform-origin: center;
+	}
+
+	&__container-separator {
+		display: none;
+	}
 	&__aside {
 		padding-top: 40px;
 		margin-bottom: 50px;
 		position: relative;
-		&:before {
-			content: '';
-			display: block;
-			width: 100%;
-			height: 1px;
-			background-color: $black;
-			position: absolute;
-			top: 0px;
-			left: 0px;
-			opacity: 0.3;
-		}
+	}
+	&__separator {
+		display: block;
+		width: 100%;
+		height: 1px;
+		background-color: $black;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		opacity: 0.3;
 	}
 	&__note {
 		font-size: rem(14);
 		font-weight: 500;
 		width: 40%;
 	}
+	&__note-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 100%, 0);
+	}
 	&__text {
 		font-size: rem(20);
 		font-weight: 500;
 		line-height: 1.5;
 		color: $teal;
+	}
+	&__text-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
 	}
 }
 
@@ -45,20 +78,23 @@
 		padding-bottom: 120px;
 	}
 	&__top {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
 		position: relative;
 		padding-top: 40px;
 		margin-bottom: 80px;
-		&:after {
-			content: '';
-			display: block;
-			width: 100%;
-			height: 1px;
-			background-color: $black;
-			position: absolute;
-			top: 0px;
-			left: 0px;
-			opacity: 0.3;
-		}
+	}
+	&__separator {
+		display: block;
+		width: 100%;
+		height: 1px;
+		background-color: $black;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		opacity: 0.3;
+		transform-origin: left;
 	}
 	&__note {
 		display: flex;
@@ -66,6 +102,9 @@
 		justify-content: flex-start;
 		font-size: rem(14);
 		font-weight: 500;
+	}
+	&__note-word {
+		display: inline-block;
 	}
 	&__icon {
 		margin-right: 10px;
@@ -118,32 +157,37 @@
 		margin-bottom: 15px;
 	}
 	&__date-list {
+		width: 90%;
 		margin-left: 10%;
 		position: relative;
 		.flickity-viewport {
 			overflow: visible;
 		}
+		.flickity-slider {
+			//transition: 0.5s ease;
+		}
 	}
 	&__date-item {
-		margin-right: 20px;
+		margin-right: 10px;
 		&.is-selected {
 			.about-history {
 				&__year {
-					font-size: rem(55);
+					transform: scale(1);
 					color: $white;
 					opacity: 1;
-					line-height: 1.2em;
-					margin-top: -5px;
 				}
 			}
 		}
 	}
 	&__year {
-		font-size: rem(30);
+		transform-origin: top;
+		transform: scale(0.6);
+		font-size: rem(55);
 		font-weight: 500;
 		color: $gray;
 		opacity: 0.5;
 		line-height: 1.2em;
+		transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s, color 0.5s ease 0.2s;
 	}
 	&__media {
 		margin-bottom: 35px;
@@ -175,6 +219,7 @@
 	&__content-item {
 		width: 100%;
 		margin-right: 16.66666%;
+		transition: opacity 0.5s ease;
 	}
 	&__content-title {
 		font-size: rem(30);
@@ -196,6 +241,8 @@
 		justify-content: flex-start;
 		align-items: center;
 		margin-bottom: 80px;
+		position: relative;
+		z-index: 2;
 	}
 	&__nav {
 		background-color: $teal;
@@ -352,11 +399,11 @@
 				content: '';
 				height: 100%;
 				width: 100px;
-				background-image: linear-gradient(to right, rgba(255, 0, 0, 0), #041e36);
+				background-image: linear-gradient(to right, rgb(4 30 54 / 0%), #041e36);
 				display: block;
 				position: absolute;
 				top: 0;
-				right: 0;
+				right: -25%;
 			}
 		}
 		&__media {
@@ -478,7 +525,6 @@
 	}
 	.about-philosophy {
 		margin-top: -100px;
-
 		&__container {
 			display: flex;
 			flex-wrap: wrap;
@@ -486,26 +532,27 @@
 			padding-top: 300px;
 			padding-bottom: 160px;
 			position: relative;
-			&:before {
-				content: '';
-				display: block;
-				width: calc(100% - 200px);
-				height: 1px;
-				background-color: $black;
-				position: absolute;
-				top: 180px;
-				left: 100px;
-				opacity: 0.3;
-			}
+		}
+		&__container-separator {
+			display: block;
+			width: calc(100% - 200px);
+			height: 1px;
+			background-color: $black;
+			position: absolute;
+			top: 180px;
+			left: 100px;
+			opacity: 0.3;
+			transform-origin: left;
+			transform: scaleX(0);
 		}
 		&__aside {
 			width: 8.333333%;
 			margin-right: 8.33333%;
 			padding-top: 0px;
 			margin-bottom: 0px;
-			&:before {
-				display: none;
-			}
+		}
+		&__separator {
+			display: none;
 		}
 		&__note {
 			font-size: rem(16);
@@ -529,15 +576,31 @@
 			padding-top: 45px;
 			margin-bottom: 140px;
 		}
+		&__separator {
+			transform: scaleX(0);
+		}
 		&__note {
 			font-size: rem(16);
 			margin: 0;
 		}
+		&__note-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
+		}
 		&__icon {
 			margin-right: 25px;
+			opacity: 0;
+			visibility: hidden;
+			transform: rotate(180deg);
 		}
 		&__list {
 			grid-gap: 8.33333%;
+		}
+		&__item {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100px, 0);
 		}
 		&__counter {
 			font-size: rem(180);
@@ -571,10 +634,18 @@
 			}
 		}
 		&__title {
+			display: flex;
+			flex-wrap: wrap;
 			font-size: rem(50);
-			width: 25%;
-			margin-right: 75%;
+			width: 30%;
+			margin-right: 70%;
 			margin-bottom: 80px;
+		}
+		&__title-word {
+			display: inline-block;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
 		}
 		&__dates {
 			width: 33.33333%;
@@ -587,6 +658,9 @@
 		}
 		&__date-item {
 			margin-right: 80px;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
 		}
 		&__media {
 			top: 0px;
@@ -599,6 +673,9 @@
 			}
 		}
 		&__media-item {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
 			height: 100%;
 		}
 		&__background-image {
@@ -618,9 +695,18 @@
 			width: 100%;
 			margin-bottom: 15px;
 		}
+		&__content-title-word {
+			display: inline-block;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
+		}
 		&__content-text {
 			font-size: rem(16);
 			width: 100%;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100px, 0);
 		}
 		&__button-container {
 			display: none;
@@ -633,11 +719,15 @@
 			position: relative;
 		}
 		&__background {
-			width: 25%;
+			width: 33.33333%;
 			right: 120px;
 		}
 		&__foreground {
 			padding: 0px;
+		}
+		&__motif {
+			opacity: 0;
+			visibility: hidden;
 		}
 		&__info {
 			margin-left: 8.33333%;
@@ -649,8 +739,20 @@
 			font-size: rem(35);
 			margin-bottom: 45px;
 		}
+		&__title-word {
+			display: inline-block;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
+		}
 		&__text {
 			font-size: rem(16);
+		}
+		&__text-word {
+			display: inline-block;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
 		}
 		&__list {
 			width: 83.33333%;
@@ -661,12 +763,26 @@
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
 		}
 		&__logo {
 			margin-bottom: 30px;
 		}
+		&__link-icon {
+			margin-left: 10px;
+			transform: translate(-1px, -1px) rotate(-135deg);
+			transition: transform 0.25s ease;
+		}
 		&__link {
 			font-size: rem(15);
+			&:hover {
+				.about-funding__link-icon {
+					transform: translate(5px, -5px) rotate(-135deg);
+					transition: transform 0.25s ease;
+				}
+			}
 		}
 	}
 }

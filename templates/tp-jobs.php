@@ -10,16 +10,16 @@ get_header(); ?>
 
 <?php
 $benefits = get_field('benefits') ?>
-<section data-wolfpack-section class="jobs-benefits">
-    <img src="<?= $benefits['image']['url'] ?>" alt="<?= $benefits['image']['alt'] ?>" class="jobs-benefits__background">
-    <div class="jobs-benefits__container">
+<section data-wolfpack-section class="jobs-benefits" data-tadam data-tadam-threshold="100">
+    <div class="jobs-benefits__background" data-tadam-animate="lottie-lines-once" data-lottie-lines="/wp-content/themes/dessercom/assets/src/lottie/lines-white.json"></div>
+    <div data-follow-me-container class="jobs-benefits__container">
         <img src="<?= $benefits['icon']['url'] ?>" alt="<?= $benefits['icon']['alt'] ?>" class="jobs-benefits__logo">
-        <div class="jobs-benefits__info">
-            <h2 class="jobs-benefits__title"><?= $benefits['title'] ?></h2>
-            <p class="jobs-benefits__text"><?= $benefits['text'] ?></p>
+        <div data-follow-me class="jobs-benefits__info">
+            <h2 class="jobs-benefits__title" data-words data-tadam-animate="words"><?= $benefits['title'] ?></h2>
+            <p class="jobs-benefits__text" data-words data-tadam-animate="words--delay-0.2"><?= $benefits['text'] ?></p>
         </div>
         <div class="jobs-benefits__list-container">
-            <ul class="jobs-benefits__list">
+            <ul class="jobs-benefits__list" data-tadam-animate="jobs-benefits">
                 <?php
                 $counter = 1;
                 foreach ($benefits['list'] as $item) { ?>
@@ -39,13 +39,13 @@ $benefits = get_field('benefits') ?>
 
 <?php
 $values = get_field('benefits_2') ?>
-<section data-wolfpack-section class="jobs-values">
+<section data-wolfpack-section class="jobs-values" data-tadam data-tadam-threshold="100">
     <div class="jobs-values__container">
         <div class="jobs-values__info">
-            <h2 class="jobs-values__title"><?= $values['title'] ?></h2>
-            <ul class="jobs-values__name-list">
+            <h2 class="jobs-values__title" data-words data-tadam-animate="words"><?= $values['title'] ?></h2>
+            <ul class="jobs-values__name-list" data-tadam-animate="values-name">
                 <?php foreach ($values['list'] as $item) { ?>
-                    <li class="jobs-values__name-item" data-jobs-values-name>
+                    <li class="jobs-values__name-item" data-cursor data-jobs-values-name="<?= $item['title'] ?>">
                         <p class="jobs-values__name"><?= $item['title'] ?></p>
                     </li>
                 <?php
@@ -75,10 +75,10 @@ $values = get_field('benefits_2') ?>
             </div>
         </div>
         <div class="jobs-values__grid">
-            <ul class="jobs-values__grid-list" data-jobs-slider>
+            <ul class="jobs-values__grid-list" data-jobs-slider data-tadam-animate="values-item">
                 <?php foreach ($values['list'] as $item) { ?>
-                    <li class="jobs-values__grid-item" data-jobs-values>
-                        <span class="jobs-values__toggler" data-jobs-values-toggler>
+                    <li class="jobs-values__grid-item" data-jobs-values="<?= $item['title'] ?>">
+                        <span class="jobs-values__toggler" data-jobs-values-toggler data-cursor>
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
                                 <g id="Groupe_1585" data-name="Groupe 1585" transform="translate(-976.5 -2024.5)">
                                     <line id="Ligne_168" data-name="Ligne 168" x2="12" transform="translate(976.5 2030.5)" fill="none" stroke="#fff" stroke-width="2" />
@@ -87,7 +87,7 @@ $values = get_field('benefits_2') ?>
                             </svg>
                         </span>
                         <p class="jobs-values__name jobs-values__name--mobile"><?= $item['title'] ?></p>
-                        <img src="<?= $item['picto']['url'] ?>" alt="<?= $item['picto']['alt'] ?>" class="jobs-values__picto">
+                        <img src="<?= $item['picto']['url'] ?>" alt="<?= $item['picto']['alt'] ?>" data-jobs-values-picto class="jobs-values__picto">
                         <p class="jobs-values__text"><?= $item['text'] ?></p>
                     </li>
                 <?php
@@ -98,7 +98,7 @@ $values = get_field('benefits_2') ?>
 </section>
 
 <?php $internship = get_field('internship') ?>
-<section data-wolfpack-section class="jobs-internship">
+<section data-wolfpack-section class="jobs-internship" data-tadam data-tadam-threshold="150">
     <div class="jobs-internship__background">
         <svg class="jobs-internship__foreground-image" xmlns="http://www.w3.org/2000/svg" width="181.567" height="163.488" viewBox="0 0 181.567 163.488">
             <defs>
@@ -112,11 +112,11 @@ $values = get_field('benefits_2') ?>
     </div>
     <div class="jobs-internship__container">
         <div class="jobs-internship__foreground">
-            <p class="jobs-internship__note"><?= $internship['note'] ?></p>
+            <p class="jobs-internship__note" data-words data-tadam-animate="words"><?= $internship['note'] ?></p>
             <div class="jobs-internship__info">
-                <h2 class="jobs-internship__title"><?= $internship['title'] ?></h2>
-                <p class="jobs-internship__text"><?= $internship['text'] ?></p>
-                <a href="<?= $internship['link']['url'] ?>" class="jobs-internship__link">
+                <h2 class="jobs-internship__title" data-words data-tadam-animate="words--delay-0.3"><?= $internship['title'] ?></h2>
+                <p class="jobs-internship__text" data-words data-tadam-animate="words--delay-0.5"><?= $internship['text'] ?></p>
+                <a href="<?= $internship['link']['url'] ?>" class="jobs-internship__link" data-tadam-animate="opacity-1--y-0--delay-0.7">
                     <?= $internship['link']['title'] ?>
                     <svg class="jobs-internship__link-icon" xmlns="http://www.w3.org/2000/svg" width="13.384" height="14.515" viewBox="0 0 13.384 14.515">
                         <g id="Groupe_788" data-name="Groupe 788" transform="translate(1.414 1)">
@@ -131,16 +131,16 @@ $values = get_field('benefits_2') ?>
 </section>
 
 <?php $careers = get_field('careers') ?>
-<section id="careers-list" data-wolfpack-section class="jobs-careers">
+<section id="careers-list" data-wolfpack-section class="jobs-careers" data-tadam data-tadam-threshold="100">
     <div class="jobs-careers__container">
         <div class="jobs-careers__top">
-            <h2 class="jobs-careers__title"><?= $careers['title'] ?></h2>
+            <h2 class="jobs-careers__title" data-words data-tadam-animate="words"><?= $careers['title'] ?></h2>
         </div>
         <div class="jobs-careers__main">
-            <div class="jobs-careers__filter">
+            <div class="jobs-careers__filter" data-tadam-animate="opacity-1--y-0--delay-0.2">
                 <?php echo do_shortcode('[searchandfilter id="689"]'); ?>
             </div>
-            <div class="jobs-careers__grid">
+            <div class="jobs-careers__grid" data-tadam-animate="opacity-1--y-0--delay-0.2">
                 <?php echo do_shortcode('[searchandfilter id="689"  show="results"]'); ?>
             </div>
         </div>

@@ -21,19 +21,20 @@
 		width: 100px;
 		height: 100px;
 		position: absolute;
-		top: 0px;
-		right: 20px;
+		top: 5%;
+		right: 5%;
 		z-index: 1;
+		@include arrow($teal, 0deg);
 	}
 	&__cta-text {
-		font-size: rem(11);
-		font-weight: 700;
-		color: $black;
+		@include circleText;
 	}
 	&__cta-icon {
-		position: absolute;
-		transform-origin: center;
-		transform: rotate(225deg) translate(-2px, -2px);
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 	&__title {
 		color: $navy;
@@ -41,18 +42,14 @@
 		padding-right: 25%;
 		padding-bottom: 85px;
 		padding-top: 75px;
-		margin-bottom: 25px;
+		margin-bottom: 0;
 		position: relative;
-		&:after {
-			content: '';
-			display: block;
-			height: 1px;
-			width: 100%;
-			background-color: $black;
-			position: absolute;
-			bottom: 0px;
-			left: 0px;
-		}
+	}
+	&__title-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
 	}
 	&__header {
 		display: flex;
@@ -60,6 +57,20 @@
 		align-items: center;
 		justify-content: flex-start;
 		margin-bottom: 40px;
+		padding-top: 25px;
+		position: relative;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 100px, 0);
+	}
+	&__separator {
+		display: block;
+		height: 1px;
+		width: 100%;
+		background-color: $black;
+		position: absolute;
+		top: 0px;
+		left: 0px;
 	}
 	&__header-title {
 		font-size: rem(14);
@@ -70,30 +81,19 @@
 	}
 	&__body {
 		@include invoiceForm;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 100px, 0);
 	}
 }
 
 @include tablet-only {
 	.invoice-form {
-		&__cta {
-			top: 0px;
-			right: 40px;
-		}
-		&__cta-text {
-			font-size: rem(12);
-		}
-		&__cta-icon {
-			transform: rotate(45deg) translate(6px, 6px);
-		}
 		&__title {
 			width: 100%;
 			padding-right: 50%;
 			padding-bottom: 100px;
 			padding-top: 150px;
-			&:after {
-				width: calc(100% - 160px);
-				margin: 0 80px;
-			}
 		}
 		&__header {
 			width: calc(100% - 160px);
@@ -114,9 +114,6 @@
 			padding-bottom: 0;
 			padding-top: 100px;
 			margin-bottom: 130px;
-			&:after {
-				display: none;
-			}
 		}
 		&__header {
 			width: 66.66666%;
@@ -125,16 +122,6 @@
 			margin-bottom: 50px;
 			padding-top: 20px;
 			position: relative;
-			&:after {
-				content: '';
-				display: block;
-				height: 1px;
-				width: 100%;
-				background-color: $navy;
-				position: absolute;
-				top: 0px;
-				left: 0px;
-			}
 		}
 		&__header-title {
 			font-size: rem(16);
@@ -145,6 +132,11 @@
 			left: -25%;
 			width: calc(25% - 16px);
 			display: block;
+			opacity: 0;
+			transition: 0.25s ease;
+			&--visible {
+				opacity: 1;
+			}
 		}
 		&__background {
 			position: absolute;

@@ -7,11 +7,11 @@ Template Name: Pricing
 get_header(); ?>
 
 <?php $hero = get_field('hero') ?>
-<section data-wolfpack-section class="pricing-hero">
-    <img src="<?= $hero['background']['url'] ?>" alt="<?= $hero['background']['alt'] ?>" class="pricing-hero__background">
+<section data-wolfpack-section class="pricing-hero" data-tadam data-tadam-threshold="-1">
+    <div class="pricing-hero__background" data-tadam-animate="lottie-lines-once" data-lottie-lines="/wp-content/themes/dessercom/assets/src/lottie/lines-gray.json"></div>
     <div class="pricing-hero__container">
-        <a href="<?= $hero['link']['url'] ?>" class="pricing-hero__cta">
-            <span class="pricing-hero__cta-text" data-circle-text>
+        <a href="<?= $hero['link']['url'] ?>" class="pricing-hero__cta cta">
+            <span class="pricing-hero__cta-text cta__text" data-circle-text>
                 <?= $hero['link']['title'] ?>
                 <div> . </div>
                 <?= $hero['link']['title'] ?>
@@ -21,30 +21,31 @@ get_header(); ?>
                 <?= $hero['link']['title'] ?>
                 <div> . </div>
             </span>
-            <svg class="pricing-hero__cta-icon" xmlns="http://www.w3.org/2000/svg" width="24.406" height="30.816" viewBox="0 0 24.406 30.816">
-                <g id="Groupe_787" data-name="Groupe 787" transform="translate(1.5 1.5)">
-                    <path id="Tracé_3" data-name="Tracé 3" d="M10.7,12.2a1.5,1.5,0,0,1-1.061-.439l-10.7-10.7a1.5,1.5,0,0,1,0-2.121,1.5,1.5,0,0,1,2.121,0L10.7,8.582l9.642-9.642a1.5,1.5,0,0,1,2.121,0,1.5,1.5,0,0,1,0,2.121l-10.7,10.7A1.5,1.5,0,0,1,10.7,12.2Z" transform="translate(0 17.113)" fill="#008884" />
-                    <path id="Ligne_1" data-name="Ligne 1" d="M0,29.316a1.5,1.5,0,0,1-1.5-1.5V0A1.5,1.5,0,0,1,0-1.5,1.5,1.5,0,0,1,1.5,0V27.816A1.5,1.5,0,0,1,0,29.316Z" transform="translate(10.703 0)" fill="#008884" />
-                </g>
-            </svg>
+            <div class="pricing-hero__cta-icon cta__icon">
+                <div class="arrow">
+                    <span class="arrow__left"></span>
+                    <span class="arrow__right"></span>
+                    <span class="arrow__line"></span>
+                </div>
+            </div>
+
         </a>
         <div class="pricing-hero__top">
-            <img src="<?= $hero['icon']['url'] ?>" alt="<?= $hero['icon']['alt'] ?>" class="pricing-hero__icon">
-            <p class="pricing-hero__note"><?= $hero['note'] ?></p>
+            <span class="pricing-hero__separator" data-tadam-animate="scaleX-1"></span>
+            <img data-tadam-animate="opacity-1--rotation-0--delay-0.1" src="<?= $hero['icon']['url'] ?>" alt="<?= $hero['icon']['alt'] ?>" class="pricing-hero__icon">
+            <p class="pricing-hero__note" data-words data-tadam-animate="words--delay-0.2"><?= $hero['note'] ?></p>
         </div>
         <div class="pricing-hero__main">
             <div class="pricing-hero__info">
-                <h1 class="pricing-hero__title"><?= $hero['title'] ?></h1>
-                <p class="pricing-hero__text"><?= $hero['text'] ?></p>
+                <h1 class="pricing-hero__title" data-words data-tadam-animate="words--delay-0.3"><?= $hero['title'] ?></h1>
+                <p class="pricing-hero__text" data-words data-tadam-animate="words--delay-0.5"><?= $hero['text'] ?></p>
             </div>
             <?php if ($hero['list']) { ?>
-                <ul class="pricing-hero__list">
+                <ul class="pricing-hero__list" data-tadam-animate="pricing-items">
                     <?php
                     foreach ($hero['list'] as $category) { ?>
                         <li class="pricing-hero__item" data-pricing>
-                            <div data-pricing-button class="pricing-hero__toggle-container">
-
-
+                            <div data-cursor data-pricing-button class="pricing-hero__toggle-container">
                                 <div class="pricing-hero__drawer-button">
                                     <svg class="pricing-hero__drawer-open" xmlns="http://www.w3.org/2000/svg" width="22.613" height="25.458" viewBox="0 0 22.613 25.458">
                                         <g id="Groupe_800" data-name="Groupe 800" transform="translate(1.414 -13.432)">
@@ -63,20 +64,22 @@ get_header(); ?>
                                         </g>
                                     </svg>
                                 </div>
-                                <h3 class="pricing-hero__drawer-title"><?= $category['title'] ?></h3>
+                                <h3 class="pricing-hero__drawer-title" data-words><?= $category['title'] ?></h3>
                             </div>
                             <?php if ($category['sublist']) { ?>
-                                <ul class="pricing-hero__sublist">
-                                    <?php
-                                    foreach ($category['sublist'] as $pricing) { ?>
-                                        <li class="pricing-hero__subitem">
-                                            <p class="pricing-hero__subitem-price"><?= $pricing['price'] ?></p>
-                                            <span class="pricing-hero__subitem-line"></span>
-                                            <p class="pricing-hero__subitem-text"><?= $pricing['text'] ?></p>
-                                        </li>
-                                    <?php
-                                    } ?>
-                                </ul>
+                                <div class="pricing-hero__sublist-container" data-pricing-content>
+                                    <ul class="pricing-hero__sublist">
+                                        <?php
+                                        foreach ($category['sublist'] as $pricing) { ?>
+                                            <li class="pricing-hero__subitem">
+                                                <p class="pricing-hero__subitem-price" data-lines><?= $pricing['price'] ?></p>
+                                                <span class="pricing-hero__subitem-line"></span>
+                                                <p class="pricing-hero__subitem-text" data-lines><?= $pricing['text'] ?></p>
+                                            </li>
+                                        <?php
+                                        } ?>
+                                    </ul>
+                                </div>
                             <?php
                             } ?>
                         </li>
@@ -92,33 +95,33 @@ get_header(); ?>
 <?php
 $transport = get_field('transport') ?>
 <section data-wolfpack-section class="pricing-transport">
-    <div class="pricing-transport__container">
+    <div class="pricing-transport__container" data-tadam data-tadam-threshold="100">
         <div class="pricing-transport__top-container">
             <div class="pricing-transport__top">
-                <p class="pricing-transport__note"><?= $transport['note'] ?></p>
+                <span class="pricing-transport__separator" data-tadam-animate="scaleX-1"></span>
+                <p class="pricing-transport__note" data-words data-tadam-animate="words--delay-0.2"><?= $transport['note'] ?></p>
             </div>
-            <a href="<?= $transport['link']['url'] ?>" class="pricing-transport__cta">
-                <span class="pricing-transport__cta-text" data-circle-text>
+            <a href="<?= $transport['link']['url'] ?>" class="pricing-transport__cta cta" data-tadam-animate="opacity-1--rotation-0">
+                <span class="pricing-transport__cta-text cta__text" data-circle-text>
                     <?= $transport['link']['title']  ?>
                     <div> . </div>
                     <?= $transport['link']['title'] ?>
                     <div> . </div>
                 </span>
-                <svg class="pricing-transport__cta-icon" xmlns="http://www.w3.org/2000/svg" width="24.406" height="30.816" viewBox="0 0 24.406 30.816">
-                    <g id="Groupe_787" data-name="Groupe 787" transform="translate(1.5 1.5)">
-                        <path id="Tracé_3" data-name="Tracé 3" d="M10.7,12.2a1.5,1.5,0,0,1-1.061-.439l-10.7-10.7a1.5,1.5,0,0,1,0-2.121,1.5,1.5,0,0,1,2.121,0L10.7,8.582l9.642-9.642a1.5,1.5,0,0,1,2.121,0,1.5,1.5,0,0,1,0,2.121l-10.7,10.7A1.5,1.5,0,0,1,10.7,12.2Z" transform="translate(0 17.113)" fill="#008884" />
-                        <path id="Ligne_1" data-name="Ligne 1" d="M0,29.316a1.5,1.5,0,0,1-1.5-1.5V0A1.5,1.5,0,0,1,0-1.5,1.5,1.5,0,0,1,1.5,0V27.816A1.5,1.5,0,0,1,0,29.316Z" transform="translate(10.703 0)" fill="#008884" />
-                    </g>
-                </svg>
+                <div class="pricing-hero__cta-icon cta__icon">
+                    <div class="arrow">
+                        <span class="arrow__left"></span>
+                        <span class="arrow__right"></span>
+                        <span class="arrow__line"></span>
+                    </div>
+                </div>
             </a>
         </div>
         <div class="pricing-transport__main">
-            <svg class="pricing-transport__image" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 181.567 163.488">
+            <svg class="pricing-transport__image" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 181.567 163.488" data-tadam-animate="mask-image">
                 <defs>
                     <pattern id="image" patternContentUnits="objectBoundingBox" width="1" height="1">
-
                         <image x="0" y="0" width="1" height="1" preserveAspectRatio="none slice" xlink:href="<?= $transport['image']['url']; ?>"></image>
-
                     </pattern>
                 </defs>
                 <path id="Tracé_974" data-name="Tracé 974" d="M178.728,151.529c-6.956,12.172-24.362,15.327-38.914,7.036-1.2-.695-49.044-28.243-49.044-28.243l.049-.08L41.9,158.725c-14.49,8.4-31.927,5.4-38.963-6.686v-.031C-4.1,139.9,1.926,123.262,16.392,114.835c1.15-.64,45.384-26.1,48.834-28.077v.129H65.6l-.16-.264-.215.135V30.3C65.227,13.562,76.593,0,90.6,0s25.383,13.562,25.383,30.3c0,1.31-.24,51.375-.271,56.215l-.209.369h.209v-.369l.031-.055,49.179,28C179.478,122.751,185.653,139.333,178.728,151.529Z" transform="translate(0)" fill="url(#image)" />

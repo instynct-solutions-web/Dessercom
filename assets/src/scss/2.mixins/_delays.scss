@@ -1,0 +1,33 @@
+// ==========================================================================
+// MIXINS - Delays
+// ==========================================================================
+
+@mixin menu-item-delay {
+	$menu-item-delay: 0.3;
+	@for $i from 1 through 25 {
+		&:nth-of-type(#{$i}n) {
+			transition-delay: $menu-item-delay + s;
+			$menu-item-delay: $menu-item-delay + 0.05;
+		}
+	}
+}
+
+@mixin contact-media-title-delay {
+	$title-delay: 0.5;
+	@for $i from 1 through 25 {
+		&:nth-of-type(#{$i}n) {
+			transition-delay: $title-delay + s;
+			$title-delay: $title-delay + 0.05;
+		}
+	}
+}
+
+@mixin contact-media-member-delay {
+	$member-delay: 0.7;
+	@for $i from 1 through 25 {
+		&:nth-of-type(#{$i}n) {
+			transition-delay: $member-delay + s;
+			$member-delay: $member-delay + 0.05;
+		}
+	}
+}

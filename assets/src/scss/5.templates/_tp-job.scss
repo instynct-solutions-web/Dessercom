@@ -11,15 +11,24 @@
 	&__info {
 		margin-bottom: 30px;
 	}
-	&__link {
+	&__link-container {
+		max-width: 55%;
 		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 100%, 0);
+	}
+	&__link {
+		display: inline-flex;
+		align-items: center;
 		font-size: rem(13);
 		font-weight: 500;
 		color: $black;
 		opacity: 0.3;
-		padding: 0 20px 15px 20px;
+		padding: 0 15px 15px 15px;
 		position: relative;
-		margin-bottom: 50px;
+		margin-bottom: 75px;
+		transition: opacity 0.25s ease;
 		&:after {
 			content: '';
 			display: block;
@@ -29,12 +38,34 @@
 			position: absolute;
 			left: 0px;
 			bottom: 0px;
+			transform: scaleX(1);
+			transform-origin: center;
+			transition: transform 0.25s ease;
+		}
+		&:hover {
+			opacity: 0.7;
+			&:after {
+				content: '';
+				display: block;
+				height: 1px;
+				width: 100%;
+				background-color: $black;
+				position: absolute;
+				left: 0px;
+				bottom: 0px;
+				transform: scaleX(0.8);
+			}
+			.jobs-hero__link-icon {
+				transform: translateX(-5px);
+			}
 		}
 	}
 	&__link-icon {
 		position: relative;
-		top: 3px;
+		top: -2px;
 		margin-right: 10px;
+		transform: translateX(0);
+		transition: transform 0.25s ease;
 	}
 	&__title {
 		font-size: rem(42);
@@ -47,22 +78,60 @@
 		hyphens: auto;
 		margin-bottom: 10px;
 	}
+	&__title-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
+	}
 	&__subtitle {
 		font-size: rem(13);
 		font-weight: 500;
 		color: $navy;
 		line-height: 1.5;
 	}
+	&__subtitle-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
+	}
 	&__image {
 		width: 100%;
-		transform: translateX(-40px);
+		opacity: 0;
+		visibility: hidden;
+		transform: translateX(-40px) scale(1.2);
 	}
 	&__background-image {
 		position: absolute;
 		transform-origin: center;
 		transform: rotate(240deg);
-		bottom: 50px;
-		right: -20%;
+		bottom: -30px;
+		width: 110%;
+		right: -35%;
+	}
+	&__cta {
+		display: inline-flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		width: 100px;
+		height: 100px;
+		position: absolute;
+		top: 10px;
+		right: 5%;
+		z-index: 1;
+		@include arrow($teal, 0deg);
+	}
+	&__cta-text {
+		@include circleText;
+	}
+	&__cta-icon {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 }
 
@@ -73,6 +142,9 @@
 	position: relative;
 	&__background {
 		display: none;
+	}
+	&__sector-background-word {
+		display: inline-block;
 	}
 	&__container {
 		@include container;
@@ -97,12 +169,18 @@
 		width: 83.33333%;
 		margin-bottom: 40px;
 	}
+	&__title-word {
+		display: inline-block;
+	}
 	&__text {
 		font-size: rem(17);
 		font-weight: 500;
 		color: $white;
 		line-height: 1.6;
 		padding-right: 5%;
+	}
+	&__separator {
+		display: none;
 	}
 	&__sector-list {
 		margin-bottom: 80px;
@@ -115,19 +193,31 @@
 		&--selected {
 			.job-benefits {
 				&__sector-button {
-					background-color: #4a5c6d;
+					&:before {
+						opacity: 1;
+						transform: scaleX(1);
+						background-color: #4a5c6d;
+					}
+					&:hover {
+						&:before {
+							opacity: 1;
+							transform: scaleX(1);
+						}
+					}
 				}
 			}
 		}
 	}
 	&__sector-button {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: flex-end;
-		justify-content: space-between;
-		width: 66.66666%;
+		@include button-white;
+		font-size: rem(13);
 		padding: 15px;
-		border: 1px solid $white;
+		width: 66.66666%;
+		margin: 0;
+		&:after {
+			width: 12px;
+			height: 12px;
+		}
 	}
 	&__sector-text {
 		font-size: rem(13);
@@ -172,10 +262,8 @@
 		color: $white;
 	}
 	&__single-list {
-		display: none;
-		&--selected {
-			display: block;
-		}
+		overflow: hidden;
+		height: 0px;
 	}
 	&__subtext {
 		font-size: rem(14);
@@ -374,12 +462,16 @@
 			top: -40px;
 			right: -190px;
 			width: calc(100% - 80px);
-			transform: translateX(0px);
+			transform: translateX(0px) scale(1.2);
 		}
 		&__background-image {
-			bottom: -40px;
-			width: 50%;
-			height: 50%;
+			bottom: -150px;
+			width: 80%;
+			height: 80%;
+			right: -30%;
+		}
+		&__cta {
+			top: 5%;
 		}
 	}
 	.job-benefits {
@@ -393,40 +485,70 @@
 			position: relative;
 		}
 		&__background {
-			display: block;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
 			position: absolute;
 			width: 100%;
 			padding: 0 40px;
 		}
 		&__sector-background {
-			display: none;
+			position: absolute;
+			display: block;
 			font-size: rem(187);
 			font-weight: 500;
 			line-height: 1.1;
 			color: $gray;
-			opacity: 0.05;
+			opacity: 0;
+			transform: translateY(50px);
+			transition: 1.2s ease;
 			&--selected {
-				display: block;
+				opacity: 0.05;
+				transform: translateY(0px);
 			}
 		}
-		&__title {
+		&__foreground {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			width: 100%;
+		}
+		&__navigation {
 			width: 25%;
-			margin-bottom: 0px;
+			margin-right: 8.33333%;
+			padding: 30px 0;
+			position: relative;
+		}
+		&__title {
+			width: 100%;
+			margin-bottom: 100px;
 		}
 		&__sector-list {
-			width: 25%;
-			position: absolute;
-			left: 40px;
-			bottom: 100px;
+			width: 100%;
 			margin-bottom: 0px;
 		}
 		&__sector-button {
 			width: 100%;
 		}
-		&__single-list {
+		&__content {
 			width: 50%;
-			min-height: 300px;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+		}
+		&__single-list {
+			position: absolute;
+			overflow: initial;
+			width: 100%;
 			margin: 0 12.5% 0 37.5%;
+			opacity: 0;
+			transition: opacity 1.2s ease;
+			&--selected {
+				opacity: 1;
+			}
 		}
 		&__item {
 			width: 100%;
@@ -566,10 +688,10 @@
 			right: auto;
 		}
 		&__background-image {
-			bottom: -25%;
-			right: -40%;
-			width: 92%;
-			height: 92%;
+			bottom: -30%;
+			right: -55%;
+			width: 120%;
+			height: 120%;
 		}
 	}
 	.job-benefits {
@@ -579,39 +701,38 @@
 		}
 		&__sector-background {
 			margin-left: 25%;
-			font-size: rem(260);
+			font-size: 16vw;
+		}
+		&__sector-background-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150px, 0);
 		}
 		&__container {
 			padding-top: 90px;
 			padding-bottom: 140px;
 		}
-		&__foreground {
-			display: flex;
-			flex-wrap: wrap;
-			align-items: center;
-			width: 100%;
-		}
-		&__navigation {
-			width: 25%;
-			margin-right: 8.33333%;
-			padding: 30px 0;
-			position: relative;
-			&:after {
-				content: '';
-				display: block;
-				width: 1px;
-				height: 100%;
-				background-color: $gray;
-				opacity: 0.3;
-				position: absolute;
-				right: calc(33.33333% - 30px);
-				top: 0px;
-			}
+		&__separator {
+			display: block;
+			width: 1px;
+			height: 100%;
+			background-color: $gray;
+			opacity: 0.3;
+			position: absolute;
+			right: calc(33.33333% - 30px);
+			top: 0px;
+			transform-origin: top;
+			transform: scaleY(0);
 		}
 		&__title {
 			font-size: rem(40);
 			width: 66.66666%;
 			margin-bottom: 190px;
+		}
+		&__title-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
 		}
 		&__sector-list {
 			width: 66.66666%;
@@ -622,6 +743,9 @@
 		}
 		&__sector-item {
 			margin-bottom: 20px;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
 			&:last-of-type {
 				margin-bottom: 0px;
 			}
@@ -634,12 +758,16 @@
 		}
 		&__single-list {
 			width: 100%;
+			height: auto;
 			min-height: 0px;
 			margin: 0;
 		}
 		&__item {
 			margin-bottom: 80px;
 			padding-top: 20px;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150px, 0);
 			&:last-of-type {
 				margin-bottom: 0px;
 			}

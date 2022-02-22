@@ -11,7 +11,7 @@
 			color: $white;
 		}
 	}
-	.page-body {
+	.page-wrapper {
 		background-color: $navy;
 	}
 }
@@ -24,7 +24,7 @@
 		transform: rotate(-125deg);
 		transform-origin: center;
 		right: -50%;
-		width: 100%;
+		width: 125%;
 		opacity: 0.1;
 	}
 	&__container {
@@ -39,9 +39,21 @@
 		color: $white;
 		margin-bottom: 50px;
 	}
+	&__title-word {
+		display: inline-block;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 150%, 0);
+	}
 	&__filters {
 		margin-bottom: 80px;
 		@include faqFilters;
+		opacity: 0;
+		visibility: hidden;
+	}
+	&__questions {
+		opacity: 0;
+		visibility: hidden;
 	}
 	&__answer {
 		margin-bottom: 30px;
@@ -51,7 +63,8 @@
 					transform: rotate(0deg);
 				}
 				&__answer-content {
-					display: none;
+					max-height: 0px;
+					padding: 0;
 				}
 			}
 		}
@@ -82,9 +95,14 @@
 		position: absolute;
 		right: 0px;
 		transform: rotate(180deg);
+		transition: 0.25s ease;
+		pointer-events: none;
 	}
 	&__answer-content {
 		padding-bottom: 30px;
+		max-height: 1000px;
+		transition: max-height 0.5s ease, padding 0.5s ease;
+		overflow: hidden;
 		p {
 			font-size: rem(13);
 			font-weight: 500;
@@ -191,9 +209,17 @@
 		&__answer-title {
 			font-size: rem(20);
 			margin-bottom: 0;
-			padding: 1.2em 0;
+			padding: 1.2em 0 1.2em 0;
+			transition: 0.25s ease;
+			&:hover {
+				padding: 1.2em 0 1.2em 0.6em;
+				&::after {
+					height: 2px;
+				}
+			}
 			&::after {
 				bottom: 0;
+				transition: 0.25s ease;
 			}
 		}
 
@@ -203,6 +229,11 @@
 			li,
 			a {
 				font-size: rem(16);
+			}
+			a {
+				&:hover {
+					text-decoration: underline;
+				}
 			}
 		}
 	}

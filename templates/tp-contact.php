@@ -8,30 +8,30 @@ get_header(); ?>
 
 <?php
 $media = get_field('media') ?>
-<section data-stay data-calc-mobile data-contact-media class="contact-media">
-    <div data-wolfpack class="contact-media__container">
-        <div class="contact-media__cta-container">
-            <div data-contact-close class="contact-media__cta">
-                <span class="contact-media__cta-text" data-circle-text>
-                    <?php for ($i = 0; $i <= 5; $i++) { ?>
-                        <?= $media['back'] ?>
-                        <div> . </div>
-                    <?php
-                    } ?>
-                </span>
-                <svg class="contact-media__cta-icon" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.1 16.66">
-                    <g id="Groupe_1000" data-name="Groupe 1000">
-                        <g id="Groupe_999" data-name="Groupe 999">
-                            <g id="Groupe_796" data-name="Groupe 796">
-                                <line id="Ligne_1" data-name="Ligne 1" x1="1" y1="15.66" x2="15.66" y2="1" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-miterlimit: 9.99999982885729;stroke-width: 1.999999965771458px" />
-                            </g>
-                            <line id="Ligne_133" data-name="Ligne 133" x1="1" y1="1" x2="16.1" y2="15.63" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
+<section data-calc-mobile data-contact-media class="contact-media">
+    <div class="contact-media__cta-container">
+        <div data-cursor data-contact-close class="contact-media__cta cta">
+            <span class="contact-media__cta-text cta__text" data-circle-text>
+                <?php for ($i = 0; $i <= 5; $i++) { ?>
+                    <?= $media['back'] ?>
+                    <div> . </div>
+                <?php
+                } ?>
+            </span>
+            <svg class="contact-media__cta-icon" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.1 16.66">
+                <g id="Groupe_1000" data-name="Groupe 1000">
+                    <g id="Groupe_999" data-name="Groupe 999">
+                        <g id="Groupe_796" data-name="Groupe 796">
+                            <line id="Ligne_1" data-name="Ligne 1" x1="1" y1="15.66" x2="15.66" y2="1" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-miterlimit: 9.99999982885729;stroke-width: 1.999999965771458px" />
                         </g>
+                        <line id="Ligne_133" data-name="Ligne 133" x1="1" y1="1" x2="16.1" y2="15.63" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px" />
                     </g>
-                </svg>
-            </div>
+                </g>
+            </svg>
         </div>
-        <h2 class="contact-media__title"><?= $media['title'] ?></h2>
+    </div>
+    <div data-wolfpack class="contact-media__container">
+        <h2 class="contact-media__title" data-words><?= $media['title'] ?></h2>
         <?php if ($media['list']) { ?>
             <ul class="contact-media__list">
                 <?php foreach ($media['list'] as $member) { ?>
@@ -51,38 +51,38 @@ $media = get_field('media') ?>
             </ul>
         <?php } ?>
     </div>
-    <img src="<?= $media['background']['url'] ?>" alt="<?= $media['background']['alt'] ?>" class="contact-media__background">
+    <div class="contact-media__background" data-lottie-contact="/wp-content/themes/dessercom/assets/src/lottie/lines-white.json"></div>
 </section>
 
 <?php $hero = get_field('hero'); ?>
-<section data-wolfpack-section data-contact-hero class="contact-hero">
+<section data-wolfpack-section data-contact-hero class="contact-hero" data-tadam data-tadam-threshold="-1">
     <div class="contact-hero__map-container">
         <?php get_template_part('modules/md-map-contact'); ?>
     </div>
     <div class="contact-hero__container">
         <div class="contact-hero__cta-container">
-            <div data-contact-show class="contact-hero__cta">
-                <span class="contact-hero__cta-text" data-circle-text>
+            <div data-cursor data-contact-show class="contact-hero__cta cta">
+                <span class="contact-hero__cta-text cta__text" data-circle-text>
                     <?php for ($i = 0; $i <= 2; $i++) { ?>
                         <?= $hero['link']['title'] ?>
                         <div> . </div>
                     <?php } ?>
                 </span>
-                <svg class="contact-hero__cta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 15">
+                <svg class="contact-hero__cta-icon cta__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 15">
                     <path id="Polygone_14" data-name="Polygone 14" d="M6.674,1.212a1,1,0,0,1,1.652,0l5.608,8.225A1,1,0,0,1,13.108,11H1.892a1,1,0,0,1-.826-1.563Z" transform="translate(11) rotate(90)" fill="#00938f" />
                 </svg>
             </div>
         </div>
         <div class="contact-hero__info">
-            <h1 class="contact-hero__title"><?= $hero['title'] ?></h1>
+            <h1 class="contact-hero__title" data-words data-tadam-animate="words--delay-0.2"><?= $hero['title'] ?></h1>
             <?php
             if ($hero['list']) { ?>
-                <ul class="contact-hero__list">
+                <ul class="contact-hero__list" data-tadam-animate="contact-locations">
                     <?php
                     foreach ($hero['list'] as $item) { ?>
                         <li class="contact-hero__item">
                             <div class="contact-hero__location">
-                                <div data-contact-drawer-toggle class="contact-hero__header">
+                                <div data-cursor data-contact-drawer-toggle class="contact-hero__header">
                                     <p class="contact-hero__name"><?= $item['name'] ?><span class="contact-hero__suffix"><?= $item['suffix'] ?></span></p>
                                     <div data-contact-drawer-icon data-services-drawer-icon class="contact-hero__item-icon">
                                         <svg class="contact-hero__item-close" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.1 16.66">
@@ -131,7 +131,7 @@ $media = get_field('media') ?>
 
 <?php
 $support = get_field('support') ?>
-<section data-wolfpack-section class="contact-support">
+<section data-wolfpack-section class="contact-support" data-tadam data-tadam-threshold="150">
     <div class="contact-support__background">
         <svg class="contact-support__foreground-image" xmlns="http://www.w3.org/2000/svg" width="181.567" height="163.488" viewBox="0 0 181.567 163.488">
             <defs>
@@ -145,13 +145,13 @@ $support = get_field('support') ?>
     </div>
     <div class="contact-support__container">
         <div class="contact-support__foreground">
-            <p class="contact-support__note"><?= $support['note'] ?></p>
+            <p class="contact-support__note" data-words data-tadam-animate="words"><?= $support['note'] ?></p>
             <div class="contact-support__info">
-                <h2 class="contact-support__title"><?= $support['title'] ?></h2>
-                <p class="contact-support__text"><?= $support['text'] ?></p>
+                <h2 class="contact-support__title" data-words data-tadam-animate="words--delay-0.3"><?= $support['title'] ?></h2>
+                <p class="contact-support__text" data-words data-tadam-animate="words--delay-0.5"><?= $support['text'] ?></p>
                 <?php
                 if ($support['list']) { ?>
-                    <ul class="contact-support__phone-list">
+                    <ul class="contact-support__phone-list" data-tadam-animate="contact-phones">
                         <?php
                         foreach ($support['list'] as $phone) { ?>
                             <li class="contact-support__phone-item">
@@ -168,11 +168,14 @@ $support = get_field('support') ?>
 
 <?php
 $contact = get_field('form'); ?>
-<section id="form" data-wolfpack-section class="contact-form">
+<section id="form" data-wolfpack-section class="contact-form" data-tadam data-tadam-threshold="100">
     <img src="<?= $contact['image']['url'] ?>" alt="<?= $contact['image']['alt'] ?>" class="contact-form__background">
     <div class="contact-form__container">
-        <h2 class="contact-form__title"><?= $contact['title'] ?></h2>
-        <div data-form class="contact-form__form-container">
+        <h2 class="contact-form__title">
+            <span class="contact-form__separator" data-tadam-animate="scaleX-1"></span>
+            <div class="contact-form__title-content" data-words data-tadam-animate="words--delay-0.3"><?= $contact['title'] ?></div>
+        </h2>
+        <div data-form class="contact-form__form-container" data-tadam-animate="opacity-1--y-0--delay-0.5">
             <?php
             if (ICL_LANGUAGE_CODE == 'en') {
                 echo do_shortcode('[gravityform id="9" title="false" description="false" ajax="false"]');
@@ -180,9 +183,7 @@ $contact = get_field('form'); ?>
             if (ICL_LANGUAGE_CODE == 'fr') {
                 echo do_shortcode('[gravityform id="2" title="false" description="false" ajax="false"]');
             } ?>
-            <?php
 
-            echo do_shortcode('[gravityform id="' . $contact['form'] . '" title="false" description="false" ajax="false"]'); ?>
         </div>
     </div>
 </section>
