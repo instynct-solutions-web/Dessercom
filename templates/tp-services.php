@@ -7,40 +7,42 @@ Template Name: Services
 get_header(); ?>
 <?php
 $map = get_field('map') ?>
-<section data-stay data-calc-mobile data-map class="services-map">
-    <div class="services-map__svg-container">
-        <?php get_template_part('modules/md-map'); ?>
-    </div>
-    <div class="services-map__container">
-        <div class="services-map__scroll-wrapper">
-            <div data-wolfpack class="services-map__scroll-container">
-                <?php
-                if ($map['region']) { ?>
-                    <ul class="services-map__list">
-                        <?php
-                        foreach ($map['region'] as $region) { ?>
-                            <li class="services-map__item">
-                                <p data-map-region="<?= $region['num'] ?>" data-cursor class="services-map__region">
-                                    <span class="services-map__counter"><?= $region['num'] ?></span>
-                                    <span data-region-name class="services-map__region-name">
-                                        <?= $region['name'] ?>
-                                    </span>
-                                </p>
-                            </li>
-                        <?php } ?>
-                    </ul>
-                <?php } ?>
+<div data-calc-mobile data-map class="services-map">
+    <div class="services-map__content" data-wolfpack>
+        <div class="services-map__svg-container">
+            <?php get_template_part('modules/md-map'); ?>
+        </div>
+        <div class="services-map__container">
+            <div class="services-map__scroll-wrapper">
+                <div class="services-map__scroll-container">
+                    <?php
+                    if ($map['region']) { ?>
+                        <ul class="services-map__list">
+                            <?php
+                            foreach ($map['region'] as $region) { ?>
+                                <li class="services-map__item">
+                                    <p data-map-region="<?= $region['num'] ?>" data-cursor class="services-map__region">
+                                        <span class="services-map__counter"><?= $region['num'] ?></span>
+                                        <span data-region-name class="services-map__region-name">
+                                            <?= $region['name'] ?>
+                                        </span>
+                                    </p>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    <?php } ?>
+                </div>
+            </div>
+            <div class="services-map__back-button">
+                <span data-cursor data-map-close class="services-map__button-icon">
+                    <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 13.98">
+                        <path id="Polygone_14" data-name="Polygone 14" d="M.47,6.63A1,1,0,0,0,.19,8.1a.9.9,0,0,0,.28.27l8.85,5.94A1.08,1.08,0,0,0,10.81,14a1.07,1.07,0,0,0,.19-.6V1.57A1.06,1.06,0,0,0,9.92.51a1.08,1.08,0,0,0-.6.18Z" transform="translate(0 -0.51)" style="fill: #00938f" />
+                    </svg>
+                </span>
             </div>
         </div>
-        <div class="services-map__back-button">
-            <span data-cursor data-map-close class="services-map__button-icon">
-                <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 13.98">
-                    <path id="Polygone_14" data-name="Polygone 14" d="M.47,6.63A1,1,0,0,0,.19,8.1a.9.9,0,0,0,.28.27l8.85,5.94A1.08,1.08,0,0,0,10.81,14a1.07,1.07,0,0,0,.19-.6V1.57A1.06,1.06,0,0,0,9.92.51a1.08,1.08,0,0,0-.6.18Z" transform="translate(0 -0.51)" style="fill: #00938f" />
-                </svg>
-            </span>
-        </div>
     </div>
-</section>
+</div>
 
 <?php $hero = get_field('hero') ?>
 <section data-wolfpack-section data-map-hero class="services-hero" data-tadam data-tadam-threshold="-1">
@@ -101,11 +103,11 @@ $extra = get_field('services_ext'); ?>
                 <?php
                     $counter++;
                 } ?>
-
             </ul>
         </div>
     </div>
 </section>
+
 <?php
 $paramedic = get_field('services_paramedic'); ?>
 <section data-wolfpack-section class="services-paramedic" id="soins-urgence-prehospitaliers" data-tadam data-tadam-threshold="100">

@@ -38,9 +38,10 @@ html.website {
 }
 
 @media only screen and (min-width: 1025px) {
-	html.website {
+	html {
 		overflow: hidden;
 		scroll-behavior: auto;
+		perspective: 1px;
 	}
 }
 

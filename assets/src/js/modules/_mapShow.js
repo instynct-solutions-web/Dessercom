@@ -1,6 +1,7 @@
 export default class MapShow {
 	constructor() {
 		// All DOM selector / elements goes here
+		this.body = document.querySelector('body');
 		this.header = document.querySelector('[data-header]');
 		this.headerElemList = document.querySelectorAll('[data-header-hide]');
 		this.showMapButton = document.querySelector(' [data-map-show]');
@@ -15,9 +16,11 @@ export default class MapShow {
 	manageEvents() {
 		// All Dom events goes here
 		this.showMapButton.addEventListener('click', () => {
+			this.body.classList.add('noscroll');
 			this.show();
 		});
 		this.closeMapButton.addEventListener('click', () => {
+			this.body.classList.remove('noscroll');
 			this.hide();
 		});
 	}
@@ -27,7 +30,6 @@ export default class MapShow {
 		this.hero.classList.add(`${this.hero.classList[0]}--hide`);
 		this.map.classList.add(`${this.map.classList[0]}--show`);
 		for (let i = 0; i < this.headerElemList.length; i += 1) {
-			console.log(this.headerElemList.length);
 			this.headerElemList[i].classList.add(`${this.headerElemList[i].classList[0]}--hide`);
 		}
 	}

@@ -124,6 +124,14 @@
 			}
 		}
 	}
+	&--blue {
+		.cursor__ball {
+			circle {
+				fill: $navy;
+				stroke: $navy;
+			}
+		}
+	}
 	&--fade {
 		.cursor__ball {
 			svg {

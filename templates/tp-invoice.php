@@ -35,9 +35,7 @@ get_header(); ?>
                 </div>
             </div>
         </a>
-        <h1 class="invoice-form__title" data-words data-tadam-animate="words--delay-0.2">
-            <?= $form['title'] ?>
-        </h1>
+        <h1 class="invoice-form__title" data-words data-tadam-animate="words--delay-0.2"><?= $form['title'] ?></h1>
         <div class="invoice-form__header" data-tadam-animate="opacity-1--y-0--delay-0.4">
             <span class="invoice-form__separator"></span>
             <div data-hint-image-container class="invoice-form__image-container">

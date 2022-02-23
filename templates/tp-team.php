@@ -63,7 +63,7 @@ $terms = get_terms(array(
                 <?php
                 } ?>
             </ul>
-            <div class="team-grid__members" data-tadam-animate="team-members" data-tadam-type="timeline">
+            <div class="team-grid__members" data-tadam-animate="team-members">
                 <?php foreach ($terms as $division) {
                     $args = array(
                         'posts_per_page' => -1,
@@ -77,7 +77,7 @@ $terms = get_terms(array(
                     );
                     $members = get_posts($args); ?>
 
-                    <ul class="team-grid__division-grid" id="<?= $division->slug ?>">
+                    <ul class="team-grid__division-grid" id="<?= $division->slug ?>" data-changes data-changes-elements=".team-grid__division-list" data-changes-classes="<?= $division->slug ?>">
                         <?php foreach ($members as $post) {
                             $member = get_field('member');
                         ?>

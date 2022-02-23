@@ -6,7 +6,7 @@
             $question = get_field('question')
             // Get project ACF Field
     ?>
-            <li class="faq__answer" data-terms-policies>
+            <li class="faq__answer faq__answer--closed" data-terms-policies>
                 <div class="faq__answer-top">
                     <h4 data-cursor class="faq__answer-title" data-terms-policies-title>
                         <?= the_title() ?>

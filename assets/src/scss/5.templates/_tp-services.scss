@@ -6,7 +6,6 @@
 	&__container {
 		@include container;
 		position: relative;
-		height: calc(100vh - #{$mobile-header-height});
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
@@ -18,11 +17,15 @@
 		top: 0;
 		display: flex;
 		justify-content: space-around;
+		padding-bottom: 50px;
 	}
 	&__background-map {
 		height: 100%;
 		max-width: none;
 		object-fit: cover;
+	}
+	&__text-container {
+		margin-bottom: 100px;
 	}
 	&__title-word {
 		display: inline-block;
@@ -44,6 +47,8 @@
 		display: flex;
 		justify-content: flex-end;
 		margin: 2em 0;
+		top: -40px;
+		position: relative;
 	}
 	&__cta {
 		position: relative;
@@ -84,26 +89,38 @@
 	}
 }
 .services-map {
-	overflow: hidden;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	overflow-y: scroll;
+	overflow-x: hidden;
 	background-color: $white;
 	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	position: absolute;
+	width: 100%;
+	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: -1;
-	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) !important;
 	opacity: 0;
 	pointer-events: none;
 	transition: z-index 0s ease 0.3s, opacity 0.25s ease 0.1s;
 	&--show {
 		opacity: 1;
 		z-index: 2;
-		pointer-events: all;
 		transition: z-index 0s ease, opacity 0.25s ease 0.1s;
+		.services-map {
+			&__content {
+				pointer-events: all !important;
+			}
+		}
+	}
+	&__content {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		pointer-events: none !important;
 	}
 	&__svg-container {
 		min-height: 40vh;
@@ -117,7 +134,8 @@
 		}
 	}
 	&__scroll-wrapper {
-		overflow: hidden;
+		overflow-y: scroll;
+		overflow-x: hidden;
 		height: 30vh;
 	}
 	&__scroll-container {
@@ -394,7 +412,7 @@
 	}
 	&__item {
 		background-color: $gray;
-		border-radius: 3px 3px 0 0;
+		border-radius: 3px;
 		margin: 1em 0;
 		display: inline-block;
 	}
@@ -470,7 +488,6 @@
 			align-items: flex-start;
 			justify-content: space-around;
 			flex-direction: column;
-			height: calc(100vh - #{$tablet-header-height});
 		}
 		&__background-container {
 			align-items: flex-end;
@@ -494,20 +511,21 @@
 		}
 	}
 	.services-map {
-		padding-top: $tablet-header-height;
+		align-items: flex-end;
 		&__svg-container {
 			height: 100vh;
 			width: 100%;
 			position: absolute;
-			transform: translate(40px, -45%);
+			transform: translate(40px, -66%);
 		}
 		&__container {
-			position: absolute;
+			min-height: 450px;
 			left: 0px;
 			bottom: 40px;
 			padding-top: $mobile-header-height;
 		}
 		&__scroll-wrapper {
+			overflow: hidden;
 			height: auto;
 			margin-bottom: 60px;
 		}
@@ -529,15 +547,19 @@
 		}
 	}
 	.services-extra {
+		position: relative;
+		overflow: initial !important;
 		&__background {
 			width: 60%;
 		}
 		&__container {
 			padding-top: 100px;
-			padding-bottom: 50px;
+			padding-bottom: 100px;
 			position: relative;
-			flex-direction: revert;
+			display: flex;
+			flex-direction: row;
 			justify-content: space-around;
+			align-items: flex-start;
 		}
 		&__logo-container {
 			position: absolute;
@@ -549,9 +571,14 @@
 			width: calc(50% - 8px);
 			margin-right: 8px;
 			margin-bottom: 0px;
+			position: sticky;
+			top: 150px;
 		}
 		&__title {
 			width: 75%;
+		}
+		&__text {
+			padding-bottom: 0px;
 		}
 		&__list-container {
 			width: calc(50% - 80px);
@@ -563,6 +590,9 @@
 		&__item {
 			width: 100%;
 			margin-bottom: 40px;
+			&:last-of-type {
+				margin-bottom: 0px;
+			}
 		}
 	}
 	.services-paramedic {
@@ -744,8 +774,10 @@
 	}
 	.services-map {
 		overflow: hidden;
-		padding-top: $desktop-header-height;
 		align-items: flex-start;
+		&__content {
+			height: 100%;
+		}
 		&__svg-container {
 			display: flex;
 			flex-wrap: wrap;
@@ -763,11 +795,12 @@
 			}
 		}
 		&__container {
+			position: absolute;
 			display: flex;
 			align-items: flex-start;
 			justify-content: flex-end;
 			height: 100%;
-			left: auto;
+			left: 0px;
 			bottom: 0px;
 			width: 35%;
 			flex-direction: column;
@@ -811,7 +844,9 @@
 		}
 	}
 	.services-extra {
-		padding-bottom: 120px;
+		padding-top: 100px;
+		padding-bottom: 240px;
+		overflow: hidden !important;
 		height: fit-content;
 		&__background {
 			width: 45%;
@@ -821,22 +856,23 @@
 			flex-wrap: wrap;
 			align-items: flex-start;
 			flex-direction: row;
-			padding-top: 240px;
+			padding-top: 0px;
 			padding-bottom: 0px;
 			margin-bottom: 0;
-			height: 150vh;
 			position: relative;
 		}
 		&__logo-container {
-			top: 70px;
+			top: 0px;
 			right: 100px;
 		}
 		&__info {
-			height: 60%;
+			padding-top: 120px;
+			height: auto;
 			width: 41.66666%;
 			margin: 0;
 			position: relative;
 			z-index: 3;
+			top: 0px;
 		}
 		&__title {
 			font-size: rem(35);
@@ -850,6 +886,12 @@
 		}
 		&__text {
 			font-size: rem(19);
+			padding-bottom: 0px;
+		}
+		&__text-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
 		}
 		&__text-word {
 			opacity: 0;
@@ -857,13 +899,13 @@
 			transform: translate3d(0, 150%, 0);
 		}
 		&__list-container {
+			padding-top: 120px;
 			position: relative;
 			width: 33.33333%;
 			top: auto;
 			right: auto;
 			align-self: center;
 			max-height: none;
-			padding: 120px 0;
 		}
 		&__item {
 			padding-top: 15px;
