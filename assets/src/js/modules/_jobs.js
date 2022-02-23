@@ -56,6 +56,7 @@ export default class Jobs {
 	}
 
 	static openDrawer(drawer, title) {
+		console.log('coucou');
 		drawer.classList.add('opened');
 		title.classList.add('opened');
 	}

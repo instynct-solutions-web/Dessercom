@@ -28,7 +28,6 @@ export default class HistorySlider {
 				draggable: true,
 				pageDots: false,
 				prevNextButtons: false,
-				adaptiveHeight: true,
 				fade: true,
 			});
 			this.flktyMedias = new Flickity(this.sliderMedias, {

@@ -194,10 +194,12 @@
 			top: 50px;
 			right: -190px;
 			width: calc(100% - 80px);
+			max-width: 750px;
 			transform: translateX(0px) scale(1.2);
 		}
 	}
 	.team-grid {
+		overflow: initial !important;
 		&__container {
 			padding-top: 80px;
 			padding-bottom: 120px;
@@ -205,18 +207,75 @@
 		&__top {
 			width: 50%;
 		}
+		&__division-anchor {
+			font-size: rem(12);
+		}
 		&__grid {
 			display: flex;
 			flex-wrap: wrap;
 			align-items: flex-start;
 		}
 		&__division-list {
+			position: sticky;
+			top: 150px;
 			width: 37.5%;
 			padding-right: 25px;
 			margin-bottom: 0px;
+			&--administration {
+				.team-grid {
+					&__division-anchor {
+						opacity: 0.3;
+					}
+					&__division-item {
+						&:nth-of-type(1) {
+							.team-grid {
+								&__division-anchor {
+									opacity: 1;
+								}
+							}
+						}
+					}
+				}
+			}
+			&--direction {
+				.team-grid {
+					&__division-anchor {
+						opacity: 0.3;
+					}
+					&__division-item {
+						&:nth-of-type(2) {
+							.team-grid {
+								&__division-anchor {
+									opacity: 1;
+								}
+							}
+						}
+					}
+				}
+			}
+			&--honorary {
+				.team-grid {
+					&__division-anchor {
+						opacity: 0.3;
+					}
+					&__division-item {
+						&:nth-of-type(3) {
+							.team-grid {
+								&__division-anchor {
+									opacity: 1;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		&__division-anchor {
+			transition: opacity 0.5s ease;
 		}
 		&__members {
 			width: 62.5%;
+			margin-bottom: 50px;
 		}
 		&__division-grid {
 			display: grid;
@@ -239,6 +298,13 @@
 		&__member-content {
 			height: calc(100% - 175px);
 			padding: 20px 20px 45px 20px;
+		}
+	}
+}
+@media only screen and (min-width: 768px) {
+	.team-grid {
+		&__division-anchor {
+			font-size: rem(16);
 		}
 	}
 }
@@ -273,7 +339,7 @@
 			padding-top: 130px;
 		}
 		&__title {
-			width: 100%;
+			width: 150%;
 			font-size: rem(70);
 			margin-bottom: 15px;
 		}
@@ -283,12 +349,14 @@
 		}
 		&__image {
 			width: 58.33333%;
+			max-width: none;
 			position: relative;
 			top: auto;
 			right: auto;
 		}
 	}
 	.team-grid {
+		overflow: hidden !important;
 		&__container {
 			padding-top: 90px;
 			padding-bottom: 170px;
@@ -309,13 +377,15 @@
 			width: 25%;
 			padding-top: 120px;
 			height: 50%;
+			position: relative;
+			top: 0px;
 		}
 		&__division-item {
 			opacity: 0;
 			visibility: hidden;
 			transform: translate3d(0, 100%, 0);
 			&:first-child {
-				margin-top: 5em;
+				margin-top: 75px;
 			}
 		}
 		&__division-member {
@@ -325,6 +395,7 @@
 		}
 		&__members {
 			width: 75%;
+			margin-bottom: 100px;
 		}
 		&__division-grid {
 			grid-template-columns: repeat(3, 1fr);

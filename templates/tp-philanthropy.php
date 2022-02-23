@@ -238,10 +238,10 @@ $grant = get_field('grant') ?>
         </div>
         <div class="philanthropy-grant__link-container">
             <div class="philanthropy-grant__link-wrapper" data-tadam-animate="opacity-1--y-0--delay-0.4">
-                <a href="<?= $grant['button']['url'] ?>" class="philanthropy-grant__link"><?= $grant['button']['title'] ?></a>
+                <a href="<?= $grant['button']['url'] ?>" target="<?= $grant['button']['target'] ?>" class="philanthropy-grant__link"><?= $grant['button']['title'] ?></a>
             </div>
             <div class="philanthropy-grant__link-wrapper" data-tadam-animate="opacity-1--y-0--delay-0.5">
-                <a href="<?= $grant['button_2']['url'] ?>" class="philanthropy-grant__link philanthropy-grant__link--alt"><?= $grant['button_2']['title'] ?></a>
+                <a href="<?= $grant['button_2']['url'] ?>" target="<?= $grant['button_2']['target'] ?>" class="philanthropy-grant__link philanthropy-grant__link--alt"><?= $grant['button_2']['title'] ?></a>
             </div>
         </div>
     </div>

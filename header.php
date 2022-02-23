@@ -5,7 +5,16 @@
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="format-detection" content="telephone=no">
+	<?php
+	$forms = GFAPI::get_forms();
+	if ($forms) {
+		foreach ($forms as $form) {
+			gravity_form_enqueue_scripts($form['id'], true);
+		}
+	}
+	?>
 	<?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -43,7 +52,8 @@
 	<div id="swup" class="wolfpack-container" data-calc-mobile data-calc-mobile-responsive="responsive">
 		<div class="scrollbar" data-scrollbar data-scrollbar-index=2><span class="scrollbar__thumb" data-scrollbar-thumb></span></div>
 		<?php $header = get_field('header', 'options'); ?>
-		<header class="header" data-header data-header-disappear data-header-small=100 data-tadam data-tadam-threshold=-1>
+		<header class="header transition-fade" data-header data-header-disappear data-header-small=100 data-tadam data-tadam-threshold=-1>
+
 			<div data-header-hide class="header__top">
 				<div class="header__lang-container" data-tadam-animate="opacity-1--y-0--delay-0.4">
 					<?php do_action('wpml_add_language_selector') ?>
@@ -77,7 +87,7 @@
 									$currentPageClass = '';
 								} ?>
 								<li class="menu__item <?= $currentPageClass ?>" data-tadam-animate="opacity-1--y-0--delay-0.4">
-									<a href="<?= $item['link']['url'] ?>" class="menu__item-link <?= $currentPageClass ?>">
+									<a href="<?= $item['link']['url'] ?>" target="<?= $item['link']['target'] ?>" class="menu__item-link <?= $currentPageClass ?>">
 										<?= $item['link']['title'] ?>
 									</a>
 								</li>
@@ -98,8 +108,8 @@
 							</div>
 						</div>
 						<div class="header__button" data-invoice-button-container data-tadam-animate="scaleX-1--delay-0.5">
-							<a href="<?= $header['button']['url'] ?>" class="header__button-label" data-tadam-animate="opacity-1--y-0--delay-1" data-invoice-button data-marquee-speed=20 data-marquee><?= $header['button']['title'] ?></a>
-							<a href="<?= $header['button']['url'] ?>" class="header__button-label header__button-label--mock" data-invoice-mock>
+							<a href="<?= $header['button']['url'] ?>" target="<?= $header['button']['target'] ?>" class="header__button-label" data-tadam-animate="opacity-1--y-0--delay-1" data-invoice-button data-marquee-speed=20 data-marquee><?= $header['button']['title'] ?></a>
+							<a href="<?= $header['button']['url'] ?>" target="<?= $header['button']['target'] ?>" class="header__button-label header__button-label--mock" data-invoice-mock>
 								<p class="header__button-content" data-tadam-animate="opacity-1--y-0--delay-1"><?= $header['button']['title'] ?></p>
 							</a>
 						</div>
@@ -114,7 +124,7 @@
 								<?php
 								foreach ($mainNavMobile['list'] as $item) { ?>
 									<li class="header__main-nav-item">
-										<a href="<?= $item['link']['url'] ?>" class="header__main-nav-link">
+										<a href="<?= $item['link']['url'] ?>" target="<?= $item['link']['target'] ?>" class="header__main-nav-link">
 											<?= $item['link']['title'] ?>
 											<svg class="header__main-nav-icon" xmlns="http://www.w3.org/2000/svg" width="22.917" height="20.954" viewBox="0 0 22.917 20.954">
 												<g id="Groupe_1094" data-name="Groupe 1094" transform="translate(3.924 2.121)">
@@ -135,7 +145,7 @@
 								<?php
 								foreach ($subNav['list'] as $item) { ?>
 									<li class="header__sub-nav-item">
-										<a href="<?= $item['link']['url'] ?>" class="header__sub-nav-link">
+										<a href="<?= $item['link']['url'] ?>" target="<?= $item['link']['target'] ?>" class="header__sub-nav-link">
 											<?= $item['link']['title'] ?>
 											<svg class="header__sub-nav-icon" xmlns="http://www.w3.org/2000/svg" width="13.686" height="12.527" viewBox="0 0 13.686 12.527">
 												<g id="Groupe_1547" data-name="Groupe 1547" transform="translate(3.57 1.414)">

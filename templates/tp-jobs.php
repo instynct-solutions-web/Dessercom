@@ -30,7 +30,6 @@ $benefits = get_field('benefits') ?>
                 <?php
                     $counter++;
                 } ?>
-
             </ul>
         </div>
     </div>
@@ -87,7 +86,10 @@ $values = get_field('benefits_2') ?>
                             </svg>
                         </span>
                         <p class="jobs-values__name jobs-values__name--mobile"><?= $item['title'] ?></p>
-                        <img src="<?= $item['picto']['url'] ?>" alt="<?= $item['picto']['alt'] ?>" data-jobs-values-picto class="jobs-values__picto">
+                        <div class="jobs-values__picto-container">
+                            <img src="<?= $item['picto']['url'] ?>" alt="<?= $item['picto']['alt'] ?>" data-jobs-values-picto class="jobs-values__picto jobs-values__picto--teal">
+                            <img src="<?= $item['picto_gray']['url'] ?>" alt="<?= $item['picto_gray']['alt'] ?>" data-jobs-values-picto class="jobs-values__picto jobs-values__picto--gray">
+                        </div>
                         <p class="jobs-values__text"><?= $item['text'] ?></p>
                     </li>
                 <?php
