@@ -1,5 +1,4 @@
-import {TweenMax} from 'gsap';
-import Power1 from 'gsap';
+import {TweenMax, Power1} from 'gsap';
 
 export default class FooterCursor {
 	constructor() {
@@ -18,7 +17,7 @@ export default class FooterCursor {
 			this.footerLinkList[i].addEventListener('mouseenter', (e) => {
 				const cursorClass = this.footerCursorList[i].classList[0];
 				this.footerCursorList[i].classList.add(`${cursorClass}--show`);
-				TweenMax.to(this.footerCursorList[i], 1, {
+				TweenMax.to(this.footerCursorList[i], 0.5, {
 					scale: 6,
 					ease: Power1.easeOut,
 				});
@@ -26,7 +25,7 @@ export default class FooterCursor {
 			this.footerLinkList[i].addEventListener('mouseout', (e) => {
 				const cursorClass = this.footerCursorList[i].classList[0];
 				this.footerCursorList[i].classList.remove(`${cursorClass}--show`);
-				TweenMax.to(this.footerCursorList[i], 1, {
+				TweenMax.to(this.footerCursorList[i], 0.5, {
 					scale: 0,
 					ease: Power1.easeOut,
 				});

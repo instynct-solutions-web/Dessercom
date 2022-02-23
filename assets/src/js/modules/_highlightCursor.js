@@ -1,5 +1,4 @@
-import {TweenMax} from 'gsap';
-import Power4 from 'gsap';
+import {TweenMax, Power4} from 'gsap';
 
 export default class HighlightCursor {
 	constructor() {
