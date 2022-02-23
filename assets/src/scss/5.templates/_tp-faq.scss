@@ -18,8 +18,11 @@
 				color: $white;
 			}
 		}
-		&__small {
+		&--small {
 			.header {
+				&__logo {
+					filter: brightness(1) invert(0) grayscale(0);
+				}
 				&__top {
 					.wpml-ls-link {
 						color: $navy;

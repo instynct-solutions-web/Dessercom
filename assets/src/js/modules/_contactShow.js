@@ -41,7 +41,7 @@ export default class ContactShow {
 	}
 
 	show() {
-		this.header.classList.add(`${this.header.classList[0]}--hidden`);
+		this.header.classList.add(`${this.header.classList[0]}--hide`);
 		this.hero.classList.add(`${this.hero.classList[0]}--hide`);
 		this.contactMedia.classList.add(`${this.contactMedia.classList[0]}--show`);
 		this.cursor.classList.add(`${this.cursor.classList[0]}--white`);
@@ -56,7 +56,7 @@ export default class ContactShow {
 	}
 
 	hide() {
-		this.header.classList.remove(`${this.header.classList[0]}--hidden`);
+		this.header.classList.remove(`${this.header.classList[0]}--hide`);
 		this.hero.classList.remove(`${this.hero.classList[0]}--hide`);
 		this.contactMedia.classList.remove(`${this.contactMedia.classList[0]}--show`);
 		this.cursor.classList.remove(`${this.cursor.classList[0]}--white`);
