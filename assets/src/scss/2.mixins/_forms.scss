@@ -308,7 +308,7 @@
 			right: 20px;
 			transform-origin: center;
 			width: 15px;
-			transform: rotate(0deg);
+			transform: rotate(45deg);
 		}
 	}
 	.gfield {
@@ -560,10 +560,11 @@
 					width: 16px;
 					height: 16px;
 					padding: 0 !important;
+
 					border: 1px solid $navy !important;
 					&:checked {
 						background-image: url('/wp-content/themes/dessercom/assets/src/svg/dessercom-check.svg');
-						transform: opacity 0s ease !important;
+						transition: opacity 0s ease !important;
 					}
 				}
 			}
@@ -644,7 +645,8 @@
 			position: absolute;
 			right: 20px;
 			transform-origin: center;
-			transform: rotate(225deg);
+			width: 15px;
+			transform: rotate(45deg);
 		}
 	}
 	.gfield_label {
@@ -735,7 +737,7 @@
 						border: 1px solid $navy !important;
 						&:checked {
 							background-image: url('/wp-content/themes/dessercom/assets/src/svg/dessercom-check.svg');
-							transform: opacity 0s ease !important;
+							transition: opacity 0s ease !important;
 						}
 					}
 				}
@@ -931,7 +933,8 @@
 			position: absolute;
 			right: 20px;
 			transform-origin: center;
-			transform: rotate(225deg);
+			width: 15px;
+			transform: rotate(45deg);
 		}
 	}
 	.gfield {

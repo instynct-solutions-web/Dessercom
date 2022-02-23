@@ -43,8 +43,8 @@ $media = get_field('media') ?>
                             <p class="contact-media__function"><?= $member['function'] ?></p>
                         </div>
                         <div class="contact-media__contact">
-                            <p class="contact-media__phone"><?= __('Téléphone: ') ?><a href="<?= $member['phone']['url'] ?>" class="contact-media__link"><?= $member['phone']['title'] ?></a></p>
-                            <p class="contact-media__email"><?= __('Courriel: ') ?><a href="<?= $member['email']['url'] ?>" class="contact-media__link"><?= $member['email']['title'] ?></a></p>
+                            <p class="contact-media__phone"><?= $member['phone_title'] ?><a href="<?= $member['phone']['url'] ?>" class="contact-media__link"><?= $member['phone']['title'] ?></a></p>
+                            <p class="contact-media__email"><?= $member['email_title'] ?><a href="<?= $member['email']['url'] ?>" class="contact-media__link"><?= $member['email']['title'] ?></a></p>
                         </div>
                     </li>
                 <?php } ?>

@@ -1,5 +1,5 @@
 import {TweenMax} from 'gsap';
-import Power1 from 'gsap';
+import Power4 from 'gsap';
 
 export default class HighlightCursor {
 	constructor() {
@@ -20,17 +20,17 @@ export default class HighlightCursor {
 		this.textContainer.addEventListener('mouseover', (e) => {
 			const cursorClass = this.textCursor.classList[0];
 			this.textCursor.classList.add(`${cursorClass}--show`);
-			TweenMax.to(this.textCursor, 0.3, {
+			TweenMax.to(this.textCursor, 0.6, {
 				scale: 1,
-				ease: Power1.easeOut,
+				ease: Power4.easeOut,
 			});
 		});
 		this.textContainer.addEventListener('mouseleave', (e) => {
 			const cursorClass = this.textCursor.classList[0];
 			this.textCursor.classList.remove(`${cursorClass}--show`);
-			TweenMax.to(this.textCursor, 0.3, {
+			TweenMax.to(this.textCursor, 0.6, {
 				scale: 0,
-				ease: Power1.easeOut,
+				ease: Power4.easeOut,
 			});
 		});
 		this.sectionWrapper.addEventListener('mousemove', (e) => {
@@ -40,7 +40,7 @@ export default class HighlightCursor {
 			const ballX = HighlightCursor.mapRange(e.clientX, hoverHighlightRect.left, hoverHighlightRect.right, -hoverHighlightWidth / 2, hoverHighlightWidth / 2);
 			const ballY = HighlightCursor.mapRange(e.clientY, hoverHighlightRect.top, hoverHighlightRect.bottom, -hoverHighlightHeight / 2, hoverHighlightHeight / 2);
 			TweenMax.to(this.textCursor, 0.3, {
-				ease: Power1.easeOut,
+				ease: Power4.easeOut,
 				x: ballX,
 				y: ballY,
 			});

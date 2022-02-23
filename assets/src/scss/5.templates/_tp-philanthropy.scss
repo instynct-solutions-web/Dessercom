@@ -282,10 +282,11 @@
 		position: relative;
 		height: 100%;
 		opacity: 1;
-		transition: opacity 0.2s ease-in-out;
+		transition: opacity 0.2s ease-in-out 0.4s;
 		&--hide {
 			pointer-events: none;
 			opacity: 0;
+			transition: opacity 0.2s ease-in-out;
 		}
 	}
 	&__background {
@@ -321,9 +322,10 @@
 		align-items: center;
 		font-size: 14px;
 		margin: 2em 0;
-		transition: opacity 0.3s ease-in-out;
+		transition: opacity 0.05s ease-in-out 0s;
 		&--visible {
 			opacity: 1;
+			transition: opacity 0.3s ease-in-out 0.3s;
 		}
 	}
 	&__background-list {

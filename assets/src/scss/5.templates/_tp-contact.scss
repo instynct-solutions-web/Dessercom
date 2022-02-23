@@ -293,6 +293,11 @@
 		align-items: center;
 		width: rem(145);
 		&:hover {
+			.contact-hero__cta-text {
+				> div {
+					transform: scale(1.1);
+				}
+			}
 			.contact-hero__cta-icon {
 				transform: rotate(90deg) scale(1.5);
 			}
@@ -300,13 +305,17 @@
 	}
 	&__cta-text {
 		@include circleText($teal);
+		> div {
+			transform: scale(1);
+			transition: transform 0.3s ease;
+		}
 	}
 	&__cta-icon {
 		position: absolute;
-		height: rem(25);
-		width: rem(25);
+		height: rem(15);
+		width: rem(15);
 		transform: rotate(90deg) scale(1);
-		transition: transform 0.3s ease-in-out;
+		transition: transform 0.3s ease;
 	}
 }
 

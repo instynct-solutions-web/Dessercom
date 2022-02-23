@@ -107,7 +107,7 @@ $research = get_field('research') ?>
 
                 <p data-research-text class="philanthropy-research__background-text"><?= $research['text'] ?></p>
                 <div class="philanthropy-research__close-container">
-                    <div data-research-slider-close class="philanthropy-research__close">
+                    <div data-cursor data-research-slider-close class="philanthropy-research__close">
                         <svg class="philanthropy-research__close-svg" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.73 13.41">
                             <g id="Groupe_456" data-name="Groupe 456">
                                 <g id="Groupe_454" data-name="Groupe 454">

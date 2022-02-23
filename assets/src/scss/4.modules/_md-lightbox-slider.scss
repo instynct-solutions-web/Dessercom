@@ -183,9 +183,16 @@
 			top: 0;
 			margin-top: 2em;
 			margin-bottom: 4em;
+			max-width: none;
 		}
 		&__button-wrapper {
 			display: none;
+		}
+		.flickity-enabled.is-draggable {
+			.flickity-viewport {
+				cursor: none;
+				pointer-events: none;
+			}
 		}
 	}
 }

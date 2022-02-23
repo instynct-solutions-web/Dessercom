@@ -51,7 +51,14 @@
 		justify-content: center;
 		align-items: center;
 		width: rem(145);
+		height: rem(145);
+
 		&:hover {
+			.services-hero__cta-text {
+				> div {
+					transform: scale(1.1);
+				}
+			}
 			.services-hero__cta-icon {
 				transform: scale(1.5);
 			}
@@ -60,13 +67,17 @@
 
 	&__cta-text {
 		@include circleText($teal);
+		> div {
+			transform: scale(1);
+			transition: transform 0.3s ease;
+		}
 	}
 	&__cta-icon {
 		position: absolute;
 		height: rem(15);
 		width: rem(15);
 		transform: scale(1);
-		transition: transform 0.3s ease-in-out;
+		transition: transform 0.3s ease;
 	}
 	&__item {
 		width: 100%;
@@ -728,7 +739,7 @@
 		}
 		&__cta-container {
 			padding: 0;
-			margin: 130px 0 0 0;
+			margin: 0px 0 0 0;
 		}
 	}
 	.services-map {

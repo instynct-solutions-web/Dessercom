@@ -6,6 +6,7 @@
 	&__container {
 		@include container;
 		padding-bottom: 120px;
+		position: relative;
 	}
 	&__background {
 		display: none;
@@ -19,8 +20,8 @@
 		width: 100px;
 		height: 100px;
 		position: absolute;
-		top: 5%;
-		right: 5%;
+		top: 0%;
+		right: 2%;
 		z-index: 1;
 		@include arrow($teal, 0deg);
 	}
@@ -158,6 +159,10 @@
 			width: calc(100% - 160px);
 			margin: 0 80px 120px 80px;
 		}
+		&__cta {
+			right: 10%;
+			top: 5%;
+		}
 	}
 }
 
@@ -239,6 +244,10 @@
 		&__body {
 			width: 66.66666%;
 			margin: 0 16.66666% 100px 16.66666%;
+		}
+		&__cta {
+			top: 7%;
+			right: 10%;
 		}
 	}
 }
