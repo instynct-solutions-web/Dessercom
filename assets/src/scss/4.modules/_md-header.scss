@@ -18,12 +18,15 @@
 	justify-content: flex-start;
 	padding-top: 0.5em;
 	background-color: transparent;
-	transition: 0.25s ease;
+	transition: opacity 0.5s ease, background-color 0.25s ease, padding-top 0.25s ease, height 0.25s ease, transform 0.5s ease !important;
 	&--hidden {
 		pointer-events: none;
 	}
 	&--small {
 		background-color: $white;
+	}
+	&--hide {
+		transform: translateY(-$desktop-header-height);
 	}
 	&--opened {
 		.header {
@@ -469,10 +472,18 @@
 		justify-content: flex-start;
 		padding-top: 1em;
 		height: $desktop-header-height;
-		transition: 0.25s ease;
+
 		&--small {
+			.header {
+				&__logo {
+					transform: scale(0.85) translateY(-10%);
+				}
+				&__nav-container {
+					transform: scale(0.85) translateY(-10%);
+				}
+			}
 			padding-top: 0.1em;
-			height: calc(#{$desktop-header-height} / 1.3);
+			height: calc(#{$desktop-header-height} / 1.6);
 		}
 		&__top {
 			width: 100%;
@@ -482,6 +493,10 @@
 				font-family: $lelo;
 			}
 		}
+		&__nav-container {
+			transform-origin: right;
+			transition: transform 0.4s ease;
+		}
 		&__main {
 			width: 100%;
 			display: flex;
@@ -489,6 +504,8 @@
 			justify-content: space-between;
 		}
 		&__logo {
+			transform-origin: left;
+			transition: transform 0.4s ease;
 			&--desktop {
 				max-width: 235px;
 			}

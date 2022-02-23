@@ -11,7 +11,7 @@ export default class InteractiveMap {
 
 	manageEvents() {
 		for (let i = 0; i < this.linkRegionList.length; i++) {
-			if (window.innerWidth >= 1280) {
+			if (window.innerWidth > 1024) {
 				this.linkRegionList[i].addEventListener('mouseover', () => {
 					let regionLabelClass = this.labelList[i].classList[0];
 					this.labelList[i].classList.add(`${regionLabelClass}--active`);
