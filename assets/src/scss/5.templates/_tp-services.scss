@@ -6,7 +6,6 @@
 	&__container {
 		@include container;
 		position: relative;
-		height: calc(100vh - #{$mobile-header-height});
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
@@ -18,11 +17,15 @@
 		top: 0;
 		display: flex;
 		justify-content: space-around;
+		padding-bottom: 50px;
 	}
 	&__background-map {
 		height: 100%;
 		max-width: none;
 		object-fit: cover;
+	}
+	&__text-container {
+		margin-bottom: 100px;
 	}
 	&__title-word {
 		display: inline-block;
@@ -44,6 +47,8 @@
 		display: flex;
 		justify-content: flex-end;
 		margin: 2em 0;
+		top: -40px;
+		position: relative;
 	}
 	&__cta {
 		position: relative;
@@ -396,7 +401,7 @@
 	}
 	&__item {
 		background-color: $gray;
-		border-radius: 3px 3px 0 0;
+		border-radius: 3px;
 		margin: 1em 0;
 		display: inline-block;
 	}
@@ -472,7 +477,6 @@
 			align-items: flex-start;
 			justify-content: space-around;
 			flex-direction: column;
-			height: calc(100vh - #{$tablet-header-height});
 		}
 		&__background-container {
 			align-items: flex-end;
@@ -532,15 +536,19 @@
 		}
 	}
 	.services-extra {
+		position: relative;
+		overflow: initial !important;
 		&__background {
 			width: 60%;
 		}
 		&__container {
 			padding-top: 100px;
-			padding-bottom: 50px;
+			padding-bottom: 100px;
 			position: relative;
-			flex-direction: revert;
+			display: flex;
+			flex-direction: row;
 			justify-content: space-around;
+			align-items: flex-start;
 		}
 		&__logo-container {
 			position: absolute;
@@ -552,9 +560,14 @@
 			width: calc(50% - 8px);
 			margin-right: 8px;
 			margin-bottom: 0px;
+			position: sticky;
+			top: 150px;
 		}
 		&__title {
 			width: 75%;
+		}
+		&__text {
+			padding-bottom: 0px;
 		}
 		&__list-container {
 			width: calc(50% - 80px);
@@ -566,6 +579,9 @@
 		&__item {
 			width: 100%;
 			margin-bottom: 40px;
+			&:last-of-type {
+				margin-bottom: 0px;
+			}
 		}
 	}
 	.services-paramedic {
@@ -817,7 +833,9 @@
 		}
 	}
 	.services-extra {
-		padding-bottom: 120px;
+		padding-top: 100px;
+		padding-bottom: 240px;
+		overflow: hidden !important;
 		height: fit-content;
 		&__background {
 			width: 45%;
@@ -827,22 +845,23 @@
 			flex-wrap: wrap;
 			align-items: flex-start;
 			flex-direction: row;
-			padding-top: 240px;
+			padding-top: 0px;
 			padding-bottom: 0px;
 			margin-bottom: 0;
-			height: 150vh;
 			position: relative;
 		}
 		&__logo-container {
-			top: 70px;
+			top: 0px;
 			right: 100px;
 		}
 		&__info {
-			height: 60%;
+			padding-top: 120px;
+			height: auto;
 			width: 41.66666%;
 			margin: 0;
 			position: relative;
 			z-index: 3;
+			top: 0px;
 		}
 		&__title {
 			font-size: rem(35);
@@ -856,6 +875,7 @@
 		}
 		&__text {
 			font-size: rem(19);
+			padding-bottom: 0px;
 		}
 		&__text-word {
 			opacity: 0;
@@ -863,13 +883,13 @@
 			transform: translate3d(0, 150%, 0);
 		}
 		&__list-container {
+			padding-top: 120px;
 			position: relative;
 			width: 33.33333%;
 			top: auto;
 			right: auto;
 			align-self: center;
 			max-height: none;
-			padding: 120px 0;
 		}
 		&__item {
 			padding-top: 15px;

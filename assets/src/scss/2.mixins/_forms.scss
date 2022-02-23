@@ -34,10 +34,15 @@
 		.instruction {
 			font-size: rem(12) !important;
 			margin-top: 0px !important;
-			padding: 15px 20px !important;
-			background-color: $white;
+			padding: 0px 20px 15px 20px !important;
 			border: 0px;
-			border-top: 1px solid $navy;
+			background-color: $white;
+		}
+	}
+	.ginput_stripe_creditcard {
+		.validation_message,
+		.instruction {
+			padding: 15px 20px 15px 20px !important;
 		}
 	}
 	.field {
@@ -450,10 +455,9 @@
 		.instruction {
 			font-size: rem(12) !important;
 			margin-top: 0px !important;
-			padding: 15px 20px !important;
+			padding: 0px 20px 15px 20px !important;
 			background-color: $white;
 			border: 0px;
-			border-top: 1px solid $navy;
 		}
 	}
 	.gfield_error {
@@ -855,10 +859,9 @@
 		.instruction {
 			font-size: rem(12) !important;
 			margin-top: 0px !important;
-			padding: 15px 20px !important;
+			padding: 0px 20px 15px 20px !important;
 			background-color: $white;
 			border: 0px;
-			border-top: 1px solid $navy;
 		}
 	}
 	.field {

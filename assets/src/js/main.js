@@ -1,4 +1,6 @@
 /* eslint-disable */
+import SFChosen from './plugins/_sfchosen';
+import SFBuild from './plugins/_sfbuild';
 import CalculateHeight from './helpers/_calculateHeight';
 import Wolfpack from './libraries/_wolfpack';
 import CircleText from './modules/_circleText';
@@ -36,45 +38,49 @@ const App = {
 	init() {
 		// Swup Scripts
 		const swup = new Swup({
-			plugins: [
-				new SwupBodyClassPlugin(),
-				new SwupScriptsPlugin({
-					head: true,
-					body: false,
-				}),
-			],
+			plugins: [new SwupBodyClassPlugin()],
 		});
+		let invoiceReloaded = true;
+
 		function init() {
 			/* if (document.querySelector('.home-social__feed')) {
 				sbi_init();
 			} */
-
-			const calculateHeight = new CalculateHeight();
-			const wolfpack = new Wolfpack();
-			const heroSlider = new HeroSlider();
-			const videoToggle = new VideoToggle();
-			const mapShow = new MapShow();
-			const servicesDrawer = new ServicesDrawer();
-			const contactDrawer = new ContactDrawer();
-			const contactShow = new ContactShow();
-			const circleText = new CircleText();
-			const menu = new Menu();
-			const historySlider = new HistorySlider();
-			const jobsSlider = new JobsSlider();
-			const jobs = new Jobs();
-			const termsPolicies = new TermsPolicies();
-			const forms = new Forms();
-			const researchSlider = new ResearchSlider();
-			const lightboxSlider = new LightboxSlider();
-			const homeServices = new HomeServices();
-			const pricing = new Pricing();
-			const contactForm = new ContactForm();
-			const footerCursor = new FooterCursor();
-			const highlightCursor = new HighlightCursor();
-			const payButton = new PayButton();
-			const interactiveMap = new InteractiveMap();
-			const invoiceHint = new InvoiceHint();
-			const team = new Team();
+			if (!document.querySelector('.page-template-tp-invoice')) {
+				invoiceReloaded = false;
+			}
+			if (!invoiceReloaded && document.querySelector('.page-template-tp-invoice')) {
+				location.reload();
+			} else {
+				const sfchosen = new SFChosen();
+				const sfbuild = new SFBuild();
+				const calculateHeight = new CalculateHeight();
+				const wolfpack = new Wolfpack();
+				const heroSlider = new HeroSlider();
+				const videoToggle = new VideoToggle();
+				const mapShow = new MapShow();
+				const servicesDrawer = new ServicesDrawer();
+				const contactDrawer = new ContactDrawer();
+				const contactShow = new ContactShow();
+				const circleText = new CircleText();
+				const menu = new Menu();
+				const historySlider = new HistorySlider();
+				const jobsSlider = new JobsSlider();
+				const jobs = new Jobs();
+				const termsPolicies = new TermsPolicies();
+				const forms = new Forms();
+				const researchSlider = new ResearchSlider();
+				const lightboxSlider = new LightboxSlider();
+				const homeServices = new HomeServices();
+				const pricing = new Pricing();
+				const contactForm = new ContactForm();
+				const footerCursor = new FooterCursor();
+				const highlightCursor = new HighlightCursor();
+				const payButton = new PayButton();
+				const interactiveMap = new InteractiveMap();
+				const invoiceHint = new InvoiceHint();
+				const team = new Team();
+			}
 		}
 		init();
 		jQuery(document).on('sf:ajaxfinish', '.searchandfilter', function () {

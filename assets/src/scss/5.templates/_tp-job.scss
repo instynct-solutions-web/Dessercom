@@ -451,7 +451,7 @@
 		}
 		&__title {
 			width: 62.5%;
-			font-size: rem(70);
+			font-size: rem(50);
 			margin-bottom: 40px;
 		}
 		&__subtitle {
@@ -592,6 +592,7 @@
 		&__information-content {
 			display: flex;
 			flex-wrap: wrap;
+			position: relative;
 		}
 		&__text {
 			width: 66.66666%;
@@ -599,6 +600,9 @@
 			margin-bottom: 0px;
 		}
 		&__image {
+			position: absolute;
+			top: 0px;
+			right: 0px;
 			object-fit: contain;
 			object-position: top;
 			width: 33.33333%;
@@ -674,7 +678,7 @@
 		}
 		&__title {
 			width: 100%;
-			font-size: rem(70);
+			font-size: rem(65);
 			margin-bottom: 15px;
 		}
 		&__subtitle {

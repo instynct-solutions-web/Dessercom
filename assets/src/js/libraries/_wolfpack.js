@@ -1,3 +1,4 @@
+/* eslint-disable */
 import VirtualScroll from 'virtual-scroll';
 import { TweenMax } from 'gsap';
 import Tadam from './_tadam';
@@ -18,7 +19,9 @@ export default class Wolfpack {
 		);
 
 		// Stop default behaviour
-		//window.scrollTo(0, 0);
+		if (window.innerWidth > 1024) {
+			window.scrollTo(0, 0);
+		}
 		if (window.event) {
 			window.event.preventDefault();
 		}
@@ -610,8 +613,10 @@ export default class Wolfpack {
 
 		jQuery(document).bind('gform_post_render', () => {
 			setTimeout(() => {
-				//window.scrollTo(0, 0);
-			}, 100);
+				if (window.innerWidth > 1024) {
+					window.scrollTo(0, 0);
+				}
+			}, 200);
 			for (let i = 0; i < formsList.length; i += 1) {
 				formChanged[i] = false;
 			}
@@ -885,7 +890,6 @@ export default class Wolfpack {
 								time = 10;
 							}
 						} else {
-							// eslint-disable-next-line
 							if (!anchorScrolling) {
 								anchorScrolling = true;
 								if (!scrolling) {
@@ -900,9 +904,15 @@ export default class Wolfpack {
 					}, 750);
 				} else {
 					setTimeout(() => {
-						console.log(locationElement);
 						locationElement.scrollIntoView(true);
-					}, 500);
+						if (!scrolling) {
+							startLoopSections(wolfpackMainIndex);
+							scrollTimerSections(wolfpackMainIndex);
+						}
+						scrolling = true;
+						updateTargetY(-Math.abs(locationTop), wolfpackMainIndex);
+						time = 10;
+					}, 100);
 				}
 			} else {
 				window.scrollTo(0, 0);
@@ -1527,7 +1537,7 @@ export default class Wolfpack {
 									}
 								});
 								if (fieldList[i][j].querySelector('.ginput_container') && fieldList[i][j].querySelector('.ginput_container').classList.contains('ginput_complex')) {
-									if (fieldList[i][j].querySelector('input').value !== '') {
+									if (fieldList[i][j].querySelector('input') && fieldList[i][j].querySelector('input').value !== '') {
 										formFocusIn(fieldList[i][j], i, j);
 									}
 									if (fieldList[i][j].querySelectorAll('.ginput_complex span').length !== 0) {
@@ -1764,7 +1774,7 @@ export default class Wolfpack {
 									}
 								});
 								if (fieldList[i][j].querySelector('.ginput_container') && fieldList[i][j].querySelector('.ginput_container').classList.contains('ginput_complex')) {
-									if (fieldList[i][j].querySelector('input').value !== '') {
+									if (fieldList[i][j].querySelector('input') && fieldList[i][j].querySelector('input').value !== '') {
 										formFocusIn(fieldList[i][j], i, j);
 									}
 									if (fieldList[i][j].querySelectorAll('.ginput_complex span').length !== 0) {

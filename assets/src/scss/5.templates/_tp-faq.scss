@@ -10,6 +10,33 @@
 		&__main-nav--desktop .menu .menu-item a {
 			color: $white;
 		}
+		&__hamburger {
+			background-color: $teal;
+		}
+		&__top {
+			.wpml-ls-link {
+				color: $white;
+			}
+		}
+		&__small {
+			.header {
+				&__top {
+					.wpml-ls-link {
+						color: $navy;
+					}
+				}
+			}
+			.menu {
+				&__item-link {
+					color: $navy;
+				}
+			}
+		}
+	}
+	.menu {
+		&__item-link {
+			color: $white;
+		}
 	}
 	.page-wrapper {
 		background-color: $navy;

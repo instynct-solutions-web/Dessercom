@@ -31,3 +31,12 @@ require_once('inc/tiny-mce.php');
 add_theme_support('title-tag');
 
 add_filter('gform_confirmation_anchor', '__return_true');
+
+// Disable Search & Filter Pro Plugin
+add_action('wp_print_scripts', 'my_deregister_javascript', 100);
+
+function my_deregister_javascript()
+{
+    wp_deregister_script('search-filter-plugin-build');
+    wp_deregister_script('search-filter-plugin-chosen');
+}

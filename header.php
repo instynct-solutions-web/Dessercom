@@ -86,7 +86,7 @@
 									$currentPageClass = '';
 								} ?>
 								<li class="menu__item <?= $currentPageClass ?>" data-tadam-animate="opacity-1--y-0--delay-0.4">
-									<a href="<?= $item['link']['url'] ?>" class="menu__item-link <?= $currentPageClass ?>">
+									<a href="<?= $item['link']['url'] ?>" target="<?= $item['link']['target'] ?>" class="menu__item-link <?= $currentPageClass ?>">
 										<?= $item['link']['title'] ?>
 									</a>
 								</li>
@@ -107,8 +107,8 @@
 							</div>
 						</div>
 						<div class="header__button" data-invoice-button-container data-tadam-animate="scaleX-1--delay-0.5">
-							<a href="<?= $header['button']['url'] ?>" class="header__button-label" data-tadam-animate="opacity-1--y-0--delay-1" data-invoice-button data-marquee-speed=20 data-marquee><?= $header['button']['title'] ?></a>
-							<a href="<?= $header['button']['url'] ?>" class="header__button-label header__button-label--mock" data-invoice-mock>
+							<a href="<?= $header['button']['url'] ?>" target="<?= $header['button']['target'] ?>" class="header__button-label" data-tadam-animate="opacity-1--y-0--delay-1" data-invoice-button data-marquee-speed=20 data-marquee><?= $header['button']['title'] ?></a>
+							<a href="<?= $header['button']['url'] ?>" target="<?= $header['button']['target'] ?>" class="header__button-label header__button-label--mock" data-invoice-mock>
 								<p class="header__button-content" data-tadam-animate="opacity-1--y-0--delay-1"><?= $header['button']['title'] ?></p>
 							</a>
 						</div>
@@ -123,7 +123,7 @@
 								<?php
 								foreach ($mainNavMobile['list'] as $item) { ?>
 									<li class="header__main-nav-item">
-										<a href="<?= $item['link']['url'] ?>" class="header__main-nav-link">
+										<a href="<?= $item['link']['url'] ?>" target="<?= $item['link']['target'] ?>" class="header__main-nav-link">
 											<?= $item['link']['title'] ?>
 											<svg class="header__main-nav-icon" xmlns="http://www.w3.org/2000/svg" width="22.917" height="20.954" viewBox="0 0 22.917 20.954">
 												<g id="Groupe_1094" data-name="Groupe 1094" transform="translate(3.924 2.121)">
@@ -144,7 +144,7 @@
 								<?php
 								foreach ($subNav['list'] as $item) { ?>
 									<li class="header__sub-nav-item">
-										<a href="<?= $item['link']['url'] ?>" class="header__sub-nav-link">
+										<a href="<?= $item['link']['url'] ?>" target="<?= $item['link']['target'] ?>" class="header__sub-nav-link">
 											<?= $item['link']['title'] ?>
 											<svg class="header__sub-nav-icon" xmlns="http://www.w3.org/2000/svg" width="13.686" height="12.527" viewBox="0 0 13.686 12.527">
 												<g id="Groupe_1547" data-name="Groupe 1547" transform="translate(3.57 1.414)">

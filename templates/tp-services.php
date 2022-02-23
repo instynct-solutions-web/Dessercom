@@ -103,11 +103,11 @@ $extra = get_field('services_ext'); ?>
                 <?php
                     $counter++;
                 } ?>
-
             </ul>
         </div>
     </div>
 </section>
+
 <?php
 $paramedic = get_field('services_paramedic'); ?>
 <section data-wolfpack-section class="services-paramedic" id="soins-urgence-prehospitaliers" data-tadam data-tadam-threshold="100">

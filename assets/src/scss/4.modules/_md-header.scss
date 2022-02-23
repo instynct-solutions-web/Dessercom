@@ -351,12 +351,8 @@
 			&--white {
 				filter: brightness(0);
 			}
-			&--mobile {
-				display: none;
-			}
 			&--desktop {
-				display: block;
-				max-width: 200px;
+				max-width: 170px;
 			}
 		}
 		&__nav-container {
@@ -420,6 +416,19 @@
 		&__image {
 			svg {
 				transform: translateX(50%) translateY(40%) scale(1.1) rotate(315deg) !important;
+			}
+		}
+	}
+}
+
+@include min-width(768px) {
+	.header {
+		&__logo {
+			&--mobile {
+				display: none;
+			}
+			&--desktop {
+				display: block;
 			}
 		}
 	}
