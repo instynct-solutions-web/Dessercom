@@ -10,9 +10,9 @@ export default class CalculateHeight {
 	manageEvents() {
 		this.windowHeight = `${window.innerHeight}px`;
 		if (window.innerWidth >= 1024) {
-			this.setHeight(this.domBody);
+			CalculateHeight.setHeight(this.domBody, this.windowHeight);
 		} else {
-			this.autoHeight(this.domBody);
+			CalculateHeight.autoHeight(this.domBody);
 		}
 		if (this.elemCalcMobile.length > 0) {
 			for (let i = 0; i < this.elemCalcMobile.length; i += 1) {
@@ -23,41 +23,41 @@ export default class CalculateHeight {
 				}
 				if (this.elemHeightMobile[i] !== 'full') {
 					if (window.innerWidth >= 1024) {
-						this.setHeight(this.elemCalcMobile[i]);
+						CalculateHeight.setHeight(this.elemCalcMobile[i], this.windowHeight);
 					} else {
-						this.autoHeight(this.elemCalcMobile[i]);
+						CalculateHeight.autoHeight(this.elemCalcMobile[i]);
 					}
 				} else {
-					this.setHeight(this.elemCalcMobile[i]);
+					CalculateHeight.setHeight(this.elemCalcMobile[i], this.windowHeight);
 				}
 			}
 		}
 		window.addEventListener('resize', () => {
 			this.windowHeight = `${window.innerHeight}px`;
 			if (window.innerWidth >= 1024) {
-				this.setHeight(this.domBody);
+				CalculateHeight.setHeight(this.domBody, this.windowHeight);
 			} else {
-				this.autoHeight(this.domBody);
+				CalculateHeight.autoHeight(this.domBody);
 			}
 			for (let i = 0; i < this.elemCalcMobile.length; i += 1) {
 				if (this.elemHeightMobile[i] !== 'full') {
 					if (window.innerWidth >= 1024) {
-						this.setHeight(this.elemCalcMobile[i]);
+						CalculateHeight.setHeight(this.elemCalcMobile[i], this.windowHeight);
 					} else {
-						this.autoHeight(this.elemCalcMobile[i]);
+						CalculateHeight.autoHeight(this.elemCalcMobile[i]);
 					}
 				} else {
-					this.setHeight(this.elemCalcMobile[i]);
+					CalculateHeight.setHeight(this.elemCalcMobile[i], this.windowHeight);
 				}
 			}
 		});
 	}
 
-	setHeight(element) {
-		element.style.height = this.windowHeight;
+	static setHeight(element, windowHeight) {
+		element.style.height = windowHeight;
 	}
 
-	autoHeight(element) {
+	static autoHeight(element) {
 		element.style.height = 'auto';
 	}
 }

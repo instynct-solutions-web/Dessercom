@@ -1,6 +1,6 @@
 export default class ContactForm {
 	constructor() {
-		this.url_string = window.location.href; //window.location.href
+		this.url_string = window.location.href;
 		this.url = new URL(this.url_string);
 		this.urlParam = this.url.searchParams.get('subject');
 		this.form = document.querySelector('.contact-form__form');

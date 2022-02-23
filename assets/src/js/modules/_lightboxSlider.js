@@ -1,6 +1,7 @@
 import Flickity from 'flickity';
 import 'flickity-sync';
 import 'flickity-imagesloaded';
+import Utils from '../helpers/_utils';
 
 export default class LightboxSlider {
 	constructor() {
@@ -15,9 +16,9 @@ export default class LightboxSlider {
 		this.flktyList = [];
 		this.speedX = 0;
 		this.velocity = 0.1;
-		this.loop;
-		this.currentFrame;
-		this.mouseEvent;
+		this.loop = '';
+		this.currentFrame = '';
+		this.mouseEvent = '';
 		this.manageEvents();
 	}
 
@@ -92,23 +93,19 @@ export default class LightboxSlider {
 		}
 	}
 
-	map(value, x1, y1, x2, y2) {
-		return ((value - x1) * (y2 - x2)) / (y1 - x1) + x2;
-	}
-
 	moveSlider(index, event, rect, xWidth, flickitySlider) {
 		this.loop = undefined;
 		const e = this.mouseEvent;
 		const x = e.clientX - rect.left;
 		let xRatio = (x / xWidth) * 100;
-		if (this.clicked == true) {
+		if (this.clicked === true) {
 			xRatio = 70;
 		} else {
 			xRatio = (x / xWidth) * 100;
 		}
 
 		// x position within the element.
-		const mapSpeed = this.map(xRatio, 0, 100, 6, -6);
+		const mapSpeed = Utils.map(xRatio, 0, 100, 6, -6);
 		this.speedX = mapSpeed;
 		flickitySlider.x += Math.floor(this.speedX);
 		flickitySlider.integratePhysics();
