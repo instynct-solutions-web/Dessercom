@@ -1,4 +1,5 @@
 /* eslint-disable */
+import FilterHover from './modules/_filterHover';
 import CalculateHeight from './helpers/_calculateHeight';
 import Wolfpack from './libraries/_wolfpack';
 import CircleText from './modules/_circleText';
@@ -69,6 +70,7 @@ const App = {
 			const payButton = new PayButton();
 			const interactiveMap = new InteractiveMap();
 			const invoiceHint = new InvoiceHint();
+			const filterHover = new FilterHover();
 		}
 		init();
 		jQuery(document).on('sf:ajaxfinish', '.searchandfilter', function () {
