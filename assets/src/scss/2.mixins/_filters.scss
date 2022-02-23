@@ -33,6 +33,10 @@
 		color: $white;
 		opacity: 0.3;
 		cursor: none;
+		transition: 0.25s ease;
+		&:hover {
+			opacity: 1;
+		}
 	}
 	.sf-count {
 		font-size: rem(13);
