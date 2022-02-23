@@ -19,7 +19,7 @@ export default class FooterCursor {
 				const cursorClass = this.footerCursorList[i].classList[0];
 				this.footerCursorList[i].classList.add(`${cursorClass}--show`);
 				TweenMax.to(this.footerCursorList[i], 0.5, {
-					scale: 1,
+					scale: 3.5,
 					ease: Power1.easeOut,
 				});
 			});
@@ -31,7 +31,7 @@ export default class FooterCursor {
 					ease: Power1.easeOut,
 				});
 			});
-			this.footerLinkList[i].addEventListener('mousemove', (e) => {
+			/* this.footerLinkList[i].addEventListener('mousemove', (e) => {
 				const footerCursorRect = this.footerCursorList[i].getBoundingClientRect();
 				const hoverFooterRect = this.footerLinkList[i].getBoundingClientRect();
 				const ballX = e.clientX - footerCursorRect.left - 100;
@@ -41,7 +41,7 @@ export default class FooterCursor {
 					x: ballX,
 					// y: ballY,
 				});
-			});
+			}); */
 		}
 		// All Dom events goes here
 	}

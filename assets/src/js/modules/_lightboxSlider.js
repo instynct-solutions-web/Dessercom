@@ -67,8 +67,8 @@ export default class LightboxSlider {
 			// options
 			wrapAround: true,
 			imagesLoaded: true,
-			draggable: false,
-			freeScroll: true,
+			draggable: true,
+			freeScroll: false,
 			pageDots: false,
 			prevNextButtons: false,
 		});

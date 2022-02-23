@@ -324,7 +324,7 @@
 	}
 	&__link-icon {
 		margin-left: 10px;
-		transform: rotate(-135deg) translate(1px, 1px);
+		transform: rotate(270deg) translate(1px, 1px);
 	}
 }
 
@@ -520,7 +520,7 @@
 	.page-template-tp-about {
 		.tilted-slider {
 			position: relative;
-			z-index: 1;
+			z-index: 2;
 		}
 	}
 	.about-philosophy {
@@ -772,14 +772,14 @@
 		}
 		&__link-icon {
 			margin-left: 10px;
-			transform: translate(-1px, -1px) rotate(-135deg);
+			transform: translate(-1px, -1px) rotate(270deg);
 			transition: transform 0.25s ease;
 		}
 		&__link {
 			font-size: rem(15);
 			&:hover {
 				.about-funding__link-icon {
-					transform: translate(5px, -5px) rotate(-135deg);
+					transform: translate(5px, -1px) rotate(270deg);
 					transition: transform 0.25s ease;
 				}
 			}

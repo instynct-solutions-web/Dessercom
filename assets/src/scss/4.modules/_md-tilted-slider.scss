@@ -3,6 +3,7 @@
 // ==========================================================================
 
 .tilted-slider {
+	z-index: 2;
 	&__container {
 		@include container;
 		height: 500px;
