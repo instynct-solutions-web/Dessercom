@@ -38,6 +38,11 @@
 		@content;
 	}
 }
+@mixin large-only {
+	@media only screen and (min-width: rem($desktop-threshold-stripped)) {
+		@content;
+	}
+}
 
 @mixin desktop-only {
 	@media only screen and (min-width: rem($tablet-threshold-stripped)) {

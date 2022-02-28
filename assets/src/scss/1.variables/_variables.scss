@@ -71,9 +71,11 @@ $trans-time: 0.2s;
 // In px, no unit
 $mobile-threshold: 600px;
 $tablet-threshold: 1025px;
+$desktop-threshold: 1980px;
 
 $mobile-threshold-stripped: 600;
 $tablet-threshold-stripped: 1025;
+$desktop-threshold-stripped: 1980;
 
 // The selector of the main content, used for styles that apply only to the body text, like lists
 // Replace 'main' by the appropriate selector for your framework, or you can define one yourself
