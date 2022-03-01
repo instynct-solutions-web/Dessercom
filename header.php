@@ -67,6 +67,23 @@
 			</svg>
 			<span class="cursor__cta-background"></span>
 		</div>
+		<div data-cursor-pointer class="cursor__slider-next">
+			<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.19 14.19">
+				<g id="Groupe_789" data-name="Groupe 789">
+					<path id="Tracé_3" data-name="Tracé 3" d="M13.42,11.71V2.28H4" transform="translate(-0.74 -0.78)" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3px" />
+					<line id="Ligne_1" data-name="Ligne 1" x1="12.69" y1="1.5" x2="1.5" y2="12.69" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-miterlimit: 9.99999982885729;stroke-width: 3px" />
+				</g>
+			</svg>
+		</div>
+		<div data-cursor-pointer class="cursor__slider-prev">
+			<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.19 14.19">
+				<g id="Groupe_789" data-name="Groupe 789">
+					<path id="Tracé_3" data-name="Tracé 3" d="M13.42,11.71V2.28H4" transform="translate(-0.74 -0.78)" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3px" />
+					<line id="Ligne_1" data-name="Ligne 1" x1="12.69" y1="1.5" x2="1.5" y2="12.69" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-miterlimit: 9.99999982885729;stroke-width: 3px" />
+				</g>
+			</svg>
+
+		</div>
 	</div>
 
 	<div id="swup" class="wolfpack-container" data-calc-mobile data-calc-mobile-responsive="responsive">

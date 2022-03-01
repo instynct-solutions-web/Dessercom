@@ -10,7 +10,7 @@ get_header(); ?>
 <?php
 $hero = get_field('hero'); ?>
 <section class="hero-slider" data-wolfpack-section data-tadam data-tadam-threshold=-1>
-    <div class="hero-slider__container">
+    <div data-hero-slider-container class="hero-slider__container">
         <ul data-hero-slider class="hero-slider__list" data-tadam-animate="x-0--y-0">
             <?php foreach ($hero['list'] as $item) { ?>
                 <li class="hero-slider__item">
