@@ -63,7 +63,7 @@ $index = 0;
 $indexBackground = 0;
 ?>
 <section data-wolfpack-section class="about-history" data-tadam data-tadam-threshold="100">
-    <div class="about-history__container">
+    <div data-history-slider-container class="about-history__container">
         <h2 class="about-history__title" data-words data-tadam-animate="words"><?= $history['title'] ?></h2>
         <div class="about-history__dates">
             <ul class="about-history__date-list" data-history-slider-dates data-tadam-animate="history-dates">
