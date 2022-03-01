@@ -170,7 +170,7 @@ $borders = get_field('borders')  ?>
             <div class="philanthropy-borders__top">
                 <img src="<?= $borders['icon']['url'] ?>" alt="<?= $borders['icon']['alt'] ?>" class="philanthropy-borders__icon">
                 <p class="philanthropy-borders__note"><?= $borders['note'] ?></p>
-                <a href="<?= $borders['link']['url'] ?>" class="philanthropy-borders__cta cta">
+                <a target="<?= $borders['link'] ?>" href="<?= $borders['link']['url'] ?>" class="philanthropy-borders__cta cta">
                     <span class="philanthropy-borders__cta-text cta__text" data-circle-text>
                         <?= $borders['link']['title'] ?>
                         <div> . </div>
@@ -238,7 +238,7 @@ $grant = get_field('grant') ?>
         </div>
         <div class="philanthropy-grant__link-container">
             <div class="philanthropy-grant__link-wrapper" data-tadam-animate="opacity-1--y-0--delay-0.4">
-                <a href="<?= $grant['button']['url'] ?>" target="<?= $grant['button']['target'] ?>" class="philanthropy-grant__link"><?= $grant['button']['title'] ?></a>
+                <a onclick="window.open('<?= $grant['button']['url'] ?>', '');" href="javascript:void(0);" target="<?= $grant['button']['target'] ?>" class="philanthropy-grant__link"><?= $grant['button']['title'] ?></a>
             </div>
             <div class="philanthropy-grant__link-wrapper" data-tadam-animate="opacity-1--y-0--delay-0.5">
                 <a href="<?= $grant['button_2']['url'] ?>" target="<?= $grant['button_2']['target'] ?>" class="philanthropy-grant__link philanthropy-grant__link--alt"><?= $grant['button_2']['title'] ?></a>

@@ -11,7 +11,7 @@ get_header(); ?>
 <?php $hero = get_field('hero') ?>
 <section data-wolfpack-section class="jobs-hero" data-tadam data-tadam-threshold="-1">
     <div class="jobs-hero__container">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=<?= get_permalink() ?>" class="jobs-hero__cta cta">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=<?= get_permalink() ?>" target="_blank" class="jobs-hero__cta cta">
             <span class="jobs-hero__cta-text cta__text" data-circle-text>
                 <?= $hero['cta']['title'] ?>
                 <div> . </div>
