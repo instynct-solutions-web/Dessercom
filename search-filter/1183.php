@@ -28,7 +28,7 @@
                     <?php
                     } ?>
                     <?php if ($question['file']) { ?>
-                        <a href="<?= $question['file']['url'] ?>" target="<?= $question['file']['target'] ?>" class="faq__file-link"><?= $question['file']['title'] ?></a>
+                        <a onclick="window.open('<?= $question['file']['url'] ?>', '');" href="javascript:void(0);" target="<?= $question['file']['target'] ?>" class="faq__file-link"><?= $question['file']['title'] ?></a>
                     <?php
                     } ?>
                 </div>

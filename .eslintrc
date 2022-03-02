@@ -19,10 +19,12 @@
 		"indent": [2, "tab"],
 		"no-tabs": 0,
 		"comma-dangle": 0,
-		"no-underscore-dangle": [2, { "allow": ["_this"] }],
-		"no-param-reassign": [2, { "props": false }],
+		"no-underscore-dangle": [2, {"allow": ["_this"]}],
+		"no-param-reassign": [2, {"props": false}],
 		"no-multiple-empty-lines": 0,
 		"no-unused-vars": "off",
-		"class-methods-use-this": ["error", { "exceptMethods": ["init"] }]
+		"no-plusplus": "off",
+		"prefer-destructuring": "off",
+		"class-methods-use-this": ["error", {"exceptMethods": ["init"]}]
 	}
 }

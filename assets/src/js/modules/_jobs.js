@@ -1,6 +1,8 @@
 import {gsap, TweenLite} from 'gsap';
 import CustomEase from 'gsap/CustomEase';
+
 gsap.registerPlugin(CustomEase);
+
 export default class Jobs {
 	constructor() {
 		this.zoneTitle = document.querySelector('.sf-field-taxonomy-zone h4');
@@ -56,7 +58,6 @@ export default class Jobs {
 	}
 
 	static openDrawer(drawer, title) {
-		console.log('coucou');
 		drawer.classList.add('opened');
 		title.classList.add('opened');
 	}

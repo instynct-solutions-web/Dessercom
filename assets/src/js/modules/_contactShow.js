@@ -1,4 +1,5 @@
 import lottie from 'lottie-web';
+
 export default class ContactShow {
 	constructor() {
 		// All DOM selector / elements goes here

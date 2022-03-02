@@ -1,6 +1,8 @@
-import { gsap, TweenLite } from 'gsap';
+import {gsap, TweenLite} from 'gsap';
 import CustomEase from 'gsap/CustomEase';
+
 gsap.registerPlugin(CustomEase);
+
 export default class ContactDrawer {
 	constructor() {
 		// All DOM selector / elements goes here

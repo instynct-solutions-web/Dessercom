@@ -164,6 +164,14 @@
 			}
 		}
 	}
+	&__file-link {
+		margin: 1em 0;
+		display: block;
+	}
+	&__answer-link {
+		margin: 1em 0;
+		display: block;
+	}
 }
 
 @include tablet-only {
