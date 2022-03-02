@@ -1,4 +1,5 @@
 import lottie from 'lottie-web';
+
 export default class Menu {
 	constructor() {
 		this.body = document.querySelector('body');
@@ -7,7 +8,7 @@ export default class Menu {
 		this.navigationButton = document.querySelector('[data-navigation-button]');
 		this.headerLinkList = this.header.querySelectorAll('a');
 		this.lottie = document.querySelector('[data-lottie-menu]');
-		this.animation;
+		this.animation = '';
 		this.opened = false;
 		this.manageEvents();
 	}

@@ -1,5 +1,6 @@
 import {gsap, TweenLite} from 'gsap';
 import CustomEase from 'gsap/CustomEase';
+
 gsap.registerPlugin(CustomEase);
 export default class Pricing {
 	constructor() {

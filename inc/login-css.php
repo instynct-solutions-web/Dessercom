@@ -6,9 +6,9 @@
 
     #login h1 a,
     .login h1 a {
-      background-image: url(/wp-content/themes/byfar/assets/src/svg/logo-black.svg) !important;
+      background-image: url(/wp-content/themes/dessercom/assets/src/svg/logo.svg) !important;
       background-size: contain !important;
-      width: 250px !important;
+      width: 100% !important;
     }
 
     .login form {
