@@ -169,7 +169,32 @@ $support = get_field('support') ?>
         </div>
     </div>
 </section>
+<?php
+$community = get_field('paramed'); ?>
+<section data-wolfpack-section class="services-community" id="paramedecine-communautaire" data-tadam data-tadam-threshold="100">
+    <div class="services-community__container">
+        <div class="services-community__main">
+            <div class="services-community__image-container">
+                <svg class="services-community__image" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 181.567 163.488" data-tadam-animate="mask-image">
+                    <defs>
+                        <pattern id="image2" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <image x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice" xlink:href="<?= $community['image']['url']; ?>"></image>
+                        </pattern>
+                    </defs>
+                    <path id="Tracé_974" data-name="Tracé 974" d="M178.728,151.529c-6.956,12.172-24.362,15.327-38.914,7.036-1.2-.695-49.044-28.243-49.044-28.243l.049-.08L41.9,158.725c-14.49,8.4-31.927,5.4-38.963-6.686v-.031C-4.1,139.9,1.926,123.262,16.392,114.835c1.15-.64,45.384-26.1,48.834-28.077v.129H65.6l-.16-.264-.215.135V30.3C65.227,13.562,76.593,0,90.6,0s25.383,13.562,25.383,30.3c0,1.31-.24,51.375-.271,56.215l-.209.369h.209v-.369l.031-.055,49.179,28C179.478,122.751,185.653,139.333,178.728,151.529Z" transform="translate(0)" fill="url(#image2)" />
+                </svg>
+            </div>
+            <div class="services-community__text-container">
+                <h2 class="services-community__title"><?= $community['title'] ?></h2>
+                <p class="services-community__text"><?= $community['text'] ?></p>
+            </div>
+            <div class="services-community__button-container">
+                <a href="<?= $community['link']['url'] ?>" class="services-community__button"><?= $community['link']['title'] ?></a>
+            </div>
 
+        </div>
+    </div>
+</section>
 <?php
 $other = get_field('other') ?>
 <section data-wolfpack-section class="services-other" id="services-aux-entreprises" data-tadam data-tadam-threshold="100">

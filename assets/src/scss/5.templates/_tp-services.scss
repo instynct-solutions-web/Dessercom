@@ -347,6 +347,42 @@
 		margin-top: 3em;
 	}
 }
+.services-community {
+	&__container {
+		@include container;
+		padding-top: 2em;
+	}
+	&__image {
+		width: calc(100% + 40px);
+		transform: translateX(-20%);
+	}
+	&__text-container {
+		padding: 2em 0;
+	}
+	&__title {
+		font-size: rem(30);
+		line-height: 1.3em;
+		margin-bottom: 1.5em;
+	}
+	&__text {
+		font-size: rem(15);
+		line-height: 1.5em;
+	}
+	&__button-container {
+		padding: 1.5em 0;
+		border-top: 1px solid $gray;
+	}
+	&__link {
+		color: $navy;
+		&:first-of-type {
+			text-decoration: underline;
+		}
+	}
+	&__button {
+		@include button-primary;
+		margin-top: 3em;
+	}
+}
 
 .services-support {
 	position: relative;
@@ -651,6 +687,45 @@
 		}
 		&__contact {
 			margin: 0;
+		}
+		&__button {
+			margin-top: 50px;
+			margin-bottom: 0px;
+		}
+	}
+	.services-community {
+		&__container {
+			padding-top: 60px;
+		}
+		&__main {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-start;
+		}
+		&__image-container {
+			width: calc(50% - 8px);
+			margin-right: 8px;
+			padding-top: 60px;
+		}
+		&__image {
+			transform: translateX(-80px);
+		}
+		&__text-container {
+			width: calc(50% - 8px);
+			margin-left: 8px;
+			padding: 0;
+		}
+		&__title {
+			width: 75%;
+			margin-bottom: 30px;
+		}
+		&__text {
+			margin-bottom: 30px;
+		}
+		&__button-container {
+			width: calc(50% - 8px);
+			margin-left: calc(50% + 8px);
+			padding: 25px 0 0 0;
 		}
 		&__button {
 			margin-top: 50px;
@@ -1021,6 +1096,52 @@
 		}
 		&__contact {
 			font-size: rem(17);
+		}
+		&__button {
+			font-size: rem(15);
+			margin-top: 60px;
+		}
+	}
+	.services-community {
+		&__container {
+			padding-top: 60px;
+		}
+		&__main {
+			position: relative;
+		}
+		&__image-container {
+			padding: 0;
+			position: absolute;
+			width: 50%;
+		}
+		&__image {
+			position: relative;
+			top: -80px;
+			right: 16.66666%;
+			left: auto;
+			width: calc(100% + 100px);
+			opacity: 0;
+			visibility: hidden;
+			transform: translateX(0px);
+		}
+		&__text-container {
+			width: 41.66666%;
+			margin-right: 8.33333%;
+			margin-left: calc(50% + 8px);
+		}
+		&__title {
+			font-size: rem(45);
+			width: 100%;
+		}
+		&__text {
+			font-size: rem(19);
+			margin-bottom: 25px;
+		}
+		&__button-container {
+			width: 41.66666%;
+			margin-right: 8.33333%;
+			margin-left: calc(50% + 8px);
+			padding-top: 20px;
 		}
 		&__button {
 			font-size: rem(15);
