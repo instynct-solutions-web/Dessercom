@@ -30,6 +30,7 @@ import PayButton from './modules/_payButton';
 import InteractiveMap from './modules/_interactiveMap';
 import InvoiceHint from './modules/_invoiceHint';
 import Team from './modules/_team';
+import NewsFilters from './modules/_newsFilters';
 
 const App = {
 	/**
@@ -80,6 +81,7 @@ const App = {
 				const interactiveMap = new InteractiveMap();
 				const invoiceHint = new InvoiceHint();
 				const team = new Team();
+				const newsFilters = new NewsFilters();
 			}
 		}
 		init();
