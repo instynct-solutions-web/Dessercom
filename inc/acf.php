@@ -8,6 +8,7 @@ require_once('acf/acf-404.php');
 require_once('acf/acf-about.php');
 require_once('acf/acf-careers.php');
 require_once('acf/acf-contact.php');
+require_once('acf/acf-contact-media.php');
 require_once('acf/acf-faq-questions.php');
 require_once('acf/acf-faq.php');
 require_once('acf/acf-footer.php');

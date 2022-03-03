@@ -39,7 +39,7 @@ function create_post_type() {
             'taxonomies' => array('jobs'),
         )
     );
-    // JOBS
+    // TEAM
     register_post_type(
         'Team',
         array(
@@ -73,7 +73,7 @@ function create_post_type() {
             'taxonomies' => array('team'),
         )
     );
-    // JOBS
+    // FAQ
     register_post_type(
         'faq',
         array(
@@ -105,6 +105,41 @@ function create_post_type() {
             ),
             'can_export' => true,
             'taxonomies' => array('faq'),
+        )
+    );
+
+    // NEWS
+    register_post_type(
+        'News',
+        array(
+            'labels' => array(
+                'name' => __('Actualités', 'cpt'),
+                'singular_name' => __('Actualités', 'cpt'),
+                'add_new' => 'Ajouter',
+                'add_new_item' => 'Ajouter',
+                'edit' => 'Modifier',
+                'edit_item' => 'Modifier',
+                'new_item' => 'Ajouter',
+                'view' => 'Voir',
+                'view_item' => 'Voir',
+                'search_items' => 'Chercher',
+                'not_found' => 'Aucun résultat',
+                'not_found_in_trash' => 'Aucun résultat dans la corbeille'
+            ),
+            'public' => true,
+            'publicly_queryable' => false,
+            'has_archive' => false,
+            'menu_position' => 21,
+            'menu_icon' => 'dashicons-admin-post',
+            'supports' => array(
+                'title',
+                'editor'
+            ),
+            'rewrite' => array(
+                'slug' => __('actualités', 'slug')
+            ),
+            'can_export' => true,
+            'taxonomies' => array('news'),
         )
     );
 }
