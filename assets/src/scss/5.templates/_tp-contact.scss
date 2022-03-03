@@ -325,6 +325,7 @@
 .contact-support {
 	background-color: $navy;
 	position: relative;
+	display: none;
 	&__background {
 		display: flex;
 		flex-wrap: wrap;
