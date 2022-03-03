@@ -147,8 +147,41 @@ function create_faq_group_taxonomy() {
     register_taxonomy('groupe', 'faq', $args);
 }
 
-
-
+function create_news_group_taxonomy() {
+    // Services
+    $rewrite = array(
+        'slug'                       => 'section/?',
+        'with_front'                 => false,
+        'hierarchical'               => true,
+    );
+    $args = array(
+        'labels' => array(
+            'name' => __('Groupes d\'actualités ', 'taxonomy'),
+            'singular_name' => __('Groupes d\'actualités', 'taxonomy'),
+            'add_new' => 'Ajouter un groupe',
+            'add_new_item' => 'Ajouter un groupe',
+            'edit' => 'Modifier un groupe',
+            'edit_item' => 'Modifier un groupe',
+            'new_item' => 'Ajouter un groupe',
+            'view' => 'Voir les zones',
+            'view_item' => 'Voir la zone',
+            'search_items' => 'Chercher un groupe',
+            'not_found' => 'Aucun résultat',
+            'not_found_in_trash' => 'Aucun résultat dans la corbeille'
+        ),
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+        'rewrite'                    => $rewrite,
+        'show_in_rest'               => false,
+        'has_archive'                => false,
+        'publicly_queryable' => false
+    );
+    register_taxonomy('section', 'news', $args);
+}
 //
 //
 // ACTION HOOK
@@ -160,5 +193,8 @@ add_action('init', 'create_job_type_taxonomy');
 // TEAM TAXONOMIES
 add_action('init', 'create_team_division_taxonomy');
 
-// FAT TAXONOMIES
+// FAQ TAXONOMIES
 add_action('init', 'create_faq_group_taxonomy');
+
+// NEWS TAXONOMIES
+add_action('init', 'create_news_group_taxonomy');

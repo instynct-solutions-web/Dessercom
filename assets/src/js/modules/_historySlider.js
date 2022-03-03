@@ -45,7 +45,7 @@ export default class HistorySlider {
 			if (window.innerWidth >= 1280) {
 				this.sliderContainer.addEventListener('click', () => {
 					const xRatio = Utils.calculateRatio(this.sliderContainer);
-					if (xRatio > 50) {
+					if (xRatio > 25) {
 						this.flktyDates.next();
 					} else {
 						this.flktyDates.previous();
@@ -54,7 +54,7 @@ export default class HistorySlider {
 				this.sliderContainer.addEventListener('mousemove', () => {
 					const xRatio = Utils.calculateRatio(this.sliderContainer);
 					const cursorClass = this.cursor.classList[0];
-					if (xRatio > 50) {
+					if (xRatio > 25) {
 						if (!this.cursor.classList.contains(`${cursorClass}--slider-next`)) {
 							this.cursor.classList.add(`${cursorClass}--slider-next`);
 							this.cursor.classList.remove(`${cursorClass}--slider-prev`);

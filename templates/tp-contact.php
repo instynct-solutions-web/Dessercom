@@ -8,7 +8,7 @@ get_header(); ?>
 
 
 <?php
-$media = get_field('media') ?>
+$media = get_field('media', 'options') ?>
 <section data-calc-mobile data-contact-media class="contact-media">
     <div class="contact-media__cta-container">
         <div data-cursor data-contact-close class="contact-media__cta cta">
@@ -65,7 +65,7 @@ $media = get_field('media') ?>
             <div data-cursor data-contact-show class="contact-hero__cta cta">
                 <span class="contact-hero__cta-text cta__text" data-circle-text>
                     <?php for ($i = 0; $i <= 2; $i++) { ?>
-                        <?= $hero['link']['title'] ?>
+                        <?= $media['toggle'] ?>
                         <div> . </div>
                     <?php } ?>
                 </span>
