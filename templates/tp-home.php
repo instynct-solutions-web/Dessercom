@@ -220,6 +220,27 @@ $commitments = get_field('commitment');
         </div>
     </div>
 </section>
+
+<?php
+$grant = get_field('grant') ?>
+<section class="home-grant" data-wolfpack-section data-tadam data-tadam-threshold="100">
+    <div class="home-grant__background" data-tadam-animate="lottie-lines-once" data-lottie-lines="/wp-content/themes/dessercom/assets/src/lottie/lines-white.json"></div>
+    <div class="home-grant__container">
+        <div class="home-grant__info">
+            <p class="home-grant__text" data-words data-tadam-animate="words--delay-0.2"><?= $grant['text'] ?></p>
+        </div>
+        <div class="home-grant__link-container">
+            <div class="home-grant__link-wrapper" data-tadam-animate="opacity-1--y-0--delay-0.4">
+                <a href="<?= $grant['button']['url'] ?>" target="<?= $grant['button']['target'] ?>" class="home-grant__link"><?= $grant['button']['title'] ?></a>
+            </div>
+            <?php if ($grant['button_2']) { ?>
+                <div class="home-grant__link-wrapper" data-tadam-animate="opacity-1--y-0--delay-0.5">
+                    <a href="<?= $grant['button_2']['url'] ?>" target="<?= $grant['button_2']['target'] ?>" class="home-grant__link home-grant__link--alt"><?= $grant['button_2']['title'] ?></a>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+</section>
 <?php
 // Load footer.php
 get_footer(); ?>
