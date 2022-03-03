@@ -3,7 +3,8 @@
     CUSTOM POST TYPES
 \*------------------------------------*/
 
-function create_post_type() {
+function create_post_type()
+{
 
 
     // JOBS
@@ -127,7 +128,6 @@ function create_post_type() {
                 'not_found_in_trash' => 'Aucun résultat dans la corbeille'
             ),
             'public' => true,
-            'publicly_queryable' => false,
             'has_archive' => false,
             'menu_position' => 21,
             'menu_icon' => 'dashicons-admin-post',
