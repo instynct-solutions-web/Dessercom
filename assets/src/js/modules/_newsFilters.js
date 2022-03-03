@@ -12,7 +12,7 @@ export default class NewsFilters {
 		this.postFilters = new List('news', {
 			valueNames: ['category'],
 			indexAsync: true,
-			page: 1,
+			page: 10,
 			pagination: {
 				item: " <li class='news-list__page'><span class='page news-list__page-content'></span></li>",
 			},
