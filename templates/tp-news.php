@@ -19,19 +19,45 @@ get_header(); ?>
     <div class="news-list__container">
         <div class="news-list__filters">
             <?php
-            $categories = get_terms([
+            $parentCategories = get_terms([
                 'taxonomy' => 'section',
                 'hide_empty' => false,
+                'parent' => 0,
+                'orderby'  => 'name',
+                'order'    => 'ASC'
             ]);
             ?>
             <ul class="news-list__filters-list">
                 <li class="news-list__filter" data-news-filter="all">
                     Toutes
                 </li>
-                <?php foreach ($categories as $category) { ?>
-                    <li class="news-list__filter" data-news-filter="<?= $category->name; ?>">
-                        <?= $category->name; ?>
-                    </li>
+                <?php foreach ($parentCategories as $parentCategory) { ?>
+                    <?php
+                    $childCategories = get_terms([
+                        'taxonomy' => 'section',
+                        'hide_empty' => false,
+                        'parent' => $parentCategory->term_id,
+                        'orderby'  => 'name',
+                        'order'    => 'ASC'
+                    ]);
+                    ?>
+                    <?php if ($childCategories) { ?>
+                        <li class="news-list__filter" data-news-filter-parent>
+                            <?= $parentCategory->name; ?>
+                            <svg class="news-list__filter-icon" xmlns="http://www.w3.org/2000/svg" width="12.828" height="7.414" viewBox="0 0 12.828 7.414">
+                                <path id="Tracé_3" data-name="Tracé 3" d="M0,0,5,5l5-5" transform="translate(1.414 1.414)" fill="none" stroke="#041e36" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />
+                            </svg>
+                        </li>
+                        <ul class="news-list__filter-children" data-news-filter-children>
+                            <?php foreach ($childCategories as $childCategory) { ?>
+                                <li class="news-list__filter-child" data-news-filter="<?= $childCategory->name; ?>"> <?= $childCategory->name; ?></li>
+                            <?php } ?>
+                        </ul>
+                    <?php } else { ?>
+                        <li class="news-list__filter" data-news-filter="<?= $parentCategory->name; ?>">
+                            <?= $parentCategory->name; ?>
+                        </li>
+                    <?php } ?>
                 <?php } ?>
             </ul>
         </div>
