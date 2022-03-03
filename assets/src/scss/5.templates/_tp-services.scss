@@ -400,6 +400,7 @@
 .services-other {
 	background-color: $navy;
 	padding: 2em 0;
+	display: none;
 	&__container {
 		@include container;
 	}
