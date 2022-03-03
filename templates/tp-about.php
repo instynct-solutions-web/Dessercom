@@ -138,27 +138,34 @@ $indexBackground = 0;
                 <h3 class="about-funding__title" data-words data-tadam-animate="words"><?= $funding['title'] ?></h3>
                 <p class="about-funding__text" data-words data-tadam-animate="words--delay-0.2"><?= $funding['text'] ?></p>
             </div>
-            <?php
-            if ($funding['list']) { ?>
-                <ul class="about-funding__list" data-tadam-animate="about-fundings">
-                    <?php foreach ($funding['list'] as $item) { ?>
-                        <li class="about-funding__item">
-                            <img src="<?= $item['image']['url'] ?>" alt="<?= $item['image']['alt'] ?>" class="about-funding__logo">
-                            <a target="<?= $item['link']['target'] ?>" href="<?= $item['link']['url'] ?>" class="about-funding__link">
-                                <?= $item['link']['title'] ?>
-                                <svg class="about-funding__link-icon" xmlns="http://www.w3.org/2000/svg" width="13.384" height="14.515" viewBox="0 0 13.384 14.515">
-                                    <g id="Groupe_788" data-name="Groupe 788" transform="translate(1.414 1)">
-                                        <path id="Tracé_3" data-name="Tracé 3" d="M0,0,5.278,5.278,10.555,0" transform="translate(0 7.237)" fill="none" stroke="#00938f" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />
-                                        <line id="Ligne_1" data-name="Ligne 1" y1="12.515" transform="translate(5.278 0)" fill="none" stroke="#00938f" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" />
-                                    </g>
-                                </svg>
-                            </a>
-                        </li>
-                    <?php
-                    } ?>
-                </ul>
-            <?php
-            } ?>
+            <ul class="about-funding__categories-list">
+                <?php
+                foreach ($funding['categories-list'] as $category) { ?>
+                    <li class="about-funding__categories-item">
+                        <h3 class="about-funding__categories-title"><?= $category['title'] ?></h3>
+                        <?php if ($category['list']) { ?>
+                            <ul class="about-funding__list" data-tadam-animate="about-fundings">
+                                <?php foreach ($category['list'] as $item) { ?>
+                                    <li class="about-funding__item">
+                                        <img src="<?= $item['image']['url'] ?>" alt="<?= $item['image']['alt'] ?>" class="about-funding__logo">
+                                        <a target="<?= $item['link']['target'] ?>" href="<?= $item['link']['url'] ?>" class="about-funding__link">
+                                            <?= $item['link']['title'] ?>
+                                            <svg class="about-funding__link-icon" xmlns="http://www.w3.org/2000/svg" width="13.384" height="14.515" viewBox="0 0 13.384 14.515">
+                                                <g id="Groupe_788" data-name="Groupe 788" transform="translate(1.414 1)">
+                                                    <path id="Tracé_3" data-name="Tracé 3" d="M0,0,5.278,5.278,10.555,0" transform="translate(0 7.237)" fill="none" stroke="#00938f" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />
+                                                    <line id="Ligne_1" data-name="Ligne 1" y1="12.515" transform="translate(5.278 0)" fill="none" stroke="#00938f" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" />
+                                                </g>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                <?php
+                                } ?>
+                            </ul>
+                        <?php
+                        } ?>
+                    </li>
+                <?php } ?>
+            </ul>
         </div>
     </div>
 </section>
