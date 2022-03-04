@@ -43,16 +43,16 @@ export default class HistorySlider {
 				fade: true,
 			});
 			if (window.innerWidth >= 1280) {
-				this.sliderContainer.addEventListener('click', () => {
-					const xRatio = Utils.calculateRatio(this.sliderContainer);
+				this.sliderContainer.addEventListener('click', (e) => {
+					const xRatio = Utils.calculateRatio(this.sliderContainer, e);
 					if (xRatio > 25) {
 						this.flktyDates.next();
 					} else {
 						this.flktyDates.previous();
 					}
 				});
-				this.sliderContainer.addEventListener('mousemove', () => {
-					const xRatio = Utils.calculateRatio(this.sliderContainer);
+				this.sliderContainer.addEventListener('mousemove', (e) => {
+					const xRatio = Utils.calculateRatio(this.sliderContainer, e);
 					const cursorClass = this.cursor.classList[0];
 					if (xRatio > 25) {
 						if (!this.cursor.classList.contains(`${cursorClass}--slider-next`)) {
@@ -60,10 +60,8 @@ export default class HistorySlider {
 							this.cursor.classList.remove(`${cursorClass}--slider-prev`);
 						}
 					} else {
-						if (!this.cursor.classList.contains(`${cursorClass}--slider-prev`)) {
-							this.cursor.classList.add(`${cursorClass}--slider-prev`);
-							this.cursor.classList.remove(`${cursorClass}--slider-next`);
-						}
+						this.cursor.classList.add(`${cursorClass}--slider-prev`);
+						this.cursor.classList.remove(`${cursorClass}--slider-next`);
 					}
 				});
 				this.sliderContainer.addEventListener('mouseleave', () => {

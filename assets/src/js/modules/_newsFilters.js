@@ -1,4 +1,5 @@
 import List from 'list.js';
+
 export default class NewsFilters {
 	constructor() {
 		this.filterList = document.querySelectorAll('[data-news-filter]');
@@ -39,9 +40,8 @@ export default class NewsFilters {
 					this.postFilters.filter((item) => {
 						if (item.values().category === this.category) {
 							return true;
-						} else {
-							return false;
 						}
+						return false;
 					});
 				} else {
 					this.postFilters.filter();
@@ -63,7 +63,6 @@ export default class NewsFilters {
 			this.childList = this.filterChildrenList[i].querySelectorAll('[data-news-filter]');
 			for (let j = 0; j < this.childList.length; j += 1) {
 				this.childList[j].addEventListener('click', () => {
-					console.log('cocou');
 					this.filterParentList[i].classList.add(`${this.filterParentList[i].classList[0]}--active`);
 				});
 			}
