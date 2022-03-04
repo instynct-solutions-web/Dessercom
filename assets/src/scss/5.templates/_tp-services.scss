@@ -370,7 +370,6 @@
 	}
 	&__button-container {
 		padding: 1.5em 0;
-		border-top: 1px solid $gray;
 	}
 	&__link {
 		color: $navy;
@@ -380,7 +379,8 @@
 	}
 	&__button {
 		@include button-primary;
-		margin-top: 3em;
+		margin-top: 0.5em;
+		margin-bottom: 1.5em;
 	}
 }
 
@@ -1105,6 +1105,7 @@
 	.services-community {
 		&__container {
 			padding-top: 60px;
+			padding-bottom: 15em;
 		}
 		&__main {
 			position: relative;
@@ -1116,10 +1117,8 @@
 		}
 		&__image {
 			position: relative;
-			top: -80px;
-			right: 16.66666%;
 			left: auto;
-			width: calc(100% + 100px);
+			width: calc(90%);
 			opacity: 0;
 			visibility: hidden;
 			transform: translateX(0px);

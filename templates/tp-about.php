@@ -128,7 +128,7 @@ $indexBackground = 0;
 </section>
 
 <?php $funding = get_field('funding'); ?>
-<section data-wolfpack-section class="about-funding" data-tadam data-tadam-threshold="100">
+<section id="about-funding" data-wolfpack-section class="about-funding" data-tadam data-tadam-threshold="100">
     <div class="about-funding__container">
         <div class="about-funding__background">
             <div class="about-funding__motif" data-tadam-animate="about-pattern" data-lottie-pattern="/wp-content/themes/dessercom/assets/src/lottie/pattern-1.json"></div>

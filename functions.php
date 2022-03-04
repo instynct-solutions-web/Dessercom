@@ -2,7 +2,7 @@
 
 // Utilities
 
-//include('inc/utilities.php');
+include('inc/utilities.php');
 
 // CONFIG
 

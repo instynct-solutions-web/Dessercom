@@ -25,5 +25,8 @@ export default class ContactForm {
 		if (this.urlParam === 'donations') {
 			this.formDropdown.selectedIndex = 1;
 		}
+		if (this.urlParam === 'general') {
+			this.formDropdown.selectedIndex = 3;
+		}
 	}
 }

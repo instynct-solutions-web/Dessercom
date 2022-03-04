@@ -128,6 +128,12 @@ $media = get_field('media', 'options') ?>
             <?php } ?>
         </div>
     </div>
+    <div class="contact-hero__bottom">
+        <div class="contact-hero__image-container" data-parallax data-parallax-speed="20">
+            <img src="<?= $hero['image']['url'] ?>" alt="<?= $hero['image']['alt'] ?>" class="contact-hero__image">
+        </div>
+    </div>
+
 </section>
 
 <?php
