@@ -42,6 +42,7 @@ $media = get_field('media', 'options') ?>
                 <?php } ?>
             </ul>
         <?php } ?>
+        <a href="<?= $media['cta']['url'] ?>" class="contact-media__button"><?= $media['cta']['title'] ?></a>
     </div>
     <div class="contact-media__background" data-lottie-contact="/wp-content/themes/dessercom/assets/src/lottie/lines-white.json"></div>
 </section>

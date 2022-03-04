@@ -50,11 +50,11 @@ get_header(); ?>
                         </li>
                         <ul class="news-list__filter-children" data-news-filter-children>
                             <?php foreach ($childCategories as $childCategory) { ?>
-                                <li class="news-list__filter-child" data-news-filter="<?= $childCategory->name; ?>"> <?= $childCategory->name; ?></li>
+                                <li class="news-list__filter-child" data-news-filter="<?= $childCategory->slug; ?>"> <?= $childCategory->name; ?></li>
                             <?php } ?>
                         </ul>
                     <?php } else { ?>
-                        <li class="news-list__filter" data-news-filter="<?= $parentCategory->name; ?>">
+                        <li class="news-list__filter" data-news-filter="<?= $parentCategory->slug; ?>">
                             <?= $parentCategory->name; ?>
                         </li>
                     <?php } ?>
