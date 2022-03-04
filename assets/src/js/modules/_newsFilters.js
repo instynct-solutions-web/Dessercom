@@ -1,5 +1,4 @@
 import List from 'list.js';
-
 export default class NewsFilters {
 	constructor() {
 		this.filterList = document.querySelectorAll('[data-news-filter]');
@@ -13,7 +12,7 @@ export default class NewsFilters {
 
 	manageEvents() {
 		this.postFilters = new List('news', {
-			valueNames: ['category'],
+			valueNames: [{name: 'category', attr: 'data-category'}],
 			indexAsync: true,
 			page: 10,
 			pagination: {
@@ -47,6 +46,25 @@ export default class NewsFilters {
 					this.postFilters.filter();
 				}
 			});
+		}
+
+		if (window.location.href.indexOf('?_filtre') > -1) {
+			this.locationFilter = window.location.href.replace(window.location.origin + window.location.pathname + '?_filtre=', '');
+			this.postFilters.filter((item) => {
+				if (item.values().category === this.locationFilter) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+			for (let i = 0; i < this.filterList.length; i += 1) {
+				this.category = this.filterList[i].getAttribute('data-news-filter');
+				if (this.category === this.locationFilter) {
+					this.filterList[i].classList.add(`${this.filterList[i].classList[0]}--active`);
+				} else {
+					this.filterList[i].classList.remove(`${this.filterList[i].classList[0]}--active`);
+				}
+			}
 		}
 
 		for (let i = 0; i < this.filterParentList.length; i += 1) {

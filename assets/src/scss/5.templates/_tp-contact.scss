@@ -1,6 +1,13 @@
 // ==========================================================================
 // TEMPLATE - Contact
 // ==========================================================================
+.page-template-tp-news {
+	.contact-media {
+		&__button {
+			display: none;
+		}
+	}
+}
 .contact-media {
 	background-color: $teal;
 	position: absolute;
@@ -42,6 +49,9 @@
 		@include container;
 		padding-top: 100px;
 		pointer-events: none !important;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
 	}
 	&__title {
 		color: $white;
@@ -152,6 +162,10 @@
 		align-items: center;
 		transform: scale(1) rotate(0);
 		transition: transform 0.4s ease-in-out;
+	}
+	&__button {
+		@include button-white-bg;
+		align-self: flex-end;
 	}
 }
 .contact-hero {
@@ -539,6 +553,9 @@
 				transform: rotate(-60deg) translateX(-10%) translateY(-10%) !important;
 			}
 		}
+		&__button {
+			margin-top: 3em;
+		}
 	}
 	.contact-hero {
 		&__map-container {
@@ -656,7 +673,7 @@
 		overflow: hidden;
 		z-index: 2;
 		&__container {
-			padding-top: 165px;
+			padding-top: 65px;
 			padding-bottom: 130px;
 		}
 		&__title {
@@ -706,6 +723,11 @@
 				width: 170% !important;
 				transform: scale(1.3) rotate(-60deg) translateX(-10%) translateY(0%) !important;
 			}
+		}
+		&__button {
+			position: absolute;
+			bottom: 130px;
+			margin-bottom: 0;
 		}
 	}
 	.contact-hero {
