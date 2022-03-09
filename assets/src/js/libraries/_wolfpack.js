@@ -1,6 +1,6 @@
 /* eslint-disable */
 import VirtualScroll from 'virtual-scroll';
-import { TweenMax } from 'gsap';
+import {TweenMax} from 'gsap';
 import Tadam from './_tadam';
 import Preloader from './_preloader';
 

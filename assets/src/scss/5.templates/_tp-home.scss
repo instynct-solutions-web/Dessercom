@@ -1021,3 +1021,8 @@
 		margin-top: 8vh;
 	}
 }
+@include large-only {
+	.hero-slider {
+		margin-top: 8vh;
+	}
+}
