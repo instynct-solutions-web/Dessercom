@@ -244,8 +244,6 @@ $other = get_field('other') ?>
     </div>
 </section>
 
-
-
 <?php
 // Load footer.php
 get_footer(); ?>

@@ -423,10 +423,8 @@
 		right: 0px;
 		position: absolute;
 	}
-	&__canvas {
-		display: none;
-	}
 	&__motif {
+		display: block;
 		width: 100%;
 		opacity: 0;
 		visibility: hidden;
@@ -1155,7 +1153,6 @@
 			padding-bottom: 200px;
 		}
 		&__background {
-			position: relative;
 			top: auto;
 			right: auto;
 			width: 33.33333%;
@@ -1164,7 +1161,7 @@
 		}
 		&__text-container {
 			margin-left: 8.33333%;
-			margin-right: 16.66666%;
+			margin-right: 58.33333%;
 			width: 33.33333%;
 		}
 		&__title {

@@ -6,6 +6,9 @@
 	margin-bottom: 30px;
 	&__image {
 		width: 100%;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 200px, 0);
 	}
 }
 
@@ -17,9 +20,9 @@
 	}
 	&__button-container {
 		display: inline-block;
-		//opacity: 0;
-		//visibility: hidden;
-		//transform: translate3d(0, 100%, 0);
+		opacity: 0;
+		visibility: hidden;
+		transform: translate3d(0, 100%, 0);
 	}
 	&__button {
 		display: inline-flex;
@@ -136,11 +139,17 @@
 			margin-left: 16.66666%;
 			margin-right: 16.66666%;
 			width: 66.66666%;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100px, 0);
 		}
 		&__content {
 			margin-left: 16.66666%;
 			margin-right: 16.66666%;
 			width: 66.66666%;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100px, 0);
 		}
 	}
 }

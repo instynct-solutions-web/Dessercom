@@ -42,6 +42,14 @@ export default class Tadam {
 				delay: 0.2,
 				force3D: true,
 			});
+		} else if (animation === 'opacity-1--y-0--delay-0.3') {
+			TweenLite.to(element, 0.75, {
+				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
+				autoAlpha: 1,
+				y: 0,
+				delay: 0.3,
+				force3D: true,
+			});
 		} else if (animation === 'opacity-1--y-0--delay-0.4') {
 			TweenLite.to(element, 0.75, {
 				ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),

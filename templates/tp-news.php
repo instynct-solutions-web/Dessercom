@@ -15,9 +15,9 @@ get_header(); ?>
     </div>
 </section>
 
-<section class="news-list" data-wolfpack-section>
+<section class="news-list" data-wolfpack-section data-tadam data-tadam-threshold="-1">
     <div class="news-list__container">
-        <div class="news-list__filters">
+        <div class="news-list__filters" data-tadam-animate="opacity-1--y-0--delay-0.4">
             <?php
             $parentCategories = get_terms([
                 'taxonomy' => 'section',
@@ -28,8 +28,8 @@ get_header(); ?>
             ]);
             ?>
             <ul class="news-list__filters-list">
-                <li class="news-list__filter" data-news-filter="all">
-                    Toutes
+                <li class="news-list__filter" data-news-filter="all" data-cursor="expand">
+                    <?= $news['label_all'] ?>
                 </li>
                 <?php foreach ($parentCategories as $parentCategory) { ?>
                     <?php
@@ -42,7 +42,7 @@ get_header(); ?>
                     ]);
                     ?>
                     <?php if ($childCategories) { ?>
-                        <li class="news-list__filter" data-news-filter-parent>
+                        <li class="news-list__filter" data-news-filter-parent data-cursor="expand">
                             <?= $parentCategory->name; ?>
                             <svg class="news-list__filter-icon" xmlns="http://www.w3.org/2000/svg" width="12.828" height="7.414" viewBox="0 0 12.828 7.414">
                                 <path id="Tracé_3" data-name="Tracé 3" d="M0,0,5,5l5-5" transform="translate(1.414 1.414)" fill="none" stroke="#041e36" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />
@@ -50,18 +50,18 @@ get_header(); ?>
                         </li>
                         <ul class="news-list__filter-children" data-news-filter-children>
                             <?php foreach ($childCategories as $childCategory) { ?>
-                                <li class="news-list__filter-child" data-news-filter="<?= $childCategory->slug; ?>"> <?= $childCategory->name; ?></li>
+                                <li class="news-list__filter-child" data-news-filter="<?= $childCategory->slug; ?>" data-cursor="expand"> <?= $childCategory->name; ?></li>
                             <?php } ?>
                         </ul>
                     <?php } else { ?>
-                        <li class="news-list__filter" data-news-filter="<?= $parentCategory->slug; ?>">
+                        <li class="news-list__filter" data-news-filter="<?= $parentCategory->slug; ?>" data-cursor="expand">
                             <?= $parentCategory->name; ?>
                         </li>
                     <?php } ?>
                 <?php } ?>
             </ul>
         </div>
-        <div id="news" class="news-list__articles">
+        <div id="news" class="news-list__articles" data-tadam-animate="opacity-1--y-0--delay-0.4">
             <ul class="list news-list__news">
                 <?php
                 $args = array(
@@ -82,7 +82,7 @@ get_header(); ?>
                 <?php } ?>
                 <?php wp_reset_postdata(); ?>
             </ul>
-            <ul class="pagination news-list__pagination"></ul>
+            <ul class="pagination news-list__pagination" data-cursor="expand"></ul>
         </div>
     </div>
 </section>
