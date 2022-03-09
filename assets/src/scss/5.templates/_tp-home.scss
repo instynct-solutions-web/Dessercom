@@ -617,8 +617,9 @@
 		&__foreground-image {
 			position: absolute;
 			z-index: 2;
-			width: 130%;
-			height: 130%;
+			width: calc(100% - 40px);
+			height: 100%;
+			object-fit: contain;
 			opacity: 0;
 			transition: opacity 0.7s ease;
 		}
@@ -843,8 +844,6 @@
 		&__foreground-image {
 			width: calc(100% - 120px);
 			height: 100%;
-			max-width: 600px;
-			max-height: 600px;
 		}
 	}
 	.home-promo {
