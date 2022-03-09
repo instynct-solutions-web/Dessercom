@@ -13,7 +13,7 @@ $category = get_the_terms($article['article']->ID, 'section');
             <img class="article__image" src="<?= $hero['image']['url'] ?>" alt="<?= $hero['image']['alt'] ?>">
         </div>
         <div class="article__content">
-            <p class="article__category category"><?= $category[0]->name ?></p>
+            <p class="article__category category" data-category="<?= $category[0]->slug ?>"><?= $category[0]->name ?></p>
             <p class="article__title"><?= $hero['title'] ?></p>
             <span class="article__separator"></span>
             <p class="article__text"> <?= $postExerpt ?></p>

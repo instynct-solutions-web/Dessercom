@@ -121,10 +121,10 @@ $contact = get_field('form'); ?>
         <div data-form class="contact-form__form-container" data-tadam-animate="opacity-1--y-0--delay-0.5">
             <?php
             if (ICL_LANGUAGE_CODE == 'en') {
-                echo do_shortcode('[gravityform id="9" title="false" description="false" ajax="false"]');
+                echo do_shortcode('[gravityform id="9" title="false" description="false" ajax="true"]');
             }
             if (ICL_LANGUAGE_CODE == 'fr') {
-                echo do_shortcode('[gravityform id="2" title="false" description="false" ajax="false"]');
+                echo do_shortcode('[gravityform id="2" title="false" description="false" ajax="true"]');
             } ?>
 
         </div>

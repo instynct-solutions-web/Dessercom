@@ -1,6 +1,4 @@
 /* eslint-disable */
-import SFChosen from './plugins/_sfchosen';
-import SFBuild from './plugins/_sfbuild';
 import CalculateHeight from './helpers/_calculateHeight';
 import Wolfpack from './libraries/_wolfpack';
 import CircleText from './modules/_circleText';
@@ -31,6 +29,8 @@ import InteractiveMap from './modules/_interactiveMap';
 import InvoiceHint from './modules/_invoiceHint';
 import Team from './modules/_team';
 import NewsFilters from './modules/_newsFilters';
+import JobsFilters from './modules/_jobsFilters';
+import FaqFilters from './modules/_faqFilters';
 
 const App = {
 	/**
@@ -42,6 +42,8 @@ const App = {
 			plugins: [new SwupBodyClassPlugin()],
 		});
 		let invoiceReloaded = true;
+		let contactReloaded = true;
+		let jobsReloaded = true;
 
 		function init() {
 			/* if (document.querySelector('.home-social__feed')) {
@@ -50,11 +52,19 @@ const App = {
 			if (!document.querySelector('.page-template-tp-invoice')) {
 				invoiceReloaded = false;
 			}
+			if (!document.querySelector('.page-template-tp-contact')) {
+				contactReloaded = false;
+			}
+			if (!document.querySelector('.single-jobs')) {
+				jobsReloaded = false;
+			}
 			if (!invoiceReloaded && document.querySelector('.page-template-tp-invoice')) {
 				location.reload();
+			} else if (!contactReloaded && document.querySelector('.page-template-tp-contact')) {
+				location.reload();
+			} else if (!jobsReloaded && document.querySelector('.single-jobs')) {
+				location.reload();
 			} else {
-				const sfchosen = new SFChosen();
-				const sfbuild = new SFBuild();
 				const calculateHeight = new CalculateHeight();
 				const wolfpack = new Wolfpack();
 				const heroSlider = new HeroSlider();
@@ -82,6 +92,8 @@ const App = {
 				const invoiceHint = new InvoiceHint();
 				const team = new Team();
 				const newsFilters = new NewsFilters();
+				const jobsFilters = new JobsFilters();
+				const faqFilters = new FaqFilters();
 			}
 		}
 		init();
