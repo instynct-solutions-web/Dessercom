@@ -139,11 +139,85 @@ $values = get_field('benefits_2') ?>
             <h2 class="jobs-careers__title" data-words data-tadam-animate="words"><?= $careers['title'] ?></h2>
         </div>
         <div class="jobs-careers__main">
-            <div class="jobs-careers__filter" data-tadam-animate="opacity-1--y-0--delay-0.2">
-                <?php echo do_shortcode('[searchandfilter id="689"]'); ?>
+            <div class="jobs-careers__filters" data-tadam-animate="opacity-1--y-0--delay-0.2">
+                <?php
+                $zones = get_terms([
+                    'taxonomy' => 'zone',
+                    'hide_empty' => true,
+                    'orderby'  => 'name',
+                    'order'    => 'ASC'
+                ]);
+                $types = get_terms([
+                    'taxonomy' => 'type',
+                    'hide_empty' => true,
+                    'orderby'  => 'name',
+                    'order'    => 'ASC'
+                ]);
+                ?>
+                <div class="jobs-careers__filters-container" data-filter-container>
+                    <p class="jobs-careers__filters-title" data-filter-title>
+                        <?= $careers['label_zone'] ?>
+                        <svg class="jobs-careers__filters-arrow" xmlns="http://www.w3.org/2000/svg" width="9.803" height="5.402" viewBox="0 0 9.803 5.402">
+                            <g id="Groupe_1316" data-name="Groupe 1316" transform="translate(0.707 -23.411)">
+                                <path id="Tracé_3" data-name="Tracé 3" d="M0,0,4.195,4.195,8.389,0" transform="translate(0 24.118)" fill="none" stroke="#041e36" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"></path>
+                            </g>
+                        </svg>
+                    </p>
+                    <ul class="jobs-careers__filters-list">
+                        <li class="jobs-careers__filter" data-jobs-zone="all" data-cursor="expand">
+                            <?= $careers['label_all'] ?>
+                        </li>
+                        <?php foreach ($zones as $zone) { ?>
+                            <li class="jobs-careers__filter" data-jobs-zone="<?= $zone->slug; ?>" data-cursor="expand">
+                                <?= $zone->name; ?>
+                                <span class="jobs-careers__filter-count">(<?= $zone->count ?>)</span>
+                            </li>
+                        <?php } ?>
+                    </ul>
+                </div>
+                <div class="jobs-careers__filters-container" data-filter-container>
+                    <p class="jobs-careers__filters-title" data-filter-title>
+                        <?= $careers['label_type'] ?>
+                        <svg class="jobs-careers__filters-arrow" xmlns="http://www.w3.org/2000/svg" width="9.803" height="5.402" viewBox="0 0 9.803 5.402">
+                            <g id="Groupe_1316" data-name="Groupe 1316" transform="translate(0.707 -23.411)">
+                                <path id="Tracé_3" data-name="Tracé 3" d="M0,0,4.195,4.195,8.389,0" transform="translate(0 24.118)" fill="none" stroke="#041e36" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"></path>
+                            </g>
+                        </svg>
+                    </p>
+                    <ul class="jobs-careers__filters-list">
+                        <li class="jobs-careers__filter" data-jobs-type="all" data-cursor="expand">
+                            <?= $careers['label_all'] ?>
+                        </li>
+                        <?php foreach ($types as $type) { ?>
+                            <li class="jobs-careers__filter" data-jobs-type="<?= $type->slug; ?>" data-cursor="expand">
+                                <?= $type->name; ?>
+                                <span class="jobs-careers__filter-count">(<?= $type->count ?>)</span>
+                            </li>
+                        <?php } ?>
+                    </ul>
+                </div>
             </div>
-            <div class="jobs-careers__grid" data-tadam-animate="opacity-1--y-0--delay-0.2">
-                <?php echo do_shortcode('[searchandfilter id="689"  show="results"]'); ?>
+            <div id="jobs" class="jobs-careers__grid" data-tadam-animate="opacity-1--y-0--delay-0.2">
+                <ul class="list jobs-careers__jobs-list">
+                    <?php
+                    $args = array(
+                        'posts_per_page' => -1,
+                        'post_type' => 'jobs',
+                    );
+                    $query = new WP_Query($args);
+                    if ($query->have_posts()) {
+                    ?>
+                        <?php
+                        while ($query->have_posts()) {
+                            $query->the_post();
+                        ?>
+                            <?php get_template_part('modules/md-job', null, array(
+                                'jobs' => $jobs,
+                            )); ?>
+                        <?php } ?>
+                    <?php } ?>
+                    <?php wp_reset_postdata(); ?>
+                </ul>
             </div>
         </div>
     </div>

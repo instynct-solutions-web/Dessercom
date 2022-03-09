@@ -6,15 +6,15 @@ Template Name: News
 get_header(); ?>
 
 <?php $hero = get_field('hero'); ?>
-<section class="article-image" data-wolfpack-section>
+<section class="article-image" data-wolfpack-section data-tadam data-tadam-threshold="-1">
     <div class="article-image__container">
-        <img src="<?= $hero['image']['url'] ?>" alt="<?= $hero['image']['alt'] ?>" class="article-image__image">
+        <img src="<?= $hero['image']['url'] ?>" alt="<?= $hero['image']['alt'] ?>" class="article-image__image" data-tadam-animate="opacity-1--y-0--delay-0.2">
     </div>
 </section>
 
-<section class="article-back" data-wolfpack-section>
+<section class="article-back" data-wolfpack-section data-tadam data-tadam-threshold="-1">
     <div class="article-back__container">
-        <div class="article-back__button-container">
+        <div class="article-back__button-container" data-tadam-animate="opacity-1--y-0--delay-0.2">
             <a class="article-back__button" href="<?= $hero['back']['url'] ?>" target="<?= $hero['back']['target'] ?>">
                 <svg class="article-back__button-icon" xmlns="http://www.w3.org/2000/svg" width="14.515" height="13.384" viewBox="0 0 14.515 13.384">
                     <g id="Groupe_788" data-name="Groupe 788" transform="translate(13.515 1.414) rotate(90)" opacity="0.3">
@@ -31,10 +31,10 @@ get_header(); ?>
 </section>
 
 <?php $content = get_field('content'); ?>
-<section class="article-content" data-wolfpack-section>
+<section class="article-content" data-wolfpack-section data-tadam data-tadam-threshold="100">
     <div class="article-content__container">
-        <h1 class="article-content__title"><?= $hero['title'] ?></h1>
-        <div class="article-content__content">
+        <h1 class="article-content__title" data-tadam-animate="opacity-1--y-0--delay-0.2"><?= $hero['title'] ?></h1>
+        <div class="article-content__content" data-tadam-animate="opacity-1--y-0--delay-0.3">
             <?= $content ?>
         </div>
     </div>
