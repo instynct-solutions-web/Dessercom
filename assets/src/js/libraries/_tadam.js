@@ -1,4 +1,4 @@
-import { gsap, TweenLite, TimelineMax, Power4 } from 'gsap';
+import {gsap, TweenLite, TimelineMax, Power4} from 'gsap';
 import lottie from 'lottie-web';
 import CustomEase from 'gsap/CustomEase';
 
@@ -567,7 +567,7 @@ export default class Tadam {
 					ease: CustomEase.create('custom', 'M0,0 C0.038,0 0.214,1 1,1 '),
 					autoAlpha: 1,
 					y: 0,
-					delay: 0.2,
+					delay: 0.3,
 					force3D: true,
 				},
 				0.1

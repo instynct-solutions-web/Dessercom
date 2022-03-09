@@ -4,7 +4,6 @@
 
 .lightbox-slider {
 	position: fixed;
-	height: calc(100vh - #{$mobile-header-height});
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -16,7 +15,6 @@
 	pointer-events: none;
 	margin: auto;
 	transform: translateX(99.9vw);
-	margin-top: $mobile-header-height;
 	overflow: hidden;
 	transition: transform 0.5s ease-in-out 0s, opacity 0.1s linear 0.5s;
 	&--visible {
@@ -152,6 +150,7 @@
 
 @include desktop-only {
 	.lightbox-slider {
+		margin-top: 0;
 		transition: transform 0.5s ease-in-out 0s, opacity 0.1s linear 0.5s;
 		&--visible {
 			transform: translateX(0vh);

@@ -425,14 +425,18 @@
 		margin-bottom: 5em;
 	}
 	&__link {
+		@include button-primary;
 		cursor: none;
 		width: fit-content;
-		@include button-primary;
 		background-color: $navy !important;
+		align-items: center;
+		border: 0px;
+		&::after {
+			top: 0;
+		}
 		&--alt {
 			@include button-secondary;
 		}
-		align-items: center;
 	}
 }
 
@@ -445,7 +449,7 @@
 		}
 		&__list {
 			width: 200vw;
-			margin-bottom: 2em;
+			margin-bottom: -1em;
 		}
 		&__item {
 			width: 95%;
@@ -519,7 +523,6 @@
 			top: 0px;
 			left: 0px;
 			transform-origin: left;
-			transform: scaleX(0);
 		}
 		&__link-background {
 			display: block;

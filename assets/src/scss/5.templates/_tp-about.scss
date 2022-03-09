@@ -769,7 +769,7 @@
 		&__list {
 			width: 83.33333%;
 			margin: 0 8.33333% 5em 8.33333%;
-			grid-gap: 100px;
+			grid-gap: 5%;
 			grid-template-columns: repeat(5, 1fr);
 		}
 		&__item {
@@ -781,7 +781,7 @@
 			transform: translate3d(0, 100%, 0);
 		}
 		&__logo {
-			margin-bottom: 30px;
+			margin-bottom: 0px;
 		}
 		&__link-icon {
 			margin-left: 10px;

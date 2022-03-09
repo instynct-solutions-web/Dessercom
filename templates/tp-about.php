@@ -27,7 +27,7 @@ $philosophy = get_field('philosophy'); ?>
 
 <?php
 $mission = get_field('mission') ?>
-<section data-wolfpack-section class="about-mission" data-tadam data-tadam-threshold="100">
+<section data-wolfpack-section class="about-mission" data-tadam data-tadam-threshold="250">
     <div class="about-mission__container">
         <div class="about-mission__top">
             <span class="about-mission__separator" data-tadam-animate="scaleX-1"></span>
@@ -62,7 +62,7 @@ $history = get_field('history');
 $index = 0;
 $indexBackground = 0;
 ?>
-<section data-wolfpack-section class="about-history" data-tadam data-tadam-threshold="100">
+<section data-wolfpack-section class="about-history" data-tadam data-tadam-threshold="300">
     <div data-history-slider-container class="about-history__container">
         <h2 class="about-history__title" data-words data-tadam-animate="words"><?= $history['title'] ?></h2>
         <div class="about-history__dates">
@@ -128,7 +128,7 @@ $indexBackground = 0;
 </section>
 
 <?php $funding = get_field('funding'); ?>
-<section id="about-funding" data-wolfpack-section class="about-funding" data-tadam data-tadam-threshold="100">
+<section id="about-funding" data-wolfpack-section class="about-funding" data-tadam data-tadam-threshold="300">
     <div class="about-funding__container">
         <div class="about-funding__background">
             <div class="about-funding__motif" data-tadam-animate="about-pattern" data-lottie-pattern="/wp-content/themes/dessercom/assets/src/lottie/pattern-1.json"></div>

@@ -679,6 +679,7 @@
 		&__title {
 			font-size: rem(70);
 			width: 41.66666%;
+			margin-top: 0;
 			margin-bottom: 40px;
 		}
 		&__list {
@@ -734,9 +735,10 @@
 		min-height: 70vh;
 		&__map-container {
 			left: 45%;
-			top: auto;
+			top: 0;
 			bottom: 50px;
 			width: 60%;
+			height: 100vh;
 		}
 		&__cta-container {
 			right: 100px;

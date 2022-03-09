@@ -50,7 +50,7 @@
 @mixin title-4 {
 	font: 500 rem(15) $font-family-title;
 	line-height: 1em;
-	margin-bottom: 0.5em;
+	margin-bottom: 0.7em;
 	color: $navy;
 	@include min-width($mobile-threshold) {
 		font-size: rem(22);

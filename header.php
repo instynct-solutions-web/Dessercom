@@ -207,8 +207,8 @@
 		$contentList[1] = get_field('borders');
 		if ($contentList[0]) {
 			foreach ($contentList as $content) { ?>
-				<div data-lightbox-slider-container class="lightbox-slider">
-					<div class="lightbox-slider__container">
+				<div data-calc-mobile data-lightbox-slider-container class="lightbox-slider">
+					<div data-wolfpack="" class="lightbox-slider__container">
 						<div class="lightbox-slider__cta-wrapper">
 							<div data-cursor data-lightbox-slider-close class="lightbox-slider__cta cta">
 								<span class="lightbox-slider__cta-text cta__text" data-circle-text>

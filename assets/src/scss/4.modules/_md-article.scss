@@ -1,7 +1,10 @@
 // ==========================================================================
 // MODULES - Article
 // ==========================================================================
-
+.size-full {
+	width: 100%;
+	margin: 2em 0;
+}
 .article {
 	padding: 0px !important;
 	margin-bottom: 15px;
@@ -99,12 +102,47 @@
 		}
 		&__content {
 			padding: 25px;
+			transition: background-color 0.25s ease;
 		}
 		&__title {
 			font-size: rem(22);
+			transition: color 0.25s ease;
 		}
 		&__text {
 			font-size: rem(14);
+			transition: color 0.25s ease;
+		}
+		&__separator {
+			transition: background-color 0.25s ease;
+		}
+		&__button {
+			transition: color 0.25s ease;
+		}
+		&__button-icon {
+			transform: rotate(225deg);
+			transition: transform 0.25s ease;
+		}
+		&__link {
+			&:hover {
+				.article__content {
+					background-color: $yellow;
+				}
+				.article__title {
+					color: $navy;
+				}
+				.article__text {
+					color: $navy;
+				}
+				.article__separator {
+					background-color: $navy;
+				}
+				.article__button {
+					color: $navy;
+				}
+				.article__button-icon {
+					transform: rotate(270deg);
+				}
+			}
 		}
 	}
 }

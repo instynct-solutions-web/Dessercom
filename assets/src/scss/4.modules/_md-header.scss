@@ -647,7 +647,7 @@
 			height: 22px;
 			margin-left: 20px;
 			transform: rotate(45deg);
-			transition: 0.2s ease;
+			transition: transform 0.45s ease;
 		}
 		&__navigation {
 			&--opened {

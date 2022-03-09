@@ -1,4 +1,5 @@
 import List from 'list.js';
+
 export default class NewsFilters {
 	constructor() {
 		this.filterList = document.querySelectorAll('[data-news-filter]');
@@ -49,13 +50,12 @@ export default class NewsFilters {
 		}
 
 		if (window.location.href.indexOf('?_filtre') > -1) {
-			this.locationFilter = window.location.href.replace(window.location.origin + window.location.pathname + '?_filtre=', '');
+			this.locationFilter = window.location.href.replace(`${window.location.origin + window.location.pathname}?_filtre=`, '');
 			this.postFilters.filter((item) => {
 				if (item.values().category === this.locationFilter) {
 					return true;
-				} else {
-					return false;
 				}
+				return false;
 			});
 			for (let i = 0; i < this.filterList.length; i += 1) {
 				this.category = this.filterList[i].getAttribute('data-news-filter');

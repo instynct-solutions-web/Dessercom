@@ -110,7 +110,7 @@ $extra = get_field('services_ext'); ?>
 
 <?php
 $paramedic = get_field('services_paramedic'); ?>
-<section data-wolfpack-section class="services-paramedic" id="soins-urgence-prehospitaliers" data-tadam data-tadam-threshold="100">
+<section data-wolfpack-section class="services-paramedic" id="soins-urgence-prehospitaliers" data-tadam data-tadam-threshold="250">
     <div class="services-paramedic__container">
         <div class="services-paramedic__top">
             <span class="services-paramedic__separator" data-tadam-animate="scaleX-1"></span>
@@ -152,7 +152,7 @@ $paramedic = get_field('services_paramedic'); ?>
 <?php
 $support = get_field('support') ?>
 
-<section data-wolfpack-section class="services-support" id="transport-medical" data-tadam data-tadam-threshold="100">
+<section data-wolfpack-section class="services-support" id="transport-medical" data-tadam data-tadam-threshold="350">
     <div class="services-support__container">
         <div class="services-support__background">
             <div class="services-support__motif" data-tadam-animate="about-pattern" data-lottie-pattern="/wp-content/themes/dessercom/assets/src/lottie/pattern-1.json"></div>
@@ -171,7 +171,7 @@ $support = get_field('support') ?>
 </section>
 <?php
 $community = get_field('paramed'); ?>
-<section data-wolfpack-section class="services-community" id="paramedecine-communautaire" data-tadam data-tadam-threshold="100">
+<section data-wolfpack-section class="services-community" id="paramedecine-communautaire" data-tadam data-tadam-threshold="350">
     <div class="services-community__container">
         <div class="services-community__main">
             <div class="services-community__image-container">
@@ -197,7 +197,7 @@ $community = get_field('paramed'); ?>
 </section>
 <?php
 $other = get_field('other') ?>
-<section data-wolfpack-section class="services-other" id="services-aux-entreprises" data-tadam data-tadam-threshold="100">
+<section data-wolfpack-section class="services-other" id="services-aux-entreprises" data-tadam data-tadam-threshold="250">
     <div class="services-other__container">
         <div class="services-other__top">
             <h2 class="services-other__title" data-words data-tadam-animate="words"><?= $other['title'] ?></h2>
