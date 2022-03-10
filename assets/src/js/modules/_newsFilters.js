@@ -64,7 +64,6 @@ export default class NewsFilters {
 					setTimeout(() => {
 						if (this.category !== 'all') {
 							this.postFilters.filter((item) => {
-								console.log(item.values().zone);
 								if (item.values().category === this.category) {
 									return true;
 									// eslint-disable-next-line

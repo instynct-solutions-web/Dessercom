@@ -2,12 +2,13 @@
 $job = $args;
 $news = $args['news'];
 $permalink = get_permalink($job['job']->ID);
+
 $title = get_the_title($job['job']->ID);
 $hero = get_field('hero', $job['job']->ID);
 $zone = get_the_terms($job['job']->ID, 'zone');
 $type = get_the_terms($job['job']->ID, 'type');
 ?>
-<a data-cursor href="<?php $permalink ?>" class="jobs-careers__job" data-job>
+<a data-cursor href="<?= $permalink ?>" class="jobs-careers__job" data-job>
     <span class="jobs-careers__hide zone"><?= $zone[0]->slug ?></span>
     <span class="jobs-careers__hide type"><?= $type[0]->slug ?></span>
     <div class="jobs-careers__job-header">

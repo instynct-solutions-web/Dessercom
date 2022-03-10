@@ -43,6 +43,11 @@
 				transform: translate3d(0, 0, 0);
 				@include contact-media-member-delay;
 			}
+			&__button {
+				opacity: 1;
+				transform: translate3d(0, 0, 0);
+				@include contact-media-member-delay;
+			}
 		}
 	}
 	&__container {
@@ -166,6 +171,9 @@
 	&__button {
 		@include button-white-bg;
 		align-self: flex-end;
+		opacity: 0;
+		transform: translate3d(0, 100px, 0);
+		transition: 0.75s cubic-bezier(0.04, 0, 0.21, 1);
 	}
 }
 .contact-hero {
