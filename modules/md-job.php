@@ -2,7 +2,6 @@
 $job = $args;
 $news = $args['news'];
 $permalink = get_permalink($job['job']->ID);
-
 $title = get_the_title($job['job']->ID);
 $hero = get_field('hero', $job['job']->ID);
 $zone = get_the_terms($job['job']->ID, 'zone');
