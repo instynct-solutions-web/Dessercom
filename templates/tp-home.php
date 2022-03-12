@@ -100,7 +100,7 @@ $index = 0;
                 <h2 class="home-services__note" data-words data-tadam-animate="words"><?= $services['top_note'] ?></h2>
                 <ul class="home-services__list" data-tadam-animate="home-services">
                     <?php foreach ($services['list'] as $item) { ?>
-                        <li class="home-services__item" data-home-service>
+                        <li class="home-services__item" data-home-service data-cursor data-cursor-class="blue">
                             <a href="<?= $item['link']['url'] ?>" class="home-services__link">
                                 <span class="home-services__link-content">
                                     <?= $item['link']['title'] ?>

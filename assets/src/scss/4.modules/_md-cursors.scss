@@ -148,6 +148,22 @@
 			}
 		}
 	}
+	&--animate-blue {
+		.cursor__ball {
+			svg {
+				transform: scale(2);
+				transition: 0.25s ease;
+			}
+
+			circle {
+				fill: $navy;
+				stroke: $navy;
+				fill-opacity: 0.3;
+				stroke-width: 0;
+				transition: 0.25s ease;
+			}
+		}
+	}
 	&--blue {
 		.cursor__ball {
 			circle {

@@ -17,7 +17,7 @@ $footer = get_field('footer', 'options');
         <div class="footer__links">
             <ul class="footer__links-grid">
                 <?php foreach ($footer['list'] as $link) { ?>
-                    <li class="footer__links-item"><a data-footer-link data-cursor data-cursor-class="fade" target="<?= $link['link']['target'] ?>" href="<?= $link['link']['url'] ?>" class="footer__link"><span data-footer-cursor class="footer__link-cursor"></span><?= $link['link']['title'] ?></a></li>
+                    <li class="footer__links-item" data-cursor data-cursor-class="blue"><a data-footer-link data-cursor target="<?= $link['link']['target'] ?>" href="<?= $link['link']['url'] ?>" class="footer__link"><span data-footer-cursor class="footer__link-cursor"></span><?= $link['link']['title'] ?></a></li>
                 <?php
                 } ?>
             </ul>

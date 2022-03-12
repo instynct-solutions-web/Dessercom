@@ -31,6 +31,7 @@ import Team from './modules/_team';
 import NewsFilters from './modules/_newsFilters';
 import JobsFilters from './modules/_jobsFilters';
 import FaqFilters from './modules/_faqFilters';
+import AboutPattern from './modules/_aboutPattern';
 
 const App = {
 	/**
@@ -94,6 +95,7 @@ const App = {
 				const newsFilters = new NewsFilters();
 				const jobsFilters = new JobsFilters();
 				const faqFilters = new FaqFilters();
+				const aboutPattern = new AboutPattern();
 			}
 		}
 		init();
