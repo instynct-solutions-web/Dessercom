@@ -53,9 +53,6 @@
 	}
 	&__note-word {
 		display: inline-block;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 100%, 0);
 	}
 	&__text {
 		font-size: rem(20);
@@ -65,9 +62,6 @@
 	}
 	&__text-word {
 		display: inline-block;
-		opacity: 0;
-		visibility: hidden;
-		transform: translate3d(0, 150%, 0);
 	}
 }
 
@@ -570,6 +564,11 @@
 			font-size: rem(16);
 			width: 100%;
 		}
+		&__note-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 100%, 0);
+		}
 		&__main {
 			width: 75%;
 		}
@@ -578,6 +577,11 @@
 			margin: 0;
 			font-size: rem(40);
 			color: $white;
+		}
+		&__text-word {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(0, 150%, 0);
 		}
 	}
 	.about-mission {

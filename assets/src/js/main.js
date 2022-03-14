@@ -31,7 +31,6 @@ import Team from './modules/_team';
 import NewsFilters from './modules/_newsFilters';
 import JobsFilters from './modules/_jobsFilters';
 import FaqFilters from './modules/_faqFilters';
-import AboutPattern from './modules/_aboutPattern';
 
 const App = {
 	/**
@@ -47,9 +46,9 @@ const App = {
 		let jobsReloaded = true;
 
 		function init() {
-			/* if (document.querySelector('.home-social__feed')) {
-				sbi_init();
-			} */
+			if (document.querySelector('.home-social__feed')) {
+				cff_init();
+			}
 			if (!document.querySelector('.page-template-tp-invoice')) {
 				invoiceReloaded = false;
 			}
@@ -95,7 +94,6 @@ const App = {
 				const newsFilters = new NewsFilters();
 				const jobsFilters = new JobsFilters();
 				const faqFilters = new FaqFilters();
-				const aboutPattern = new AboutPattern();
 			}
 		}
 		init();
