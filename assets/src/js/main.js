@@ -46,9 +46,9 @@ const App = {
 		let jobsReloaded = true;
 
 		function init() {
-			/* if (document.querySelector('.home-social__feed')) {
-				sbi_init();
-			} */
+			if (document.querySelector('.home-social__feed')) {
+				cff_init();
+			}
 			if (!document.querySelector('.page-template-tp-invoice')) {
 				invoiceReloaded = false;
 			}

@@ -9,21 +9,22 @@
 	}
 }
 .contact-media {
-	background-color: $teal;
-	position: absolute;
+	background: linear-gradient(0deg, transparent 0%, transparent 50%, $teal 50%, $teal 100%);
+	background-size: 100% 200%;
+	background-position: bottom;
+	position: fixed;
 	z-index: 2;
 	top: 0;
 	left: 0;
 	pointer-events: none;
-	overflow-y: scroll;
+	overflow-y: hidden;
 	overflow-x: hidden;
-	transform-origin: top;
-	transform: scaleY(0);
 	transition: 0.7s ease;
 	transition-delay: 0.2s !important;
 	&--show {
+		overflow-y: scroll;
 		pointer-events: all;
-		transform: scaleY(1);
+		background-position: top;
 		transition-delay: 0s !important;
 		.contact-media {
 			&__container {

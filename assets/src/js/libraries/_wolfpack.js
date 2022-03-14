@@ -567,7 +567,11 @@ export default class Wolfpack {
 		// Links Variables
 		const linkList = document.querySelectorAll('a');
 		for (let i = 0; i < linkList.length; i += 1) {
-			linkList[i].setAttribute('data-cursor', 'expand');
+			if (linkList[i].classList.contains('button--primary')) {
+				linkList[i].setAttribute('data-cursor', 'expand-blue');
+			} else {
+				linkList[i].setAttribute('data-cursor', 'expand');
+			}
 			linkList[i].addEventListener('click', () => {
 				if (linkList[i].getAttribute('href') === window.location.pathname) {
 					location.reload();
@@ -1655,12 +1659,22 @@ export default class Wolfpack {
 					cursorAttribute[i] = cursorElement.getAttribute('data-cursor-class');
 					if (!cursorAttribute[i]) {
 						cursorElement.addEventListener('mouseover', () => {
-							if (!cursor.classList.contains(`${cursorClass}--animate`)) {
-								cursor.classList.add(`${cursorClass}--animate`);
+							if (cursorElement.classList.contains('button--primary')) {
+								if (!cursor.classList.contains(`${cursorClass}--animate-blue`)) {
+									cursor.classList.add(`${cursorClass}--animate-blue`);
+								}
+							} else {
+								if (!cursor.classList.contains(`${cursorClass}--animate`)) {
+									cursor.classList.add(`${cursorClass}--animate`);
+								}
 							}
 						});
 						cursorElement.addEventListener('mouseleave', () => {
-							cursor.classList.remove(`${cursorClass}--animate`);
+							if (cursorElement.classList.contains('button--primary')) {
+								cursor.classList.remove(`${cursorClass}--animate-blue`);
+							} else {
+								cursor.classList.remove(`${cursorClass}--animate`);
+							}
 						});
 					} else {
 						cursorElement.addEventListener('mouseover', () => {

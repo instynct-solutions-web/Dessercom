@@ -142,7 +142,9 @@ $paramedic = get_field('services_paramedic'); ?>
                     <span><?= $paramedic['separator'] ?></span>
                     <a href="<?= $paramedic['phone']['url'] ?>" class="services-paramedic__link"><?= $paramedic['phone']['title'] ?></a>
                 </p>
-                <a href="<?= $paramedic['button']['url'] ?>" class="services-paramedic__button"><?= $paramedic['button']['title'] ?></a>
+                <div class="services-paramedic__button-content" data-cursor data-cursor-class="blue">
+                    <a href="<?= $paramedic['button']['url'] ?>" class="services-paramedic__button"><?= $paramedic['button']['title'] ?></a>
+                </div>
             </div>
 
         </div>
@@ -188,7 +190,7 @@ $community = get_field('paramed'); ?>
                 <h2 class="services-community__title"><?= $community['title'] ?></h2>
                 <p class="services-community__text"><?= $community['text'] ?></p>
             </div>
-            <div class="services-community__button-container">
+            <div class="services-community__button-container" data-cursor data-cursor-class="blue">
                 <a href="<?= $community['link']['url'] ?>" class="services-community__button"><?= $community['link']['title'] ?></a>
             </div>
 
