@@ -647,6 +647,7 @@ export default class Wolfpack {
 					virtualScroll = new VirtualScroll({
 						mouseMultiplier: 0.4,
 						touchMultiplier: 2,
+						useKeyboard: false,
 					});
 					activateWatchScroll = true;
 				}
