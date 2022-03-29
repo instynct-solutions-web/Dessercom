@@ -3,6 +3,8 @@
 // ==========================================================================
 
 .cursor {
+	height: 0px;
+	pointer-events: none;
 	&__ball {
 		transform: translate(0px, 0px);
 		top: 0;

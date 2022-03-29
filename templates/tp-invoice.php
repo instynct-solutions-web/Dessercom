@@ -60,7 +60,7 @@ get_header(); ?>
             <img src="<?= $form['background']['url'] ?>" alt="<?= $form['background']['alt'] ?>" class="invoice-form__background">
         </div>
         <div class="invoice-form__body" data-form data-tadam-animate="opacity-1--y-0--delay-0.4">
-            <?php echo do_shortcode('[gravityform id="' . $form['form'] . '" title="false" description="false" ajax="false"]'); ?>
+            <?php echo do_shortcode('[gravityform id="' . $form['form'] . '" title="false" description="false" ajax="true"]'); ?>
         </div>
     </div>
 </section>

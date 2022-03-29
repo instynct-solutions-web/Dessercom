@@ -40,3 +40,19 @@ function my_deregister_javascript()
     wp_deregister_script('search-filter-plugin-build');
     wp_deregister_script('search-filter-plugin-chosen');
 }
+
+// Gravity Form Remove Currency
+add_filter('gform_currencies', 'gw_modify_currencies');
+function gw_modify_currencies($currencies)
+{
+    $currencies['CAD'] = array(
+        'name' => esc_html__('Euro', 'gravityforms'),
+        'symbol_left' => '',
+        'symbol_right' => '',
+        'symbol_padding' => ' ',
+        'thousand_separator' => '.',
+        'decimal_separator' => ',',
+        'decimals' => 2
+    );
+    return $currencies;
+}

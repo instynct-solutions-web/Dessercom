@@ -11,6 +11,10 @@ ol {
 	padding: 0;
 }
 
+.otgs-development-site-front-end {
+	display: none !important;
+}
+
 /* Remove default margin */
 body,
 h1,
@@ -31,50 +35,30 @@ dd {
 	margin: 0;
 }
 
-html.website {
-	pointer-events: none;
-	-webkit-font-smoothing: antialiased;
+/* Set core body defaults */
+html {
 	scroll-behavior: smooth;
 }
-
-@media only screen and (min-width: 1025px) {
-	html.website {
-		overflow: hidden;
-		scroll-behavior: auto;
-		perspective: 1px;
-	}
-}
-
-/* Set core body defaults */
-body:not(#tinymce) {
-	pointer-events: all;
-	text-rendering: optimizeSpeed;
+body {
+	overflow-x: hidden;
+	min-height: 100vh;
+	scroll-behavior: smooth;
+	text-rendering: geometricPrecision;
+	line-height: 1.5;
 	&.noscroll {
 		overflow: hidden;
 	}
 }
 
-@media only screen and (min-width: 1025px) {
-	body:not(#tinymce) {
-		height: 100vh;
-		overflow: hidden;
-		cursor: none;
-	}
-}
-
-.page-template {
-	&--green {
-		background-color: #dafba1;
-	}
-	&--white {
-		background-color: #fff;
-	}
+body.wolfpack-desktop {
+	height: 100vh;
+	overflow: hidden;
 }
 
 /* Set Sections to take all width available */
 section {
+	position: relative;
 	width: 100%;
-	-webkit-perspective: 1000;
 }
 
 /* Make HR easier to work with */
@@ -103,6 +87,7 @@ a:not([class]) {
 /* Make images easier to work with */
 img {
 	display: block;
+	// max-width: 100%;
 	height: auto;
 }
 
@@ -122,6 +107,8 @@ select {
 
 a {
 	text-decoration: none;
+	opacity: 1;
+	cursor: pointer !important;
 }
 
 /* Remove all animations and transitions for people that prefer not to see them */

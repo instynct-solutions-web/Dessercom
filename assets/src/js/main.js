@@ -1,5 +1,8 @@
 /* eslint-disable */
 import CalculateHeight from './helpers/_calculateHeight';
+import Cursor from './libraries/_cursor';
+import Marquee from './libraries/_marquee';
+import Text from './libraries/_text';
 import Wolfpack from './libraries/_wolfpack';
 import CircleText from './modules/_circleText';
 import HeroSlider from './modules/_heroSlider';
@@ -58,12 +61,18 @@ const App = {
 			}
 			if (!invoiceReloaded && document.querySelector('.page-template-tp-invoice')) {
 				location.reload();
+				console.log('test');
 			} else if (!contactReloaded && document.querySelector('.page-template-tp-contact')) {
 				location.reload();
+				console.log('test2');
 			} else if (!jobsReloaded && document.querySelector('.single-jobs')) {
 				location.reload();
+				console.log('test3');
 			} else {
 				const calculateHeight = new CalculateHeight();
+				const cursor = new Cursor();
+				const marquee = new Marquee();
+				const text = new Text();
 				const wolfpack = new Wolfpack();
 				const heroSlider = new HeroSlider();
 				const videoToggle = new VideoToggle();

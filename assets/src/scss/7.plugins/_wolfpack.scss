@@ -17,28 +17,22 @@ html.is-animating .transition-fade {
 	z-index: 2;
 }
 
-[data-wolfpack] {
-	pointer-events: all;
-}
-
-[data-wolfpack-section] {
-	position: relative;
-	z-index: 1;
-	will-change: transform;
-}
-
-@media only screen and (max-width: 1024px) {
+body.wolfpack-scroll {
+	[data-wolfpack] {
+		pointer-events: all;
+	}
 	[data-wolfpack-section] {
-		opacity: 1 !important;
-		pointer-events: all !important;
-		overflow: hidden;
+		position: relative;
+		z-index: 1;
+		margin-top: -1px;
+		margin-bottom: -1px;
+		will-change: transform;
 	}
 }
 
-@include desktop-only {
-	[data-wolfpack-section] {
-		opacity: 0;
-		pointer-events: none;
+.wolfpack-mobile {
+	&.noscroll {
+		overflow: hidden;
 	}
 }
 
@@ -53,17 +47,13 @@ body {
 	}
 }
 
-.scroll-content {
-	overflow: hidden !important;
-}
-
 // SCROLLBAR
 [data-scrollbar] {
 	pointer-events: all;
 	width: 10px;
 	height: 100%;
 	position: absolute;
-	z-index: 111;
+	z-index: 111111;
 	top: 0px;
 	right: 0px;
 	background-color: transparent;
@@ -91,6 +81,7 @@ body {
 	opacity: 0.5;
 	background-color: #000;
 	border-radius: 150px;
+	transition: height 0.5s ease;
 }
 
 // MARQUEE
@@ -105,15 +96,16 @@ body {
 [data-marquee-content] {
 	display: flex;
 	white-space: nowrap;
-	animation: marquee linear infinite running;
+	animation: marquee linear infinite;
+	will-change: transform;
 }
 
 @keyframes marquee {
 	0% {
-		transform: translateX(0);
+		transform: translate3d(0%, 0, 0);
 	}
 	100% {
-		transform: translate(-100%);
+		transform: translate3d(-100%, 0, 0);
 	}
 }
 
@@ -122,38 +114,7 @@ body {
 	position: absolute;
 }
 
-// CURSOR
-[data-cursor-container] {
-	display: flex;
-	opacity: 1;
-	pointer-events: none;
-}
-
-[data-cursor-pointer] {
-	transform: translate(0px, 0px);
-	position: fixed;
-	z-index: 111;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: center;
-
-	svg {
-		transition: 0.5s ease;
-	}
-}
-
-@include desktop-only {
-	[data-cursor] {
-		cursor: none;
-	}
-}
-
 @include max-width($tablet-threshold) {
-	html,
-	body {
-		cursor: auto;
-	}
 	[data-cursor-container] {
 		display: none;
 	}
@@ -161,6 +122,11 @@ body {
 		opacity: 0 !important;
 		pointer-events: none !important;
 	}
+}
+
+// SEPARATE CHARACTERS
+[data-follow-me] {
+	will-change: transform;
 }
 
 // SEPARATE CHARACTERS
@@ -179,15 +145,5 @@ body {
 	&__word {
 		display: inline-block;
 		margin-right: 0.2em;
-	}
-}
-
-// FORM
-[data-form] {
-	input,
-	textarea,
-	select,
-	label {
-		cursor: none;
 	}
 }
