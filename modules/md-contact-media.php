@@ -1,6 +1,6 @@
 <?php
 $media = get_field('media', 'options') ?>
-<section data-calc-mobile data-contact-media class="contact-media">
+<section data-wolfpack data-calc-mobile data-contact-media class="contact-media">
     <div class="contact-media__cta-container">
         <div data-cursor data-contact-close class="contact-media__cta cta">
             <span class="contact-media__cta-text cta__text" data-circle-text>
@@ -22,7 +22,7 @@ $media = get_field('media', 'options') ?>
             </svg>
         </div>
     </div>
-    <div data-wolfpack class="contact-media__container">
+    <div class="contact-media__container" data-wolfpack-section>
         <h2 class="contact-media__title" data-words><?= $media['title'] ?></h2>
         <?php if ($media['list']) { ?>
             <ul class="contact-media__list">

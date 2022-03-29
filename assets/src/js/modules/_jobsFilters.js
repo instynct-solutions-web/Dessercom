@@ -74,7 +74,7 @@ export default class JobsFilters {
 				this.jobsFilters.filter();
 			} else if (this.zone === 'all') {
 				this.jobsFilters.filter((item) => {
-					if (item.values().type === this.type) {
+					if (item.values().type.includes(this.type)) {
 						return true;
 						// eslint-disable-next-line
 					} else {
@@ -83,7 +83,7 @@ export default class JobsFilters {
 				});
 			} else if (this.type === 'all') {
 				this.jobsFilters.filter((item) => {
-					if (item.values().zone === this.zone) {
+					if (item.values().zone.includes(this.zone)) {
 						return true;
 						// eslint-disable-next-line
 					} else {
@@ -92,7 +92,7 @@ export default class JobsFilters {
 				});
 			} else {
 				this.jobsFilters.filter((item) => {
-					if (item.values().type === this.type && item.values().zone === this.zone) {
+					if (item.values().type.includes(this.type) && item.values().zone.includes(this.zone)) {
 						return true;
 						// eslint-disable-next-line
 					} else {
@@ -114,7 +114,7 @@ export default class JobsFilters {
 				this.jobsFilters.filter();
 			} else if (this.type === 'all') {
 				this.jobsFilters.filter((item) => {
-					if (item.values().zone === this.zone) {
+					if (item.values().zone.includes(this.zone)) {
 						return true;
 						// eslint-disable-next-line
 					} else {
@@ -123,7 +123,7 @@ export default class JobsFilters {
 				});
 			} else if (this.zone === 'all') {
 				this.jobsFilters.filter((item) => {
-					if (item.values().type === this.type) {
+					if (item.values().type.includes(this.type)) {
 						return true;
 						// eslint-disable-next-line
 					} else {
@@ -132,7 +132,7 @@ export default class JobsFilters {
 				});
 			} else {
 				this.jobsFilters.filter((item) => {
-					if (item.values().type === this.type && item.values().zone === this.zone) {
+					if (item.values().type.includes(this.type) && item.values().zone.includes(this.zone)) {
 						return true;
 						// eslint-disable-next-line
 					} else {

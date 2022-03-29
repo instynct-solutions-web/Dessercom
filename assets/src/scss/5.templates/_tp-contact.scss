@@ -1,6 +1,12 @@
 // ==========================================================================
 // TEMPLATE - Contact
 // ==========================================================================
+.page-template-tp-news,
+.page-template-tp-contact {
+	.contact-media {
+		display: block;
+	}
+}
 .page-template-tp-news {
 	.contact-media {
 		&__button {
@@ -9,6 +15,7 @@
 	}
 }
 .contact-media {
+	display: none;
 	background: linear-gradient(0deg, transparent 0%, transparent 50%, $teal 50%, $teal 100%);
 	background-size: 100% 200%;
 	background-position: bottom;
@@ -16,14 +23,14 @@
 	z-index: 2;
 	top: 0;
 	left: 0;
-	pointer-events: none;
+	pointer-events: none !important;
 	overflow-y: hidden;
 	overflow-x: hidden;
 	transition: 0.7s ease;
 	transition-delay: 0.2s !important;
 	&--show {
 		overflow-y: scroll;
-		pointer-events: all;
+		pointer-events: all !important;
 		background-position: top;
 		transition-delay: 0s !important;
 		.contact-media {

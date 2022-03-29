@@ -38,14 +38,16 @@ export default class FaqFilters {
 
 		if (window.location.href.indexOf('?_filtre') > -1) {
 			this.locationFilter = window.location.href.replace(`${window.location.origin + window.location.pathname}?_filtre=`, '');
-			this.faqsFilters.filter((item) => {
-				if (item.values().category === this.locationFilter) {
-					return true;
-					// eslint-disable-next-line
-				} else {
-					return false;
-				}
-			});
+			if (this.faqsFilters) {
+				this.faqsFilters.filter((item) => {
+					if (item.values().category === this.locationFilter) {
+						return true;
+						// eslint-disable-next-line
+					} else {
+						return false;
+					}
+				});
+			}
 			for (let i = 0; i < this.faqCategoryList.length; i += 1) {
 				this.category = this.faqCategoryList[i].getAttribute('data-faq-category');
 				if (this.category === this.locationFilter) {

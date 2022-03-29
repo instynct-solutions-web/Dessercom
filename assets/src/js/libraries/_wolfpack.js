@@ -26,12 +26,6 @@ export default class Wolfpack {
 		// Check Touch Devices
 		this.isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
 
-		this.drawerList = document.querySelectorAll('[data-pricing]');
-		if (this.drawerList.length !== 0) {
-			this.drawerList[1].setAttribute('data-cursor', '');
-			this.drawerList[1].setAttribute('data-cursor-class', 'blue');
-		}
-
 		// Preloader Variables
 		const preloaderFunction = new Preloader();
 		const preloader = document.querySelector('[data-preloader]');
@@ -45,6 +39,22 @@ export default class Wolfpack {
 				preloaderDelay = 700;
 				preloaderSpeed = preloaderDelay / 1000;
 			}
+		}
+
+		const linkList = document.querySelectorAll('a');
+		for (let i = 0; i < linkList.length; i += 1) {
+			linkList[i].addEventListener('click', (e) => {
+				if (linkList[i].getAttribute('href') === window.location.pathname) {
+					e.preventDefault();
+					preloaderFunction.showPreloader(preloader, preloaderSpeed);
+				} else if (!linkList[i].getAttribute('href').includes(window.location.pathname + '#') && linkList[i].getAttribute('href').includes('/') && linkList[i].getAttribute('target') !== '_blank') {
+					e.preventDefault();
+					preloaderFunction.showPreloader(preloader, preloaderSpeed);
+					setTimeout(() => {
+						window.location = linkList[i].getAttribute('href');
+					}, preloaderDelay);
+				}
+			});
 		}
 
 		// Preloader Init
@@ -385,7 +395,6 @@ export default class Wolfpack {
 		// Links Variables
 		const linkList = document.querySelectorAll('a');
 		for (let i = 0; i < linkList.length; i += 1) {
-			linkList[i].setAttribute('data-cursor', 'expand');
 			linkList[i].addEventListener('click', () => {
 				if (linkList[i].getAttribute('href') === window.location.pathname) {
 					location.reload();

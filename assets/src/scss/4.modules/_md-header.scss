@@ -11,7 +11,7 @@
 	height: $mobile-header-height;
 	position: fixed;
 	top: 0px;
-	z-index: 2;
+	z-index: 4;
 	padding: 0 20px;
 	display: flex;
 	flex-direction: column;
@@ -29,6 +29,7 @@
 		transform: translateY(-$desktop-header-height);
 	}
 	&--opened {
+		background-color: transparent;
 		.header {
 			&__logo {
 				filter: brightness(0) invert(1) grayscale(1);
@@ -146,6 +147,7 @@
 		}
 	}
 	&__navigation {
+		z-index: 3;
 		transform: scaleY(0);
 		transition-delay: 0.2s !important;
 		&--opened {

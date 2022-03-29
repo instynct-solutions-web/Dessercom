@@ -30,9 +30,33 @@ body.wolfpack-scroll {
 	}
 }
 
+.noscroll {
+	[data-scrollbar] {
+		opacity: 0 !important;
+		pointer-events: none !important;
+	}
+}
+
+.wolfpack-desktop {
+	cursor: none;
+	a,
+	input,
+	select,
+	textarea {
+		cursor: none !important;
+	}
+}
+
 .wolfpack-mobile {
 	&.noscroll {
 		overflow: hidden;
+	}
+	[data-cursor-container] {
+		display: none;
+	}
+	[data-scrollbar] {
+		opacity: 0 !important;
+		pointer-events: none !important;
 	}
 }
 
@@ -112,16 +136,6 @@ body {
 // STAY
 [data-stay] {
 	position: absolute;
-}
-
-@include max-width($tablet-threshold) {
-	[data-cursor-container] {
-		display: none;
-	}
-	[data-scrollbar] {
-		opacity: 0 !important;
-		pointer-events: none !important;
-	}
 }
 
 // SEPARATE CHARACTERS

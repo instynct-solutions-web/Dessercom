@@ -3,6 +3,22 @@ import { TweenMax } from 'gsap';
 
 export default class Cursor {
 	constructor() {
+		this.drawerList = document.querySelectorAll('[data-pricing]');
+		if (this.drawerList.length !== 0) {
+			this.drawerList[1].setAttribute('data-cursor', '');
+			this.drawerList[1].setAttribute('data-cursor-class', 'animate-blue');
+		}
+
+		const linkList = document.querySelectorAll('a');
+		for (let i = 0; i < linkList.length; i += 1) {
+			if (linkList[i].classList.contains('button--primary')) {
+				linkList[i].setAttribute('data-cursor', '');
+				linkList[i].setAttribute('data-cursor-class', 'blue');
+			} else {
+				linkList[i].setAttribute('data-cursor', '');
+			}
+		}
+
 		this.cursorPointerList = document.querySelectorAll('[data-cursor-pointer]');
 		this.cursor = document.querySelector('[data-cursor-container]');
 		this.cursorTop = 0;

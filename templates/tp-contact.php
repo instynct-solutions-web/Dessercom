@@ -6,9 +6,6 @@ Template Name: Contact
 // Load header.php
 get_header(); ?>
 
-
-<?php get_template_part('modules/md-contact-media'); ?>
-
 <?php $hero = get_field('hero'); ?>
 <section data-wolfpack-section data-contact-hero class="contact-hero" data-tadam data-tadam-threshold="-1">
     <div class="contact-hero__map-container">

@@ -49,7 +49,6 @@
 			</svg>
 		</div>
 		<div data-cursor-pointer class="cursor__cta cta">
-
 			<span class="cursor__cta-text cta__text" data-circle-text>
 				<?= $cursor['text'] ?>
 				<div> . </div>
@@ -67,6 +66,14 @@
 			</svg>
 			<span class="cursor__cta-background"></span>
 		</div>
+		<div data-cursor-pointer class="cursor__slider-prev">
+			<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.19 14.19">
+				<g id="Groupe_789" data-name="Groupe 789">
+					<path id="Tracé_3" data-name="Tracé 3" d="M13.42,11.71V2.28H4" transform="translate(-0.74 -0.78)" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3px" />
+					<line id="Ligne_1" data-name="Ligne 1" x1="12.69" y1="1.5" x2="1.5" y2="12.69" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-miterlimit: 9.99999982885729;stroke-width: 3px" />
+				</g>
+			</svg>
+		</div>
 		<div data-cursor-pointer class="cursor__slider-next">
 			<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.19 14.19">
 				<g id="Groupe_789" data-name="Groupe 789">
@@ -75,22 +82,21 @@
 				</g>
 			</svg>
 		</div>
-		<div data-cursor-pointer class="cursor__slider-prev">
-			<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.19 14.19">
-				<g id="Groupe_789" data-name="Groupe 789">
-					<path id="Tracé_3" data-name="Tracé 3" d="M13.42,11.71V2.28H4" transform="translate(-0.74 -0.78)" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3px" />
-					<line id="Ligne_1" data-name="Ligne 1" x1="12.69" y1="1.5" x2="1.5" y2="12.69" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-miterlimit: 9.99999982885729;stroke-width: 3px" />
-				</g>
-			</svg>
-
-		</div>
 	</div>
 
-	<div id="swup" class="wolfpack-container" data-calc-mobile data-calc-mobile-responsive="responsive">
-		<div class="scrollbar" data-scrollbar data-scrollbar-index=2><span class="scrollbar__thumb" data-scrollbar-thumb></span></div>
+	<div class="wolfpack-container" data-calc-mobile data-calc-mobile-responsive="responsive">
+		<?php
+		$contentList = [];
+		$contentList[0] = get_field('house');
+		$contentList[1] = get_field('borders');
+		?>
+		<?php if ($contentList[0]) { ?>
+			<div class="scrollbar" data-scrollbar data-scrollbar-index=5><span class="scrollbar__thumb" data-scrollbar-thumb></span></div>
+		<?php } else { ?>
+			<div class="scrollbar" data-scrollbar data-scrollbar-index=3><span class="scrollbar__thumb" data-scrollbar-thumb></span></div>
+		<?php } ?>
 		<?php $header = get_field('header', 'options'); ?>
-		<header class="header transition-fade" data-header data-header-disappear data-header-small=100 data-header-small=400 data-tadam data-tadam-threshold=-1>
-
+		<header class="header" data-header data-header-disappear data-header-small=100 data-header-small=400 data-tadam data-tadam-threshold=-1>
 			<div data-header-hide class="header__top">
 				<div class="header__lang-container" data-tadam-animate="opacity-1--y-0--delay-0.4">
 					<?php do_action('wpml_add_language_selector') ?>
@@ -152,59 +158,59 @@
 						</div>
 					</div>
 				</div>
-				<?php
-				$mainNavMobile = get_field('main_nav_mobile', 'options') ?>
-				<div class="header__navigation navigation" data-calc-mobile data-navigation>
-					<div class="navigation__container" data-wolfpack>
-						<nav role="navigation" class="header__main-nav header__main-nav--mobile">
-							<ul class="header__main-nav-container">
-								<?php
-								foreach ($mainNavMobile['list'] as $item) { ?>
-									<li class="header__main-nav-item">
-										<a href="<?= $item['link']['url'] ?>" target="<?= $item['link']['target'] ?>" class="header__main-nav-link">
-											<?= $item['link']['title'] ?>
-											<svg class="header__main-nav-icon" xmlns="http://www.w3.org/2000/svg" width="22.917" height="20.954" viewBox="0 0 22.917 20.954">
-												<g id="Groupe_1094" data-name="Groupe 1094" transform="translate(3.924 2.121)">
-													<path id="Tracé_3" data-name="Tracé 3" d="M-2.863,10.394,7.531,0l10.4,10.4" transform="translate(0 0)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3" />
-													<line id="Ligne_1" data-name="Ligne 1" y2="18.833" transform="translate(7.531)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3" />
-												</g>
-											</svg>
-										</a>
-									</li>
-								<?php
-								} ?>
-							</ul>
-						</nav>
-						<?php
-						$subNav = get_field('sub_nav', 'options') ?>
-						<nav role="navigation" class="header__sub-nav header__sub-nav">
-							<ul class="header__sub-nav-container">
-								<?php
-								foreach ($subNav['list'] as $item) { ?>
-									<li class="header__sub-nav-item">
-										<a href="<?= $item['link']['url'] ?>" target="<?= $item['link']['target'] ?>" class="header__sub-nav-link">
-											<?= $item['link']['title'] ?>
-											<svg class="header__sub-nav-icon" xmlns="http://www.w3.org/2000/svg" width="13.686" height="12.527" viewBox="0 0 13.686 12.527">
-												<g id="Groupe_1547" data-name="Groupe 1547" transform="translate(3.57 1.414)">
-													<path id="Tracé_3" data-name="Tracé 3" d="M-2.863,6.134,3.27,0,9.408,6.138" transform="translate(0 0)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
-													<line id="Ligne_1" data-name="Ligne 1" y2="11.113" transform="translate(3.27)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
-												</g>
-											</svg>
-										</a>
-									</li>
-								<?php } ?>
-							</ul>
-						</nav>
-						<div class="navigation__image" data-lottie-menu="/wp-content/themes/dessercom/assets/src/lottie/lines-white.json"></div>
-					</div>
-				</div>
 			</div>
 		</header>
 
 		<?php
-		$contentList = [];
-		$contentList[0] = get_field('house');
-		$contentList[1] = get_field('borders');
+		$mainNavMobile = get_field('main_nav_mobile', 'options') ?>
+		<div class="header__navigation navigation" data-wolfpack data-calc-mobile data-navigation>
+			<div class="navigation__container" data-wolfpack-section>
+				<nav role="navigation" class="header__main-nav header__main-nav--mobile">
+					<ul class="header__main-nav-container">
+						<?php
+						foreach ($mainNavMobile['list'] as $item) { ?>
+							<li class="header__main-nav-item">
+								<a href="<?= $item['link']['url'] ?>" target="<?= $item['link']['target'] ?>" class="header__main-nav-link">
+									<?= $item['link']['title'] ?>
+									<svg class="header__main-nav-icon" xmlns="http://www.w3.org/2000/svg" width="22.917" height="20.954" viewBox="0 0 22.917 20.954">
+										<g id="Groupe_1094" data-name="Groupe 1094" transform="translate(3.924 2.121)">
+											<path id="Tracé_3" data-name="Tracé 3" d="M-2.863,10.394,7.531,0l10.4,10.4" transform="translate(0 0)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3" />
+											<line id="Ligne_1" data-name="Ligne 1" y2="18.833" transform="translate(7.531)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3" />
+										</g>
+									</svg>
+								</a>
+							</li>
+						<?php
+						} ?>
+					</ul>
+				</nav>
+				<?php
+				$subNav = get_field('sub_nav', 'options') ?>
+				<nav role="navigation" class="header__sub-nav header__sub-nav">
+					<ul class="header__sub-nav-container">
+						<?php
+						foreach ($subNav['list'] as $item) { ?>
+							<li class="header__sub-nav-item">
+								<a href="<?= $item['link']['url'] ?>" target="<?= $item['link']['target'] ?>" class="header__sub-nav-link">
+									<?= $item['link']['title'] ?>
+									<svg class="header__sub-nav-icon" xmlns="http://www.w3.org/2000/svg" width="13.686" height="12.527" viewBox="0 0 13.686 12.527">
+										<g id="Groupe_1547" data-name="Groupe 1547" transform="translate(3.57 1.414)">
+											<path id="Tracé_3" data-name="Tracé 3" d="M-2.863,6.134,3.27,0,9.408,6.138" transform="translate(0 0)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
+											<line id="Ligne_1" data-name="Ligne 1" y2="11.113" transform="translate(3.27)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
+										</g>
+									</svg>
+								</a>
+							</li>
+						<?php } ?>
+					</ul>
+				</nav>
+				<div class="navigation__image" data-lottie-menu="/wp-content/themes/dessercom/assets/src/lottie/lines-white.json"></div>
+			</div>
+		</div>
+
+		<?php get_template_part('modules/md-contact-media'); ?>
+
+		<?php
 		if ($contentList[0]) {
 			foreach ($contentList as $content) { ?>
 				<div data-calc-mobile data-lightbox-slider-container class="lightbox-slider">
@@ -269,6 +275,6 @@
 			}
 		} ?>
 
-		<div class="dom-wrapper transition-fade" data-wolfpack="main">
+		<div class="dom-wrapper" data-wolfpack="main">
 			<div class="page-wrapper">
 				<main role="main">
