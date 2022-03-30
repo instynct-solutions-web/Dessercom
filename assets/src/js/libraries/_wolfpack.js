@@ -64,8 +64,7 @@ export default class Wolfpack {
 		preloaderFunction.initPreloader(preloader, preloaderSpeed, preloaderDelay);
 
 		if (!this.isTouchDevice) {
-			//this.wolfpackDesktop();
-			this.wolfpackMobile();
+			this.wolfpackDesktop();
 		} else {
 			this.wolfpackMobile();
 		}
