@@ -3,6 +3,11 @@
 // ==========================================================================
 
 @mixin invoiceForm {
+	.gform_wrapper.gravity-theme .ginput_container_address {
+		margin-left: 0px !important;
+		margin-right: 0px !important;
+		border-bottom: 1px solid $black;
+	}
 	.gform_validation_errors {
 		margin: 0 0 15px 0 !important;
 		padding: 15px 20px !important;
@@ -360,6 +365,9 @@
 		}
 	}
 	@include tablet-only {
+		.gform_wrapper.gravity-theme .ginput_container_address {
+			border-bottom: 0px;
+		}
 		.gform_fields {
 			grid-column-gap: 0 !important;
 		}
