@@ -38,10 +38,12 @@ dd {
 /* Set core body defaults */
 html {
 	scroll-behavior: smooth;
+	&.noscroll {
+		overflow: hidden;
+	}
 }
 body {
 	overflow-x: hidden;
-	min-height: 100vh;
 	scroll-behavior: smooth;
 	text-rendering: geometricPrecision;
 	line-height: 1.5;
@@ -52,7 +54,12 @@ body {
 
 body.wolfpack-desktop {
 	height: 100vh;
+	min-height: 100vh;
 	overflow: hidden;
+}
+
+body.wolfpack-mobile {
+	height: auto !important;
 }
 
 /* Set Sections to take all width available */

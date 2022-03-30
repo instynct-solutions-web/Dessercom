@@ -14,6 +14,15 @@
 		}
 	}
 }
+
+.wolfpack-mobile {
+	.contact-media {
+		height: 100vh !important;
+		&--show {
+			overflow-y: scroll;
+		}
+	}
+}
 .contact-media {
 	display: none;
 	background: linear-gradient(0deg, transparent 0%, transparent 50%, $teal 50%, $teal 100%);
@@ -29,7 +38,6 @@
 	transition: 0.7s ease;
 	transition-delay: 0.2s !important;
 	&--show {
-		overflow-y: scroll;
 		pointer-events: all !important;
 		background-position: top;
 		transition-delay: 0s !important;

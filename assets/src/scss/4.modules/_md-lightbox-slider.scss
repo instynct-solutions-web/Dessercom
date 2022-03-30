@@ -2,6 +2,12 @@
 // MODULES - Lightbox Slider
 // ==========================================================================
 
+.wolfpack-mobile {
+	.lightbox-slider {
+		height: 100vh !important;
+	}
+}
+
 .lightbox-slider {
 	position: fixed;
 	width: 100%;
@@ -15,7 +21,6 @@
 	pointer-events: none;
 	margin: auto;
 	transform: translateX(99.9vw);
-	margin-top: $mobile-header-height;
 	overflow: hidden;
 	transition: transform 0.5s ease-in-out 0s, opacity 0.1s linear 0.5s;
 	&--visible {
@@ -139,6 +144,10 @@
 }
 @include tablet-only {
 	.lightbox-slider {
+		&__cta-wrapper {
+			margin-top: 40px;
+			margin-bottom: 30px;
+		}
 		&__item {
 			width: 80%;
 			margin: 0 1em;

@@ -121,6 +121,7 @@ export default class LightboxSlider {
 		this.sliderContainerList[i].classList.add(`${sliderContainerClass}--visible`);
 		this.toggleList[i].classList.add(`${toggleClass}--animate`);
 		document.querySelector('body').classList.add('noscroll');
+		document.querySelector('html').classList.add('noscroll');
 	}
 
 	closeSlider(i) {
@@ -131,5 +132,6 @@ export default class LightboxSlider {
 		this.sliderContainerList[i].classList.remove(`${sliderContainerClass}--visible`);
 		this.toggleList[i].classList.remove(`${toggleClass}--animate`);
 		document.querySelector('body').classList.remove('noscroll');
+		document.querySelector('html').classList.remove('noscroll');
 	}
 }

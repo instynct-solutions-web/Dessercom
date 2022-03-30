@@ -21,7 +21,7 @@ get_header(); ?>
             <?php
             $parentCategories = get_terms([
                 'taxonomy' => 'section',
-                'hide_empty' => false,
+                'hide_empty' => true,
                 'parent' => 0,
                 'orderby'  => 'name',
                 'order'    => 'ASC'
@@ -35,7 +35,7 @@ get_header(); ?>
                     <?php
                     $childCategories = get_terms([
                         'taxonomy' => 'section',
-                        'hide_empty' => false,
+                        'hide_empty' => true,
                         'parent' => $parentCategory->term_id,
                         'orderby'  => 'name',
                         'order'    => 'ASC'

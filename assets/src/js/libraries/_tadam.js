@@ -1,4 +1,4 @@
-import {gsap, TweenLite, TimelineMax, Power4} from 'gsap';
+import { gsap, TweenLite, TimelineMax, Power4 } from 'gsap';
 import lottie from 'lottie-web';
 import CustomEase from 'gsap/CustomEase';
 

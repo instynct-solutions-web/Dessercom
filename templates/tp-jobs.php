@@ -218,6 +218,9 @@ $values = get_field('benefits_2') ?>
                     <?php } ?>
                     <?php wp_reset_postdata(); ?>
                 </ul>
+                <div class="jobs-careers__no-result" data-jobs-no-result>
+                    <?= $careers['no_result'] ?>
+                </div>
             </div>
         </div>
     </div>

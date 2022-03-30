@@ -10,6 +10,7 @@ export default class JobsFilters {
 		this.type = 'all';
 		this.jobsFilterContainer = document.querySelectorAll('[data-filter-container]');
 		this.jobsFilterTitleList = document.querySelectorAll('[data-filter-title]');
+		this.jobsNoResult = document.querySelector('[data-jobs-no-result]');
 		this.manageEvents();
 	}
 
@@ -70,6 +71,14 @@ export default class JobsFilters {
 
 	filterZone() {
 		setTimeout(() => {
+			const newJobsList = document.querySelectorAll('[data-job]');
+			if (newJobsList.length === 0) {
+				this.jobsNoResult.classList.add(`${this.jobsNoResult.classList[0]}--show`);
+			} else {
+				this.jobsNoResult.classList.remove(`${this.jobsNoResult.classList[0]}--show`);
+			}
+		}, 600);
+		setTimeout(() => {
 			if (this.zone === 'all' && this.type === 'all') {
 				this.jobsFilters.filter();
 			} else if (this.zone === 'all') {
@@ -109,6 +118,14 @@ export default class JobsFilters {
 	}
 
 	filterType() {
+		setTimeout(() => {
+			const newJobsList = document.querySelectorAll('[data-job]');
+			if (newJobsList.length === 0) {
+				this.jobsNoResult.classList.add(`${this.jobsNoResult.classList[0]}--show`);
+			} else {
+				this.jobsNoResult.classList.remove(`${this.jobsNoResult.classList[0]}--show`);
+			}
+		}, 600);
 		setTimeout(() => {
 			if (this.type === 'all' && this.zone === 'all') {
 				this.jobsFilters.filter();

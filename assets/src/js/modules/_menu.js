@@ -3,6 +3,7 @@ import lottie from 'lottie-web';
 export default class Menu {
 	constructor() {
 		this.body = document.querySelector('body');
+		this.html = document.querySelector('html');
 		this.header = document.querySelector('[data-header]');
 		this.navigation = document.querySelector('[data-navigation]');
 		this.navigationButton = document.querySelector('[data-navigation-button]');
@@ -18,10 +19,12 @@ export default class Menu {
 			if (!this.opened) {
 				this.opened = true;
 				this.body.classList.add('noscroll');
+				this.html.classList.add('noscroll');
 				this.openMenu();
 			} else {
 				this.opened = false;
 				this.body.classList.remove('noscroll');
+				this.html.classList.remove('noscroll');
 				this.closeMenu();
 			}
 		});
@@ -30,6 +33,7 @@ export default class Menu {
 				if (this.opened) {
 					this.opened = false;
 					this.body.classList.remove('noscroll');
+					this.html.classList.remove('noscroll');
 					this.closeMenu();
 				}
 			});

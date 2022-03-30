@@ -14,6 +14,7 @@ export default class ContactShow {
 		this.lottie = document.querySelector('[data-lottie-contact]');
 		this.opened = false;
 		this.body = document.querySelector('body');
+		this.html = document.querySelector('html');
 		if (this.showContactButton) {
 			this.manageEvents();
 		}
@@ -24,11 +25,13 @@ export default class ContactShow {
 		this.showContactButton.addEventListener('click', () => {
 			this.opened = true;
 			this.body.classList.add('noscroll');
+			this.html.classList.add('noscroll');
 			this.show();
 		});
 		this.closeContactButton.addEventListener('click', () => {
 			this.opened = false;
 			this.body.classList.remove('noscroll');
+			this.html.classList.remove('noscroll');
 			this.hide();
 		});
 		this.animationOptions = {

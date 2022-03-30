@@ -1,4 +1,4 @@
-import {gsap, TweenLite} from 'gsap';
+import { gsap, TweenLite } from 'gsap';
 import CustomEase from 'gsap/CustomEase';
 
 gsap.registerPlugin(CustomEase);
@@ -42,6 +42,7 @@ export default class Jobs {
 			this.sectorButtonList[0].classList.add(`${this.sectorButtonList[0].classList[0]}--selected`);
 			this.sectorList[0].classList.add(`${this.sectorList[0].classList[0]}--selected`);
 			this.sectorBackgroundList[0].classList.add(`${this.sectorBackgroundList[0].classList[0]}--selected`);
+			Jobs.openSector(this.sectorList[0], this.sectorButtonList[0], this.sectorBackgroundList[0]);
 			for (let i = 0; i < this.sectorList.length; i += 1) {
 				this.sectorButtonList[i].addEventListener('click', () => {
 					if (!this.sectorList[i].classList.contains(`${this.sectorList[i].classList[0]}--selected`)) {

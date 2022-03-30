@@ -80,6 +80,13 @@
 	}
 }
 
+@include max-width($mobile-threshold) {
+	.team-grid {
+		&__division-list {
+			transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) !important;
+		}
+	}
+}
 .team-grid {
 	background-color: $gray;
 	&__container {
