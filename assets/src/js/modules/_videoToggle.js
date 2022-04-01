@@ -3,6 +3,7 @@ export default class VideoToggle {
 		// All DOM selector / elements goes here
 		this.button = document.querySelector('[data-video-button]');
 		this.overlay = document.querySelector('[data-video-overlay]');
+		this.player = document.querySelector('[data-video-player]');
 		this.manageEvents();
 	}
 
@@ -27,5 +28,6 @@ export default class VideoToggle {
 	hideOverlay(overlayClass, buttonClass) {
 		this.overlay.classList.add(`${overlayClass[0]}--hide`);
 		this.button.classList.add(`${buttonClass[0]}--hide`);
+		this.player.play();
 	}
 }

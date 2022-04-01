@@ -230,6 +230,7 @@
 		justify-content: space-around;
 		opacity: 1;
 		transition: 0.2s opacity ease-in-out;
+		z-index: 1;
 		&--hide {
 			opacity: 0;
 			pointer-events: none;
@@ -253,6 +254,7 @@
 		justify-content: center;
 		opacity: 1;
 		transition: opacity 0.2s linear;
+		z-index: 2;
 		svg {
 			height: rem(20);
 		}
