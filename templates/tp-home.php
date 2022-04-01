@@ -131,7 +131,7 @@ $index = 0;
 <section data-wolfpack-section class="home-promo">
     <div class="home-promo__container">
         <div class="home-promo__video-container">
-            <video controls class="home-promo__video" src="<?= $promo['video']['url'] ?>"></video>
+            <video playsinline controls class="home-promo__video" src="<?= $promo['video']['url'] ?>"></video>
 
         </div>
         <ul data-cursor-class="video" data-cursor data-cursor-text="<?= $promo['text'] ?>" data-video-overlay class="home-promo__list">

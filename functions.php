@@ -56,3 +56,14 @@ function gw_modify_currencies($currencies)
     );
     return $currencies;
 }
+
+
+add_filter('gform_stripe_charge_description', 'gf_replace_charge_description', 10, 5);
+function gf_replace_charge_description($description, $strings, $entry, $submission_data, $feed)
+{
+
+    // Change 21 to your field id number.
+    $description = 'Facture : ' . rgar($entry, '1');
+
+    return $description;
+}
