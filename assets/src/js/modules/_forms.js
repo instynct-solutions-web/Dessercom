@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default class Forms {
 	constructor() {
 		this.downloadIcon =
