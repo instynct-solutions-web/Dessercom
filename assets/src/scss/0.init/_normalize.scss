@@ -5,6 +5,15 @@
 	box-sizing: border-box;
 }
 
+#cff.cff-default-styles a {
+	word-break: break-word;
+}
+
+.grecaptcha-badge {
+	opacity: 0 !important;
+	pointer-events: none !important;
+}
+
 /* Remove default padding */
 ul,
 ol {

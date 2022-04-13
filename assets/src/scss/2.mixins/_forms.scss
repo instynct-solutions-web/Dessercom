@@ -338,9 +338,6 @@
 		top: 30px;
 		transform-origin: top left;
 		transition: 0.5s ease;
-		.gfield_required {
-			display: none;
-		}
 	}
 	.ginput_container {
 		width: 100%;
@@ -396,9 +393,6 @@
 			left: 20px;
 			transform-origin: top left;
 			transition: 0.5s ease;
-			.gfield_required {
-				display: none;
-			}
 		}
 		.gform_footer {
 			width: 33.33333%;

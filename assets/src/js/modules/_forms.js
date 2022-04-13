@@ -7,6 +7,7 @@ export default class Forms {
 		this.fieldDropdownList = document.querySelectorAll('.field__dropdown');
 		this.sendIcon = '<svg class="field__send-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.19 14.19"><g id="Groupe_789" data-name="Groupe 789"><path id="Tracé_3" data-name="Tracé 3" d="M13.42,11.71V2.28H4" transform="translate(-0.74 -0.78)" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3px"/><line id="Ligne_1" data-name="Ligne 1" x1="12.69" y1="1.5" x2="1.5" y2="12.69" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-miterlimit: 9.99999982885729;stroke-width: 3px"/></g></svg>';
 		this.fieldSend = document.querySelector('.gform_footer');
+		this.fieldAmount = document.querySelector('.ginput_amount');
 		this.manageEvents();
 	}
 
@@ -23,6 +24,16 @@ export default class Forms {
 		}
 		if (this.fieldSend) {
 			this.fieldSend.innerHTML += this.sendIcon;
+		}
+		if (this.fieldAmount) {
+			this.fieldAmount.addEventListener('keydown', (e) => {
+				if (e.key == '.') {
+					e.preventDefault();
+					this.fieldAmount.value += ',';
+				} else {
+					return true;
+				}
+			});
 		}
 	}
 }

@@ -46,11 +46,11 @@ add_filter('gform_currencies', 'gw_modify_currencies');
 function gw_modify_currencies($currencies)
 {
     $currencies['CAD'] = array(
-        'name' => esc_html__('Euro', 'gravityforms'),
+        'name' => esc_html__('Canadian dollars', 'gravityforms'),
         'symbol_left' => '',
         'symbol_right' => '',
         'symbol_padding' => ' ',
-        'thousand_separator' => '.',
+        'thousand_separator' => ' ',
         'decimal_separator' => ',',
         'decimals' => 2
     );
@@ -66,4 +66,54 @@ function gf_replace_charge_description($description, $strings, $entry, $submissi
     $description = 'Facture : ' . rgar($entry, '1');
 
     return $description;
+}
+
+add_filter( 'gform_stripe_customer_id', function ( $customer_id, $feed, $entry, $form ) {
+    if ( rgars( $feed, 'meta/transactionType' ) == 'product') {
+        $customer_meta = array();
+        $metadata_field = rgars( $feed, 'meta/metaData' );
+
+        foreach ($metadata_field as $metadata) {
+            if ($metadata['custom_key'] == 'first_name') {
+                $first_name = $metadata['value'];
+            } else if ($metadata['custom_key'] == 'last_name') {
+                $last_name = $metadata['value'];
+            } else if ($metadata['custom_key'] == 'phone') {
+                $phone = $metadata['value'];
+            }
+        }
+        
+        if ( ! empty( $first_name ) ) {
+            $customer_meta['first_name'] = gf_stripe()->get_field_value( $form, $entry, $first_name );
+        }
+		
+		if ( ! empty( $last_name ) ) {
+            $customer_meta['last_name'] = gf_stripe()->get_field_value( $form, $entry, $last_name );
+        }
+		
+		if ( ! empty( $phone ) ) {
+            $customer_meta['phone'] = gf_stripe()->get_field_value( $form, $entry, $phone );
+        }
+		
+        $customer = gf_stripe()->create_customer( $customer_meta, $feed, $entry, $form );
+ 
+        return $customer->id;
+    }
+ 
+    return $customer_id;
+}, 10, 4 );
+
+add_filter( 'gform_currencies', 'add_cad_currency' );
+function add_cad_currency( $currencies ) {
+    $currencies['CAD'] = array(
+		'name'               => __( 'Canadian Dollar', 'gravityforms' ),
+        'symbol_left'        => '',
+        'symbol_right'       => '',
+        'symbol_padding'     => ' ',
+        'thousand_separator' => ' ',
+        'decimal_separator'  => ',',
+        'decimals'           => 2
+    );
+  
+    return $currencies;
 }
