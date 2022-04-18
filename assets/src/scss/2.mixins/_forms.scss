@@ -3,6 +3,10 @@
 // ==========================================================================
 
 @mixin invoiceForm {
+	.button-disabled {
+		opacity: 0.3 !important;
+		pointer-events: none !important;
+	}
 	.gform_wrapper.gravity-theme .ginput_container_address {
 		margin-left: 0px !important;
 		margin-right: 0px !important;
@@ -52,6 +56,10 @@
 		}
 	}
 	.field {
+		&__mention {
+			font-size: rem(13);
+			margin-top: 30px;
+		}
 		&__currency {
 			&.gfield--focus {
 				.ginput_container {
@@ -347,7 +355,7 @@
 		flex-wrap: wrap;
 		align-items: center;
 		position: relative;
-		margin: 0 !important;
+		margin: 15px 0 0 0 !important;
 		padding: 0 !important;
 		.gform_button {
 			color: $white;
@@ -369,6 +377,10 @@
 			grid-column-gap: 0 !important;
 		}
 		.field {
+			&__mention {
+				text-align: right;
+				margin-top: 50px;
+			}
 			&__number {
 				border-bottom: 1px solid $navy !important;
 			}
@@ -397,7 +409,7 @@
 		.gform_footer {
 			width: 33.33333%;
 			margin-left: 66.66666% !important;
-			margin-top: 50px !important;
+			margin-top: 20px !important;
 		}
 	}
 	@include desktop-only {

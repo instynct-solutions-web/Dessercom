@@ -117,3 +117,5 @@ function add_cad_currency( $currencies ) {
   
     return $currencies;
 }
+
+add_filter( 'gform_confirmation_anchor', '__return_true' );
