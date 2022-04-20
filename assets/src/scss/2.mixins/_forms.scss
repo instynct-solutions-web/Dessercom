@@ -60,6 +60,16 @@
 		display: none !important;
 	}
 	.field {
+		&__invoice {
+			input {
+				opacity: 0;
+			}
+			&.gfield--focus {
+				input {
+					opacity: 1;
+				}
+			}
+		}
 		&__mention {
 			font-size: rem(13);
 			margin-top: 30px;
