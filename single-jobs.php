@@ -64,7 +64,7 @@ get_header(); ?>
 $benefits = get_field('benefits');
 $postID = get_the_ID();
 $theTerm = get_the_terms($postID, 'type');
-if ($theTerm[0]->term_id === 22 || $theTerm[0]->term_id === 54) { ?>
+if ($benefits['list']) { ?>
     <section data-wolfpack-section class="job-benefits" data-tadam data-tadam-threshold="100">
         <div class="job-benefits__container">
             <div class="job-benefits__background">
@@ -116,8 +116,7 @@ if ($theTerm[0]->term_id === 22 || $theTerm[0]->term_id === 54) { ?>
             <path id="Tracé_795" data-name="Tracé 795" d="M24.417,20.7c-.95,1.663-3.328,2.094-5.316.961L12.4,17.8l.007-.011L5.725,21.685c-1.98,1.147-4.362.738-5.323-.913v0c-.961-1.654-.139-3.927,1.838-5.079.157-.087,6.2-3.566,6.672-3.836v.018h.051l-.022-.036-.029.018V4.14C8.911,1.853,10.464,0,12.378,0s3.468,1.853,3.468,4.14c0,.179-.033,7.019-.037,7.68l-.029.05h.029v-.05l0-.008,6.719,3.825C24.52,16.77,25.364,19.035,24.417,20.7Z" fill="#00938f" />
         </svg>
     </section>
-<?php
-} ?>
+<?php } ?>
 
 
 <?php $description = get_field('description') ?>
