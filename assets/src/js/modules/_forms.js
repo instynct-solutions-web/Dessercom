@@ -37,17 +37,24 @@ export default class Forms {
 			});
 		}
 		if (this.fieldAmount) {
-			this.fieldAmount.addEventListener('keydown', (e) => {
-				setTimeout(() => {
-					if (parseInt(this.fieldAmount.value.replace(/ /g, '')) >= 2000) {
-						this.fieldAmount.value = 2000;
-					}
-				}, 1);
-				if (e.key == '.') {
-					e.preventDefault();
-					this.fieldAmount.value += ',';
+			this.pastValue = '';
+			this.fieldAmount.addEventListener('keyup', () => {
+				this.newCharacter = this.fieldAmount.value.replace(this.pastValue, '');
+				if (this.newCharacter == '.') {
+					this.newValue = this.pastValue + ',';
+					this.fieldAmount.value = this.newValue;
+					this.pastValue = this.fieldAmount.value;
+				} else if (parseInt(this.fieldAmount.value.replace(/ /g, '')) >= 2000) {
+					this.fieldAmount.value = 2000;
+					this.pastValue = this.fieldAmount.value;
 				} else {
+					this.pastValue = this.fieldAmount.value;
 					return true;
+				}
+			});
+			window.addEventListener('click', () => {
+				if (parseInt(this.fieldAmount.value.replace(/ /g, '')) >= 2000) {
+					this.fieldAmount.value = 2000;
 				}
 			});
 		}
