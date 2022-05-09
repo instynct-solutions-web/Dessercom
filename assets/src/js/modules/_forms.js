@@ -37,18 +37,14 @@ export default class Forms {
 			});
 		}
 		if (this.fieldAmount) {
-			this.pastValue = '';
+			this.newValue = '';
 			this.fieldAmount.addEventListener('keyup', () => {
-				this.newCharacter = this.fieldAmount.value.replace(this.pastValue, '');
-				if (this.newCharacter == '.') {
-					this.newValue = this.pastValue + ',';
+				if (this.fieldAmount.value.includes('.')) {
+					this.newValue = this.fieldAmount.value.replace('.', ',');
 					this.fieldAmount.value = this.newValue;
-					this.pastValue = this.fieldAmount.value;
 				} else if (parseInt(this.fieldAmount.value.replace(/ /g, '')) >= 2000) {
 					this.fieldAmount.value = 2000;
-					this.pastValue = this.fieldAmount.value;
 				} else {
-					this.pastValue = this.fieldAmount.value;
 					return true;
 				}
 			});
