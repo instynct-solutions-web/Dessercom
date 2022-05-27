@@ -103,7 +103,7 @@ export default class Wolfpack {
 					domBody.classList.remove('noscroll');
 				}, 500);
 				if (!anchorScrolling) {
-					anchorScrolling = true;
+					//anchorScrolling = true;
 				}
 				if (!scrolling) {
 					startLoopSections(wolfpackMainIndex);
@@ -678,6 +678,7 @@ export default class Wolfpack {
 				}, 200);
 				setTimeout(() => {
 					locationTop = locationElement.getBoundingClientRect().y + Math.abs(wolfpackCurrentY[wolfpackMainIndex]);
+
 					if (wolfpackSectionList[wolfpackMainIndex].length === 0) {
 						if (!anchorScrolling) {
 							anchorScrolling = true;
@@ -690,8 +691,10 @@ export default class Wolfpack {
 							time = 10;
 						}
 					} else {
+						console.log(locationTop);
 						if (!anchorScrolling) {
 							anchorScrolling = true;
+
 							if (!scrolling) {
 								startLoopSections(wolfpackMainIndex);
 								scrollTimerSections(wolfpackMainIndex);

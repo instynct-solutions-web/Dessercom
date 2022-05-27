@@ -3,7 +3,9 @@
 // ==========================================================================
 
 .article-image {
-	margin-bottom: 30px;
+	&__container {
+		margin-bottom: 30px;
+	}
 	&__image {
 		width: 100%;
 		opacity: 0;
@@ -13,10 +15,10 @@
 }
 
 .article-back {
-	margin-bottom: 40px;
 	&__container {
 		@include container;
 		padding-top: 0px;
+		margin-bottom: 40px;
 	}
 	&__button-container {
 		display: inline-block;
@@ -95,7 +97,6 @@
 		&__container {
 			@include container;
 		}
-		margin-bottom: 30px;
 	}
 	.article-content {
 		&__container {
@@ -119,14 +120,14 @@
 		&__container {
 			padding-top: 0px;
 			padding-bottom: 0px;
+			margin-bottom: 60px;
 		}
-		margin-bottom: 60px;
 	}
 	.article-back {
-		margin-bottom: 90px;
 		&__container {
 			padding-top: 0px;
 			padding-bottom: 0px;
+			margin-bottom: 90px;
 		}
 	}
 	.article-content {
